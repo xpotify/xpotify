@@ -2,8 +2,9 @@
   "name": "xpotify",
   "version": "1.0.0",
   "description": "powerful client that grabs information from your spotify account(songs) and saves it locally with metadata.",
-  "main": "index.js",
+  "main": "client/client.js",
   "scripts": {
+    "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
