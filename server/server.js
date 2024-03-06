@@ -9,7 +9,7 @@ app.use(express.static(__dirname + "/public"));
 app.use(express.static('public'));
 
 app.get("/", (req, res) =>{
-    res.render('main')
+    res.render('home');
 });
 
 app.listen(PORT || process.env.PORT, process.env.IP, () => {
