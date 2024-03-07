@@ -13,7 +13,7 @@
 }
 
 .sidebar{
-    border-right: 2px solid rgb(54, 54, 54);
+    border-right: 2px solid #383b3b;
     width: 15%;
     height: 100%;
     display: flex;
@@ -23,6 +23,10 @@
     text-align: start;
 }
 
+.sidebarItems{
+    height: 100%;
+}
+
 .sidebarLogo{
     display: flex;
     justify-content: center;
@@ -30,6 +34,11 @@
 
 .sidebarLogo img{
     width: 50%;
+    height: 50%;
+}
+
+.menu{
+    height: 83%;
 }
 
 .items{
@@ -39,32 +48,72 @@
 .title{
     align-items: center;
     width: 98%;
+    height: 5%;
     font-size: .8em;
     margin: 7% 1%;
     justify-content: space-between;
     display: flex;
 }
 
+.title2{
+    align-items: center;
+    width: 98%;
+    height: 5%;
+    font-size: .8em;
+    margin-top: 15%;
+    margin-bottom: 5%;
+    margin-left: 1%;
+    margin-right: 1%;
+    justify-content: space-between;
+    display: flex;
+}
+
 .listedItems{
-    width: 80%;
+    width: 90%;
     font-size: .9em;
+    height: 24%;
     margin: 6% 6%;
-    
+}
+
+.listedItems2{
+    width: 90%;
+    font-size: .9em;
+    height: 45%;
+    margin: 6% 6%;
+}
+
+.listedItems .items{
+    height: 100%;
+}
+
+.listedItems2 .items{
+    height: 100%;
+}
+
+.listedItems2 .items li{
+    padding: 6% 6%;
+    border: 1px solid rgba(255, 255, 255, 0);
+    border-radius: 5px;
+    height: 18%;
+    transition: .2s;
 }
 
 .listedItems .items li{
     padding: 6% 6%;
     border: 1px solid rgba(255, 255, 255, 0);
     border-radius: 5px;
+    height: 33%;
     transition: .2s;
 }
 
-.listedItems .items li:hover{
+
+.listedItems .items li:hover, .listedItems2 .items li:hover{
     background-color: rgb(37, 37, 37);
     cursor: pointer;
 }
 
 .endItems{
+    height: 13%;
     width: 80%;
     padding: 4% 0%;
     position: relative;
@@ -81,17 +130,17 @@ ul.items li{
     padding: 4% 1%;
     align-items: center;
     display: flex;
-}
-
-.title img{
+} 
+.title img, .title2 img{
     width: 10%;
+    height: 65%;
 }
 
-.title img:hover{
+.title img:hover, .title2 img:hover{
     cursor: pointer;
 }
 
-ul.items li img{
+.optIcons{
     width: 10%; 
     margin-right: 4%;
 }
@@ -102,23 +151,32 @@ ul.items li img:hover{
 
 .Items{
     display: flex;
+    width: 100%;
+    height: 50%;
     align-items: center;
     padding: 4% 0%;
     font-size: .8em;
 }
 
 .Items img{
+    height: 75%;
     width: 10%;
     margin-right: 4%;
 }
 
+.Items span{
+    font-size: 1em;
+}
+
 .playlistImgs{
-    width: 20% !important;
-    width: 20% !important;
+    width: 18%;
     border-radius: 50%;
-    margin-right: 1%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    margin-right: 6%;
 }
 
 .logout{
-    color: rgb(255, 255, 255) !important;
+    color: #f65447;
 }
