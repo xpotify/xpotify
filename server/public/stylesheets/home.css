@@ -10,6 +10,8 @@
     height: 100vh;
     background-color: black;
     color: white;
+    display: flex;
+    flex-direction: row;
 }
 
 .sidebar{
@@ -60,7 +62,7 @@
     width: 98%;
     height: 5%;
     font-size: .8em;
-    margin-top: 15%;
+    margin-top: 10%;
     margin-bottom: 5%;
     margin-left: 1%;
     margin-right: 1%;
@@ -71,14 +73,14 @@
 .listedItems{
     width: 90%;
     font-size: .9em;
-    height: 24%;
+    height: 20%;
     margin: 6% 6%;
 }
 
 .listedItems2{
     width: 90%;
     font-size: .9em;
-    height: 45%;
+    height: 50%;
     margin: 6% 6%;
 }
 
@@ -94,7 +96,7 @@
     padding: 6% 6%;
     border: 1px solid rgba(255, 255, 255, 0);
     border-radius: 5px;
-    height: 18%;
+    height: 15%;
     transition: .2s;
 }
 
@@ -102,7 +104,7 @@
     padding: 6% 6%;
     border: 1px solid rgba(255, 255, 255, 0);
     border-radius: 5px;
-    height: 33%;
+    height: 30%;
     transition: .2s;
 }
 
@@ -132,7 +134,7 @@ ul.items li{
     display: flex;
 } 
 .title img, .title2 img{
-    width: 10%;
+    width: 11%;
     height: 65%;
 }
 
@@ -169,7 +171,7 @@ ul.items li img:hover{
 }
 
 .playlistImgs{
-    width: 18%;
+    width: 15%;
     border-radius: 50%;
     height: 100%;
     object-fit: cover;
@@ -179,4 +181,58 @@ ul.items li img:hover{
 
 .logout{
     color: #f65447;
+}
+
+.content{
+    width: 65%;
+    height: 100%;
+}
+
+.navbar{
+    width: 100%; 
+    height: 8%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchInput{
+    width: 80%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchBtn img{
+    width: 50%;
+    height: 50%;
+}
+
+.topInp{
+    width: 70%;
+    height: 60%;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 50px;
+    outline: none;
+    padding: 1% 2%;
+    background-color: #000000;
+    color: white;
+}
+
+.searchBtn{
+    margin: 1% 1%;
+    border-radius: 50%;
+    background-color: black;
+    width: 3.8%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60%;
+    border: 2px solid white;
+    transition: .2s;
+}
+
+.searchBtn:hover{
+    background-color: white;
 }
