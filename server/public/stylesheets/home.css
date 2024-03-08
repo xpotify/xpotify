@@ -8,14 +8,14 @@
 .main{
     width: 100%;
     height: 100vh;
-    background-color: black;
+    background-color: #111315;
     color: white;
     display: flex;
     flex-direction: row;
 }
 
 .sidebar{
-    border-right: 2px solid #383b3b;
+    border-right: 1px solid #383b3b;
     width: 15%;
     height: 100%;
     display: flex;
@@ -25,18 +25,24 @@
     text-align: start;
 }
 
-.sidebarItems{
+.sidebaritems{
+    width: 100%;
     height: 100%;
 }
 
 .sidebarLogo{
+    height: 12%;
+    align-items: center;
     display: flex;
+    width: 100%;
     justify-content: center;
+    align-items: center;
 }
 
 .sidebarLogo img{
-    width: 50%;
-    height: 50%;
+    width: 20%;
+    margin-right: 2%;
+    height: 45%;
 }
 
 .menu{
@@ -53,8 +59,17 @@
     height: 5%;
     font-size: .8em;
     margin: 7% 1%;
+    display: none;
     justify-content: space-between;
     display: flex;
+}
+
+.title span{
+    color: #8f9396;
+}
+
+.title img{
+    opacity: 50%;
 }
 
 .title2{
@@ -80,7 +95,7 @@
 .listedItems2{
     width: 90%;
     font-size: .9em;
-    height: 50%;
+    height: 52%;
     margin: 6% 6%;
 }
 
@@ -108,10 +123,33 @@
     transition: .2s;
 }
 
+.listedItems .items li span{
+    color: #e3e5e8;
+}
+
+.listedItems .items li:nth-child(2) span, .listedItems .items li:nth-child(3) span{
+    color: #86898c;
+}
+
+.listedItems .items li:nth-child(2) img, .listedItems .items li:nth-child(3) img{
+    opacity: 50%;
+}
+
+.title2 span{
+    color: #a0a4a7;
+}
+
+.title2 img{
+    opacity: 50%;
+}
 
 .listedItems .items li:hover, .listedItems2 .items li:hover{
     background-color: rgb(37, 37, 37);
     cursor: pointer;
+}
+
+.listedItems2 .items li span{
+    color: #86898c;
 }
 
 .endItems{
@@ -143,8 +181,9 @@ ul.items li{
 }
 
 .optIcons{
-    width: 10%; 
-    margin-right: 4%;
+    width: 30px; 
+    height: 30px;
+    margin-right: 11%;
 }
 
 ul.items li img:hover{
@@ -171,12 +210,12 @@ ul.items li img:hover{
 }
 
 .playlistImgs{
-    width: 15%;
+    width: 35px;
     border-radius: 50%;
-    height: 100%;
+    height: 35px;
     object-fit: cover;
     object-position: center center;
-    margin-right: 6%;
+    margin-right: 10%;
 }
 
 .logout{
@@ -186,6 +225,10 @@ ul.items li img:hover{
 .content{
     width: 65%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 1px solid #383b3b;
 }
 
 .navbar{
@@ -212,27 +255,188 @@ ul.items li img:hover{
 .topInp{
     width: 70%;
     height: 60%;
-    border: 2px solid rgb(255, 255, 255);
+    border: 0px solid rgba(255, 255, 255, 0);
     border-radius: 50px;
     outline: none;
     padding: 1% 2%;
-    background-color: #000000;
+    background-color: #1b1d20;
     color: white;
 }
 
 .searchBtn{
     margin: 1% 1%;
     border-radius: 50%;
-    background-color: black;
+    background-color: #1b1d20;
     width: 3.8%;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 60%;
-    border: 2px solid white;
+    border: 0px solid white;
     transition: .2s;
 }
 
 .searchBtn:hover{
     background-color: white;
 }
+
+.genreSlider{
+    width: 95%;
+    height: 6%;
+    padding: 1% 1%;
+    /* overflow: scroll;
+    scrollbar-width: 1%; */
+}
+
+.genreBtn{
+    height: 100%;
+    padding: 0% 1%;
+    border-radius: 25px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: 1.5px solid #ffffff;
+    margin: 0 .15%;
+    transition: .2s;
+}
+
+.genreBtn:hover{
+    color: black;
+    background-color: white;
+}
+
+.tabs{
+    width: 95%;
+    height: 77%;
+    padding: 1% 1%;
+    padding-top: 0 !important;
+}
+
+.tabsRow1, .tabsRow2, .tabsRow3{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 35%;
+    margin-bottom: 1%;
+    justify-content: space-between;
+}
+
+.tabsRow1 .tab, .tabsRow2 .tab, .tabsRow3 .tab{
+    height: 100%;
+    background-color: white;
+    color: black;
+    border-radius: 20px;
+    padding: 1% 1%;
+}
+
+.tabsRow1 .tab:nth-child(2){
+    width: 49%;
+}
+
+.tabsRow2 .tab:nth-child(2){
+    width: 69%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("https://edm.com/.image/t_share/MTgxMzYwNDQzODUwMjM3MDMx/alan_walker_press_shot.jpg");
+}
+
+.tabsRow2 .tab:nth-child(1){
+    width: 30%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("https://www.thescottishsun.co.uk/wp-content/uploads/sites/2/2019/02/NINTCHDBPICT0004656885561-e1550170338365.jpg?w=1860");
+}
+
+
+
+.tabsRow1 .tab:nth-child(1){
+    background-image: url("https://th.bing.com/th/id/OIP.LHVqT8MzyNrQOPhSiLXGSQHaFj?rs=1&pid=ImgDetMain");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.tabsRow1 .tab:nth-child(2){
+    background-image: url("https://metalitalia.com/wp-content/uploads/2020/11/acdc-band-3-2020.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.tabsRow1 .tab:nth-child(3){
+    background-image: url("https://images.hdqwalls.com/wallpapers/2019-dua-lipa-c0.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.tabsRow1 .tab:nth-child(1), .tabsRow1 .tab:nth-child(3){
+    width: 24.5%;
+}
+
+.tabsRow3 .tab:nth-child(1){
+    width: 69%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("https://media.zoomnoticias.com/p/d3c70aadc77e37fece64b309aa65d36e/adjuntos/300/imagenes/000/045/0000045784/1200x675/smart/ava-maxpng.png");
+}
+
+.tabsRow3 .tab:nth-child(2){
+    width: 30%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("https://www.nme.com/wp-content/uploads/2020/10/Ariana-Grande.jpg");
+}
+
+.tabTitle{
+    width: 100%;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: end;
+}
+
+.tabTitle h1{
+    font-size: 30px;
+    color: white;
+    font-weight: 600;
+    backdrop-filter: blur(2px);
+}
+
+.tabContent{
+    margin: 1% 1%;
+    width: 100%;
+    height: 93%;
+    display: flex;
+    justify-content: end;
+    align-items: start;
+    flex-direction: column;
+}
+
+.tabtitle h1, .tabDesc{
+    color: white;
+}
+
+.tabBtn{
+    width: 18%;
+    height: 15%;
+    margin-top: 1%;
+}
+
+.tabBtn button{
+    width: 100%;
+    outline: none;
+    border-radius: 20px;
+    background-color: white;
+    border: 1px solid white;
+    height: 100%;
+    transition: 0.2s;
+}
+
+.tabBtn button:hover{
+    background-color: black;
+    color: white;
+}
+
+
