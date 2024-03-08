@@ -254,7 +254,7 @@ ul.items li img:hover{
 
 .topInp{
     width: 70%;
-    height: 60%;
+    height: 65%;
     border: 0px solid rgba(255, 255, 255, 0);
     border-radius: 50px;
     outline: none;
@@ -267,11 +267,11 @@ ul.items li img:hover{
     margin: 1% 1%;
     border-radius: 50%;
     background-color: #1b1d20;
-    width: 3.8%;
+    width: 3.9%;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 60%;
+    height: 65%;
     border: 0px solid white;
     transition: .2s;
 }
@@ -306,7 +306,7 @@ ul.items li img:hover{
 
 .tabs{
     width: 95%;
-    height: 77%;
+    height: 82%;
     padding: 1% 1%;
     padding-top: 0 !important;
 }
@@ -315,7 +315,7 @@ ul.items li img:hover{
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: 35%;
+    height: 32%;
     margin-bottom: 1%;
     justify-content: space-between;
 }
@@ -439,4 +439,195 @@ ul.items li img:hover{
     color: white;
 }
 
+.rightBar{
+    width: 20%;
+    height: 100%;
+    padding: 1% 1%;
+}
 
+.userInfo{
+    width: 100%;
+    height: 5%;
+    display: flex;
+    /* justify-content: space-evenly; */
+    align-items: center;
+}
+
+.userInfo .img{
+    margin-right: 5%;
+    display: flex;
+    align-items: center;
+}
+.userInfo .img img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.userName h1{
+    font-size: 15px;
+}
+
+.userName p{
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    color: #96999c;
+}
+
+.userInfo .bellIcon img{
+    width: 30px;
+    height: 30px;
+}
+
+.UserDesc{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 84%;
+}
+
+.userInfo .bellIcon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.queues{
+    width: 100%;
+    height: 50%;
+    margin-top: 7%;
+}
+
+.QTitle{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+
+.QTitle h4{
+    font-size: 15px;
+}
+
+.QTitle h5{
+    font-size: 10px;
+    font-weight: 400;
+}
+
+.Qsongs{
+    width: 100%;
+    margin-top: 2%;
+    height: 100%;
+}
+
+.QSongs{
+    width: 100%;
+    height: 9%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 3%;
+}
+
+.SongImg img{
+    width: 40px;
+    height: 40px;
+    border-radius: 2px;
+}
+
+.SongDesc{
+    width: 85%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.SongImg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.SongInfo h4{
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.SongInfo h5{
+    font-size: 10px;
+    color: #b2b8bd;
+    font-weight: 400;
+}
+
+.SongTime h5{
+    font-size: 10px;
+    color: #b2b8bd;
+    font-weight: 400;
+}
+
+.Song{
+    width: 100%;
+    height: 32%;
+}
+
+.songImg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.songImg img{
+    width: 340px;
+    height: 340px;
+    border-radius: 5px;
+}
+
+.songinfo{
+    justify-content: space-between;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    margin-top: 5%;
+    align-items: center;
+}
+
+.info h3{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.info h4{
+    font-size: 12px;
+    font-weight: 300;
+    color: #b2b8bd;
+}
+
+.likeIcon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.likeIcon img{
+    width: 35px;
+    height: 35px;
+}
+
+.crown{
+    width: 12px;
+    height: 12px;
+    margin-left: 1%;
+}
+
+.player{
+    width: 100%;
+    height: 9%;
+    border-top: 1px solid #383b3b;
+}
