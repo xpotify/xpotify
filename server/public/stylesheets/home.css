@@ -680,7 +680,7 @@ ul.items li img:hover{
     justify-content: space-between;
 }
 
-.p1 img:nth-child(1){
+.p1 img:nth-child(1), .p1 img:nth-child(2){
     margin-right: 10%;
 }
 
@@ -696,6 +696,12 @@ ul.items li img:hover{
     width: 6%;
 }
 
+
+
+.p1 img:hover, .p2 img:hover{
+    cursor: pointer;
+}
+
 .p2 img:nth-child(3){
     background-color: #212325;
     padding: 2% 2%;
@@ -706,8 +712,8 @@ ul.items li img:hover{
    rotate: 180deg;
 }
 
-#volBar {
-  margin-right: 15px;
+#volSeeker {
+  margin-right: 5%;
   accent-color: red;
   width: 70%;
   height: 6px;
@@ -731,4 +737,5 @@ ul.items li img:hover{
 
 .bars span{
     font-size: 13px;
+    width: 2.5%;
 }
