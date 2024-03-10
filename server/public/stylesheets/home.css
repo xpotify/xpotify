@@ -271,7 +271,7 @@ ul.items li img:hover{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 65%;
+    height: 62%;
     border: 0px solid white;
     transition: .2s;
 }
