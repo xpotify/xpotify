@@ -8,7 +8,7 @@
 .main{
     width: 100%;
     height: 100vh;
-    background-color: #111315;
+    background-color: #0e0f10;
     color: white;
     display: flex;
     flex-direction: row;
@@ -432,6 +432,7 @@ ul.items li img:hover{
     border: 1px solid white;
     height: 100%;
     color: white;
+    cursor: pointer;
     transition: 0.2s;
 }
 
@@ -518,6 +519,14 @@ ul.items li img:hover{
 .QTitle h5{
     font-size: 10px;
     font-weight: 400;
+    transition: .2s;
+    color: rgba(255, 255, 255, 0.719);
+}
+
+.QTitle h5:hover{
+    cursor: pointer;
+    color: white;
+    text-decoration: underline;
 }
 
 .Qsongs{
@@ -528,11 +537,19 @@ ul.items li img:hover{
 
 .QSongs{
     width: 100%;
-    height: 9%;
+    height: 10%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 3%;
+    margin-bottom: 2%;
+    border-radius: 2px;
+    transition: .2s;
+    padding: 1% 1%;
+    cursor: pointer;
+}
+
+.QSongs:hover{
+    background-color: rgb(37, 37, 37);
 }
 
 .SongImg img{
@@ -557,7 +574,7 @@ ul.items li img:hover{
 }
 
 .SongInfo h4{
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 500;
 }
 
@@ -590,6 +607,10 @@ ul.items li img:hover{
     border-radius: 5px;
 }
 
+.songImg img:hover{
+    cursor: pointer;
+}
+
 .songinfo{
     justify-content: space-between;
     width: 100%;
@@ -608,6 +629,11 @@ ul.items li img:hover{
     font-size: 12px;
     font-weight: 300;
     color: #b2b8bd;
+}
+
+.info h3:hover, .info h4:hover{
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 .likeIcon{
