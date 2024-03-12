@@ -7,6 +7,8 @@ const volSeeker = document.getElementById("volSeeker");
 const nextBtn = document.getElementById("audNextBtn");
 const prevBtn = document.getElementById("audPrevBtn");
 let playState = "play";
+const songSrc = ["/songs/test.mp3", "/songs/test2.mp3", "/songs/test3.mp3"];
+
 
 const calculateTime = (secs) => {
   const minutes = Math.floor(secs / 60);
@@ -75,17 +77,14 @@ volSeeker.addEventListener('input', (e) => {
     audio.volume = value / 100;
 });
 
-const songSrc = ["/songs/test.mp3", "/songs/test2.mp3", "/songs/test3.mp3"];
+let i = 0;
 
 nextBtn.addEventListener("click", () => {
-    if(audio.src == songSrc[1]){
-      audio.src = songSrc[3] || songSrc[2];
-      console.log(audio.src);
-    } else if(audio.src == songSrc[2]){
-      audio.src = songSrc[3] || songSrc[1];
-      console.log(audio.src);
+    if(audio.src != songSrc[2]){
+      audio.src = songSrc[(i+1)];
+      i = i+1;
     } else {
-      audio.src = songSrc[1] || songSrc[2];
-      console.log(audio.src);
+      i = 0;
+      audio.src = songSrc[i];
     }
 });
