@@ -9,7 +9,7 @@ const prevBtn = document.getElementById("audPrevBtn");
 let playState = "play";
 
 audio.addEventListener('loadedmetadata', () =>{
-    durationContainer(audio.duration);
+    durationContainer.textContent = audio.duration;
 });
 
 const calculateTime = (secs) => {
@@ -80,9 +80,12 @@ const songSrc = ["/songs/test.mp3", "/songs/test2.mp3", "/songs/test3.mp3"];
 nextBtn.addEventListener("click", () => {
     if(audio.src == songSrc[1]){
       audio.src = songSrc[3] || songSrc[2];
+      console.log(audio.src);
     } else if(audio.src == songSrc[2]){
       audio.src = songSrc[3] || songSrc[1];
+      console.log(audio.src);
     } else {
       audio.src = songSrc[1] || songSrc[2];
+      console.log(audio.src);
     }
 });
