@@ -8,10 +8,6 @@ const nextBtn = document.getElementById("audNextBtn");
 const prevBtn = document.getElementById("audPrevBtn");
 let playState = "play";
 
-audio.addEventListener('loadedmetadata', () =>{
-    durationContainer.textContent = audio.duration;
-});
-
 const calculateTime = (secs) => {
   const minutes = Math.floor(secs / 60);
   const seconds = Math.floor(secs % 60);
@@ -22,6 +18,10 @@ const calculateTime = (secs) => {
 const displayDuration = () =>{
     durationContainer.textContent = calculateTime(audio.duration);
 };
+
+audio.addEventListener('loadedmetadata', () =>{
+  displayDuration(audio.duration);
+});
 
 const setSliderMax = () => {
     audioSeeker.max = Math.floor(audio.duration);
