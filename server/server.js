@@ -12,6 +12,13 @@ app.get("/", (req, res) =>{
     res.render('home');
 });
 
+
+// Json implementaion
+// app.get("/serv", (req, res) => {
+//     const user = {"name": "john", "age": "14"};
+//     res.json(user);
+// });
+
 app.listen(PORT || process.env.PORT, process.env.IP, () => {
     console.log('xpotify server is up on PORT: ' + PORT);
 });
