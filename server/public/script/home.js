@@ -83,8 +83,10 @@ nextBtn.addEventListener("click", () => {
     if(audio.src != songSrc[2]){
       audio.src = songSrc[(i+1)];
       i = i+1;
+      audio.play();
     } else {
       i = 0;
       audio.src = songSrc[i];
+      audio.play();
     }
 });
