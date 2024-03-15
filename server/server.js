@@ -12,7 +12,6 @@ app.get("/", (req, res) =>{
     res.render('home');
 });
 
-
 // Json implementaion
 // app.get("/serv", (req, res) => {
 //     const user = {"name": "john", "age": "14"};
