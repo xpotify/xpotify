@@ -159,7 +159,15 @@ nextBtn.addEventListener("click", () => {
 });
 
 prevBtn.addEventListener("click", () => {
-  if(songId != 1){
+  if(songId == 1){
+    audio.src = songSrc[songLim];
+    i = songLim;
+    songId = (songLim + 1);
+    changeSiteTitle(i);
+    changeSongMetaData(i);
+    changePlayPause('play');
+    audio.play();
+  } else if(songId != songLim){
     audio.src = songSrc[(i-1)];
     i = i-1;
     songId = songId - 1;
@@ -167,15 +175,7 @@ prevBtn.addEventListener("click", () => {
     changeSongMetaData(i);
     changePlayPause('play');
     audio.play();
-  } else if(songId == 1){
-    audio.src = songSrc[2];
-    i = 2;
-    songId = 3;
-    changeSiteTitle(i);
-    changeSongMetaData(i);
-    changePlayPause('play');
-    audio.play();
-  } 
+  }
   else {
     i = 0;
     songId = 1;
