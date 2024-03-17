@@ -224,3 +224,13 @@ volMute.addEventListener('click', () => {
     volSeeker.value = 0;
   }
 });
+
+
+// FETCHING JSON FROM API ROUTE
+// async function loadNames() {
+//   const response = await fetch('/api/names');
+//   const names = await response.json();
+
+//   console.log(names); 
+//   // logs [{ name: 'Joker'}, { name: 'Batman' }]
+// }
