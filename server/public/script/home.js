@@ -6,6 +6,9 @@ const audPlaystateBtn = document.getElementById('playPause');
 const volSeeker = document.getElementById("volSeeker");
 const nextBtn = document.getElementById("audNextBtn");
 const prevBtn = document.getElementById("audPrevBtn");
+const volMax = document.getElementById("audVolMax");
+const volMute = document.getElementById("audVolMute");
+var volValue = volSeeker.value;
 let playState = "play";
 const songSrc = ["/songs/test.mp3", "/songs/test2.mp3", "/songs/test3.mp3"];
 
@@ -75,6 +78,7 @@ audio.addEventListener('timeupdate', () => {
 volSeeker.addEventListener('input', (e) => {
     const value = e.target.value;
     audio.volume = value / 100;
+    volValue = volSeeker.value;
 });
 
 let i = 0;
@@ -89,4 +93,24 @@ nextBtn.addEventListener("click", () => {
       audio.src = songSrc[i];
       audio.play();
     }
+});
+
+volMax.addEventListener('click', () => {
+  if(volSeeker.value == 100){
+    volSeeker.value = volValue;
+    audio.volume = volValue / 100;
+  } else {
+    audio.volume = 1;
+    volSeeker.value = 100;
+  }
+});
+
+volMute.addEventListener('click', () => {
+  if(volSeeker.value == 0){
+    audio.volume = volValue / 100;
+    volSeeker.value = volValue;
+  } else{
+    audio.volume = 0; 
+    volSeeker.value = 0;
+  }
 });
