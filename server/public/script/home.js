@@ -82,17 +82,40 @@ volSeeker.addEventListener('input', (e) => {
 });
 
 let i = 0;
+let songId = 1;
 
 nextBtn.addEventListener("click", () => {
-    if(audio.src != songSrc[2]){
-      audio.src = songSrc[(i+1)];
-      i = i+1;
-      audio.play();
-    } else {
-      i = 0;
-      audio.src = songSrc[i];
-      audio.play();
-    }
+  if(songId != 3){
+    audio.src = songSrc[(i+1)];
+    i = i+1;
+    songId = songId + 1;
+    audio.play();
+  } else {
+    i = 0;
+    songId = 1;
+    audio.src = songSrc[i];
+    audio.play();
+  }
+});
+
+prevBtn.addEventListener("click", () => {
+  if(songId != 1){
+    audio.src = songSrc[(i-1)];
+    i = i-1;
+    songId = songId - 1;
+    audio.play();
+  } else if(songId == 1){
+    audio.src = songSrc[2];
+    i = 2;
+    songId = 3;
+    audio.play();
+  } 
+  else {
+    i = 0;
+    songId = 1;
+    audio.src = songSrc[i];
+    audio.play();
+  }
 });
 
 volMax.addEventListener('click', () => {
