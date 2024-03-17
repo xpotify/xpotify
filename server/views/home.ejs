@@ -186,22 +186,24 @@
                             <img src="/icons/mic.png" alt="" class="icon">
                         </div>
                         <div class="p2">
-                            <img src="/icons/shuffle.png" alt="" class="icon">
-                            <img src="/icons/next.png" id="audPrevBtn" alt="" class="icon">
-                            <img src="/icons/play.png" id="playPause" alt="" class="icon">
-                            <img src="/icons/next.png" id="audNextBtn" alt="" class="icon">
-                            <img src="/icons/repeat.png" alt="" class="icon">
+                            <div class="audioControls">
+                                <img src="/icons/shuffle.png" alt="" class="icon">
+                                <img src="/icons/next.png" id="audPrevBtn" alt="" class="icon">
+                                <img src="/icons/play.png" id="playPause" alt="" class="icon">
+                                <img src="/icons/next.png" id="audNextBtn" alt="" class="icon">
+                                <img src="/icons/repeat.png" alt="" class="icon">
+                            </div>
+                            <div class="bars">
+                                <div id="audCurrentTime">0:00</div>
+                                <input type="range" name="audioSeeker" id="audSeeker" max="" value="0">
+                                <div id="audDuration">03:10</div>
+                            </div>
                         </div>
                         <div class="p3">
                             <img src="/icons/vol-low.png" alt="" class="icon">
                             <input type="range" name="volBar" id="volSeeker" max="100" value="25">
                             <img src="/icons/vol-high.png" alt="" class="icon">
                         </div>
-                    </div>
-                    <div class="bars">
-                        <span id="audCurrentTime">00:00</span>
-                        <input type="range" name="audioSeeker" id="audSeeker" max="" value="0">
-                        <span id="audDuration">03:10</span>
                     </div>
                 </div>
             </div>
