@@ -173,7 +173,6 @@ ul.items li{
 } 
 .title img, .title2 img{
     width: 11%;
-    height: 65%;
 }
 
 .title img:hover, .title2 img:hover{
@@ -593,6 +592,9 @@ ul.items li img:hover{
 .Song{
     width: 100%;
     height: 44%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .songImg{
@@ -778,4 +780,27 @@ ul.items li img:hover{
     display: flex;
     justify-content: center;
     align-content: center;
+}
+
+.SongInfo h4:hover, .SongInfo h5:hover{
+    text-decoration: underline;
+}
+
+.notSelectable{
+    -webkit-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none; 
+}
+
+.userName h1:hover, .userName p:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.bellIcon:hover{
+    cursor: pointer;
+}
+
+.userInfo .img img:hover, .p3 img:hover{
+    cursor: pointer;
 }
