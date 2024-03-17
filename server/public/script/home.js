@@ -65,7 +65,7 @@ audio.addEventListener('loadedmetadata', () =>{
 });
 
 const setSliderMax = () => {
-    audioSeeker.max = Math.floor(audio.duration);
+  audioSeeker.max = Math.floor(audio.duration);
 };
 
 audioSeeker.addEventListener("input", () => {
@@ -94,6 +94,7 @@ const changePlayPause = (e) => {
     audPlaystateBtn.src = "/icons/play.png"
   }
 };
+
 audPlaystateBtn.addEventListener('click', () => {
   if(playState === 'play') {
     changePlayPause('play');
@@ -146,6 +147,8 @@ nextBtn.addEventListener("click", () => {
     changeSiteTitle(i);
     changeSongMetaData(i);
     changePlayPause('play');
+    displayDuration();
+    setSliderMax();
     audio.play();
   } else {
     i = 0;
@@ -154,6 +157,8 @@ nextBtn.addEventListener("click", () => {
     changeSiteTitle(i);
     changeSongMetaData(i);
     changePlayPause('play');
+    displayDuration();
+    setSliderMax();
     audio.play();
   }
 });
@@ -166,6 +171,8 @@ prevBtn.addEventListener("click", () => {
     changeSiteTitle(i);
     changeSongMetaData(i);
     changePlayPause('play');
+    displayDuration();
+    setSliderMax();
     audio.play();
   } else if(songId != songLim){
     audio.src = songSrc[(i-1)];
@@ -174,6 +181,8 @@ prevBtn.addEventListener("click", () => {
     changeSiteTitle(i);
     changeSongMetaData(i);
     changePlayPause('play');
+    displayDuration();
+    setSliderMax();
     audio.play();
   }
   else {
@@ -183,6 +192,8 @@ prevBtn.addEventListener("click", () => {
     changeSiteTitle(i);
     changeSongMetaData(i);
     changePlayPause('play');
+    displayDuration();
+    setSliderMax();
     audio.play();
   }
 });
