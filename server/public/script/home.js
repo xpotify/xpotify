@@ -8,10 +8,46 @@ const nextBtn = document.getElementById("audNextBtn");
 const prevBtn = document.getElementById("audPrevBtn");
 const volMax = document.getElementById("audVolMax");
 const volMute = document.getElementById("audVolMute");
+const siteTitle = document.getElementById("siteTitle");
+const songCoverImage = document.getElementById("songCoverImg");
+const songName = document.getElementById("songName");
+const songArtist = document.getElementById("songArtist");
+const songSrc = ["/songs/test.mp3", "/songs/test2.mp3", "/songs/test3.mp3", "/songs/test4.mp3", "/songs/test5.mp3"];
+const songMetaData = [
+  {
+    "id" : 0,
+    "name" : "Faded",
+    "artist" : "Alan Walker",
+    "img" : "https://i.scdn.co/image/ab67616d00001e02a108e07c661f9fc54de9c43a"
+  },
+  {
+    "id" : 1,
+    "name" : "Stereo Love",
+    "artist" : "Edward Maya",
+    "img" : "https://i.scdn.co/image/ab67616d00001e028290cf8dbeade5d6807826a5"
+  },
+  {
+    "id" : 2,
+    "name" : "Unity",
+    "artist" : "Alan Walker", 
+    "img" : "https://i.scdn.co/image/ab67616d00001e025a498fcd005980fa948c04e4"
+  },
+  {
+    "id" : 3,
+    "name" : "Shakira",
+    "artist" : "1nonly",
+    "img" : "https://i.scdn.co/image/ab67616d00001e0203c58779dfc6029341086829"
+  },
+  {
+    "id" : 4,
+    "name" : "Shoot to Thrill",
+    "artist" : "AC/DC",
+    "img" : "https://i.scdn.co/image/ab67616d00001e02b56115c0e231fbf69d3205c6"
+  }
+];
+
 var volValue = volSeeker.value;
 let playState = "play";
-const songSrc = ["/songs/test.mp3", "/songs/test2.mp3", "/songs/test3.mp3"];
-
 
 const calculateTime = (secs) => {
   const minutes = Math.floor(secs / 60);
@@ -49,18 +85,25 @@ if (audio.readyState > 0) {
 const whilePlaying = () => {
   audioSeeker.value = Math.floor(audio.currentTime);
   currentTimeContainer.textContent = calculateTime(audioSeeker.value);
-}
+};
 
+const changePlayPause = (e) => {
+  if(e == "play"){
+    audPlaystateBtn.src = "/icons/pause.png";
+  } else {
+    audPlaystateBtn.src = "/icons/play.png"
+  }
+};
 audPlaystateBtn.addEventListener('click', () => {
   if(playState === 'play') {
+    changePlayPause('play');
     audio.play();
     audio.volume = 0.25;
-    audPlaystateBtn.src = "/icons/pause.png"
     whilePlaying();
     playState = 'pause';
   } else {
+    changePlayPause('pause');
     audio.pause();
-    audPlaystateBtn.src = "/icons/play.png"
     whilePlaying();
     playState = 'play';
   }
@@ -83,17 +126,34 @@ volSeeker.addEventListener('input', (e) => {
 
 let i = 0;
 let songId = 1;
+const songLim = (songSrc.length - 1);
+
+const changeSiteTitle = (e) => {
+  siteTitle.textContent =  `${songMetaData[e].name} - ${songMetaData[e].artist}`;
+};
+
+const changeSongMetaData = (e) => {
+  songCoverImage.src = songMetaData[e].img;
+  songName.textContent = songMetaData[e].name;
+  songArtist.textContent = songMetaData[e].artist;
+};
 
 nextBtn.addEventListener("click", () => {
-  if(songId != 3){
+  if(songId != songLim){
     audio.src = songSrc[(i+1)];
     i = i+1;
     songId = songId + 1;
+    changeSiteTitle(i);
+    changeSongMetaData(i);
+    changePlayPause('play');
     audio.play();
   } else {
     i = 0;
     songId = 1;
     audio.src = songSrc[i];
+    changeSiteTitle(i);
+    changeSongMetaData(i);
+    changePlayPause('play');
     audio.play();
   }
 });
@@ -103,17 +163,26 @@ prevBtn.addEventListener("click", () => {
     audio.src = songSrc[(i-1)];
     i = i-1;
     songId = songId - 1;
+    changeSiteTitle(i);
+    changeSongMetaData(i);
+    changePlayPause('play');
     audio.play();
   } else if(songId == 1){
     audio.src = songSrc[2];
     i = 2;
     songId = 3;
+    changeSiteTitle(i);
+    changeSongMetaData(i);
+    changePlayPause('play');
     audio.play();
   } 
   else {
     i = 0;
     songId = 1;
     audio.src = songSrc[i];
+    changeSiteTitle(i);
+    changeSongMetaData(i);
+    changePlayPause('play');
     audio.play();
   }
 });
