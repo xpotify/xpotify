@@ -64,8 +64,15 @@ audio.addEventListener('loadedmetadata', () =>{
   displayDuration(audio.duration);
 });
 
-const setSliderMax = () => {
+
+const setSliderMax2 = () => {
   audioSeeker.max = Math.floor(audio.duration);
+};
+
+const setSliderMax = () => {
+  audio.addEventListener('loadedmetadata', () => {
+    audioSeeker.max = Math.floor(audio.duration);
+  });
 };
 
 audioSeeker.addEventListener("input", () => {
@@ -74,11 +81,11 @@ audioSeeker.addEventListener("input", () => {
 
 if (audio.readyState > 0) {
   displayDuration();
-  setSliderMax();
+  setSliderMax2();
 } else {
   audio.addEventListener('loadedmetadata', () => {
     displayDuration();
-    setSliderMax();
+    setSliderMax2();
   });
 }
 
