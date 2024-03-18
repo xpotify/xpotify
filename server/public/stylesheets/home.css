@@ -809,12 +809,8 @@ ul.items li img:hover{
     cursor: pointer;
 }
 
-.tabs{
-    display: none !important;
-}
-
 .artist{
-    height: 95%;
+    height: 82%;
     padding: 1% 1%;
     width: 95%;
     display: flex;
@@ -829,7 +825,6 @@ ul.items li img:hover{
     background-position:  center;
     background-repeat: no-repeat;
     background-size: cover;
-    margin-top: 1%;
     border-radius: 25px;
     display: flex;
     justify-content: space-between;
@@ -1058,4 +1053,8 @@ ul.items li img:hover{
 
 .artistMusic .columns div{
     font-size: 16px;
+}
+
+.hide{
+    display: none;
 }

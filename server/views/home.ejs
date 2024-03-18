@@ -25,7 +25,7 @@
                             </div>
                             <div class="listedItems">
                                 <ul class="items">
-                                    <li>
+                                    <li onclick="returnToHome()">
                                         <img draggable="false" class="optIcons" src="/icons/home.png" alt="">
                                         <span>Home</span>
                                     </li>
@@ -109,7 +109,7 @@
                 <button class="genreBtn">Student</button>
                 <button class="genreBtn">Love</button>
             </div> -->
-            <div class="tabs">
+            <div class="tabs" id="tabs">
                 <div class="tabsRow1">
                     <div class="tab">
                         <div class="tabTitle">
@@ -176,7 +176,7 @@
                     </div>
                 </div>
             </div>
-            <div class="artist">
+            <div class="artist hide" id="artistTabs">
                 <div class="artistTile">
                     <div class="artistInfo">
                         <div class="artistVerification">
@@ -191,7 +191,7 @@
                         </div>
                     </div>
                     <div class="artistImage">
-                        <img src="/background/alan walker.png" alt="">
+                        <img draggable="false" src="/background/alan walker.png" alt="">
                     </div>
                 </div>
                 <div class="artistMusic">
@@ -218,7 +218,7 @@
                     <div class="songs">
                         <span class="songNum">2</span>
                         <span class="songImage"><img src="https://i.scdn.co/image/ab67616d00001e02df9a35baaa98675256b35177" alt=""></span>
-                        <span class="songTitle">Alon, Pt.II</span>
+                        <span class="songTitle">Alone, Pt.II</span>
                         <span class="songPlayed">575,463,363</span>
                         <span class="songDuration">2:59</span>
                         <span class="songAlbum">World of Walker</span>
@@ -434,7 +434,7 @@
                 <div class="songinfo">
                     <div class="info">
                         <h3 id="songName">Faded</h3>
-                        <h4 id="songArtist">Alan Walker</h4>
+                        <h4 id="songArtist" onclick="toggleArtistTab()">Alan Walker</h4>
                     </div>
                     <div class="likeIcon">
                         <img src="/icons/heart.png" alt="">
@@ -444,5 +444,6 @@
         </div>
     </div>
 </body>
-<script src="/script/home.js"></script>
+<script src="/script/musicplayer.js"></script>
+<script src="/script/sections.js"></script>
 </html>
