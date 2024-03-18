@@ -257,6 +257,42 @@
                     </div>
                 </div>
             </div>
+            <div class="songsTabs hide" id="songsTabs">
+                <div class="songsTile">
+                    <div class="songInfo">
+                        <div class="songInfoSong">
+                            <h4>Single</h4>
+                        </div>
+                        <div class="artistName">
+                            <h1>Faded</h1>
+                        </div>
+                        <div class="songListeners">
+                            <h3>Streamed 1,885,933,456x </h3>
+                        </div>
+                    </div>
+                    <div class="songsImage">
+                        <img draggable="false" src="https://i.scdn.co/image/ab67616d00001e02a108e07c661f9fc54de9c43a" alt="">
+                    </div>
+                </div>
+                <div class="songMusic">
+                    <div class="columns">
+                        <div>#</div>
+                        <div>img</div>
+                        <div>Title</div>
+                        <div>Plays</div>
+                        <div>Time</div>
+                        <div>Album</div>
+                    </div>
+                    <div class="songs">
+                        <span class="songNum">1</span>
+                        <span class="songImage"><img src="https://i.scdn.co/image/ab67616d00001e02a108e07c661f9fc54de9c43a" alt=""></span>
+                        <span class="songTitle">Faded</span>
+                        <span class="songPlayed">1,885,933,465</span>
+                        <span class="songDuration">3:32</span>
+                        <span class="songAlbum">Different World</span>
+                    </div>
+                </div>
+            </div>
             <div class="player">
                 <audio src="/songs/test.mp3" preload="metadata"></audio>
                 <div class="playerControls">
@@ -433,8 +469,8 @@
                 </div>
                 <div class="songinfo">
                     <div class="info">
-                        <h3 id="songName">Faded</h3>
-                        <h4 id="songArtist" onclick="toggleArtistTab()">Alan Walker</h4>
+                        <h3 id="songName" onclick="showSongTab()">Faded</h3>
+                        <h4 id="songArtist" onclick="showArtistTab()">Alan Walker</h4>
                     </div>
                     <div class="likeIcon">
                         <img src="/icons/heart.png" alt="">

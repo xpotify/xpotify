@@ -809,7 +809,7 @@ ul.items li img:hover{
     cursor: pointer;
 }
 
-.artist{
+.artist, .songsTabs{
     height: 82%;
     padding: 1% 1%;
     width: 95%;
@@ -832,7 +832,7 @@ ul.items li img:hover{
     align-items: center;
 }
 
-.artistInfo{
+.artistInfo , .songsInfo{
     width: 50%;
     height: 90%;
     display: flex;
@@ -841,22 +841,22 @@ ul.items li img:hover{
     flex-direction: column;
 }
 
-.artistVerification, .artistName, .artistListeners{
+.artistVerification, .songInfoSong, .artistName, .artistListeners{
     margin: 1% 0;
 }
 
-.artistVerification{
+.artistVerification, .songInfoSong{
     display: flex;
     align-items: center;
     height: 5%;
 }
 
-.artistVerification h4{
+.artistVerification h4, .songInfoSong h4{
     font-size: 15px;
     font-weight: 500;
 }
 
-.artistVerification img{
+.artistVerification img, .songInfoSong img{
     width: 4%;
     margin-right: 5px;
 }
@@ -866,7 +866,7 @@ ul.items li img:hover{
     font-weight: 600;
 }
 
-.artistListeners h3{
+.artistListeners h3, .songListeners h3{
     font-weight: 500;
     font-size: 14px;
 }
@@ -883,7 +883,7 @@ ul.items li img:hover{
     width: 50%;
 }
 
-.artistMusic{
+.artistMusic, .songMusic{
     width: 100%;
     height: 60%;
     display: flex;
@@ -918,14 +918,14 @@ ul.items li img:hover{
     cursor: pointer;
 }
 
-.artistMusic .columns{
+.artistMusic .columns, .songMusic .columns{
     display: flex;
     align-items: center;
     height: 5%;
     width: 100%;
 }
 
-.artistMusic .columns{
+.artistMusic .columns, .songMusic .columns{
     width: 100%;
     height: 10%;
     margin-bottom: .5%;
@@ -933,7 +933,7 @@ ul.items li img:hover{
     align-items: center;
 }
 
-.artistMusic .columns div{
+.artistMusic .columns div, .songMusic .columns div{
     height: 100%;
     font-size: 15px;
     font-weight: 300;
@@ -943,28 +943,28 @@ ul.items li img:hover{
     align-items: center;
 }
 
-.artistMusic .columns div:nth-child(1){
+.artistMusic .columns div:nth-child(1), .songMusic .columns div:nth-child(1){
     width: 5%;
 }
 
-.artistMusic .columns div:nth-child(2){
+.artistMusic .columns div:nth-child(2), .songMusic .columns div:nth-child(2){
     width: 5%;
     visibility: hidden;
 }
 
-.artistMusic .columns div:nth-child(3){
+.artistMusic .columns div:nth-child(3), .songMusic .columns div:nth-child(3){
     width: 45%;
 }
 
-.artistMusic .columns div:nth-child(4){
+.artistMusic .columns div:nth-child(4), .songMusic .columns div:nth-child(4){
     width: 20%;
 }
 
-.artistMusic .columns div:nth-child(5){
+.artistMusic .columns div:nth-child(5), .songMusic .columns div:nth-child(5){
     width: 10%;
 }
 
-.artistMusic .columns div:nth-child(6){
+.artistMusic .columns div:nth-child(6), .songMusic .columns div:nth-child(6){
     width: 15%;
     display: flex;
     justify-content: end;
@@ -987,22 +987,19 @@ ul.items li img:hover{
     text-decoration: underline;
 }
 
-.songImage img{
-    width: 75%;
-}
 
-.artistMusic .songs span{
+.artistMusicongs span, .songMusic span{
     margin-right: 1%;
 }
 
-.artistMusic .songs span:nth-child(1){
+.artistMusic .songs span:nth-child(1), .songMusic .songs span:nth-child(1){
     width: 5%;
     height: 100%;
     display: flex;
     align-items: center;
 }
 
-.artistMusic .songs span:nth-child(2){
+.artistMusic .songs span:nth-child(2), .songMusic .songs span:nth-child(2){
     width: 5%;
     height: 100%;
     display: flex;
@@ -1011,28 +1008,28 @@ ul.items li img:hover{
     align-items: center;
 }
 
-.artistMusic .songs span:nth-child(3){
+.artistMusic .songs span:nth-child(3), .songMusic .songs span:nth-child(3){
     width: 45%;
     height: 100%;
     display: flex;
     align-items: center;
 }
 
-.artistMusic .songs span:nth-child(4){
+.artistMusic .songs span:nth-child(4), .songMusic .songs span:nth-child(4){
     width: 20%;
     height: 100%;
     display: flex;
     align-items: center;
 }
 
-.artistMusic .songs span:nth-child(5){
+.artistMusic .songs span:nth-child(5), .songMusic .songs span:nth-child(5){
     width: 10%;
     height: 100%;
     display: flex;
     align-items: center;
 }
 
-.artistMusic .songs span:nth-child(6){
+.artistMusic .songs span:nth-child(6), .songMusic .songs span:nth-child(6){
     width: 15%;
     height: 100%;
     display: flex;
@@ -1051,10 +1048,46 @@ ul.items li img:hover{
     color: #b2b8bd;
 }
 
-.artistMusic .columns div{
+.artistMusic .columns div, .songMusic .columns div{
     font-size: 16px;
 }
 
 .hide{
     display: none;
+}
+
+.songsTile{
+    height: 40%;
+    width: 100%;
+    background-image: url("https://www.wallpapertip.com/wmimgs/80-806363_picture-xiaomi-mi-gaming-laptop.jpg");
+    background-position:  center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 25px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    padding: 4% 4%;
+}
+
+.songsImage{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.songsImage img{
+    width: 45%;
+    border-radius: 25px;
+}
+
+.songImage img{
+    width: 70%;
+}
+
+.songMusic .columns{
+    margin-top: 2%;
 }
