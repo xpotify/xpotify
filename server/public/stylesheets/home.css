@@ -253,7 +253,7 @@ ul.items li img:hover{
 
 .topInp{
     width: 70%;
-    height: 65%;
+    height: 75%;
     border: 0px solid rgba(255, 255, 255, 0);
     border-radius: 50px;
     outline: none;
@@ -266,11 +266,11 @@ ul.items li img:hover{
     margin: 1% 1%;
     border-radius: 50%;
     background-color: #1b1d20;
-    width: 3.9%;
+    width: 4.3%;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 62%;
+    height: 72%;
     border: 0px solid white;
     transition: .2s;
 }
@@ -807,4 +807,255 @@ ul.items li img:hover{
 
 .userInfo .img img:hover, .p3 img:hover{
     cursor: pointer;
+}
+
+.tabs{
+    display: none !important;
+}
+
+.artist{
+    height: 95%;
+    padding: 1% 1%;
+    width: 95%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.artistTile{
+    height: 40%;
+    width: 100%;
+    background-image: url("https://www.hdwallpapers.in/download/abstract_multi_color_4k_swirl_4k_hd-3840x2160.jpg");
+    background-position:  center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 1%;
+    border-radius: 25px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
+
+.artistInfo{
+    width: 50%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    padding: 2% 4%;
+    flex-direction: column;
+}
+
+.artistVerification, .artistName, .artistListeners{
+    margin: 1% 0;
+}
+
+.artistVerification{
+    display: flex;
+    align-items: center;
+    height: 5%;
+}
+
+.artistVerification h4{
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.artistVerification img{
+    width: 4%;
+    margin-right: 5px;
+}
+
+.artistName h1{
+    font-size: 65px;
+    font-weight: 600;
+}
+
+.artistListeners h3{
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.artistImage{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.artistImage img{
+    width: 50%;
+}
+
+.artistMusic{
+    width: 100%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: start;
+    align-items: start; */
+}
+
+.artistMusic .Title{
+    display: flex;
+    width: 100%;
+    height: 10%;
+    margin: 2% 0;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.artistMusic .Title h1{
+    font-weight: 600;
+    font-size: 28px;
+}
+
+.artistMusic .Title h3{
+    font-weight: 400;
+    font-size: 15px;
+    color: #b2b8bd;
+}
+
+.artistMusic .Title h3:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.artistMusic .columns{
+    display: flex;
+    align-items: center;
+    height: 5%;
+    width: 100%;
+}
+
+.artistMusic .columns{
+    width: 100%;
+    height: 10%;
+    margin-bottom: .5%;
+    display: flex;
+    align-items: center;
+}
+
+.artistMusic .columns div{
+    height: 100%;
+    font-size: 15px;
+    font-weight: 300;
+    text-transform: uppercase;
+    margin-right: 1%;
+    display: flex;
+    align-items: center;
+}
+
+.artistMusic .columns div:nth-child(1){
+    width: 5%;
+}
+
+.artistMusic .columns div:nth-child(2){
+    width: 5%;
+    visibility: hidden;
+}
+
+.artistMusic .columns div:nth-child(3){
+    width: 45%;
+}
+
+.artistMusic .columns div:nth-child(4){
+    width: 20%;
+}
+
+.artistMusic .columns div:nth-child(5){
+    width: 10%;
+}
+
+.artistMusic .columns div:nth-child(6){
+    width: 15%;
+    display: flex;
+    justify-content: end;
+    margin-right: 0 !important;
+}
+
+.songs{
+    width: 100%;
+    height: 12%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1%;
+}
+
+.songs:hover{
+    cursor: pointer;
+}
+
+.songTitle:hover, .songAlbum:hover, .songImage:hover{
+    text-decoration: underline;
+}
+
+.songImage img{
+    width: 75%;
+}
+
+.artistMusic .songs span{
+    margin-right: 1%;
+}
+
+.artistMusic .songs span:nth-child(1){
+    width: 5%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.artistMusic .songs span:nth-child(2){
+    width: 5%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    display: flex;
+    align-items: center;
+}
+
+.artistMusic .songs span:nth-child(3){
+    width: 45%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.artistMusic .songs span:nth-child(4){
+    width: 20%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.artistMusic .songs span:nth-child(5){
+    width: 10%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.artistMusic .songs span:nth-child(6){
+    width: 15%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-right: 0 !important;
+    display: flex;
+    justify-content: end;
+}
+
+.songPlayed, .songTitle, .songDuration, .songAlbum, .songNum{
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.songPlayed, .songDuration, .songAlbum, .songNum{
+    color: #b2b8bd;
+}
+
+.artistMusic .columns div{
+    font-size: 16px;
 }
