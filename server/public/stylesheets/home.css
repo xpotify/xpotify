@@ -1,8 +1,13 @@
+@font-face {
+    font-family: 'Milk';
+    src:url("../fonts/Milk-Regular.ttf");
+}
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'poppins';
+    font-family: 'poppins', 'Noto Sans';
 }
 
 .main{
@@ -111,7 +116,7 @@
     padding: 6% 6%;
     border: 1px solid rgba(255, 255, 255, 0);
     border-radius: 5px;
-    height: 15%;
+    height: 12.75%;
     transition: .2s;
 }
 
@@ -809,7 +814,7 @@ ul.items li img:hover{
     cursor: pointer;
 }
 
-.artist, .songsTabs, .albumTabs{
+.artist, .songsTabs, .albumTabs, .playlistTabs{
     height: 82%;
     padding: 1% 1%;
     width: 95%;
@@ -832,7 +837,7 @@ ul.items li img:hover{
     align-items: center;
 }
 
-.songInfo, .albumInfo{
+.songInfo, .albumInfo, .playlistInfo{
     width: 70%;
     height: 90%;
     display: flex;
@@ -892,7 +897,7 @@ ul.items li img:hover{
     width: 50%;
 }
 
-.artistMusic, .songMusic, .albumMusic{
+.artistMusic, .songMusic, .albumMusic, .playlistMusic{
     width: 100%;
     height: 60%;
     display: flex;
@@ -927,14 +932,14 @@ ul.items li img:hover{
     cursor: pointer;
 }
 
-.artistMusic .columns, .songMusic .columns, .albumMusic .columns{
+.artistMusic .columns, .songMusic .columns, .albumMusic .columns, .playlistMusic .columns{
     display: flex;
     align-items: center;
     height: 5%;
     width: 100%;
 }
 
-.artistMusic .columns, .songMusic .columns, .albumMusic .columns{
+.artistMusic .columns, .songMusic .columns, .albumMusic .columns, .playlistMusic .columns{
     width: 100%;
     height: 10%;
     margin-bottom: .5%;
@@ -942,7 +947,7 @@ ul.items li img:hover{
     align-items: center;
 }
 
-.artistMusic .columns div, .songMusic .columns div, .albumMusic .columns div{
+.artistMusic .columns div, .songMusic .columns div, .albumMusic .columns div, .playlistMusic .columns div{
     height: 100%;
     font-size: 15px;
     font-weight: 300;
@@ -952,28 +957,28 @@ ul.items li img:hover{
     align-items: center;
 }
 
-.artistMusic .columns div:nth-child(1), .songMusic .columns div:nth-child(1), .albumMusic .columns div:nth-child(1){
+.artistMusic .columns div:nth-child(1), .songMusic .columns div:nth-child(1), .albumMusic .columns div:nth-child(1), .playlistMusic .columns div:nth-child(1){
     width: 5%;
 }
 
-.artistMusic .columns div:nth-child(2), .songMusic .columns div:nth-child(2), .albumMusic .columns div:nth-child(2){
+.artistMusic .columns div:nth-child(2), .songMusic .columns div:nth-child(2), .albumMusic .columns div:nth-child(2), .playlistMusic .columns div:nth-child(2){
     width: 5%;
     visibility: hidden;
 }
 
-.artistMusic .columns div:nth-child(3), .songMusic .columns div:nth-child(3), .albumMusic .columns div:nth-child(3){
+.artistMusic .columns div:nth-child(3), .songMusic .columns div:nth-child(3), .albumMusic .columns div:nth-child(3), .playlistMusic .columns div:nth-child(3){
     width: 45%;
 }
 
-.artistMusic .columns div:nth-child(4), .songMusic .columns div:nth-child(4), .albumMusic .columns div:nth-child(4){
+.artistMusic .columns div:nth-child(4), .songMusic .columns div:nth-child(4), .albumMusic .columns div:nth-child(4), .playlistMusic .columns div:nth-child(4){
     width: 20%;
 }
 
-.artistMusic .columns div:nth-child(5), .songMusic .columns div:nth-child(5), .albumMusic .columns div:nth-child(5){
+.artistMusic .columns div:nth-child(5), .songMusic .columns div:nth-child(5), .albumMusic .columns div:nth-child(5), .playlistMusic .columns div:nth-child(5){
     width: 10%;
 }
 
-.artistMusic .columns div:nth-child(6), .songMusic .columns div:nth-child(6), .albumMusic .columns div:nth-child(6){
+.artistMusic .columns div:nth-child(6), .songMusic .columns div:nth-child(6), .albumMusic .columns div:nth-child(6), .playlistMusic .columns div:nth-child(6){
     width: 15%;
     display: flex;
     justify-content: end;
@@ -1001,14 +1006,14 @@ ul.items li img:hover{
     margin-right: 1%;
 }
 
-.artistMusic .songs span:nth-child(1), .songMusic .songs span:nth-child(1), .albumMusic .songs span:nth-child(1){
+.artistMusic .songs span:nth-child(1), .songMusic .songs span:nth-child(1), .albumMusic .songs span:nth-child(1), .playlistMusic .songs span:nth-child(1){
     width: 5%;
     height: 100%;
     display: flex;
     align-items: center;
 }
 
-.artistMusic .songs span:nth-child(2), .songMusic .songs span:nth-child(2), .albumMusic .songs span:nth-child(2){
+.artistMusic .songs span:nth-child(2), .songMusic .songs span:nth-child(2), .albumMusic .songs span:nth-child(2), .playlistMusic .songs span:nth-child(2){
     width: 5%;
     height: 100%;
     display: flex;
@@ -1017,28 +1022,28 @@ ul.items li img:hover{
     align-items: center;
 }
 
-.artistMusic .songs span:nth-child(3), .songMusic .songs span:nth-child(3), .albumMusic .songs span:nth-child(3){
+.artistMusic .songs span:nth-child(3), .songMusic .songs span:nth-child(3), .albumMusic .songs span:nth-child(3), .playlistMusic .songs span:nth-child(3){
     width: 45%;
     height: 100%;
     display: flex;
     align-items: center;
 }
 
-.artistMusic .songs span:nth-child(4), .songMusic .songs span:nth-child(4), .albumMusic .songs span:nth-child(4){
+.artistMusic .songs span:nth-child(4), .songMusic .songs span:nth-child(4), .albumMusic .songs span:nth-child(4), .playlistMusic .songs span:nth-child(4){
     width: 20%;
     height: 100%;
     display: flex;
     align-items: center;
 }
 
-.artistMusic .songs span:nth-child(5), .songMusic .songs span:nth-child(5), .albumMusic .songs span:nth-child(5){
+.artistMusic .songs span:nth-child(5), .songMusic .songs span:nth-child(5), .albumMusic .songs span:nth-child(5), .playlistMusic .songs span:nth-child(5){
     width: 10%;
     height: 100%;
     display: flex;
     align-items: center;
 }
 
-.artistMusic .songs span:nth-child(6), .songMusic .songs span:nth-child(6), .albumMusic .songs span:nth-child(6){
+.artistMusic .songs span:nth-child(6), .songMusic .songs span:nth-child(6), .albumMusic .songs span:nth-child(6), .playlistMusic .songs span:nth-child(6){
     width: 15%;
     height: 100%;
     display: flex;
@@ -1068,10 +1073,7 @@ ul.items li img:hover{
 .songsTile, .albumTile{
     height: 40%;
     width: 100%;
-    background-image: url("https://images.hdqwalls.com/wallpapers/alan-walker-2019-zx.jpg");
-    background-position:  center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-color: #baa965;
     border-radius: 25px;
     display: flex;
     justify-content: space-between;
@@ -1080,7 +1082,7 @@ ul.items li img:hover{
     padding: 4% 4%;
 }
 
-.songsImage, .albumsImage{
+.songsImage, .albumsImage, .playlistImage{
     width: 30%;
     height: 100%;
     display: flex;
@@ -1097,7 +1099,7 @@ ul.items li img:hover{
     width: 70%;
 }
 
-.songMusic .columns, .albumMusic .columns{
+.songMusic .columns, .albumMusic .columns, .playlistMusic .columns{
     margin-top: 2%;
 }
 
@@ -1144,4 +1146,24 @@ ul.items li img:hover{
   border-radius: 10px;
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
   background-color: #d60000;
+}
+
+.playlistImage img{
+    border-radius: 50%;
+    width: 15em;
+    height: 15em;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.playlistTile{
+    height: 40%;
+    width: 100%;
+    border-radius: 25px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    background-color: grey;
+    padding: 4% 4%;
 }

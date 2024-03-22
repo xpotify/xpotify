@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="siteTitle">Faded - Alan Walker</title>
+    <title id="siteTitle">Faded • Alan Walker</title>
     <link rel="icon" href="/icons/x32.png">
     <link rel="stylesheet" href="/stylesheets/home.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -68,6 +69,10 @@
                                     <li>
                                         <img draggable="false" class="playlistImgs" src="https://i2o.scdn.co/image/ab67706c0000cfa33f4f6ea452cb4e5c420aa213" alt="">
                                         <span>Bruv</span>
+                                    </li>
+                                    <li>
+                                        <img draggable="false" class="playlistImgs" src="https://i.scdn.co/image/ab67616d00001e02aaeb5c9fb6131977995b7f0e" alt="">
+                                        <span>Minecraft</span>
                                     </li>
                                 </ul>
                             </div>
@@ -348,12 +353,88 @@
                     </div>
                 </div>
             </div>
+            <div class="playlistTabs hide" id="playlistTabs">
+                <div class="playlistTile">
+                    <div class="playlistInfo">
+                        <div class="songInfoSong">
+                            <h4>Playlist</h4>
+                        </div>
+                        <div class="artistName">
+                            <h1>Russians</h1>
+                        </div>
+                        <div class="songListeners">
+                            <h3>CyberRodeo</h3>
+                        </div>
+                    </div>
+                    <div class="playlistImage">
+                        <img draggable="false" src="https://i2o.scdn.co/image/ab67706c0000cfa35f7f8c786f76061b7c8b0b92" alt="">
+                    </div>
+                </div>
+                <div class="playlistMusic">
+                    <div class="columns">
+                        <div>#</div>
+                        <div>img</div>
+                        <div>Title</div>
+                        <div>Plays</div>
+                        <div>Time</div>
+                        <div>Album</div>
+                    </div>
+                    <div class="songs">
+                        <span class="songNum">1</span>
+                        <span class="songImage"><img src="https://i.scdn.co/image/ab67616d00004851bb632eaa5f899433d036b2a4" alt=""></span>
+                        <span class="songTitle">Колыбельная</span>
+                        <span class="songPlayed">38,022,298</span>
+                        <span class="songDuration">3:53</span>
+                        <span class="songAlbum" onclick="showAlbumTab()">Колыбельная</span>
+                    </div>
+                    <div class="songs">
+                        <span class="songNum">2</span>
+                        <span class="songImage"><img src="https://i.scdn.co/image/ab67616d000048511fa8a5726acefec54f7ff552" alt=""></span>
+                        <span class="songTitle">Can't Buy Me Loving / La La La</span>
+                        <span class="songPlayed">27,814,334</span>
+                        <span class="songDuration">3:25</span>
+                        <span class="songAlbum" onclick="showAlbumTab()">Can't Buy Me Loving / La La La</span>
+                    </div>
+                    <div class="songs">
+                        <span class="songNum">3</span>
+                        <span class="songImage"><img src="https://i.scdn.co/image/ab67616d000048517f804001a3e7f645956b23d6" alt=""></span>
+                        <span class="songTitle">Цунами</span>
+                        <span class="songPlayed">16,057,062</span>
+                        <span class="songDuration">2:42</span>
+                        <span class="songAlbum" onclick="showAlbumTab()">Цунами</span>
+                    </div>
+                    <div class="songs">
+                        <span class="songNum">4</span>
+                        <span class="songImage"><img src="https://i.scdn.co/image/ab67616d000048516631d6c1af6973fbd055bc58" alt=""></span>
+                        <span class="songTitle">Детство</span>
+                        <span class="songPlayed">179,247,669</span>
+                        <span class="songDuration">3:08</span>
+                        <span class="songAlbum" onclick="showAlbumTab()">Я люблю тебя</span>
+                    </div>
+                    <div class="songs">
+                        <span class="songNum">5</span>
+                        <span class="songImage"><img src="https://i.scdn.co/image/ab67616d00004851a12ccf8e451307370b24f159" alt=""></span>
+                        <span class="songTitle">My Love</span>
+                        <span class="songPlayed">35,340,941</span>
+                        <span class="songDuration">3:04</span>
+                        <span class="songAlbum" onclick="showAlbumTab()">My Love</span>
+                    </div>
+                    <div class="songs">
+                        <span class="songNum">6</span>
+                        <span class="songImage"><img src="https://i.scdn.co/image/ab67616d00004851ce97085f21cb7a60554b2ae3" alt=""></span>
+                        <span class="songTitle">so low</span>
+                        <span class="songPlayed">15,923,289</span>
+                        <span class="songDuration">2:40</span>
+                        <span class="songAlbum" onclick="showAlbumTab()">so low</span>
+                    </div>
+                </div>
+            </div>
             <div class="player">
                 <audio src="/songs/test.mp3" preload="metadata"></audio>
                 <div class="playerControls">
                     <div class="controls">
                         <div class="p1">
-                            <img draggable="false" src="/icons/list.png" alt="" class="icon">
+                            <img draggable="false" onclick="showPlaylistTab()" src="/icons/list.png" alt="" class="icon">
                             <img draggable="false" src="/icons/fullscreen.png" alt="" class="icon">
                             <img draggable="false" src="/icons/mic.png" alt="" class="icon" onclick="showLyricsTab()">
                         </div>
