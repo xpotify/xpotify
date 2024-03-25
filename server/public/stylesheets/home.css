@@ -814,13 +814,53 @@ ul.items li img:hover{
     cursor: pointer;
 }
 
-.artist, .songsTabs, .albumTabs, .playlistTabs{
+.artist, .songsTabs, .albumTabs{
     height: 82%;
     padding: 1% 1%;
     width: 95%;
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+
+.playlistTabs{
+    height: 82%;
+    padding: 1% 1%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.playlistTabs{
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.playListTab{
+    width: 95%;
+    height: 100%;
+}
+
+.playlistTabs::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+
+.playlistTabs::-webkit-scrollbar
+{
+  width: 7px;
+  background-color: #F5F5F5;
+  border-radius: 10px;
+}
+
+.playlistTabs::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  background-color: #d60000;
 }
 
 .artistTile{
@@ -899,9 +939,10 @@ ul.items li img:hover{
 
 .artistMusic, .songMusic, .albumMusic, .playlistMusic{
     width: 100%;
-    height: 60%;
+    height: auto;
     display: flex;
     flex-direction: column;
+    margin-bottom: 3%;
     /* justify-content: start;
     align-items: start; */
 }
