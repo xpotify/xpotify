@@ -12,6 +12,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="loader" id="webLoader">
+        <img src="/icons/preloader.svg" alt="">
+    </div>
     <div class="main">
         <div class="sidebar">
               <div class="sidebaritems">
@@ -114,10 +117,10 @@
                 <button class="genreBtn">Student</button>
                 <button class="genreBtn">Love</button>
             </div> -->
-            <div class="preloader" id="preloader">
+            <div class="preloader hide" id="preloader">
                 <img src="/icons/preloader.svg" alt="">
             </div>
-            <div class="tabs hide" id="tabs">
+            <div class="tabs" id="tabs">
                 <div class="tabsRow1">
                     <div class="tab">
                         <div class="tabTitle">
@@ -655,7 +658,7 @@
                 <div class="playerControls">
                     <div class="controls">
                         <div class="p1">
-                            <img draggable="false" onclick="showPlaylistTab()" src="/icons/list.png" alt="" class="icon">
+                            <img draggable="false" onclick="preloader(playlistTabs)" src="/icons/list.png" alt="" class="icon">
                             <img draggable="false" src="/icons/fullscreen.png" alt="" class="icon">
                             <img draggable="false" src="/icons/mic.png" alt="" class="icon" onclick="showLyricsTab()">
                         </div>
@@ -840,4 +843,5 @@
 <script src="/script/musicplayer.js"></script>
 <script src="/script/sections.js"></script>
 <script src="/script/lyrics.js"></script>
+<script src="/script/preloader.js"></script>
 </html>

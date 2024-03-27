@@ -1119,7 +1119,7 @@ ul.items li img:hover{
 }
 
 .hide{
-    display: none;
+    display: none !important;
 }
 
 .songsTile, .albumTile{
@@ -1237,4 +1237,19 @@ ul.items li img:hover{
 
 .preloader img{
     width: 5%;
+}
+
+.loader{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    z-index: 5;
+    background-color: #0e0f10;
+}
+
+.loader img{
+    width: 15%;
+    height: 15%;
 }
