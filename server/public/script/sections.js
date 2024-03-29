@@ -5,23 +5,23 @@ const albumTabs = document.getElementById("albumTabs");
 const lyricsTabs = document.getElementById("lyricsTab");
 const playlistTabs = document.getElementById("playlistTabs");
 
-const showArtistTab = () => {
-    tabs.classList.add("hide");
-    artistTab.classList.remove("hide");
-    songTabs.classList.add("hide");
-    albumTabs.classList.add("hide");
-    lyricsTabs.classList.add("hide");
-    playlistTabs.classList.add("hide");
-};
+// const showArtistTab = () => {
+//     tabs.classList.add("hide");
+//     artistTab.classList.remove("hide");
+//     songTabs.classList.add("hide");
+//     albumTabs.classList.add("hide");
+//     lyricsTabs.classList.add("hide");
+//     playlistTabs.classList.add("hide");
+// };
 
-const returnToHome = () => {
-    artistTab.classList.add("hide");
-    tabs.classList.remove("hide");
-    songTabs.classList.add("hide");
-    albumTabs.classList.add("hide");
-    lyricsTabs.classList.add("hide");
-    playlistTabs.classList.add("hide");
-};
+// const returnToHome = () => {
+//     artistTab.classList.add("hide");
+//     tabs.classList.remove("hide");
+//     songTabs.classList.add("hide");
+//     albumTabs.classList.add("hide");
+//     lyricsTabs.classList.add("hide");
+//     playlistTabs.classList.add("hide");
+// };
 
 const showSongTab = () => {
     artistTab.classList.add("hide");
@@ -48,13 +48,4 @@ const showLyricsTab = () => {
     albumTabs.classList.add("hide");
     lyricsTabs.classList.remove("hide");
     playlistTabs.classList.add("hide");
-};
-
-const showPlaylistTab = () => {
-    artistTab.classList.add("hide");
-    tabs.classList.add("hide");
-    songTabs.classList.add("hide");
-    albumTabs.classList.add("hide");
-    lyricsTabs.classList.add("hide");
-    playlistTabs.classList.remove("hide");
 };
