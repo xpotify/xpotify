@@ -24,12 +24,12 @@ const showList = () => {
 };
 
 const returnToHome = () => {
-    artistTab.classList.add("hide");
-    tabs.classList.remove("hide");
-    songTabs.classList.add("hide");
-    albumTabs.classList.add("hide");
-    lyricsTabs.classList.add("hide");
-    playlistTabs.classList.add("hide");
+        artistTab.classList.add("hide");
+        tabs.classList.remove("hide");
+        songTabs.classList.add("hide");
+        albumTabs.classList.add("hide");
+        lyricsTabs.classList.add("hide");
+        playlistTabs.classList.add("hide");
 };
 
 const showSongTab = () => {
