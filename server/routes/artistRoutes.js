@@ -8,13 +8,11 @@ const cli = new Client({
 
 const getArtist = async () => {
     const data = await cli.artists.search("alan walker");
-    return data
+    return data;
 };
 
-// const data = getTracksFromPlaylist("1JXmQxcfIdcKnU7gNw9tbP");
-
 router.get("/q/:id", async (req, res) => {
-    const query = await getArtist();
+    const query = await getArtist(req.params.id);
     // console.log(query);
     res.json(query);
 });
