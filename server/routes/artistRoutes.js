@@ -6,8 +6,8 @@ const cli = new Client({
     token: { clientID: process.env.cId, clientSecret: process.env.cSecret}
 });
 
-const getArtist = async () => {
-    const data = await cli.artists.search("alan walker");
+const getArtist = async (name) => {
+    const data = await cli.artists.search(name);
     return data;
 };
 
