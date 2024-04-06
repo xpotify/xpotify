@@ -19,7 +19,7 @@ app.use(express.static('public'));
 app.use(indexRoutes);
 app.use("/artist", artist);
 app.use("/playlist", playlist);
-// app.use("/song", song);
+app.use("/song", song);
 
 app.listen(PORT || process.env.PORT, process.env.IP, () => {
     console.log('xpotify server is up on PORT: ' + PORT);
