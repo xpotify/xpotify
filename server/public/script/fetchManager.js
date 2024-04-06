@@ -4,4 +4,5 @@ const getArtist = async (artistName) => {
     var artistTopTracks = await fetchArtistTopTracks(artistId);
 
     console.log(artist[0], artistTopTracks);
+    return artist[0], artistTopTracks;
 };

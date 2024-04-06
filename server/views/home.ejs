@@ -190,15 +190,15 @@
             <div class="artist hide" id="artistTabs">
                 <div class="artistTile">
                     <div class="artistInfo">
-                        <div class="artistVerification">
+                        <div class="artistVerification" id="artistVer">
                             <img src="/icons/verified.png" alt=""> 
                             <h4>Verified Artist</h4>
                         </div>
                         <div class="artistName">
-                            <h1>Alan Walker</h1>
+                            <h1 id="artistName"></h1>
                         </div>
                         <div class="artistListeners">
-                            <h3>32,404,234 total followers</h3>
+                            <h3 id="artistFollowers"></h3>
                         </div>
                     </div>
                     <div class="artistImage">
@@ -218,53 +218,55 @@
                         <div>Time</div>
                         <div>Album</div>
                     </div>
-                    <div class="songs">
-                        <span class="songNum">1</span>
-                        <span class="songImage"><img src="https://i.scdn.co/image/ab67616d00001e02a108e07c661f9fc54de9c43a" alt=""></span>
-                        <span class="songTitle">Faded</span>
-                        <span class="songPlayed">1,885,933,465</span>
-                        <span class="songDuration">3:32</span>
-                        <span class="songAlbum">Different World</span>
-                    </div>
-                    <div class="songs">
-                        <span class="songNum">2</span>
-                        <span class="songImage"><img src="https://i.scdn.co/image/ab67616d00001e02df9a35baaa98675256b35177" alt=""></span>
-                        <span class="songTitle">Alone, Pt.II</span>
-                        <span class="songPlayed">575,463,363</span>
-                        <span class="songDuration">2:59</span>
-                        <span class="songAlbum">World of Walker</span>
-                    </div>
-                    <div class="songs">
-                        <span class="songNum">3</span>
-                        <span class="songImage"><img src="https://i.scdn.co/image/ab67616d00001e024f2da18ec94ea56bcc36694b" alt=""></span>
-                        <span class="songTitle">Issues - Alan Walker Remix</span>
-                        <span class="songPlayed">1,190,404,102</span>
-                        <span class="songDuration">3:02</span>
-                        <span class="songAlbum">Remixes</span>
-                    </div>
-                    <div class="songs">
-                        <span class="songNum">4</span>
-                        <span class="songImage"><img src="https://i.scdn.co/image/ab67616d00001e029bcee2cb961a04d2e5a29f5c" alt=""></span>
-                        <span class="songTitle">Fire(feat, YUQI ((G)I-DLE), JVKE)</span>
-                        <span class="songPlayed">27,774,257</span>
-                        <span class="songDuration">2:03</span>
-                        <span class="songAlbum">Fire</span>
-                    </div>
-                    <div class="songs">
-                        <span class="songNum">5</span>
-                        <span class="songImage"><img src="https://i.scdn.co/image/ab67616d00001e02b06d7e7314700f82ba0bb640" alt=""></span>
-                        <span class="songTitle">Who i Am</span>
-                        <span class="songPlayed">23,509,404</span>
-                        <span class="songDuration">3:13</span>
-                        <span class="songAlbum">Who i Am</span>
-                    </div>
-                    <div class="songs">
-                        <span class="songNum">6</span>
-                        <span class="songImage"><img src="https://i.scdn.co/image/ab67616d00001e02df9a35baaa98675256b35177" alt=""></span>
-                        <span class="songTitle">On My Way</span>
-                        <span class="songPlayed">644,388,907</span>
-                        <span class="songDuration">3:13</span>
-                        <span class="songAlbum">World of Walker</span>
+                    <div id="songsCon">
+                        <div class="songs artistTopTracks">
+                            <span class="songNum">1</span>
+                            <span class="songImage"><img src="https://i.scdn.co/image/ab67616d00001e02a108e07c661f9fc54de9c43a" alt=""></span>
+                            <span class="songTitle">Faded</span>
+                            <span class="songPlayed">1,885,933,465</span>
+                            <span class="songDuration">3:32</span>
+                            <span class="songAlbum">Different World</span>
+                        </div>
+                        <div class="songs artistTopTracks">
+                            <span class="songNum">2</span>
+                            <span class="songImage"><img src="https://i.scdn.co/image/ab67616d00001e02df9a35baaa98675256b35177" alt=""></span>
+                            <span class="songTitle">Alone, Pt.II</span>
+                            <span class="songPlayed">575,463,363</span>
+                            <span class="songDuration">2:59</span>
+                            <span class="songAlbum">World of Walker</span>
+                        </div>
+                        <div class="songs artistTopTracks">
+                            <span class="songNum">3</span>
+                            <span class="songImage"><img src="https://i.scdn.co/image/ab67616d00001e024f2da18ec94ea56bcc36694b" alt=""></span>
+                            <span class="songTitle">Issues - Alan Walker Remix</span>
+                            <span class="songPlayed">1,190,404,102</span>
+                            <span class="songDuration">3:02</span>
+                            <span class="songAlbum">Remixes</span>
+                        </div>
+                        <div class="songs artistTopTracks">
+                            <span class="songNum">4</span>
+                            <span class="songImage"><img src="https://i.scdn.co/image/ab67616d00001e029bcee2cb961a04d2e5a29f5c" alt=""></span>
+                            <span class="songTitle">Fire(feat, YUQI ((G)I-DLE), JVKE)</span>
+                            <span class="songPlayed">27,774,257</span>
+                            <span class="songDuration">2:03</span>
+                            <span class="songAlbum">Fire</span>
+                        </div>
+                        <div class="songs artistTopTracks">
+                            <span class="songNum">5</span>
+                            <span class="songImage"><img src="https://i.scdn.co/image/ab67616d00001e02b06d7e7314700f82ba0bb640" alt=""></span>
+                            <span class="songTitle">Who i Am</span>
+                            <span class="songPlayed">23,509,404</span>
+                            <span class="songDuration">3:13</span>
+                            <span class="songAlbum">Who i Am</span>
+                        </div>
+                        <div class="songs artistTopTracks">
+                            <span class="songNum">6</span>
+                            <span class="songImage"><img src="https://i.scdn.co/image/ab67616d00001e02df9a35baaa98675256b35177" alt=""></span>
+                            <span class="songTitle">On My Way</span>
+                            <span class="songPlayed">644,388,907</span>
+                            <span class="songDuration">3:13</span>
+                            <span class="songAlbum">World of Walker</span>
+                        </div>
                     </div>
                 </div>
             </div>
