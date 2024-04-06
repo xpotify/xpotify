@@ -9,7 +9,8 @@ const fetchArtist = async (id) => {
         
     const data = await response.json();
 
-    console.log(data[0]);
+    // console.log(data[0]);
+    return data;
 };
 
 const fetchPlaylist = async (id) => {
@@ -36,4 +37,20 @@ const fetchTracks = async (id) => {
 
     const data = await response.json();
     console.log(data);
+};
+
+
+const fetchArtistTopTracks = async (id) => {
+    const response = await fetch(`http://localhost:6969/artist/toptracks/${id}`, {
+        method: "GET", 
+        mode: "cors",
+        headers: {
+            "Content-Type": "application/json"
+        }
+        });
+        
+    const data = await response.json();
+
+    // console.log(data);
+    return data;
 };
