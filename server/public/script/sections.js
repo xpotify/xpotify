@@ -25,6 +25,8 @@ const showArtistTab = async () => {
                 let artistVerification = document.getElementById("artistVer");
                 let artistFollowers = document.getElementById("artistFollowers");
                 let artistTracks = document.getElementsByClassName("artistTopTracks");
+                let artistTracksNum = document.getElementsByClassName("songNum");
+                let artistTracksImg = document.getElementsByClassName("artistTrackImg");
 
                 artistName.innerText = artist.name;
                 artistFollowers.innerText = `${artist.totalFollowers} total followers`;
@@ -35,12 +37,12 @@ const showArtistTab = async () => {
                         artistVerification.style.visibility = "hidden";
                 }
 
-                for(i=0; i <= artistTracks.length; i++){
-                        artistTracks[i].children[0].innerText = artistTopTracks[i].id;
-                        artistTracks[i].children[1].children[0].currentSrc = artistTopTracks[i].album.img[2].url;
+                for(i=0; i < artistTracks.length; i++){
+                        artistTracksNum[i].innerText = `${artistTopTracks[i].id}`;
+                        artistTracksImg[i].src = artistTopTracks[i].album.img[2].url;
                         artistTracks[i].children[2].innerText = artistTopTracks[i].name;
-                        // artistTopTracks[i].childer[3].
-                        // artistTopTracks[i].childer[4].
+                        // artistTracks[i].children[3]
+                        artistTracks[i].children[4].innerText = calculateTime((artistTopTracks[i].duration)/1000);
                         artistTracks[i].children[5].innerText = artistTopTracks[i].album.name;
                 }
 
