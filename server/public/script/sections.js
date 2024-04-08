@@ -12,8 +12,7 @@ const showArtistTab = async () => {
         albumTabs.classList.add("hide");
         lyricsTabs.classList.add("hide");
         playlistTabs.classList.add("hide");
-        Loader.classList.add("hide");
-        artistTab.classList.remove("hide");
+        Loader.classList.remove("hide");
         
         var artistQuery = document.getElementById("songArtist").innerText;
         var artist = await fetchArtist(artistQuery);
@@ -49,6 +48,9 @@ const showArtistTab = async () => {
         } else {
                 console.log("artist doesnt exist!");
         }
+
+        Loader.classList.add("hide");
+        artistTab.classList.remove("hide");
 };
 
 const showList = () => {
