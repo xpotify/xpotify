@@ -10,6 +10,7 @@ const showArtistTab = async () => {
         tabs.classList.add("hide");
         songTabs.classList.add("hide");
         albumTabs.classList.add("hide");
+        artistTab.classList.add("hide");
         lyricsTabs.classList.add("hide");
         playlistTabs.classList.add("hide");
         Loader.classList.remove("hide");
