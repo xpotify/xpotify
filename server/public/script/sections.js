@@ -79,6 +79,11 @@ const showSongTab = () => {
         albumTabs.classList.add("hide");
         lyricsTabs.classList.add("hide");
         playlistTabs.classList.add("hide");
+
+        const query = document.getElementById("player");
+        // const song = getTrack(query.dataset.songId);
+
+        console.log(query.dataset.songId);
 };
 
 const showAlbumTab = () => {
