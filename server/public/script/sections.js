@@ -72,18 +72,40 @@ const returnToHome = () => {
         playlistTabs.classList.add("hide");
 };
 
-const showSongTab = () => {
+const showSongTab = async () => {
         artistTab.classList.add("hide");
         tabs.classList.add("hide");
-        songTabs.classList.remove("hide");
+        songTabs.classList.add("hide");
         albumTabs.classList.add("hide");
         lyricsTabs.classList.add("hide");
         playlistTabs.classList.add("hide");
+        Loader.classList.remove("hide");
 
         const query = document.getElementById("player");
-        // const song = getTrack(query.dataset.songId);
+        const song = await getTrack("4KGq63QyNHWz44M5S6PWGo");
+        const songType = document.getElementById("songType");
+        const songName = document.getElementById("songName");
+        const songArtist = document.getElementById("songArtist");
+        const songAlbumImage = document.getElementById("songAlbumImage");
+        const songImage = document.getElementsByClassName("songImage");
+        const songTitle = document.getElementsByClassName("songTitle");
+        const songDuration = document.getElementsByClassName("songDuration");
+        const songAlbum = document.getElementsByClassName("songAlbum");
 
-        console.log(query.dataset.songId);
+        songType.innerText = song.type;
+        songName.innerText = song.name;
+        songArtist.innerText = song.artists[0].name;
+        songAlbumImage.src = song.album.images[1].url;
+        songImage.src = song.album.images[2].url;
+        songTitle.innerText = song.name;
+        songDuration.innerText = calculateTime((song.duration)/1000)
+        songAlbum.innerText = song.album.name;
+        // songAlbum.dataset.albumid = song.album.id;
+
+        Loader.classList.add("hide");
+        songTabs.classList.remove("hide");
+        // console.log(song);
+
 };
 
 const showAlbumTab = () => {
