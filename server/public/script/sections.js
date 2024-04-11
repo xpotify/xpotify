@@ -82,17 +82,19 @@ const showSongTab = async () => {
         Loader.classList.remove("hide");
 
         const query = document.getElementById("player");
-        const song = await getTrack("4KGq63QyNHWz44M5S6PWGo");
+        const song = await getTrack(query.dataset.songid);
         const songType = document.getElementById("songType");
         const songName = document.getElementById("songName");
-        const songArtist = document.getElementById("songArtist");
+        const songArtist = document.getElementById("songArtistName");
         const songAlbumImage = document.getElementById("songAlbumImage");
-        const songImage = document.getElementsByClassName("songImage");
-        const songTitle = document.getElementsByClassName("songTitle");
-        const songDuration = document.getElementsByClassName("songDuration");
-        const songAlbum = document.getElementsByClassName("songAlbum");
+        const songImage = document.getElementById("songSongImage");
+        const songTitle = document.getElementById("songSongTitle");
+        const songDuration = document.getElementById("songSongDuration");
+        const songAlbum = document.getElementById("songSongAlbum");
 
-        songType.innerText = song.type;
+        if(song.type == "track"){
+                songType.innerText = "Song"
+        };
         songName.innerText = song.name;
         songArtist.innerText = song.artists[0].name;
         songAlbumImage.src = song.album.images[1].url;
@@ -100,7 +102,7 @@ const showSongTab = async () => {
         songTitle.innerText = song.name;
         songDuration.innerText = calculateTime((song.duration)/1000)
         songAlbum.innerText = song.album.name;
-        // songAlbum.dataset.albumid = song.album.id;
+        songAlbum.dataset.albumid = song.album.id;
 
         Loader.classList.add("hide");
         songTabs.classList.remove("hide");
