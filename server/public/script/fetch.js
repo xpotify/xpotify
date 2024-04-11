@@ -64,6 +64,6 @@ const getTrack = async (id) => {
         }
     });
 
-    const data = response.json();
+    const data = await response.json();
     return data;
 };
