@@ -7,19 +7,21 @@ const express = require('express'),
 //     token: { clientID: process.env.cId, clientSecret: process.env.cSecret}
 // });
 
-const artist = require("./routes/artistRoutes");
-const song = require("./routes/songRoutes");
-const playlist = require("./routes/playlistRoutes");
+const artistRoutes = require("./routes/artistRoutes");
+const songRoutes = require("./routes/songRoutes");
+const playlistRoutes = require("./routes/playlistRoutes");
 const indexRoutes = require("./routes/indexRoutes");
+const albumRoutes = require("./routes/albumRoutes");
 require('dotenv').config();
 
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(express.static('public'));
 app.use(indexRoutes);
-app.use("/artist", artist);
-app.use("/playlist", playlist);
-app.use("/song", song);
+app.use("/artist", artistRoutes);
+app.use("/playlist", playlistRoutes);
+app.use("/song", songRoutes);
+app.use("/album", albumRoutes);
 
 app.listen(PORT || process.env.PORT, process.env.IP, () => {
     console.log('xpotify server is up on PORT: ' + PORT);
