@@ -55,12 +55,25 @@ const fetchArtistTopTracks = async (id) => {
     return data;
 };
 
-const getTrack = async (id) => {
+const fetchTrack = async (id) => {
     const response = await fetch(`http://localhost:6969/song/gettrack/${id}`, {
         method: "GET",
         mode: "cors",
         headers: {
             "Content-Type": "application/json"
+        }
+    });
+
+    const data = await response.json();
+    return data;
+};
+
+const fetchAlbum = async (id) => {
+    const response = await fetch(`http://localhost:6969/album/get/${id}`, {
+        method : "GET",
+        mode : "cors",
+        headers : {
+            "Content-Type" : "application/json"
         }
     });
 
