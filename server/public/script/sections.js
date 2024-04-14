@@ -82,7 +82,7 @@ const showSongTab = async () => {
         Loader.classList.remove("hide");
 
         const query = document.getElementById("player");
-        const song = await getTrack(query.dataset.songid);
+        const song = await fetchTrack(query.dataset.songid);
         const songType = document.getElementById("songType");
         const songName = document.getElementById("songName");
         const songArtist = document.getElementById("songArtistName");
