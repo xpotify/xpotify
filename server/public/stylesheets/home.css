@@ -1024,6 +1024,10 @@ ul.items li img:hover{
     width: 13%;
 }
 
+.playlistMusic .columns div:nth-child(4){
+    width: 43% !important;
+}
+
 .artistMusic .columns div:nth-child(5), .songMusic .columns div:nth-child(5), .albumMusic .columns div:nth-child(5), .playlistMusic .columns div:nth-child(5){
     width: 4%;
 }
@@ -1082,18 +1086,23 @@ ul.items li img:hover{
     align-items: center;
 }
 
+.playlistMusic .songs span:nth-child(3){
+    width: 45% !important;
+}
+
 .artistMusic .songs span:nth-child(4), .songMusic .songs span:nth-child(4), .albumMusic .songs span:nth-child(4), .playlistMusic .songs span:nth-child(4){
-    width: 13%;
+    width: 27%;
     height: 100%;
     display: flex;
     align-items: center;
 }
 
 .artistMusic .songs span:nth-child(5), .songMusic .songs span:nth-child(5), .albumMusic .songs span:nth-child(5), .playlistMusic .songs span:nth-child(5){
-    width: 4%;
+    width: 20%;
     height: 100%;
     display: flex;
     align-items: center;
+    justify-content: end;
 }
 
 .artistMusic .songs span:nth-child(6), .songMusic .songs span:nth-child(6), .albumMusic .songs span:nth-child(6), .playlistMusic .songs span:nth-child(6){
