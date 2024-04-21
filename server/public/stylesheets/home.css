@@ -1020,8 +1020,16 @@ ul.items li img:hover{
     width: 45%;
 }
 
+.songMusic .columns div:nth-child(3){
+    width: 35% !important;
+}
+
 .artistMusic .columns div:nth-child(4), .songMusic .columns div:nth-child(4), .albumMusic .columns div:nth-child(4), .playlistMusic .columns div:nth-child(4){
     width: 13%;
+}
+
+.songMusic .columns div:nth-child(4){
+    width: 27% !important;
 }
 
 .playlistMusic .columns div:nth-child(4){
@@ -1032,11 +1040,19 @@ ul.items li img:hover{
     width: 4%;
 }
 
+.songMusic .columns div:nth-child(5){
+    width: 16%;
+}
+
 .artistMusic .columns div:nth-child(6), .songMusic .columns div:nth-child(6), .albumMusic .columns div:nth-child(6), .playlistMusic .columns div:nth-child(6){
     width: 30%;
     display: flex;
     justify-content: end;
     margin-right: 0 !important;
+}
+
+.songMusic .columns div:nth-child(6){
+    width: 14% !important;
 }
 
 .songs{
@@ -1086,6 +1102,10 @@ ul.items li img:hover{
     align-items: center;
 }
 
+.songMusic .songs span:nth-child(3){
+    width: 35% !important;
+}
+
 .playlistMusic .songs span:nth-child(3){
     width: 45% !important;
 }
@@ -1097,12 +1117,20 @@ ul.items li img:hover{
     align-items: center;
 }
 
+.songMusic .songs span:nth-child(4){
+    width: 25% !important;
+}
+
 .artistMusic .songs span:nth-child(5), .songMusic .songs span:nth-child(5), .albumMusic .songs span:nth-child(5), .playlistMusic .songs span:nth-child(5){
     width: 20%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: end;
+}
+
+.songMusic .songs span:nth-child(5){
+    width: 5% !important;
 }
 
 .artistMusic .songs span:nth-child(6), .songMusic .songs span:nth-child(6), .albumMusic .songs span:nth-child(6), .playlistMusic .songs span:nth-child(6){
@@ -1113,6 +1141,10 @@ ul.items li img:hover{
     margin-right: 0 !important;
     display: flex;
     justify-content: end;
+}
+
+.songMusic .songs span:nth-child(6){
+    width: 27% !important;
 }
 
 .songPlayed, .songTitle, .songDuration, .songAlbum, .songNum{
