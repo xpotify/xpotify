@@ -1024,6 +1024,10 @@ ul.items li img:hover{
     width: 35% !important;
 }
 
+.artistMusic .columns div:nth-child(3){
+    width: 42% !important;
+}
+
 .artistMusic .columns div:nth-child(4), .songMusic .columns div:nth-child(4), .albumMusic .columns div:nth-child(4), .playlistMusic .columns div:nth-child(4){
     width: 13%;
 }
@@ -1032,8 +1036,16 @@ ul.items li img:hover{
     width: 27% !important;
 }
 
+.artistMusic .columns div:nth-child(4){
+    width: 26% !important;
+}
+
 .playlistMusic .columns div:nth-child(4){
     width: 43% !important;
+}
+
+.artistMusic .columns div:nth-child(4){
+    width: 14% !important;
 }
 
 .artistMusic .columns div:nth-child(5), .songMusic .columns div:nth-child(5), .albumMusic .columns div:nth-child(5), .playlistMusic .columns div:nth-child(5){
@@ -1044,6 +1056,10 @@ ul.items li img:hover{
     width: 16%;
 }
 
+.artistMusic .columns div:nth-child(5){
+    width: 14% !important;
+}
+
 .artistMusic .columns div:nth-child(6), .songMusic .columns div:nth-child(6), .albumMusic .columns div:nth-child(6), .playlistMusic .columns div:nth-child(6){
     width: 30%;
     display: flex;
@@ -1051,7 +1067,7 @@ ul.items li img:hover{
     margin-right: 0 !important;
 }
 
-.songMusic .columns div:nth-child(6){
+.songMusic .columns div:nth-child(6), .artistMusic .columns div:nth-child(6){
     width: 14% !important;
 }
 
@@ -1106,7 +1122,7 @@ ul.items li img:hover{
     width: 35% !important;
 }
 
-.playlistMusic .songs span:nth-child(3){
+.playlistMusic .songs span:nth-child(3), .artistMusic .songs span:nth-child(3){
     width: 45% !important;
 }
 
@@ -1117,7 +1133,7 @@ ul.items li img:hover{
     align-items: center;
 }
 
-.songMusic .songs span:nth-child(4){
+.songMusic .songs span:nth-child(4), .artistMusic .songs span:nth-child(4){
     width: 25% !important;
 }
 
@@ -1129,7 +1145,7 @@ ul.items li img:hover{
     justify-content: end;
 }
 
-.songMusic .songs span:nth-child(5){
+.songMusic .songs span:nth-child(5), .artistMusic .songs span:nth-child(5){
     width: 5% !important;
 }
 
@@ -1143,7 +1159,7 @@ ul.items li img:hover{
     justify-content: end;
 }
 
-.songMusic .songs span:nth-child(6){
+.songMusic .songs span:nth-child(6), .artistMusic .songs span:nth-child(6){
     width: 27% !important;
 }
 
