@@ -42,8 +42,8 @@ const showArtistTab = async () => {
                         artistTracksImg[i].src = artistTopTracks[i].album.img[2].url;
                         artistTracks[i].children[2].innerText = artistTopTracks[i].name;
                         // artistTracks[i].children[3]
-                        artistTracks[i].children[4].innerText = calculateTime((artistTopTracks[i].duration)/1000);
-                        artistTracks[i].children[5].innerText = artistTopTracks[i].album.name;
+                        artistTracks[i].children[3].innerText = calculateTime((artistTopTracks[i].duration)/1000);
+                        artistTracks[i].children[4].innerText = artistTopTracks[i].album.name;
                 }
 
         } else {
