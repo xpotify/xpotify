@@ -110,13 +110,35 @@ const showSongTab = async () => {
 
 };
 
-const showAlbumTab = () => {
+const showAlbumTab = async () => {
         artistTab.classList.add("hide");
         tabs.classList.add("hide");
         songTabs.classList.add("hide");
         albumTabs.classList.remove("hide");
         lyricsTabs.classList.add("hide");
         playlistTabs.classList.add("hide");
+
+        const albumName = document.getElementById("albumName");
+        const albumArtist = document.getElementById("albumArtist");
+        const albumType = document.getElementById("albumType");
+        const albumImage = document.getElementById("albumImage");
+        const query = document.getElementById("player");
+        
+        const Album = await fetchAlbum(query.dataset.albumid);
+
+        albumName.innerText = Album.metadata[0].albumName;
+        
+        albumArtist.innerText = Album.metadata[0].artist[0].name;
+
+        if(Album.metadata[0].albumType == "single"){
+                albumType.innerText = "Single";
+        } else {
+                albumType.innerText = "Album";
+        }
+
+        albumImage.src = Album.metadata[0].images[0].url;
+        
+        
 };
 
 const showLyricsTab = () => {
