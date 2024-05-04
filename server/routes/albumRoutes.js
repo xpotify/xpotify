@@ -11,6 +11,11 @@ const getAlbum = async (id) => {
     return data;
 };
 
+const getAlbumTracks = async (id) => {
+    const data = await cli.albums.getTracks(id);
+    return data;
+};
+
 router.get("/get/:id", async (req, res) => {
     const response = await getAlbum(req.params.id);
 
@@ -46,6 +51,29 @@ router.get("/get/:id", async (req, res) => {
         
         data.tracks.push(track);
     };
+
+    res.json(data);
+});
+
+router.get("/getTracks/:id", async (req, res) => {
+    const response = await getAlbumTracks(req.params.id);
+
+    const data = [];
+
+    for(i=0,x=0; i < response.length; i++,x++){
+        let tracks = {
+            "artists" : response[i].artists,
+            "discNumber" : response[i].discNumber,
+            "duration" : response[i].duration,
+            "explicit" : response[i].explicit,
+            "externalSpotifyUrl" : response[i].externalURL.spotify,
+            "id" : response[i].id,
+            "name" : response[i].name,
+            "type" : response[i].type,
+        }
+
+        data.push(tracks);
+    }
 
     res.json(data);
 });
