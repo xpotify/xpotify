@@ -8,7 +8,7 @@ const express = require('express'),
 // });
 
 const artistRoutes = require("./routes/artistRoutes");
-const songRoutes = require("./routes/songRoutes");
+const songRoutes = require("./routes/trackRoutes");
 const playlistRoutes = require("./routes/playlistRoutes");
 const indexRoutes = require("./routes/indexRoutes");
 const albumRoutes = require("./routes/albumRoutes");
