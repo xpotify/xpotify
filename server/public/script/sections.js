@@ -114,9 +114,10 @@ const showAlbumTab = async () => {
         artistTab.classList.add("hide");
         tabs.classList.add("hide");
         songTabs.classList.add("hide");
-        albumTabs.classList.remove("hide");
+        albumTabs.classList.add("hide");
         lyricsTabs.classList.add("hide");
         playlistTabs.classList.add("hide");
+        Loader.classList.remove("hide");
 
         const albumName = document.getElementById("albumName");
         const albumArtist = document.getElementById("albumArtist");
@@ -125,6 +126,7 @@ const showAlbumTab = async () => {
         const query = document.getElementById("player");
         
         const Album = await fetchAlbum(query.dataset.albumid);
+        const AlbumTracks = await fetchAlbumTracks(query.dataset.albumid);
 
         albumName.innerText = Album.metadata[0].albumName;
         
@@ -138,7 +140,8 @@ const showAlbumTab = async () => {
 
         albumImage.src = Album.metadata[0].images[0].url;
         
-        
+        Loader.classList.add("hide");
+        albumTabs.classList.remove("hide");
 };
 
 const showLyricsTab = () => {
