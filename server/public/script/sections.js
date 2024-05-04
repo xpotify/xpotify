@@ -128,17 +128,27 @@ const showAlbumTab = async () => {
         const Album = await fetchAlbum(query.dataset.albumid);
         const AlbumTracks = await fetchAlbumTracks(query.dataset.albumid);
 
-        albumName.innerText = Album.metadata[0].albumName;
+        if(Album){
+                albumName.innerText = Album.metadata[0].albumName;
         
-        albumArtist.innerText = Album.metadata[0].artist[0].name;
+                albumArtist.innerText = Album.metadata[0].artist[0].name;
 
-        if(Album.metadata[0].albumType == "single"){
-                albumType.innerText = "Single";
+                if(Album.metadata[0].albumType == "single"){
+                        albumType.innerText = "Single";
+                } else {
+                        albumType.innerText = "Album";
+                }
+
+                albumImage.src = Album.metadata[0].images[0].url;
         } else {
-                albumType.innerText = "Album";
+
         }
 
-        albumImage.src = Album.metadata[0].images[0].url;
+        if(AlbumTracks){
+                
+        } else {
+
+        }
         
         Loader.classList.add("hide");
         albumTabs.classList.remove("hide");
