@@ -80,3 +80,16 @@ const fetchAlbum = async (id) => {
     const data = await response.json();
     return data;
 };
+
+const fetchAlbumTracks = async (id) => {
+    const response = await fetch(`http://localhost:6969/album/gettracks/${id}`, {
+        method: "GET",
+        mode: "cors",
+        headers: {
+            "Content-Type" : "application/json"
+        }
+    });
+
+    const data = await response.json();
+    return data;
+};
