@@ -29,7 +29,7 @@ const showArtistTab = async () => {
                 let artistTracksImg = document.getElementsByClassName("artistTrackImg");
 
                 artistName.innerText = artist.name;
-                artistFollowers.innerText = `${artist.totalFollowers} total followers`;
+                artistFollowers.innerText = `${artist.totalFollowers.toLocaleString()} total followers`;
 
                 if(artist.popularity > 50){
                         artistVerification.style.visibility = "visible";
@@ -45,7 +45,6 @@ const showArtistTab = async () => {
                         artistTracks[i].children[3].innerText = calculateTime((artistTopTracks[i].duration)/1000);
                         artistTracks[i].children[4].innerText = artistTopTracks[i].album.name;
                 }
-
         } else {
                 console.log("artist doesnt exist!");
         }
