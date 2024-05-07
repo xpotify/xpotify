@@ -124,6 +124,7 @@ const showAlbumTab = async () => {
         const albumType = document.getElementById("albumType");
         const albumImage = document.getElementById("albumImage");
         const query = document.getElementById("player");
+        const albumMusicDiv = document.getElementById("albumMusic");
         
         const Album = await fetchAlbum(query.dataset.albumid);
         const AlbumTracks = await fetchAlbumTracks(query.dataset.albumid);
@@ -141,13 +142,22 @@ const showAlbumTab = async () => {
 
                 albumImage.src = Album.metadata[0].images[0].url;
         } else {
-
+                // do nothing for now
         }
 
         if(AlbumTracks){
-                
+                for(i=0; i < AlbumTracks.length; i++){
+                        albumMusicDiv.innerHTML += `
+                                <div class="songs">
+                                <span class="songNum">${Album.tracks[i].trackId}</span>
+                                <span class="songImage"><img src="${Album.metadata[0].images[2].url}" alt=""></span>
+                                <span class="songTitle">${Album.tracks[i].trackName}</span>
+                                <span class="songDuration">${calculateTime((Album.tracks[i].trackDuration)/1000)}</span>
+                                </div>
+                        `;
+                };    
         } else {
-
+                // do nothing for now
         }
         
         Loader.classList.add("hide");
