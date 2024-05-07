@@ -758,13 +758,13 @@ ul.items li img:hover{
 
 #volSeeker {
   margin-right: 5%;
-  accent-color: red;
+  accent-color: white;
   width: 70%;
   height: 6px;
 }
 
 #audSeeker{
-    accent-color: #e20000;
+    accent-color: white;
     width: 75%;
     outline: none;
     height: 6px;
@@ -814,13 +814,50 @@ ul.items li img:hover{
     cursor: pointer;
 }
 
-.artist, .songsTabs, .albumTabs{
+.artist, .songsTabs{
     height: 82%;
     padding: 1% 1%;
     width: 95%;
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+
+.albumTabs{
+    height: 82%;
+    padding: 1% 1%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.albumTab{
+    width: 95%;
+    height: 100%;
+}
+
+.albumTabs::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  background-color: #f5f5f500;
+}
+
+.albumTabs::-webkit-scrollbar
+{
+  width: 7px;
+  background-color: #f5f5f500;
+  border-radius: 10px;
+}
+
+.albumTabs::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  background-color: rgb(139, 139, 139);
 }
 
 .playlistTabs{
@@ -854,13 +891,13 @@ ul.items li img:hover{
 {
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
   border-radius: 10px;
-  background-color: #F5F5F5;
+  background-color: #f5f5f500;
 }
 
 .playlistTabs::-webkit-scrollbar
 {
   width: 7px;
-  background-color: #F5F5F5;
+  background-color: #f5f5f500;
   border-radius: 10px;
 }
 
@@ -868,7 +905,7 @@ ul.items li img:hover{
 {
   border-radius: 10px;
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-  background-color: #d60000;
+  background-color: rgb(139, 139, 139);
 }
 
 .artistTile{
@@ -1030,7 +1067,7 @@ ul.items li img:hover{
 }
 
 .albumMusic .columns div:nth-child(3){
-    width: 41%;
+    width: 79%;
 }
 
 .songMusic .columns div:nth-child(3){
@@ -1041,7 +1078,12 @@ ul.items li img:hover{
     width: 42% !important;
 }
 
-.artistMusic .columns div:nth-child(4), .songMusic .columns div:nth-child(4), .albumMusic .columns div:nth-child(4), .playlistMusic .columns div:nth-child(4){
+.artistMusic .columns div:nth-child(4), .songMusic .columns div:nth-child(4), .playlistMusic .columns div:nth-child(4){
+    width: 13%;
+}
+
+.albumMusic .columns div:nth-child(4){
+    justify-content: end;
     width: 13%;
 }
 
@@ -1144,7 +1186,7 @@ ul.items li img:hover{
 }
 
 .albumMusic .songs span:nth-child(3){
-    width: 41%;
+    width: 70%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -1175,6 +1217,7 @@ ul.items li img:hover{
     height: 100%;
     display: flex;
     align-items: center;
+    justify-content: end;
 }
 
 .artistMusic .songs span:nth-child(4){
@@ -1295,7 +1338,7 @@ ul.items li img:hover{
 .lyrics{
     width: 100%;
     height: 100%;
-    font-size: 28px;
+    font-size: 23px;
     overflow: scroll;
     display: flex;
     overflow-x: hidden;
@@ -1311,13 +1354,13 @@ ul.items li img:hover{
 {
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
   border-radius: 10px;
-  background-color: #F5F5F5;
+  background-color: #f5f5f500;
 }
 
 .lyrics::-webkit-scrollbar
 {
   width: 7px;
-  background-color: #F5F5F5;
+  background-color: #f5f5f500;
   border-radius: 10px;
 }
 
@@ -1325,7 +1368,7 @@ ul.items li img:hover{
 {
   border-radius: 10px;
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-  background-color: #d60000;
+  background-color: rgb(139, 139, 139);
 }
 
 .playlistImage img{
