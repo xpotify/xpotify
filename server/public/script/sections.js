@@ -63,6 +63,14 @@ const showList = () => {
         playlistTabs.classList.remove("hide");    
 };
 
+const toggleFullscreen = () => {
+        if(document.fullscreen == false){
+                document.documentElement.requestFullscreen();
+        } else {
+                document.exitFullscreen();
+        }
+};
+
 const returnToHome = () => {
         artistTab.classList.add("hide");
         tabs.classList.remove("hide");
