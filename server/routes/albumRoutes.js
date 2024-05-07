@@ -37,7 +37,7 @@ router.get("/get/:id", async (req, res) => {
         ]  
     };
 
-    for(i=0, x=0; i < response.tracks.length; i++, x++){
+    for(i=0, x=1; i < response.tracks.length; i++, x++){
         var track = {
             "trackId" : x,
             "artists" : response.tracks[i].artists,
@@ -60,7 +60,7 @@ router.get("/getTracks/:id", async (req, res) => {
 
     const data = [];
 
-    for(i=0,x=0; i < response.length; i++,x++){
+    for(i=0; i < response.length; i++){
         let tracks = {
             "artists" : response[i].artists,
             "discNumber" : response[i].discNumber,
