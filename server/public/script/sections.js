@@ -53,13 +53,25 @@ const showArtistTab = async () => {
         Loader.classList.add("hide");
 };
 
-const showList = () => {
+const showPlaylist = async () => {
         tabs.classList.add("hide");
         artistTab.classList.add("hide");
         songTabs.classList.add("hide");
         albumTabs.classList.add("hide");
         lyricsTabs.classList.add("hide");
-        playlistTabs.classList.remove("hide");    
+        Loader.classList.remove("hide");  
+        
+        const playlistName = document.getElementById("playlistName");
+        const playlistOwner = document.getElementById("playlistOwner");
+        const playlistImage = document.getElementById("playlistImage");
+        
+        // const playlistMetadata = await fetchPlaylist("1JXmQxcfIdcKnU7gNw9tbP");
+        // const playlistTracks = await fetchPlaylistTracks("1JXmQxcfIdcKnU7gNw9tbP");
+
+        console.log(this.dataset.playlistid);
+
+        playlistTabs.classList.remove("hide");
+        Loader.classList.add("hide");
 };
 
 const toggleFullscreen = () => {

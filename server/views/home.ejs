@@ -49,7 +49,7 @@
                             </div>
                             <div class="listedItems2">
                                 <ul class="items">
-                                    <li id="lewis" data-playlistId="5o6QR9AF8o9l4GwAbGbIUk">
+                                    <li id="lewis" onclick="showPlaylist()" data-playlistId="5o6QR9AF8o9l4GwAbGbIUk">
                                         <img draggable="false" class="playlistImgs" src="https://i2o.scdn.co/image/ab67706c0000cfa38c1d9d1eae3a41255542bef0" alt="">
                                         <span>Lewis</span>
                                     </li>
@@ -391,14 +391,14 @@
                                 <h4>Playlist</h4>
                             </div>
                             <div class="artistName">
-                                <h1>Russians</h1>
+                                <h1 id="playlistName">Russians</h1>
                             </div>
                             <div class="songListeners">
-                                <h3>CyberRodeo</h3>
+                                <h3 id="playlistOwner">CyberRodeo</h3>
                             </div>
                         </div>
                         <div class="playlistImage">
-                            <img draggable="false" id="preloaderMetricIMG" src="https://i2o.scdn.co/image/ab67706c0000cfa35f7f8c786f76061b7c8b0b92" alt="">
+                            <img id="playlistImage" draggable="false" id="preloaderMetricIMG" src="https://i2o.scdn.co/image/ab67706c0000cfa35f7f8c786f76061b7c8b0b92" alt="">
                         </div>
                     </div>
                     <div class="playlistMusic">
@@ -648,7 +648,7 @@
                 <div class="playerControls">
                     <div class="controls">
                         <div class="p1">
-                            <img draggable="false" onclick="showList()" src="/icons/list.png" alt="" class="icon">
+                            <img draggable="false" src="/icons/list.png" alt="" class="icon">
                             <img draggable="false" onclick="toggleFullscreen()" src="/icons/fullscreen.png" alt="" class="icon">
                             <img draggable="false" src="/icons/mic.png" alt="" class="icon" onclick="showLyricsTab()">
                         </div>
