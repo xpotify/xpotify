@@ -1436,8 +1436,12 @@ ul.items li img:hover{
     height: 100%;
 }
 
-.songMusic .columns, .albumMusic .columns{
-    margin-bottom: 4% !important;
+.songMusic .columns{
+    margin-bottom: 3% !important;
+}
+
+.albumMusic .columns{
+    margin-bottom: 2% !important;
 }
 
 #albumArtist:hover{
