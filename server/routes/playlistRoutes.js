@@ -50,7 +50,7 @@ router.get("/q/tracks/:id", async (req, res) => {
     tracks.push(gotTrack);
 };
     // console.log(query);
-    res.json(tracks);
+    res.json(response);
 });
 
 module.exports = router;
