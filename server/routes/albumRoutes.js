@@ -54,28 +54,4 @@ router.get("/get/:id", async (req, res) => {
 
     res.json(data);
 });
-
-router.get("/getTracks/:id", async (req, res) => {
-    const response = await getAlbumTracks(req.params.id);
-
-    const data = [];
-
-    for(i=0; i < response.length; i++){
-        let tracks = {
-            "artists" : response[i].artists,
-            "discNumber" : response[i].discNumber,
-            "duration" : response[i].duration,
-            "explicit" : response[i].explicit,
-            "externalSpotifyUrl" : response[i].externalURL.spotify,
-            "id" : response[i].id,
-            "name" : response[i].name,
-            "type" : response[i].type,
-        }
-
-        data.push(tracks);
-    }
-
-    res.json(data);
-});
-
 module.exports = router;
