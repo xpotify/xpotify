@@ -49,8 +49,8 @@ const showArtistTab = async () => {
                 console.log("artist doesnt exist!");
         }
 
-        Loader.classList.add("hide");
         artistTab.classList.remove("hide");
+        Loader.classList.add("hide");
 };
 
 const showList = () => {
