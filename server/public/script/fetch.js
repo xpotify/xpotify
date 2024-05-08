@@ -23,7 +23,7 @@ const fetchPlaylist = async (id) => {
     });
 
     const data = await response.json();
-    console.log(data);
+    return data
 };
 
 const fetchPlaylistTracks = async (id) => {
@@ -36,7 +36,7 @@ const fetchPlaylistTracks = async (id) => {
     });
 
     const data = await response.json();
-    console.log(data);
+    return data;
 };
 
 
