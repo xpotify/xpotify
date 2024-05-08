@@ -134,7 +134,7 @@ const showAlbumTab = async () => {
         const albumMusicDiv = document.getElementById("albumMusic");
         
         const Album = await fetchAlbum(query.dataset.albumid);
-        const AlbumTracks = await fetchAlbumTracks(query.dataset.albumid);
+        // const AlbumTracks = await fetchAlbumTracks(query.dataset.albumid);
 
         if(Album){
                 albumName.innerText = Album.metadata[0].albumName;
@@ -152,17 +152,23 @@ const showAlbumTab = async () => {
                 // do nothing for now
         }
 
-        if(AlbumTracks){
-                for(i=0; i < AlbumTracks.length; i++){
-                        albumMusicDiv.innerHTML += `
-                                <div class="songs">
-                                <span class="songNum">${Album.tracks[i].trackId}</span>
-                                <span class="songImage"><img src="${Album.metadata[0].images[2].url}" alt=""></span>
-                                <span class="songTitle">${Album.tracks[i].trackName}</span>
-                                <span class="songDuration">${calculateTime((Album.tracks[i].trackDuration)/1000)}</span>
-                                </div>
-                        `;
-                };    
+        var albumSong = document.getElementsByClassName("albumSong");
+
+        if(Album.tracks){
+                if(albumSong.length == 0){
+                        for(i=0; i < Album.tracks.length; i++){
+                                albumMusicDiv.innerHTML += `
+                                        <div class="songs albumSong">
+                                        <span class="songNum">${Album.tracks[i].trackId}</span>
+                                        <span class="songImage"><img src="${Album.metadata[0].images[2].url}" alt=""></span>
+                                        <span class="songTitle">${Album.tracks[i].trackName}</span>
+                                        <span class="songDuration">${calculateTime((Album.tracks[i].trackDuration)/1000)}</span>
+                                        </div>
+                                `;
+                        };  
+                } else {
+                        // do nothing
+                }
         } else {
                 // do nothing for now
         }
