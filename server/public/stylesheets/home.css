@@ -406,6 +406,7 @@ ul.items li img:hover{
     color: white;
     font-weight: 600;
     backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
 }
 
 .tabContent{
@@ -1437,4 +1438,14 @@ ul.items li img:hover{
 
 .songMusic .columns, .albumMusic .columns{
     margin-bottom: 4% !important;
+}
+
+#albumArtist:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#songArtistName:hover{
+    text-decoration: underline;
+    cursor: pointer;
 }
