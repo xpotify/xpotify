@@ -28,7 +28,6 @@ router.get("/q/:id", async (req, res) => {
             "id" : query.owner.id
         },
         "totalTracks" : query.totalTracks
-
     }
     // console.log(query);
     res.json(playlist);
@@ -39,18 +38,37 @@ router.get("/q/tracks/:id", async (req, res) => {
     var tracks = [];
     for(i=0, x=1; i < response.length; i++,x++){
         var gotTrack = {
-        "id" : x,
-        "songId" : response[i].track.id,
-        "name" : response[i].track.name,
-        "artist" : response[i].track.artists,
-        "ytQuery" : response[i].track.name + " - " + response[i].track.artists[0].name,
-        "albumId" : response[i].track.album.id,
-        "images" : response[i].track.album.images
+            "addedAt" : response[i].addedAt,
+            "isLocal" : response[i].isLocal,
+            "track" : {
+                "artists" : response[i].track.artists,
+                "discNumber" : response[i].track.discNumber,
+                "duration" : response[i].track.duration,
+                "explicit" : response[i].track.explicit,
+                "spotifyURL" : response[i].track.externalURL.spotify,
+                "id" : response[i].track.id,
+                "isLocal" : response[i].track.isLocal,
+                "name" : response[i].track.name,
+                "trackNumber" : response[i].track.trackNumber,
+                "type" : response[i].track.type,
+                "album" : {
+                    "artists" : response[i].track.album.artists,
+                    "albumType" : response[i].track.album.albumType,
+                    "spotifyURL" : response[i].track.album.externalURL.spotify,
+                    "id" : response[i].track.album.id,
+                    "images" : response[i].track.album.images,
+                    "name" : response[i].track.album.name,
+                    "releaseDate" : response[i].track.album.releaseDate,
+                    "totalTracks" : response[i].track.album.totalTracks,
+                    "type" : response[i].track.album.type,
+                },
+                "popularity" : response[i].track.popularity
+            }
     };
     tracks.push(gotTrack);
 };
     // console.log(query);
-    res.json(response);
+    res.json(tracks);
 });
 
 module.exports = router;
