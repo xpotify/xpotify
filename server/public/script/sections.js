@@ -77,16 +77,6 @@ const showPlaylist = async (id) => {
         Loader.classList.add("hide");
 };
 
-// const playlist = document.getElementsByClassName("items");
-
-// for(x=0; x < playlist[1].children.length; x++){
-//         playlist[1].children[x].addEventListener("click", () => {
-//                 console.log(this.name)
-//                 // const id = playlist[1].children[].dataset.playlistid;
-//                 showPlaylist(id);
-//         });
-// };
-
 const toggleFullscreen = () => {
         if(document.fullscreen == false){
                 document.documentElement.requestFullscreen();
