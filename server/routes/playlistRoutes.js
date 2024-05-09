@@ -40,6 +40,7 @@ router.get("/q/tracks/:id", async (req, res) => {
         var gotTrack = {
             "addedAt" : response[i].addedAt,
             "isLocal" : response[i].isLocal,
+            "discNumber" : x,
             "track" : {
                 "artists" : response[i].track.artists,
                 "discNumber" : response[i].track.discNumber,
