@@ -1458,3 +1458,12 @@ ul.items li img:hover{
     text-decoration: underline;
     cursor: pointer;
 }
+
+.songListeners{
+    display: flex;
+    align-items: center;
+}
+
+.dot{
+    margin: 0 .5%;
+}
