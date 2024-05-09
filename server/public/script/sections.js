@@ -66,6 +66,7 @@ const showPlaylist = async (id) => {
         const playlistOwner = document.getElementById("playlistOwner");
         const playlistImage = document.getElementById("playlistImage");
         const playlistTracksContainer = document.getElementById("playlistMusic");
+        const playlistNoMusic = document.getElementById("playlistNoSongs");
         
         const playlistMetadata = await fetchPlaylist(id);
         const playlistTracks = await fetchPlaylistTracks(id);
@@ -73,6 +74,7 @@ const showPlaylist = async (id) => {
         playlistName.innerText = playlistMetadata.name;
         playlistImage.src = playlistMetadata.image;
         playlistOwner.innerText = playlistMetadata.owner.name;
+        playlistNoMusic.innerText = playlistMetadata.totalTracks + " songs";
         // console.log(this.dataset.playlistid);
 
         const playlistMusicTracks = document.querySelectorAll(".playlistMusicTracks");
@@ -81,7 +83,7 @@ const showPlaylist = async (id) => {
                         playlistMusicTracks.forEach(el => el.remove());
                         for(i=0; i < playlistTracks.length; i++){
                                 playlistTracksContainer.innerHTML += `
-                                        <div class="songs playlistMusicTracks">
+                                        <div class="songs playlistMusicTracks" dataset-songId="${playlistTracks[i].track.id}" dataset-albumId="${playlistTracks[i].track.album.id}">
                                                 <span class="songNum">${playlistTracks[i].discNumber}</span>
                                                 <span class="songImage"><img src="${playlistTracks[i].track.album.images[2].url}" alt=""></span>
                                                 <span class="songTitle">${playlistTracks[i].track.name}</span>
@@ -93,7 +95,7 @@ const showPlaylist = async (id) => {
                 } else {
                         for(i=0; i < playlistTracks.length; i++){
                                 playlistTracksContainer.innerHTML += `
-                                        <div class="songs playlistMusicTracks">
+                                        <div class="songs playlistMusicTracks" dataset-songId="${playlistTracks[i].track.id}" dataset-albumId="${playlistTracks[i].track.album.id}">
                                                 <span class="songNum">${playlistTracks[i].discNumber}</span>
                                                 <span class="songImage"><img src="${playlistTracks[i].track.album.images[2].url}" alt=""></span>
                                                 <span class="songTitle">${playlistTracks[i].track.name}</span>
