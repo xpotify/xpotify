@@ -65,13 +65,47 @@ const showPlaylist = async (id) => {
         const playlistName = document.getElementById("playlistName");
         const playlistOwner = document.getElementById("playlistOwner");
         const playlistImage = document.getElementById("playlistImage");
+        const playlistTracksContainer = document.getElementById("playlistMusic");
         
         const playlistMetadata = await fetchPlaylist(id);
         const playlistTracks = await fetchPlaylistTracks(id);
 
-        console.log(playlistMetadata);
-
+        playlistName.innerText = playlistMetadata.name;
+        playlistImage.src = playlistMetadata.image;
+        playlistOwner.innerText = playlistMetadata.owner.name;
         // console.log(this.dataset.playlistid);
+
+        const playlistMusicTracks = document.querySelectorAll(".playlistMusicTracks");
+        if(playlistTracks){
+                if(playlistMusicTracks.length > 0){
+                        playlistMusicTracks.forEach(el => el.remove());
+                        for(i=0; i < playlistTracks.length; i++){
+                                playlistTracksContainer.innerHTML += `
+                                        <div class="songs playlistMusicTracks">
+                                                <span class="songNum">${playlistTracks[i].discNumber}</span>
+                                                <span class="songImage"><img src="${playlistTracks[i].track.album.images[2].url}" alt=""></span>
+                                                <span class="songTitle">${playlistTracks[i].track.name}</span>
+                                                <span class="songDuration">${calculateTime((playlistTracks[i].track.duration)/1000)}</span>
+                                                <span class="songAlbum" onclick="showAlbumTab()">${(playlistTracks[i].track.album.name).slice(0, 25) + "..."}</span>
+                                        </div>
+                                `
+                        };
+                } else {
+                        for(i=0; i < playlistTracks.length; i++){
+                                playlistTracksContainer.innerHTML += `
+                                        <div class="songs playlistMusicTracks">
+                                                <span class="songNum">${playlistTracks[i].discNumber}</span>
+                                                <span class="songImage"><img src="${playlistTracks[i].track.album.images[2].url}" alt=""></span>
+                                                <span class="songTitle">${playlistTracks[i].track.name}</span>
+                                                <span class="songDuration">${calculateTime((playlistTracks[i].track.duration)/1000)}</span>
+                                                <span class="songAlbum" onclick="showAlbumTab()">${(playlistTracks[i].track.album.name).slice(0, 25) + "..."}</span>
+                                        </div>
+                                `
+                        };
+                }
+        } else {
+                // do nothing
+        }
 
         playlistTabs.classList.remove("hide");
         Loader.classList.add("hide");
