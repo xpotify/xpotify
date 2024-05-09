@@ -1374,7 +1374,7 @@ ul.items li img:hover{
 }
 
 .playlistImage img{
-    border-radius: 50%;
+    border-radius: 25px;
     width: 15em;
     height: 15em;
     object-fit: cover;
@@ -1450,6 +1450,11 @@ ul.items li img:hover{
 }
 
 #songArtistName:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#playlistOwner:hover{
     text-decoration: underline;
     cursor: pointer;
 }
