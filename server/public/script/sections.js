@@ -53,26 +53,39 @@ const showArtistTab = async () => {
         Loader.classList.add("hide");
 };
 
-const showPlaylist = async () => {
+const showPlaylist = async (id) => {
         tabs.classList.add("hide");
         artistTab.classList.add("hide");
         songTabs.classList.add("hide");
         albumTabs.classList.add("hide");
         lyricsTabs.classList.add("hide");
+        playlistTabs.classList.add("hide");
         Loader.classList.remove("hide");  
         
         const playlistName = document.getElementById("playlistName");
         const playlistOwner = document.getElementById("playlistOwner");
         const playlistImage = document.getElementById("playlistImage");
         
-        // const playlistMetadata = await fetchPlaylist("1JXmQxcfIdcKnU7gNw9tbP");
-        // const playlistTracks = await fetchPlaylistTracks("1JXmQxcfIdcKnU7gNw9tbP");
+        const playlistMetadata = await fetchPlaylist(id);
+        const playlistTracks = await fetchPlaylistTracks(id);
 
-        console.log(this.dataset.playlistid);
+        console.log(playlistMetadata);
+
+        // console.log(this.dataset.playlistid);
 
         playlistTabs.classList.remove("hide");
         Loader.classList.add("hide");
 };
+
+// const playlist = document.getElementsByClassName("items");
+
+// for(x=0; x < playlist[1].children.length; x++){
+//         playlist[1].children[x].addEventListener("click", () => {
+//                 console.log(this.name)
+//                 // const id = playlist[1].children[].dataset.playlistid;
+//                 showPlaylist(id);
+//         });
+// };
 
 const toggleFullscreen = () => {
         if(document.fullscreen == false){
