@@ -4,9 +4,9 @@ const path = require('node:path')
 const createWindow = () => {
   const win = new BrowserWindow({
     icon: "./public/icons/.ico/x32.ico",
-    width: 800,
-    height: 600,
-    fullscreen: true,
+    width: 1080,
+    height: 1920,
+    fullscreen: false,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
     }
