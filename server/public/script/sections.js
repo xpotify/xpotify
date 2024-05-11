@@ -183,6 +183,7 @@ const showAlbumTab = async () => {
         const albumImage = document.getElementById("albumImage");
         const query = document.getElementById("player");
         const albumMusicDiv = document.getElementById("albumMusic");
+        const songArtists = document.getElementsByClassName("songArtists");
         
         const Album = await fetchAlbum(query.dataset.albumid);
         // const AlbumTracks = await fetchAlbumTracks(query.dataset.albumid);
@@ -223,6 +224,20 @@ const showAlbumTab = async () => {
                                         <span class="songDuration">${calculateTime((Album.tracks[i].trackDuration)/1000)}</span>
                                         </div>
                                 `;
+
+                                if(Album.tracks[i].artists.length > 0){
+                                        console.log("check");
+                                        for(i=0; i <= Album.tracks[i].artists.length; i++){
+                                                songArtists.innerHTML =+ `
+                                                        <div class="songArtist">${Album.tracks[i].artists.name},</div> 
+                                                `;
+                                        };
+                                } else {
+                                        console.log("check 2")
+                                        songArtists.innerHtml =+ `
+                                                <div class="songArtist">${Album.tracks[i].artists.name}</div> 
+                                        `;
+                                }
                         };  
                 } else {
                         // do nothing
