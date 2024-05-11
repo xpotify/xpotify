@@ -212,7 +212,14 @@ const showAlbumTab = async () => {
                                         <div class="songs albumSong">
                                         <span class="songNum">${Album.tracks[i].trackId}</span>
                                         <span class="songImage"><img src="${Album.metadata[0].images[2].url}" alt=""></span>
-                                        <span class="songTitle">${Album.tracks[i].trackName}</span>
+                                        <div class="songTitleDiv">
+                                                <div class="songTitle">${Album.tracks[i].trackName}</div>
+                                                <div class="songArtists">
+                                                        <div class="songArtist">Alan Walker,</div> 
+                                                        <div class="songArtist">K-391,</div>
+                                                        <div class="songArtist">Emelie Hollow</div>
+                                                </div>
+                                        </div>
                                         <span class="songDuration">${calculateTime((Album.tracks[i].trackDuration)/1000)}</span>
                                         </div>
                                 `;
