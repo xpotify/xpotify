@@ -206,6 +206,10 @@ const showAlbumTab = async () => {
 
         var albumSong = document.getElementsByClassName("albumSong");
 
+        // <div class="songArtist">Alan Walker,</div> 
+        // <div class="songArtist">K-391,</div>
+        // <div class="songArtist">Emelie Hollow</div>
+
         if(Album.tracks){
                 if(albumSong.length == 0){
                         for(i=0; i < Album.tracks.length; i++){
@@ -216,25 +220,26 @@ const showAlbumTab = async () => {
                                         <div class="songTitleDiv">
                                                 <div class="songTitle">${Album.tracks[i].trackName}</div>
                                                 <div class="songArtists">
-                                                        <div class="songArtist">Alan Walker,</div> 
-                                                        <div class="songArtist">K-391,</div>
-                                                        <div class="songArtist">Emelie Hollow</div>
                                                 </div>
                                         </div>
                                         <span class="songDuration">${calculateTime((Album.tracks[i].trackDuration)/1000)}</span>
                                         </div>
                                 `;
 
-                                if(Album.tracks[i].artists.length > 0){
+                                console.log(songArtists);
+
+                                if(Album.tracks[i].artists.length > 1){
                                         console.log("check");
-                                        for(i=0; i <= Album.tracks[i].artists.length; i++){
-                                                songArtists.innerHTML =+ `
-                                                        <div class="songArtist">${Album.tracks[i].artists.name},</div> 
+                                        for(x=0; x < Album.tracks[i].artists.length; x++){
+                                                songArtists.innerHTML += `
+                                                        <div>Alan Walker</div>
                                                 `;
+
+                                                // console.log(`<div class="songArtist">${Album.tracks[i].artists[x].name}</div> `);
                                         };
                                 } else {
                                         console.log("check 2")
-                                        songArtists.innerHtml =+ `
+                                        songArtists.innerHTML += `
                                                 <div class="songArtist">${Album.tracks[i].artists.name}</div> 
                                         `;
                                 }
