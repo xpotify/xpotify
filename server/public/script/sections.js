@@ -226,14 +226,19 @@ const showAlbumTab = async () => {
                                         </div>
                                 `;
 
-                                console.log(songArtists);
+                                // console.log(songArtists);
 
                                 if(Album.tracks[i].artists.length > 1){
                                         console.log("check");
                                         for(x=0; x < Album.tracks[i].artists.length; x++){
-                                                songArtists.innerHTML += `
-                                                        <div>Alan Walker</div>
-                                                `;
+                                                // const div = document.createElement('div');
+                                                // div.className = 'testing';
+                                                // div.innerText = `${Album.tracks[i].artists[x].name}`
+                                                
+                                                // songArtists.appendChild(div);
+                                                // songArtists.innerHTML += `
+                                                //         <div>Alan Walker</div>
+                                                // `;
 
                                                 // console.log(`<div class="songArtist">${Album.tracks[i].artists[x].name}</div> `);
                                         };
