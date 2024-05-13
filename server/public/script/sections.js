@@ -206,10 +206,6 @@ const showAlbumTab = async () => {
 
         var albumSong = document.getElementsByClassName("albumSong");
 
-        // <div class="songArtist">Alan Walker,</div> 
-        // <div class="songArtist">K-391,</div>
-        // <div class="songArtist">Emelie Hollow</div>
-
         if(Album.tracks){
                 if(albumSong.length == 0){
                         for(i=0; i < Album.tracks.length; i++){
