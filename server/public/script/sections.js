@@ -209,41 +209,70 @@ const showAlbumTab = async () => {
         if(Album.tracks){
                 if(albumSong.length == 0){
                         for(i=0; i < Album.tracks.length; i++){
-                                albumMusicDiv.innerHTML += `
-                                        <div class="songs albumSong">
-                                        <span class="songNum">${Album.tracks[i].trackId}</span>
-                                        <span class="songImage"><img src="${Album.metadata[0].images[2].url}" alt=""></span>
-                                        <div class="songTitleDiv">
-                                                <div class="songTitle">${Album.tracks[i].trackName}</div>
-                                                <div class="songArtists">
-                                                </div>
-                                        </div>
-                                        <span class="songDuration">${calculateTime((Album.tracks[i].trackDuration)/1000)}</span>
-                                        </div>
-                                `;
+                                let div1 = document.createElement('div');
+                                div1.className = "songs albumSong";
+                                let span1 = document.createElement('span');
+                                span1.className = "songNum";
+                                span1.innerHTML = `${Album.tracks[i].trackId}`;
+                                let span2 = document.createElement('span');
+                                span2.className = "songImage";
+                                let image = document.createElement('img');
+                                image.src = `${Album.metadata[0].images[2].url}`;
+                                let div2 = document.createElement('div');
+                                div2.className = "songTitlediv";
+                                let div3 = document.createElement("div");
+                                div3.className = "songTitle";
+                                div3.innerHTML = `${Album.tracks[i].trackName}`;
+                                let div4 = document.createElement("div");
+                                div4.className = "songArtists";
+                                let span3 = document.createElement('span');
+                                span3.className = "songDuration";
+                                span3.innerHTML = `${calculateTime((Album.tracks[i].trackDuration)/1000)}`;
 
-                                // console.log(songArtists);
+                                div1.appendChild(span1);
+                                div1.appendChild(span2);
+                                div1.appendChild(div2);
+                                div2.appendChild(div3);
+                                div2.appendChild(div4);
+                                div1.appendChild(span3);
 
-                                if(Album.tracks[i].artists.length > 1){
-                                        console.log("check");
-                                        for(x=0; x < Album.tracks[i].artists.length; x++){
-                                                // const div = document.createElement('div');
-                                                // div.className = 'testing';
-                                                // div.innerText = `${Album.tracks[i].artists[x].name}`
+                                albumMusicDiv.innerText += div1;
+
+                                // albumMusicDiv.innerHTML += `
+                                //         <div class="songs albumSong">
+                                //         <span class="songNum">${Album.tracks[i].trackId}</span>
+                                //         <span class="songImage"><img src="${Album.metadata[0].images[2].url}" alt=""></span>
+                                //         <div class="songTitleDiv">
+                                //                 <div class="songTitle">${Album.tracks[i].trackName}</div>
+                                //                 <div class="songArtists">
+                                //                 </div>
+                                //         </div>
+                                //         <span class="songDuration">${calculateTime((Album.tracks[i].trackDuration)/1000)}</span>
+                                //         </div>
+                                // `;
+
+                                // // console.log(songArtists);
+
+                                // if(Album.tracks[i].artists.length > 1){
+                                //         console.log("check");
+                                //         for(x=0; x < Album.tracks[i].artists.length; x++){
+                                //                 // const div = document.createElement('div');
+                                //                 // div.className = 'testing';
+                                //                 // div.innerText = `${Album.tracks[i].artists[x].name}`
                                                 
-                                                // songArtists.appendChild(div);
-                                                // songArtists.innerHTML += `
-                                                //         <div>Alan Walker</div>
-                                                // `;
+                                //                 // songArtists.appendChild(div);
+                                //                 // songArtists.innerHTML += `
+                                //                 //         <div>Alan Walker</div>
+                                //                 // `;
 
-                                                // console.log(`<div class="songArtist">${Album.tracks[i].artists[x].name}</div> `);
-                                        };
-                                } else {
-                                        console.log("check 2")
-                                        songArtists.innerHTML += `
-                                                <div class="songArtist">${Album.tracks[i].artists.name}</div> 
-                                        `;
-                                }
+                                //                 // console.log(`<div class="songArtist">${Album.tracks[i].artists[x].name}</div> `);
+                                //         };
+                                // } else {
+                                //         console.log("check 2")
+                                //         songArtists.innerHTML += `
+                                //                 <div class="songArtist">${Album.tracks[i].artists.name}</div> 
+                                //         `;
+                                // }
                         };  
                 } else {
                         // do nothing
