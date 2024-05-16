@@ -219,16 +219,40 @@ const showAlbumTab = async () => {
                                 let image = document.createElement('img');
                                 image.src = `${Album.metadata[0].images[2].url}`;
                                 let div2 = document.createElement('div');
-                                div2.className = "songTitlediv";
+                                div2.className = "songTitleDiv";
                                 let div3 = document.createElement("div");
                                 div3.className = "songTitle";
                                 div3.innerHTML = `${Album.tracks[i].trackName}`;
+                                let span3 = document.createElement('span');
                                 let div4 = document.createElement("div");
                                 div4.className = "songArtists";
-                                let span3 = document.createElement('span');
                                 span3.className = "songDuration";
                                 span3.innerHTML = `${calculateTime((Album.tracks[i].trackDuration)/1000)}`;
 
+                                if(Album.tracks[i].artists.length > 1){
+                                        for(x=0; x < Album.tracks[i].artists.length; x++){
+                                                let div = document.createElement('div');
+                                                div.className = "songArtist";
+        
+                                                if(x == (Album.tracks[i].artists.length - 1)){
+                                                        div.innerHTML = `${Album.tracks[i].artists[x].name}`;
+                                                } else {
+                                                        div.innerHTML = `${Album.tracks[i].artists[x].name}, `; 
+                                                }
+                                                
+                                                div4.appendChild(div);
+                                        };
+                                } else {
+                                        let div = document.createElement('div');
+                                        div.className = "songArtist";
+                                        
+                                        div.innerHTML = `${Album.tracks[i].artists[0].name}`;
+
+                                        div4.appendChild(div);
+                                }
+
+
+                                span2.appendChild(image);
                                 div1.appendChild(span1);
                                 div1.appendChild(span2);
                                 div1.appendChild(div2);
@@ -236,7 +260,7 @@ const showAlbumTab = async () => {
                                 div2.appendChild(div4);
                                 div1.appendChild(span3);
 
-                                albumMusicDiv.innerText += div1;
+                                albumMusicDiv.appendChild(div1);
 
                                 // albumMusicDiv.innerHTML += `
                                 //         <div class="songs albumSong">
