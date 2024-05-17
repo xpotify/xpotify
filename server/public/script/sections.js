@@ -233,7 +233,7 @@ const showAlbumTab = async () => {
                                         for(x=0; x < Album.tracks[i].artists.length; x++){
                                                 let div = document.createElement('div');
                                                 div.className = "songArtist";
-        
+
                                                 if(x == (Album.tracks[i].artists.length - 1)){
                                                         div.innerHTML = `${Album.tracks[i].artists[x].name}`;
                                                 } else {
