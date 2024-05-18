@@ -82,27 +82,150 @@ const showPlaylist = async (id) => {
                 if(playlistMusicTracks.length > 0){
                         playlistMusicTracks.forEach(el => el.remove());
                         for(i=0; i < playlistTracks.length; i++){
-                                playlistTracksContainer.innerHTML += `
-                                        <div class="songs playlistMusicTracks" dataset-songId="${playlistTracks[i].track.id}" dataset-albumId="${playlistTracks[i].track.album.id}">
-                                                <span class="songNum">${playlistTracks[i].discNumber}</span>
-                                                <span class="songImage"><img src="${playlistTracks[i].track.album.images[2].url}" alt=""></span>
-                                                <span class="songTitle">${playlistTracks[i].track.name}</span>
-                                                <span class="songDuration">${calculateTime((playlistTracks[i].track.duration)/1000)}</span>
-                                                <span class="songAlbum" onclick="showAlbumTab()">${(playlistTracks[i].track.album.name).slice(0, 25) + "..."}</span>
-                                        </div>
-                                `
+                                // playlistTracksContainer.innerHTML += `
+                                //         <div class="songs playlistMusicTracks" dataset-songId="${playlistTracks[i].track.id}" dataset-albumId="${playlistTracks[i].track.album.id}">
+                                //                 <span class="songNum">${playlistTracks[i].discNumber}</span>
+                                //                 <span class="songImage"><img src="${playlistTracks[i].track.album.images[2].url}" alt=""></span>
+                                //                 <span class="songTitle">${playlistTracks[i].track.name}</span>
+                                //                 <span class="songDuration">${calculateTime((playlistTracks[i].track.duration)/1000)}</span>
+                                //                 <span class="songAlbum" onclick="showAlbumTab()">${(playlistTracks[i].track.album.name).slice(0, 25) + "..."}</span>
+                                //         </div>
+                                // `
+
+                                let div1 = document.createElement('div');
+                                div1.className = "songs playlistMusicTracks";
+                                let span1 = document.createElement('span');
+                                span1.className = "songNum";
+                                span1.innerHTML = `${playlistTracks[i].discNumber}`;
+                                let span2 = document.createElement('span');
+                                span2.className = "songImage";
+                                let image = document.createElement('img');
+                                image.src = `${playlistTracks[i].track.album.images[2].url}`;
+                                let div2 = document.createElement('div');
+                                div2.className = "songTitleDiv2";
+                                let div3 = document.createElement("div");
+                                div3.className = "songTitle";
+                                div3.innerHTML = `${playlistTracks[i].track.name}`;
+                                let span3 = document.createElement('span');
+                                let div4 = document.createElement("div");
+                                div4.className = "songArtists";
+                                span3.className = "songDuration";
+                                span3.innerHTML = `${calculateTime((playlistTracks[i].track.duration)/1000)}`;
+                                let span4 = document.createElement('span');
+                                span4.className = "songAlbum";
+                                span4.innerText = `${(playlistTracks[i].track.album.name).slice(0, 25) + "..."}`;
+                                
+                                if(playlistTracks[i].track.artists.length > 1){
+                                        for(x=0; x < playlistTracks[i].track.artists.length; x++){
+                                                let div = document.createElement('div');
+                                                div.className = "songArtist";
+                                                div.setAttribute("data-id", `${playlistTracks[i].track.artists[x].id}`);
+
+                                                if(x == (playlistTracks[i].track.artists.length - 1)){
+                                                        div.innerHTML = `${playlistTracks[i].track.artists[x].name}`;
+                                                } else {
+                                                        div.innerHTML = `${playlistTracks[i].track.artists[x].name}, `; 
+                                                }
+                                                
+                                                div.addEventListener("click", async () => {
+                                                        let id = div.dataset.id;
+                                                        showArtistTab(id);
+                                                });
+                                                div4.appendChild(div);
+                                        };
+                                } else {
+                                        let div = document.createElement('div');
+                                        div.className = "songArtist";                                                
+                                        div.setAttribute("data-id", `${playlistTracks[i].track.artists[0].id}`);
+                                        
+                                        div.innerHTML = `${playlistTracks[i].track.artists[0].name}`;
+
+                                        div.addEventListener("click", async () => {
+                                                let id = div.dataset.id;
+                                                showArtistTab(id);
+                                        });
+                                        div4.appendChild(div);
+                                }
+
+                                span2.appendChild(image);
+                                div1.appendChild(span1);
+                                div1.appendChild(span2);
+                                div1.appendChild(div2);
+                                div2.appendChild(div3);
+                                div2.appendChild(div4);
+                                div1.appendChild(span3);
+                                div1.appendChild(span4);
+
+                                playlistTracksContainer.appendChild(div1);
                         };
                 } else {
                         for(i=0; i < playlistTracks.length; i++){
-                                playlistTracksContainer.innerHTML += `
-                                        <div class="songs playlistMusicTracks" dataset-songId="${playlistTracks[i].track.id}" dataset-albumId="${playlistTracks[i].track.album.id}">
-                                                <span class="songNum">${playlistTracks[i].discNumber}</span>
-                                                <span class="songImage"><img src="${playlistTracks[i].track.album.images[2].url}" alt=""></span>
-                                                <span class="songTitle">${playlistTracks[i].track.name}</span>
-                                                <span class="songDuration">${calculateTime((playlistTracks[i].track.duration)/1000)}</span>
-                                                <span class="songAlbum" onclick="showAlbumTab()">${(playlistTracks[i].track.album.name).slice(0, 25) + "..."}</span>
-                                        </div>
-                                `
+                                let div1 = document.createElement('div');
+                                div1.className = "songs playlistMusicTracks";
+                                let span1 = document.createElement('span');
+                                span1.className = "songNum";
+                                span1.innerHTML = `${playlistTracks[i].discNumber}`;
+                                let span2 = document.createElement('span');
+                                span2.className = "songImage";
+                                let image = document.createElement('img');
+                                image.src = `${playlistTracks[i].track.album.images[2].url}`;
+                                let div2 = document.createElement('div');
+                                div2.className = "songTitleDiv2";
+                                let div3 = document.createElement("div");
+                                div3.className = "songTitle";
+                                div3.innerHTML = `${playlistTracks[i].track.name}`;
+                                let span3 = document.createElement('span');
+                                let div4 = document.createElement("div");
+                                div4.className = "songArtists";
+                                span3.className = "songDuration";
+                                span3.innerHTML = `${calculateTime((playlistTracks[i].track.duration)/1000)}`;
+                                let span4 = document.createElement('span');
+                                span4.className = "songAlbum";
+                                span4.innerText = `${(playlistTracks[i].track.album.name).slice(0, 25) + "..."}`;
+                                
+                                if(playlistTracks[i].track.artists.length > 1){
+                                        for(x=0; x < playlistTracks[i].track.artists.length; x++){
+                                                let div = document.createElement('div');
+                                                div.className = "songArtist";
+                                                div.setAttribute("data-id", `${playlistTracks[i].track.artists[x].id}`);
+
+                                                if(x == (playlistTracks[i].track.artists.length - 1)){
+                                                        div.innerHTML = `${playlistTracks[i].track.artists[x].name}`;
+                                                } else {
+                                                        div.innerHTML = `${playlistTracks[i].track.artists[x].name}, `; 
+                                                }
+                                                
+                                                div.addEventListener("click", async () => {
+                                                        let id = div.dataset.id;
+                                                        showArtistTab(id);
+                                                });
+                                                div4.appendChild(div);
+                                        };
+                                } else {
+                                        let div = document.createElement('div');
+                                        div.className = "songArtist";                                                
+                                        div.setAttribute("data-id", `${playlistTracks[i].track.artists[0].id}`);
+                                        
+                                        div.innerHTML = `${playlistTracks[i].track.artists[0].name}`;
+
+                                        div.addEventListener("click", async () => {
+                                                let id = div.dataset.id;
+                                                showArtistTab(id);
+                                        });
+                                        div4.appendChild(div);
+                                }
+
+                                span2.appendChild(image);
+                                div1.appendChild(span1);
+                                div1.appendChild(span2);
+                                div1.appendChild(div2);
+                                div2.appendChild(div3);
+                                div2.appendChild(div4);
+                                div1.appendChild(span3);
+                                div1.appendChild(span4);
+
+                                playlistTracksContainer.appendChild(div1);
+
                         };
                 }
         } else {

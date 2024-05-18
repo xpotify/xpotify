@@ -1485,3 +1485,7 @@ ul.items li img:hover{
 .songArtists{
     display: flex;
 }
+
+.songTitleDiv2{
+    width: 41%;
+}
