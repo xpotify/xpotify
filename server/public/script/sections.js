@@ -6,7 +6,7 @@ const lyricsTabs = document.getElementById("lyricsTab");
 const playlistTabs = document.getElementById("playlistTabs");
 const Loader = document.getElementById("preloader");
 
-const showArtistTab = async () => {
+const showArtistTab = async (id) => {
         tabs.classList.add("hide");
         songTabs.classList.add("hide");
         albumTabs.classList.add("hide");
@@ -16,9 +16,9 @@ const showArtistTab = async () => {
         Loader.classList.remove("hide");
         
         var artistQuery = document.getElementById("songArtist").innerText;
-        var artist = await fetchArtist(artistQuery);
-        var artistId = artist.id;
-        var artistTopTracks = await fetchArtistTopTracks(artistId);
+        var artist = await fetchArtist(id);
+        // var artistId = artist.id;
+        var artistTopTracks = await fetchArtistTopTracks(id);
         
         if(artist && artistTopTracks){
                 let artistName = document.getElementById("artistName");
@@ -233,6 +233,7 @@ const showAlbumTab = async () => {
                                         for(x=0; x < Album.tracks[i].artists.length; x++){
                                                 let div = document.createElement('div');
                                                 div.className = "songArtist";
+                                                div.setAttribute("data-id", `${Album.tracks[i].artists[x].id}`);
 
                                                 if(x == (Album.tracks[i].artists.length - 1)){
                                                         div.innerHTML = `${Album.tracks[i].artists[x].name}`;
@@ -240,16 +241,27 @@ const showAlbumTab = async () => {
                                                         div.innerHTML = `${Album.tracks[i].artists[x].name}, `; 
                                                 }
                                                 
+                                                div.addEventListener("click", async () => {
+                                                        let id = div.dataset.id;
+                                                        showArtistTab(id);
+                                                });
                                                 div4.appendChild(div);
                                         };
                                 } else {
                                         let div = document.createElement('div');
-                                        div.className = "songArtist";
+                                        div.className = "songArtist";                                                
+                                        div.setAttribute("data-id", `${Album.tracks[i].artists[0].id}`);
                                         
                                         div.innerHTML = `${Album.tracks[i].artists[0].name}`;
 
+                                        div.addEventListener("click", async () => {
+                                                let id = div.dataset.id;
+                                                showArtistTab(id);
+                                        });
                                         div4.appendChild(div);
                                 }
+
+                                
 
 
                                 span2.appendChild(image);
