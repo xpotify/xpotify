@@ -9,8 +9,8 @@ const fetchArtist = async (id) => {
         
     const data = await response.json();
 
-    // console.log(data[0]);
-    return data[0];
+    console.log(data);
+    return data;
 };
 
 const fetchPlaylist = async (id) => {
