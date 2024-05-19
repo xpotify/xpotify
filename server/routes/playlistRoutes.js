@@ -72,4 +72,9 @@ router.get("/q/tracks/:id", async (req, res) => {
     res.json(tracks);
 });
 
+router.get("/testing", async (req, res) => {
+    const response = await cli.playlists.("1JXmQxcfIdcKnU7gNw9tbP");
+    res.json(response);
+});
+
 module.exports = router;
