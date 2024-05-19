@@ -264,31 +264,83 @@ const showSongTab = async () => {
 
         const query = document.getElementById("player");
         const song = await fetchTrack(query.dataset.songid);
-        const songType = document.getElementById("songType");
-        const songName = document.getElementById("songName");
-        const songArtist = document.getElementById("songArtistName");
-        const songAlbumImage = document.getElementById("songAlbumImage");
-        const songImage = document.getElementById("songSongImage");
-        const songTitle = document.getElementById("songSongTitle");
-        const songDuration = document.getElementById("songSongDuration");
-        const songAlbum = document.getElementById("songSongAlbum");
+        const songMusic = document.getElementById("songMusic");
+        const songs = document.querySelectorAll(".songsTab");
 
-        if(song.type == "track"){
-                songType.innerText = "Song"
-        };
-        songName.innerText = song.name;
-        songArtist.innerText = song.artists[0].name;
-        songAlbumImage.src = song.album.images[1].url;
-        songImage.src = song.album.images[2].url;
-        songTitle.innerText = song.name;
-        songDuration.innerText = calculateTime((song.duration)/1000)
-        songAlbum.innerText = song.album.name;
-        songAlbum.dataset.albumid = song.album.id;
+        if(songs.length > 0){
+                songs.forEach(el => el.remove());
+        } else {
+                // do nothing
+        }
+
+        let div1 = document.createElement('div');
+        div1.className = "songs songsTab";
+        let span1 = document.createElement('span');
+        span1.className = "songNum";
+        span1.innerHTML = `${song.discNumber}`;
+        let span2 = document.createElement('span');
+        span2.className = "songImage";
+        let image = document.createElement('img');
+        image.src = `${song.album.images[2].url}`;
+        let div2 = document.createElement('div');
+        div2.className = "songTitleDiv2";
+        let div3 = document.createElement("div");
+        div3.className = "songTitle";
+        div3.innerHTML = `${song.name}`;
+        let span3 = document.createElement('span');
+        let div4 = document.createElement("div");
+        div4.className = "songArtists";
+        span3.className = "songDuration";
+        span3.innerHTML = `${calculateTime((song.duration)/1000)}`;
+        let span4 = document.createElement('span');
+        span4.className = "songAlbum";
+        span4.innerText = `${(song.album.name).slice(0, 25) + "..."}`;
+                                
+        if(song.artists.length > 1){
+                for(x=0; x < song.artists.length; x++){
+                        let div = document.createElement('div');
+                        div.className = "songArtist";
+                        div.setAttribute("data-id", `${song.artists[x].id}`);
+
+                        if(x == (playlistTracks[i].track.artists.length - 1)){
+                                div.innerHTML = `${song.artists[x].name}`;
+                        } else {
+                                div.innerHTML = `${song.artists[x].name}, `; 
+                        }
+                                                
+                        div.addEventListener("click", async () => {
+                                let id = div.dataset.id;
+                                showArtistTab(id);
+                        });
+                        div4.appendChild(div);
+                };
+                                } else {
+                let div = document.createElement('div');
+                div.className = "songArtist";                                                
+                div.setAttribute("data-id", `${song.artists[0].id}`);
+                                        
+                div.innerHTML = `${song.artists[0].name}`;
+
+                div.addEventListener("click", async () => {
+                        let id = div.dataset.id;
+                        showArtistTab(id);
+                });
+                div4.appendChild(div);
+        }
+
+        span2.appendChild(image);
+        div1.appendChild(span1);
+        div1.appendChild(span2);
+        div1.appendChild(div2);
+        div2.appendChild(div3);
+        div2.appendChild(div4);
+        div1.appendChild(span3);
+        div1.appendChild(span4);
+
+        songMusic.appendChild(div1);
 
         Loader.classList.add("hide");
         songTabs.classList.remove("hide");
-        // console.log(song);
-
 };
 
 const showAlbumTab = async () => {
