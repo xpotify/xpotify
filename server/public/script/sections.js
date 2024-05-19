@@ -19,6 +19,8 @@ const showArtistTab = async (id) => {
         var artist = await fetchArtist(id);
         // var artistId = artist.id;
         var artistTopTracks = await fetchArtistTopTracks(id);
+        const artistMusicContainer = document.getElementById("songsCon");
+        const artistMusic = document.querySelectorAll(".artistTopTracks");
         
         if(artist && artistTopTracks){
                 let artistName = document.getElementById("artistName");
@@ -37,14 +39,93 @@ const showArtistTab = async (id) => {
                         artistVerification.style.visibility = "hidden";
                 }
 
-                for(i=0; i < artistTracks.length; i++){
-                        artistTracksNum[i].innerText = `${artistTopTracks[i].id}`;
-                        artistTracksImg[i].src = artistTopTracks[i].album.img[2].url;
-                        artistTracks[i].children[2].innerText = artistTopTracks[i].name;
-                        // artistTracks[i].children[3]
-                        artistTracks[i].children[3].innerText = calculateTime((artistTopTracks[i].duration)/1000);
-                        artistTracks[i].children[4].innerText = artistTopTracks[i].album.name;
+                if(artistMusic.length > 0){
+                        artistMusic.forEach(el => el.remove());
+                } else {
+                        // do nothing
                 }
+
+                for(i=0; i < (artistTopTracks.length - 5); i++){
+                        let div1 = document.createElement('div');
+                        div1.className = "songs artistTopTracks";
+                        let span1 = document.createElement('span');
+                        span1.className = "songNum";
+                        span1.innerHTML = `${artistTopTracks[i].id}`;
+                        let span2 = document.createElement('span');
+                        span2.className = "songImage";
+                        let image = document.createElement('img');
+                        image.src = `${artistTopTracks[i].album.img[2].url}`;
+                        let div2 = document.createElement('div');
+                        div2.className = "songTitleDiv2";
+                        let div3 = document.createElement("div");
+                        div3.className = "songTitle";
+                        div3.innerHTML = `${artistTopTracks[i].name}`;
+                        let span3 = document.createElement('span');
+                        let div4 = document.createElement("div");
+                        div4.className = "songArtists";
+                        span3.className = "songDuration";
+                        span3.innerHTML = `${calculateTime((artistTopTracks[i].duration)/1000)}`;
+                        let span4 = document.createElement('span');
+                        span4.className = "songAlbum";
+                        span4.innerText = `${(artistTopTracks[i].album.name).slice(0, 25) + "..."}`;
+                                                
+                        if(artistTopTracks[i].artists.length > 1){
+                                for(x=0; x < artistTopTracks[i].artists.length; x++){
+                                        let div = document.createElement('div');
+                                        div.className = "songArtist";
+                                        div.setAttribute("data-id", `${artistTopTracks[i].artists[x].id}`);
+
+                                        if(x == (artistTopTracks[i].artists.length - 1)){
+                                                div.innerHTML = `${artistTopTracks[i].artists[x].name}`;
+                                        } else {
+                                                div.innerHTML = `${artistTopTracks[i].artists[x].name}, `; 
+                                        }
+                                                                
+                                        div.addEventListener("click", async () => {
+                                                let id = div.dataset.id;
+                                                showArtistTab(id);
+                                        });
+                                        div4.appendChild(div);
+                                };
+                        } else {
+                                let div = document.createElement('div');
+                                div.className = "songArtist";                                                
+                                div.setAttribute("data-id", `${artistTopTracks[i].artists[0].id}`);
+                                                        
+                                div.innerHTML = `${artistTopTracks[i].artists[0].name}`;
+
+                                div.addEventListener("click", async () => {
+                                        let id = div.dataset.id;
+                                        showArtistTab(id);
+                                });
+                                div4.appendChild(div);
+                        }
+
+                        span2.appendChild(image);
+                        div1.appendChild(span1);
+                        div1.appendChild(span2);
+                        div1.appendChild(div2);
+                        div2.appendChild(div3);
+                        div2.appendChild(div4);
+                        div1.appendChild(span3);
+                        div1.appendChild(span4);
+
+                        artistMusicContainer.appendChild(div1);
+                }
+
+                // for(i=0; i < artistMusic.length; i++){
+                //         artistMusic[-1].classList.add("hide");
+                // }
+                // for(i=0; i < artistTracks.length; i++){
+                //         artistTracksNum[i].innerText = `${artistTopTracks[i].id}`;
+                //         artistTracksImg[i].src = artistTopTracks[i].album.img[2].url;
+                //         artistTracks[i].children[2].innerText = artistTopTracks[i].name;
+                //         // artistTracks[i].children[3]
+                //         artistTracks[i].children[3].innerText = calculateTime((artistTopTracks[i].duration)/1000);
+                //         artistTracks[i].children[4].innerText = artistTopTracks[i].album.name;
+                // }
+
+
         } else {
                 console.log("artist doesnt exist!");
         }
