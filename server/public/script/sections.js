@@ -5,6 +5,7 @@ const albumTabs = document.getElementById("albumTabs");
 const lyricsTabs = document.getElementById("lyricsTab");
 const playlistTabs = document.getElementById("playlistTabs");
 const Loader = document.getElementById("preloader");
+// import { extractColors } from 'extract-colors'
 
 const showArtistTab = async (id) => {
         tabs.classList.add("hide");
@@ -142,6 +143,10 @@ const showPlaylist = async (id) => {
         lyricsTabs.classList.add("hide");
         playlistTabs.classList.add("hide");
         Loader.classList.remove("hide");  
+
+        // const src = "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da848c1d9d1eae3a41255542bef0";
+
+        // extractColors(src).then(console.log).catch(console.error);
         
         const playlistName = document.getElementById("playlistName");
         const playlistOwner = document.getElementById("playlistOwner");
