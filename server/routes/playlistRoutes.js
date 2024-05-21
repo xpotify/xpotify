@@ -7,10 +7,6 @@ const cli = new Client({
     token: { clientID: process.env.cId, clientSecret: process.env.cSecret}
 });
 
-const getPixels = require("get-pixels");
-const { extractColors } = require('extract-colors');
-const { color } = require("chart.js/helpers");
-
 const getPlaylist = async (id) => {
     const data = await cli.playlists.get(id);
     return data;
@@ -24,24 +20,7 @@ const getTracks = async (id) => {
 router.get("/q/:id", async (req, res) => {
     const query = await getPlaylist(req.params.id);
     const imgSrc = query.images[0].url;
-    let colors;
 
-    // getPixels(imgSrc, async(err, pixels) => {
-    //     if(!err) {
-    //         const data = [...pixels.data]
-    //         const [width, height] = pixels.shape
-      
-    //         let color = await extractColors({ data, width, height }).then(color => {
-    //             return color;
-    //         });
-
-    //         console.log(color);
-    //     };
-    //     colors =  color;
-    // });
-
-    console.log("ye funcoin kimkc" + colors);
-    
     const playlist = {
         "id" : query.id,
         "image" : query.images[0].url,
