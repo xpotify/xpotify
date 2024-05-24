@@ -318,6 +318,59 @@ const showPlaylist = async (id) => {
                 // do nothing
         }
 
+        function getColor(imageElement, ratio){
+                const canvas = document.createElement("canvas");
+                
+                let width = canvas.width = imageElement.width;
+                let height = canvas.height = imageElement.height;
+                
+                const context = canvas.getContext('2d');
+                context.drawImage(imageElement, 0,0);
+                
+                let data, length;
+                let i = -4, count = 0;
+                
+                try{
+                  data = context.getImageData(0,0, width, height);
+                  length = data.data.length;
+                } catch(err){
+                  console.log(err);
+                  return{
+                    R: 0,
+                    G: 0,
+                    B: 0
+                  }
+                }
+                
+                let R,G,B;
+                
+                R = G = B = 0;
+                
+                while((i += ratio * 2) < length){
+                  ++count
+                  
+                  R += data.data[i]+50;
+                  G += data.data[i + 1]+50;
+                  B += data.data[i + 2]+50;
+                  
+                  return {
+                    R,
+                    G,
+                    B
+                  }
+                }
+                
+        };
+        const image = document.querySelector('#playlistImage');
+        const bg = document.querySelector(".playlistTile");
+        image.onload = function () {
+                image.crossOrigin = "Anonymous";
+                const {R, G, B} = getColor(image, 4);
+                bg.style.background = `rgb(${R}, ${G}, ${B})`
+        };                
+
+
+
         playlistTabs.classList.remove("hide");
         Loader.classList.add("hide");
 };
