@@ -168,16 +168,6 @@ const showPlaylist = async (id) => {
                 if(playlistMusicTracks.length > 0){
                         playlistMusicTracks.forEach(el => el.remove());
                         for(i=0; i < playlistTracks.length; i++){
-                                // playlistTracksContainer.innerHTML += `
-                                //         <div class="songs playlistMusicTracks" dataset-songId="${playlistTracks[i].track.id}" dataset-albumId="${playlistTracks[i].track.album.id}">
-                                //                 <span class="songNum">${playlistTracks[i].discNumber}</span>
-                                //                 <span class="songImage"><img src="${playlistTracks[i].track.album.images[2].url}" alt=""></span>
-                                //                 <span class="songTitle">${playlistTracks[i].track.name}</span>
-                                //                 <span class="songDuration">${calculateTime((playlistTracks[i].track.duration)/1000)}</span>
-                                //                 <span class="songAlbum" onclick="showAlbumTab()">${(playlistTracks[i].track.album.name).slice(0, 25) + "..."}</span>
-                                //         </div>
-                                // `
-
                                 let div1 = document.createElement('div');
                                 div1.className = "songs playlistMusicTracks";
                                 let span1 = document.createElement('span');
@@ -200,6 +190,8 @@ const showPlaylist = async (id) => {
                                 let span4 = document.createElement('span');
                                 span4.className = "songAlbum";
                                 span4.innerText = `${(playlistTracks[i].track.album.name).slice(0, 25) + "..."}`;
+                                span4.setAttribute("data-id", `${playlistTracks[i].track.album.id}`);
+                                console.log("wtf" + playlistTracks[i].track.album.id);
                                 
                                 if(playlistTracks[i].track.artists.length > 1){
                                         for(x=0; x < playlistTracks[i].track.artists.length; x++){
@@ -367,12 +359,10 @@ const showPlaylist = async (id) => {
                 image.crossOrigin = "Anonymous";
                 const {R, G, B} = getColor(image, 4);
                 bg.style.background = `rgb(${R}, ${G}, ${B})`
+                
+                playlistTabs.classList.remove("hide");
+                Loader.classList.add("hide");
         };                
-
-
-
-        playlistTabs.classList.remove("hide");
-        Loader.classList.add("hide");
 };
 
 const toggleFullscreen = () => {
@@ -587,42 +577,6 @@ const showAlbumTab = async () => {
                                 div1.appendChild(span3);
 
                                 albumMusicDiv.appendChild(div1);
-
-                                // albumMusicDiv.innerHTML += `
-                                //         <div class="songs albumSong">
-                                //         <span class="songNum">${Album.tracks[i].trackId}</span>
-                                //         <span class="songImage"><img src="${Album.metadata[0].images[2].url}" alt=""></span>
-                                //         <div class="songTitleDiv">
-                                //                 <div class="songTitle">${Album.tracks[i].trackName}</div>
-                                //                 <div class="songArtists">
-                                //                 </div>
-                                //         </div>
-                                //         <span class="songDuration">${calculateTime((Album.tracks[i].trackDuration)/1000)}</span>
-                                //         </div>
-                                // `;
-
-                                // // console.log(songArtists);
-
-                                // if(Album.tracks[i].artists.length > 1){
-                                //         console.log("check");
-                                //         for(x=0; x < Album.tracks[i].artists.length; x++){
-                                //                 // const div = document.createElement('div');
-                                //                 // div.className = 'testing';
-                                //                 // div.innerText = `${Album.tracks[i].artists[x].name}`
-                                                
-                                //                 // songArtists.appendChild(div);
-                                //                 // songArtists.innerHTML += `
-                                //                 //         <div>Alan Walker</div>
-                                //                 // `;
-
-                                //                 // console.log(`<div class="songArtist">${Album.tracks[i].artists[x].name}</div> `);
-                                //         };
-                                // } else {
-                                //         console.log("check 2")
-                                //         songArtists.innerHTML += `
-                                //                 <div class="songArtist">${Album.tracks[i].artists.name}</div> 
-                                //         `;
-                                // }
                         };  
                 } else {
                         // do nothing
