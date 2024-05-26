@@ -191,7 +191,11 @@ const showPlaylist = async (id) => {
                                 span4.className = "songAlbum";
                                 span4.innerText = `${(playlistTracks[i].track.album.name).slice(0, 25) + "..."}`;
                                 span4.setAttribute("data-id", `${playlistTracks[i].track.album.id}`);
-                                console.log("wtf" + playlistTracks[i].track.album.id);
+
+                                span4.addEventListener("click", () => {
+                                        let id = span4.dataset.id;
+                                        showAlbumTab(id);
+                                });
                                 
                                 if(playlistTracks[i].track.artists.length > 1){
                                         for(x=0; x < playlistTracks[i].track.artists.length; x++){
@@ -260,6 +264,12 @@ const showPlaylist = async (id) => {
                                 let span4 = document.createElement('span');
                                 span4.className = "songAlbum";
                                 span4.innerText = `${(playlistTracks[i].track.album.name).slice(0, 25) + "..."}`;
+                                span4.setAttribute("data-id", `${playlistTracks[i].track.album.id}`);
+
+                                span4.addEventListener("click", () => {
+                                        let id = span4.dataset.id;
+                                        showAlbumTab(id);
+                                });
                                 
                                 if(playlistTracks[i].track.artists.length > 1){
                                         for(x=0; x < playlistTracks[i].track.artists.length; x++){
@@ -472,7 +482,7 @@ const showSongTab = async () => {
         songTabs.classList.remove("hide");
 };
 
-const showAlbumTab = async () => {
+const showAlbumTab = async (id) => {
         artistTab.classList.add("hide");
         tabs.classList.add("hide");
         songTabs.classList.add("hide");
@@ -489,7 +499,7 @@ const showAlbumTab = async () => {
         const albumMusicDiv = document.getElementById("albumMusic");
         const songArtists = document.getElementsByClassName("songArtists");
         
-        const Album = await fetchAlbum(query.dataset.albumid);
+        const Album = await fetchAlbum(id);
         // const AlbumTracks = await fetchAlbumTracks(query.dataset.albumid);
 
         if(Album){
