@@ -518,9 +518,10 @@ const showAlbumTab = async (id) => {
                 // do nothing for now
         }
 
-        var albumSong = document.getElementsByClassName("albumSong");
+        var albumSong = document.querySelectorAll(".albumSong");
 
         if(Album.tracks){
+                albumSong.forEach(el => el.remove());
                 if(albumSong.length == 0){
                         for(i=0; i < Album.tracks.length; i++){
                                 let div1 = document.createElement('div');
@@ -589,7 +590,72 @@ const showAlbumTab = async (id) => {
                                 albumMusicDiv.appendChild(div1);
                         };  
                 } else {
-                        // do nothing
+                        for(i=0; i < Album.tracks.length; i++){
+                                let div1 = document.createElement('div');
+                                div1.className = "songs albumSong";
+                                let span1 = document.createElement('span');
+                                span1.className = "songNum";
+                                span1.innerHTML = `${Album.tracks[i].trackId}`;
+                                let span2 = document.createElement('span');
+                                span2.className = "songImage";
+                                let image = document.createElement('img');
+                                image.src = `${Album.metadata[0].images[2].url}`;
+                                let div2 = document.createElement('div');
+                                div2.className = "songTitleDiv";
+                                let div3 = document.createElement("div");
+                                div3.className = "songTitle";
+                                div3.innerHTML = `${Album.tracks[i].trackName}`;
+                                let span3 = document.createElement('span');
+                                let div4 = document.createElement("div");
+                                div4.className = "songArtists";
+                                span3.className = "songDuration";
+                                span3.innerHTML = `${calculateTime((Album.tracks[i].trackDuration)/1000)}`;
+
+                                if(Album.tracks[i].artists.length > 1){
+                                        for(x=0; x < Album.tracks[i].artists.length; x++){
+                                                let div = document.createElement('div');
+                                                div.className = "songArtist";
+                                                div.setAttribute("data-id", `${Album.tracks[i].artists[x].id}`);
+
+                                                if(x == (Album.tracks[i].artists.length - 1)){
+                                                        div.innerHTML = `${Album.tracks[i].artists[x].name}`;
+                                                } else {
+                                                        div.innerHTML = `${Album.tracks[i].artists[x].name}, `; 
+                                                }
+                                                
+                                                div.addEventListener("click", async () => {
+                                                        let id = div.dataset.id;
+                                                        showArtistTab(id);
+                                                });
+                                                div4.appendChild(div);
+                                        };
+                                } else {
+                                        let div = document.createElement('div');
+                                        div.className = "songArtist";                                                
+                                        div.setAttribute("data-id", `${Album.tracks[i].artists[0].id}`);
+                                        
+                                        div.innerHTML = `${Album.tracks[i].artists[0].name}`;
+
+                                        div.addEventListener("click", async () => {
+                                                let id = div.dataset.id;
+                                                showArtistTab(id);
+                                        });
+                                        div4.appendChild(div);
+                                }
+
+                                
+
+
+                                span2.appendChild(image);
+                                div1.appendChild(span1);
+                                div1.appendChild(span2);
+                                div1.appendChild(div2);
+                                div2.appendChild(div3);
+                                div2.appendChild(div4);
+                                div1.appendChild(span3);
+
+                                albumMusicDiv.appendChild(div1);
+                        };  
                 }
         } else {
                 // do nothing for now
