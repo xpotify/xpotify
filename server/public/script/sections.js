@@ -503,7 +503,7 @@ const showAlbumTab = async (id) => {
         // const AlbumTracks = await fetchAlbumTracks(query.dataset.albumid);
 
         if(Album){
-                albumName.innerText = Album.metadata[0].albumName;
+                albumName.innerText = `${(Album.metadata[0].albumName).slice(0, 18) + "..."}`;
         
                 albumArtist.innerText = Album.metadata[0].artist[0].name;
 
