@@ -29,7 +29,6 @@ router.get("/q/:id", async (req, res) => {
             "name" : query.owner.displayName,
             "id" : query.owner.id
         },
-        "color" : "",
         "totalTracks" : query.totalTracks
     }
     // console.log(query);
