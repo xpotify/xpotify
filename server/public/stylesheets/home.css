@@ -987,11 +987,15 @@ ul.items li img:hover{
 
 .artistMusic, .songMusic, .albumMusic{
     width: 100%;
-    /* height: 60%; */
+    height: 60%;
     display: flex;
     flex-direction: column;
-    margin-bottom: 3%;
+    /* margin-bottom: 3%; */
     align-items: center;
+}
+
+.songsTab{
+    height: 13% !important;
 }
 
 .artistMusic .Title{
@@ -1440,7 +1444,7 @@ ul.items li img:hover{
 }
 
 .songMusic .columns{
-    margin-bottom: 3% !important;
+    margin-bottom: 2% !important;
 }
 
 .albumMusic .columns{
