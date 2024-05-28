@@ -431,6 +431,7 @@ const showSongTab = async (id) => {
 
         songName.innerText = `${song.name.slice(0, 18) + "..."}`;
         songAlbumImage.src = song.album.images[0].url;
+        songArtist.innerText = `${song.artists[0].name}`;
 
         if(songs.length > 0){
                 songs.forEach(el => el.remove());
@@ -514,8 +515,19 @@ const showSongTab = async (id) => {
 
         songMusic.appendChild(div1);
 
-        Loader.classList.add("hide");
-        songTabs.classList.remove("hide");
+        const songimage = document.querySelector('#songAlbumImage');
+        const bg = document.querySelector(".songsTile");
+        songimage.onload = function () {
+                songimage.crossOrigin = "Anonymous";
+                const {R, G, B} = getColor(songimage, 4);
+                bg.style.background = `rgb(${R}, ${G}, ${B})`
+                
+                songTabs.classList.remove("hide");
+                Loader.classList.add("hide");
+        }; 
+
+        // Loader.classList.add("hide");
+        // songTabs.classList.remove("hide");
 };
 
 const showAlbumTab = async (id) => {
