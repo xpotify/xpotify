@@ -3,7 +3,7 @@ const path = require('node:path')
 
 const createWindow = () => {
   const win = new BrowserWindow({
-    icon: "./public/icons/.ico/x32.ico",
+    icon: "./public/icons/.ico/Xnew-b-l-16.ico",
     width: 1080,
     height: 1920,
     fullscreen: false,
