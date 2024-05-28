@@ -105,6 +105,7 @@ const showArtistTab = async (id) => {
                         let div3 = document.createElement("div");
                         div3.className = "songTitle";
                         div3.innerHTML = `${artistTopTracks[i].name}`;
+                        div3.dataset.id = `${artistTopTracks[i].songId}`;
                         let span3 = document.createElement('span');
                         let div4 = document.createElement("div");
                         div4.className = "songArtists";
@@ -113,6 +114,15 @@ const showArtistTab = async (id) => {
                         let span4 = document.createElement('span');
                         span4.className = "songAlbum";
                         span4.innerText = `${(artistTopTracks[i].album.name).slice(0, 25) + "..."}`;
+                        span4.dataset.id = `${(artistTopTracks[i].album.id)}`;
+
+                        div3.addEventListener("click", () => {
+                                showSongTab(div3.dataset.id);
+                        });
+
+                        span4.addEventListener("click", () => {
+                                showAlbumTab(span4.dataset.id);
+                        });
                                                 
                         if(artistTopTracks[i].artists.length > 1){
                                 for(x=0; x < artistTopTracks[i].artists.length; x++){
@@ -201,7 +211,7 @@ const showPlaylist = async (id) => {
         const playlistMetadata = await fetchPlaylist(id);
         const playlistTracks = await fetchPlaylistTracks(id);
 
-        playlistName.innerText = playlistMetadata.name;
+        playlistName.innerText = `${playlistMetadata.name}`;
         playlistImage.src = playlistMetadata.image;
         playlistOwner.innerText = playlistMetadata.owner.name;
         playlistNoMusic.innerText = playlistMetadata.totalTracks + " songs";
@@ -226,6 +236,7 @@ const showPlaylist = async (id) => {
                                 let div3 = document.createElement("div");
                                 div3.className = "songTitle";
                                 div3.innerHTML = `${playlistTracks[i].track.name}`;
+                                div3.dataset.id = `${playlistTracks[i].track.id}`;
                                 let span3 = document.createElement('span');
                                 let div4 = document.createElement("div");
                                 div4.className = "songArtists";
@@ -239,6 +250,10 @@ const showPlaylist = async (id) => {
                                 span4.addEventListener("click", () => {
                                         let id = span4.dataset.id;
                                         showAlbumTab(id);
+                                });
+
+                                div3.addEventListener("click", () => {
+                                        showSongTab(div3.dataset.id);
                                 });
                                 
                                 if(playlistTracks[i].track.artists.length > 1){
@@ -300,6 +315,7 @@ const showPlaylist = async (id) => {
                                 let div3 = document.createElement("div");
                                 div3.className = "songTitle";
                                 div3.innerHTML = `${playlistTracks[i].track.name}`;
+                                div3.dataset.id = `${playlistTracks[i].track.id}`;
                                 let span3 = document.createElement('span');
                                 let div4 = document.createElement("div");
                                 div4.className = "songArtists";
@@ -315,6 +331,10 @@ const showPlaylist = async (id) => {
                                         showAlbumTab(id);
                                 });
                                 
+                                div3.addEventListener("click", () => {
+                                        showSongTab(div3.dataset.id);
+                                });
+
                                 if(playlistTracks[i].track.artists.length > 1){
                                         for(x=0; x < playlistTracks[i].track.artists.length; x++){
                                                 let div = document.createElement('div');
@@ -392,7 +412,7 @@ const returnToHome = () => {
         playlistTabs.classList.add("hide");
 };
 
-const showSongTab = async () => {
+const showSongTab = async (id) => {
         artistTab.classList.add("hide");
         tabs.classList.add("hide");
         songTabs.classList.add("hide");
@@ -402,9 +422,15 @@ const showSongTab = async () => {
         Loader.classList.remove("hide");
 
         const query = document.getElementById("player");
-        const song = await fetchTrack(query.dataset.songid);
+        const song = await fetchTrack(id);
         const songMusic = document.getElementById("songMusic");
         const songs = document.querySelectorAll(".songsTab");
+        const songName = document.getElementById("songName");
+        const songAlbumImage = document.getElementById("songAlbumImage");
+        const songArtist = document.getElementById("songArtistName");
+
+        songName.innerText = `${song.name.slice(0, 18) + "..."}`;
+        songAlbumImage.src = song.album.images[0].url;
 
         if(songs.length > 0){
                 songs.forEach(el => el.remove());
@@ -426,6 +452,7 @@ const showSongTab = async () => {
         let div3 = document.createElement("div");
         div3.className = "songTitle";
         div3.innerHTML = `${song.name}`;
+        div3.dataset.id = `${song.id}`;
         let span3 = document.createElement('span');
         let div4 = document.createElement("div");
         div4.className = "songArtists";
@@ -434,14 +461,23 @@ const showSongTab = async () => {
         let span4 = document.createElement('span');
         span4.className = "songAlbum";
         span4.innerText = `${(song.album.name).slice(0, 25) + "..."}`;
-                                
+        span4.dataset.id = `${(song.album.id)}`;
+
+        span4.addEventListener("click", () => {
+                showAlbumTab(span4.dataset.id);
+        });
+                         
+        div3.addEventListener("click", () => {
+                showSongTab(div3.dataset.id);
+        });
+
         if(song.artists.length > 1){
                 for(x=0; x < song.artists.length; x++){
                         let div = document.createElement('div');
                         div.className = "songArtist";
                         div.setAttribute("data-id", `${song.artists[x].id}`);
 
-                        if(x == (playlistTracks[i].track.artists.length - 1)){
+                        if(x == (song.artists.length - 1)){
                                 div.innerHTML = `${song.artists[x].name}`;
                         } else {
                                 div.innerHTML = `${song.artists[x].name}, `; 
@@ -453,7 +489,7 @@ const showSongTab = async () => {
                         });
                         div4.appendChild(div);
                 };
-                                } else {
+        } else {
                 let div = document.createElement('div');
                 div.className = "songArtist";                                                
                 div.setAttribute("data-id", `${song.artists[0].id}`);
@@ -538,11 +574,16 @@ const showAlbumTab = async (id) => {
                                 let div3 = document.createElement("div");
                                 div3.className = "songTitle";
                                 div3.innerHTML = `${Album.tracks[i].trackName}`;
+                                div3.dataset.id = `${Album.tracks[i].id}`;
                                 let span3 = document.createElement('span');
                                 let div4 = document.createElement("div");
                                 div4.className = "songArtists";
                                 span3.className = "songDuration";
                                 span3.innerHTML = `${calculateTime((Album.tracks[i].trackDuration)/1000)}`;
+
+                                div3.addEventListener("click", () => {
+                                        showSongTab(div3.dataset.id);
+                                });
 
                                 if(Album.tracks[i].artists.length > 1){
                                         for(x=0; x < Album.tracks[i].artists.length; x++){
@@ -605,11 +646,16 @@ const showAlbumTab = async (id) => {
                                 let div3 = document.createElement("div");
                                 div3.className = "songTitle";
                                 div3.innerHTML = `${Album.tracks[i].trackName}`;
+                                div3.dataset.id = `${Album.tracks[i].id}`;
                                 let span3 = document.createElement('span');
                                 let div4 = document.createElement("div");
                                 div4.className = "songArtists";
                                 span3.className = "songDuration";
                                 span3.innerHTML = `${calculateTime((Album.tracks[i].trackDuration)/1000)}`;
+
+                                div3.addEventListener("click", () => {
+                                        showSongTab(div3.dataset.id);
+                                });
 
                                 if(Album.tracks[i].artists.length > 1){
                                         for(x=0; x < Album.tracks[i].artists.length; x++){
