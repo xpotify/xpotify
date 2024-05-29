@@ -468,9 +468,9 @@ const showSongTab = async (id) => {
                 showAlbumTab(span4.dataset.id);
         });
                          
-        div3.addEventListener("click", () => {
-                showSongTab(div3.dataset.id);
-        });
+        // div3.addEventListener("click", () => {
+        //         showSongTab(div3.dataset.id);
+        // });
 
         if(song.artists.length > 1){
                 for(x=0; x < song.artists.length; x++){
