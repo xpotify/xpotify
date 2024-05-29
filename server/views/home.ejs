@@ -19,7 +19,7 @@
     <div class="main">
         <div class="sidebar">
               <div class="sidebaritems">
-                <div class="sidebarLogo">
+                <div class="sidebarLogo notSelectable">
                     <!-- <img src="/icons/homeLogo.png" alt=""> -->
                     <h1 class="X">Xpotify</h1>          
                 </div>
@@ -121,7 +121,7 @@
             <div class="preloader hide" id="preloader">
                 <img src="/icons/Xnew-loading-anim.gif" alt="">
             </div>
-            <div class="tabs" id="tabs">
+            <div class="tabs hide" id="tabs">
                 <div class="tabsRow1">
                     <div class="tab">
                         <div class="tabTitle">
@@ -246,6 +246,94 @@
                         <div>Title</div>
                         <div><img draggable="false" src="/icons/time-grey-m.png" alt=""></div>
                         <div>Album</div>
+                    </div>
+                </div>
+            </div>
+            <div class="userTab hide" id="userTabs">
+                <div class="songsTile">
+                    <div class="songInfo">
+                        <div class="songInfoSong">
+                            <h4 id="songType">User</h4>
+                        </div>
+                        <div class="artistName">
+                            <h1 id="songName">CyberRodeo</h1>
+                        </div>
+                        <div class="songListeners">
+                            <h3 onclick="showArtistTab()" id="songArtistName">12 Playlists</h3>
+                        </div>
+                    </div>
+                    <div class="userImage">
+                        <img id="userImage" draggable="false" src="https://i.scdn.co/image/ab6775700000ee85d79258e5f1e3b15828d9a65d" alt="">
+                    </div>
+                </div>
+                <div class="userPlaylists">
+                    <div class="playlistHeader">Public Playlists</div>
+                    <div class="usersPlaylists">
+                        <div class="playlist">
+                            <div class="playlistContainer">
+                                <div class="playlistContainerImage">
+                                    <img src="https://i2o.scdn.co/image/ab67706c0000cfa37f6c3de4beb7d69044f47b78" alt="">
+                                </div>
+                                <div class="playlistContainerName">
+                                    <span>Country Music</span>
+                                </div>
+                                <div class="playlistContainerOwner">
+                                    <span>By CyberRodeo</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="playlist">
+                            <div class="playlistContainer">
+                                <div class="playlistContainerImage">
+                                    <img src="https://i2o.scdn.co/image/ab67706c0000cfa3477916ab859e71ae18d47c23" alt="">
+                                </div>
+                                <div class="playlistContainerName">
+                                    <span>Alan Walker</span>
+                                </div>
+                                <div class="playlistContainerOwner">
+                                    <span>By CyberRodeo</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="playlist">
+                            <div class="playlistContainer">
+                                <div class="playlistContainerImage">
+                                    <img src="https://i2o.scdn.co/image/ab67706c0000cfa35f7f8c786f76061b7c8b0b92" alt="">
+                                </div>
+                                <div class="playlistContainerName">
+                                    <span>Russians :)</span>
+                                </div>
+                                <div class="playlistContainerOwner">
+                                    <span>By CyberRodeo</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="playlist">
+                            <div class="playlistContainer">
+                                <div class="playlistContainerImage">
+                                    <img src="https://i.scdn.co/image/ab67616d00001e02aaeb5c9fb6131977995b7f0e" alt="">
+                                </div>
+                                <div class="playlistContainerName">
+                                    <span>Minecraft</span>
+                                </div>
+                                <div class="playlistContainerOwner">
+                                    <span>By CyberRodeo</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="playlist">
+                            <div class="playlistContainer">
+                                <div class="playlistContainerImage">
+                                    <img src="https://i2o.scdn.co/image/ab67706c0000cfa33f4f6ea452cb4e5c420aa213" alt="">
+                                </div>
+                                <div class="playlistContainerName">
+                                    <span>Bruv</span>
+                                </div>
+                                <div class="playlistContainerOwner">
+                                    <span>By CyberRodeo</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
