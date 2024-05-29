@@ -5,6 +5,7 @@ const albumTabs = document.getElementById("albumTabs");
 const lyricsTabs = document.getElementById("lyricsTab");
 const playlistTabs = document.getElementById("playlistTabs");
 const Loader = document.getElementById("preloader");
+const userTabs = document.getElementById("userTabs");
 // import { extractColors } from 'extract-colors'
 
 function getColor(imageElement, ratio){
@@ -729,6 +730,16 @@ const showAlbumTab = async (id) => {
                 albumTabs.classList.remove("hide");
                 Loader.classList.add("hide");                
         }; 
+};
+
+const showUserTab = () => {
+        artistTab.classList.add("hide");
+        tabs.classList.add("hide");
+        songTabs.classList.add("hide");
+        albumTabs.classList.add("hide");
+        lyricsTabs.classList.add("hide");
+        playlistTabs.classList.add("hide");
+        userTabs.classList.remove("hide");
 };
 
 const showLyricsTab = () => {
