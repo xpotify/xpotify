@@ -210,7 +210,7 @@ prevBtn.addEventListener("click", () => {
     displayDuration();
     setSliderMax();
     audio.play();
-    z = z-1;
+    z = z-1;    
     songId = songId - 1;
   }
   else {
