@@ -59,6 +59,7 @@ const showArtistTab = async (id) => {
         artistTab.classList.add("hide");
         lyricsTabs.classList.add("hide");
         playlistTabs.classList.add("hide");
+        userTabs.classList.add("hide");
         Loader.classList.remove("hide");
         
         var artistQuery = document.getElementById("songArtist").innerText;
@@ -197,6 +198,7 @@ const showPlaylist = async (id) => {
         albumTabs.classList.add("hide");
         lyricsTabs.classList.add("hide");
         playlistTabs.classList.add("hide");
+        userTabs.classList.add("hide");
         Loader.classList.remove("hide");  
 
         // const src = "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da848c1d9d1eae3a41255542bef0";
@@ -215,6 +217,9 @@ const showPlaylist = async (id) => {
         playlistName.innerText = `${playlistMetadata.name}`;
         playlistImage.src = playlistMetadata.image;
         playlistOwner.innerText = playlistMetadata.owner.name;
+        playlistOwner.addEventListener("click", () => {
+                showUserTab();
+        });
         playlistNoMusic.innerText = playlistMetadata.totalTracks + " songs";
         // console.log(this.dataset.playlistid);
 
@@ -420,6 +425,7 @@ const showSongTab = async (id) => {
         albumTabs.classList.add("hide");
         lyricsTabs.classList.add("hide");
         playlistTabs.classList.add("hide");
+        userTabs.classList.add("hide");
         Loader.classList.remove("hide");
 
         const query = document.getElementById("player");
@@ -538,6 +544,7 @@ const showAlbumTab = async (id) => {
         albumTabs.classList.add("hide");
         lyricsTabs.classList.add("hide");
         playlistTabs.classList.add("hide");
+        userTabs.classList.add("hide");
         Loader.classList.remove("hide");
 
         const albumName = document.getElementById("albumName");
