@@ -411,8 +411,9 @@ ul.items li img:hover{
     font-size: 30px;
     color: white;
     font-weight: 600;
-    backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    
 }
 
 .tabContent{
