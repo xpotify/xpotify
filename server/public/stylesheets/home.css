@@ -1601,3 +1601,7 @@ ul.items li img:hover{
 .playlistContainerOwner:hover, .playlistContainerName:hover{
     text-decoration: underline;
 }
+
+.userName{
+    width: 85%;
+}
