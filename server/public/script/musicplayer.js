@@ -10,42 +10,8 @@ const volMax = document.getElementById("audVolMax");
 const volMute = document.getElementById("audVolMute");
 const siteTitle = document.getElementById("siteTitle");
 const songCoverImage = document.getElementById("songCoverImg");
-const songName = document.getElementById("songName");
+const songName = document.getElementById("trackName");
 const songArtist = document.getElementById("songArtist");
-const songSrc = ["/songs/test.mp3", "/songs/test2.mp3", "/songs/test3.mp3", "/songs/test4.mp3", "/songs/test5.mp3"];
-const songMetaData = [
-  {
-    "id" : 0,
-    "name" : "Faded",
-    "artist" : "Alan Walker",
-    "img" : "https://i.scdn.co/image/ab67616d00001e02a108e07c661f9fc54de9c43a"
-  },
-  {
-    "id" : 1,
-    "name" : "Stereo Love",
-    "artist" : "Edward Maya",
-    "img" : "https://i.scdn.co/image/ab67616d00001e028290cf8dbeade5d6807826a5"
-  },
-  {
-    "id" : 2,
-    "name" : "Unity",
-    "artist" : "Alan Walker", 
-    "img" : "https://i.scdn.co/image/ab67616d00001e025a498fcd005980fa948c04e4"
-  },
-  {
-    "id" : 3,
-    "name" : "Shakira",
-    "artist" : "1nonly",
-    "img" : "https://i.scdn.co/image/ab67616d00001e0203c58779dfc6029341086829"
-  },
-  {
-    "id" : 4,
-    "name" : "Shoot to Thrill",
-    "artist" : "AC/DC",
-    "img" : "https://i.scdn.co/image/ab67616d00001e02b56115c0e231fbf69d3205c6"
-  }
-];
-
 var volValue = volSeeker.value;
 let playState = "play";
 
@@ -132,9 +98,59 @@ volSeeker.addEventListener('input', (e) => {
     volValue = volSeeker.value;
 });
 
-let i = 0;
+// prev and next 
+
+const songMetaData = [
+  {
+    "id" : 0,
+    "name" : "Faded",
+    "artist" : "Alan Walker",
+    "img" : "https://i.scdn.co/image/ab67616d00001e02a108e07c661f9fc54de9c43a",
+    "src" : "/songs/test.mp3",
+    "songId" : "698ItKASDavgwZ3WjaWjtz",
+    "artistId" : "7vk5e3vY1uw9plTHJAMwjN"
+  },
+  {
+    "id" : 1,
+    "name" : "Stereo Love",
+    "artist" : "Edward Maya",
+    "img" : "https://i.scdn.co/image/ab67616d00001e028290cf8dbeade5d6807826a5",
+    "src" : "/songs/test2.mp3",
+    "songId" : "7f1sggVl4oDn9LZIliSt38",
+    "artistId" : "6XwwFnewNgWp81MYMK8zLq"
+  },
+  {
+    "id" : 2,
+    "name" : "Unity",
+    "artist" : "Alan Walker", 
+    "img" : "https://i.scdn.co/image/ab67616d00001e025a498fcd005980fa948c04e4",
+    "src" : "/songs/test3.mp3",
+    "songId" : "3Os9onUOoxT6EP3kwiMRKA",
+    "artistId" : "7vk5e3vY1uw9plTHJAMwjN"
+  },
+  {
+    "id" : 3,
+    "name" : "Shakira",
+    "artist" : "1nonly",
+    "img" : "https://i.scdn.co/image/ab67616d00001e0203c58779dfc6029341086829",
+    "src" : "/songs/test4.mp3",
+    "songId" : "1zCQXSnLkfXq3TzMLr6pWf",
+    "artistId" : "3ZHU5AKrUmIPnCFfr82QER"
+  },
+  {
+    "id" : 4,
+    "name" : "Shoot to Thrill",
+    "artist" : "AC/DC",
+    "img" : "https://i.scdn.co/image/ab67616d00001e02b56115c0e231fbf69d3205c6",
+    "src" : "/songs/test5.mp3",
+    "songId" : "6GzCkTddOn1vSln1gbSr8y",
+    "artistId" : "711MCceyCBcFnzjGY4Q7Un"
+  }
+];
+
+let z = 0;
 let songId = 1;
-const songLim = (songSrc.length - 1);
+const songLim = (songMetaData.length);
 
 const changeSiteTitle = (e) => {
   siteTitle.textContent =  `${songMetaData[e].name} - ${songMetaData[e].artist}`;
@@ -142,62 +158,67 @@ const changeSiteTitle = (e) => {
 
 const changeSongMetaData = (e) => {
   songCoverImage.src = songMetaData[e].img;
-  songName.textContent = songMetaData[e].name;
-  songArtist.textContent = songMetaData[e].artist;
+  songName.innerText = songMetaData[e].name;
+  songName.dataset.id = songMetaData[e].songId;
+  songArtist.innerText = songMetaData[e].artist;
+  songArtist.dataset.artistid = songMetaData[e].artistId;
 };
 
 nextBtn.addEventListener("click", () => {
   if(songId != songLim){
-    audio.src = songSrc[(i+1)];
-    i = i+1;
+    audio.src = songMetaData[(z+1)].src;
+    console.log(z+1);
+    changeSiteTitle(z+1);
+    changeSongMetaData(z+1);
+    changePlayPause('play');
+    displayDuration();
+    setSliderMax();
+    audio.play();
+    z = z+1;
     songId = songId + 1;
-    changeSiteTitle(i);
-    changeSongMetaData(i);
+  } else if(songId == songLim){
+    z = 0;
+    songId = 1;
+    audio.src = songMetaData[z].src;
+    changeSiteTitle(z);
+    changeSongMetaData(z);
     changePlayPause('play');
     displayDuration();
     setSliderMax();
     audio.play();
   } else {
-    i = 0;
-    songId = 1;
-    audio.src = songSrc[i];
-    changeSiteTitle(i);
-    changeSongMetaData(i);
-    changePlayPause('play');
-    displayDuration();
-    setSliderMax();
-    audio.play();
+
   }
 });
 
 prevBtn.addEventListener("click", () => {
   if(songId == 1){
-    audio.src = songSrc[songLim];
-    i = songLim;
-    songId = (songLim + 1);
-    changeSiteTitle(i);
-    changeSongMetaData(i);
+    audio.src = songMetaData[(songLim - 1)].src;
+    z = (songLim -1);
+    songId = (songLim - 1);
+    changeSiteTitle(z);
+    changeSongMetaData(z);
     changePlayPause('play');
     displayDuration();
     setSliderMax();
     audio.play();
   } else if(songId != songLim){
-    audio.src = songSrc[(i-1)];
-    i = i-1;
-    songId = songId - 1;
-    changeSiteTitle(i);
-    changeSongMetaData(i);
+    audio.src = songMetaData[(z-1)].src;
+    changeSiteTitle(z-1);
+    changeSongMetaData(z-1);
     changePlayPause('play');
     displayDuration();
     setSliderMax();
     audio.play();
+    z = z-1;
+    songId = songId - 1;
   }
   else {
-    i = 0;
+    z = 0;
     songId = 1;
-    audio.src = songSrc[i];
-    changeSiteTitle(i);
-    changeSongMetaData(i);
+    audio.src = songMetaData[z].src;
+    changeSiteTitle(z);
+    changeSongMetaData(z);
     changePlayPause('play');
     displayDuration();
     setSliderMax();
