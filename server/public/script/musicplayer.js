@@ -149,7 +149,8 @@ const songMetaData = [
 ];
 
 let z = 0;
-let songId = 1;
+let songId = 0;
+let songId2 = 1;
 const songLim = (songMetaData.length);
 
 const changeSiteTitle = (e) => {
@@ -165,7 +166,7 @@ const changeSongMetaData = (e) => {
 };
 
 nextBtn.addEventListener("click", () => {
-  if(songId != songLim){
+  if(songId2 != songLim){
     audio.src = songMetaData[(z+1)].src;
     console.log(z+1);
     changeSiteTitle(z+1);
@@ -175,10 +176,10 @@ nextBtn.addEventListener("click", () => {
     setSliderMax();
     audio.play();
     z = z+1;
-    songId = songId + 1;
-  } else if(songId == songLim){
+    songId2 = songId2 + 1;
+  } else if(songId2 == songLim){
     z = 0;
-    songId = 1;
+    songId2 = 1;
     audio.src = songMetaData[z].src;
     changeSiteTitle(z);
     changeSongMetaData(z);
@@ -192,7 +193,7 @@ nextBtn.addEventListener("click", () => {
 });
 
 prevBtn.addEventListener("click", () => {
-  if(songId == 1){
+  if(songId == 0){
     audio.src = songMetaData[(songLim - 1)].src;
     z = (songLim -1);
     songId = (songLim - 1);
@@ -203,6 +204,7 @@ prevBtn.addEventListener("click", () => {
     setSliderMax();
     audio.play();
   } else if(songId != songLim){
+    console.log(z);
     audio.src = songMetaData[(z-1)].src;
     changeSiteTitle(z-1);
     changeSongMetaData(z-1);
@@ -214,6 +216,7 @@ prevBtn.addEventListener("click", () => {
     songId = songId - 1;
   }
   else {
+    console.log(kek)
     z = 0;
     songId = 1;
     audio.src = songMetaData[z].src;
