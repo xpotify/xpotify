@@ -12,10 +12,22 @@ const getUser = async (id) => {
     return response;
 };
 
+const getUsersPlaylist = async (id) => {
+    const response = await cli.users.getPlaylists(id);
+    
+    return response;
+};
+
 router.get("/get/:id", async (req, res) => {
     const user = await getUser(req.params.id);
 
     res.json(user);
+});
+
+router.get("/getplaylist/:id", async (req, res) => {
+    const playlist = await getUsersPlaylist(req.params.id);
+
+    res.json(playlist);
 });
 
 module.exports = router;
