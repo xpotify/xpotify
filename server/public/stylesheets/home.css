@@ -1676,3 +1676,20 @@ ul.items li img:hover{
     margin: 3% 1% 0% 1%;
     width: 98%;
 }
+
+.userTileInfo{
+    width: 100%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    padding: 2% 0%;
+    flex-direction: column;
+}
+
+#userNoPlaylist{
+    cursor: pointer;
+}
+
+#userNoPlaylist:hover{
+    text-decoration: underline;
+}
