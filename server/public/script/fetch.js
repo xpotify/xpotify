@@ -93,3 +93,16 @@ const fetchUser = async (id) => {
     const data = await response.json();
     return data;
 };
+
+const fetchUsersPlaylist = async (id) => {
+    const response = await fetch(`http://localhost:6969/user/getplaylist/${id}`, {
+        method: "GET",
+        mode: "cors",
+        headers : {
+            "Content-Type" : "application/json"
+        }
+    });
+
+    const data = await response.json();
+    return data;
+};
