@@ -217,11 +217,13 @@ const showPlaylist = async (id) => {
         playlistName.innerText = `${playlistMetadata.name}`;
         playlistImage.src = playlistMetadata.image;
         playlistOwner.innerText = playlistMetadata.owner.name;
-        playlistOwner.addEventListener("click", () => {
-                showUserTab();
-        });
+        playlistOwner.dataset.id = playlistMetadata.owner.id;
         playlistNoMusic.innerText = playlistMetadata.totalTracks + " songs";
         // console.log(this.dataset.playlistid);
+
+        playlistOwner.addEventListener("click", async () => {
+                showUserTab(playlistOwner.dataset.id);
+        });
 
         const playlistMusicTracks = document.querySelectorAll(".playlistMusicTracks");
         if(playlistTracks){
@@ -739,14 +741,46 @@ const showAlbumTab = async (id) => {
         }; 
 };
 
-const showUserTab = () => {
+const showUserTab = async (id) => {
         artistTab.classList.add("hide");
         tabs.classList.add("hide");
         songTabs.classList.add("hide");
         albumTabs.classList.add("hide");
         lyricsTabs.classList.add("hide");
         playlistTabs.classList.add("hide");
+        Loader.classList.remove("hide");
+
+        const userName = document.getElementById("userName");
+        const userImage = document.getElementById("userImage");
+        const userNoPlaylist = document.getElementById("userNoPlaylist");
+        const playlists = document.getElementsByClassName("playlist");
+        const userFooter = document.getElementsByClassName("userFooter");
+
+        const User = await fetchUser(id);
+        const UserPlaylist = await fetchUsersPlaylist(id);
+
+        if(User){
+                userName.innerText = User.displayName;
+                userImage.src = User.images[1].url;
+                userFooter[0].children[0].innerText = `@${User.displayName}`;
+        } else {
+                console.log("User cannot be found!");
+        }
+
+        if(UserPlaylist){
+                userNoPlaylist.innerText = `${(UserPlaylist.length - 1)} playlists`;
+
+                for(i = 0; i < playlists.length; i++){
+                        playlists[i].children[0].children[0].children[0].src = UserPlaylist[i].images[0].url;
+                        playlists[i].children[0].children[1].children[0].innerText = UserPlaylist[i].name;
+                        playlists[i].children[0].children[2].children[0].innerText = `By ${UserPlaylist[i].owner.displayName}`;
+                };
+        } else {
+                console.log("No playlist was found!");
+        }
+
         userTabs.classList.remove("hide");
+        Loader.classList.add("hide");
 };
 
 const showLyricsTab = () => {
