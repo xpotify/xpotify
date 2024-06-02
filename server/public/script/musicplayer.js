@@ -14,6 +14,8 @@ const songName = document.getElementById("trackName");
 const songArtist = document.getElementById("songArtist");
 var volValue = volSeeker.value;
 let playState = "play";
+audio.volume = 0.25;
+
 
 const calculateTime = (secs) => {
   const minutes = Math.floor(secs / 60);
@@ -72,7 +74,6 @@ audPlaystateBtn.addEventListener('click', () => {
   if(playState === 'play') {
     changePlayPause('play');
     audio.play();
-    audio.volume = 0.25;
     whilePlaying();
     playState = 'pause';
   } else {
