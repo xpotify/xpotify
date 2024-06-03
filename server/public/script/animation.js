@@ -1,6 +1,8 @@
 const image = document.getElementsByClassName("userPlaylistCover");
 const btn = document.getElementsByClassName("playlistPlayButton");
 
+// console.log(image, btn);
+
 // for(i=0; i < image.length; i++){
 //     console.log(i);
 //     image[i].addEventListener("mouseenter", () => {
@@ -34,6 +36,26 @@ image[4].addEventListener("mouseenter", () => {
     btn[4].classList.add("playBtn");
 });
 
+image[5].addEventListener("mouseenter", () => {
+    btn[5].classList.add("playBtn");
+});
+
+image[6].addEventListener("mouseenter", () => {
+    btn[6].classList.add("playBtn");
+});
+
+image[7].addEventListener("mouseenter", () => {
+    btn[7].classList.add("playBtn");
+});
+
+image[8].addEventListener("mouseenter", () => {
+    btn[8].classList.add("playBtn");
+});
+
+image[9].addEventListener("mouseenter", () => {
+    btn[9].classList.add("playBtn");
+});
+
 image[0].addEventListener("mouseleave", () => {
     btn[0].classList.remove("playBtn");
 });
@@ -52,5 +74,25 @@ image[3].addEventListener("mouseleave", () => {
 
 image[4].addEventListener("mouseleave", () => {
     btn[4].classList.remove("playBtn");
+});
+
+image[5].addEventListener("mouseleave", () => {
+    btn[5].classList.remove("playBtn");
+});
+
+image[6].addEventListener("mouseleave", () => {
+    btn[6].classList.remove("playBtn");
+});
+
+image[7].addEventListener("mouseleave", () => {
+    btn[7].classList.remove("playBtn");
+});
+
+image[8].addEventListener("mouseleave", () => {
+    btn[8].classList.remove("playBtn");
+});
+
+image[9].addEventListener("mouseleave", () => {
+    btn[9].classList.remove("playBtn");
 });
 
