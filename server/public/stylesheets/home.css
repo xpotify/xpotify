@@ -822,7 +822,46 @@ ul.items li img:hover{
     cursor: pointer;
 }
 
-.artist, .songsTabs, .userTab{
+.artist{
+    width: 100%;
+    height: 82%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1% 1%;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.artistTab{
+    height: 100%;
+    width: 95%;
+}
+
+
+.artist::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  background-color: #f5f5f500;
+}
+
+.artist::-webkit-scrollbar
+{
+  width: 7px;
+  background-color: #f5f5f500;
+  border-radius: 10px;
+}
+
+.artist::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  background-color: rgb(139, 139, 139);
+}
+
+
+.songsTabs, .userTab{
     height: 82%;
     padding: 1% 1%;
     width: 95%;
@@ -994,7 +1033,7 @@ ul.items li img:hover{
 
 .artistMusic{
     width: 100%;
-    height: 60%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     /* margin-bottom: 3%; */
@@ -1026,7 +1065,7 @@ ul.items li img:hover{
     display: flex;
     width: 100%;
     height: 10%;
-    margin: 2% 0;
+    margin: 3% 0;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -1035,6 +1074,11 @@ ul.items li img:hover{
 .artistMusic .Title h1{
     font-weight: 600;
     font-size: 28px;
+    cursor: pointer;
+}
+
+.artistMusic .Title h1:hover{
+    text-decoration: underline;
 }
 
 .artistMusic .Title h3{
@@ -1055,10 +1099,18 @@ ul.items li img:hover{
     width: 100%;
 }
 
-.artistMusic .columns, .albumMusic .columns, .playlistMusic .columns{
+.albumMusic .columns, .playlistMusic .columns{
     width: 98%;
     height: 10%;
     margin-bottom: 2%;
+    display: flex;
+    align-items: center;
+}
+
+.artistMusic .columns{
+    width: 98%;
+    height: 10%;
+    margin-bottom: 3%;
     display: flex;
     align-items: center;
 }
@@ -1177,7 +1229,7 @@ ul.items li img:hover{
 
 .songs{
     width: 100%;
-    height: 16%;
+    height: 20%;
     display: flex;
     align-items: center;
     /* margin-bottom: 1.25%; */
@@ -1473,6 +1525,7 @@ ul.items li img:hover{
 #songsCon{
     width: 100%;
     height: 100%;
+    margin-bottom: 3%;
 }
 
 .songMusic .columns{
@@ -1580,11 +1633,25 @@ ul.items li img:hover{
     color: white;
 }
 
-.usersPlaylists{
+.usersPlaylists, .artistsAlbum{
     width: 100%;
     height: 55%;
     display: flex;
     flex-wrap: wrap;
+}
+
+.artistsAlbum{
+    margin-bottom: 3%;
+    height: 34% !important;
+    margin-top: 0.5%;
+}
+
+.artistFooter{
+    font-size: 12px;
+    color: grey;
+    height: 9%;
+    margin: 4% 1% 0% 1%;
+    width: 98%;
 }
 
 .playlist{
@@ -1733,3 +1800,32 @@ ul.items li img:hover{
 } */
 
 
+.artistAlbum{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.artistAlbum h1{
+    font-size: 28px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.artistAlbum h1:hover{
+    text-decoration: underline;
+}
+
+.artistAlbum h3{
+    font-weight: 400;
+    font-size: 15px;
+    color: #b2b8bd;
+    cursor: pointer;
+}
+
+.artistAlbum h3:hover{
+    text-decoration: underline;
+}
