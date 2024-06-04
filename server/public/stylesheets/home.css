@@ -959,7 +959,7 @@ ul.items li img:hover{
 .artistTile{
     height: 40%;
     width: 100%;
-    background-image: url("https://i.pinimg.com/originals/23/74/fc/2374fc8f7a4e4700b6af730daeca9bc3.jpg");
+    background-image: url("https://tinderbox.dk/wp-content/uploads/sites/2/2024/02/Alan-Walker.jpg");
     background-position:  center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1033,7 +1033,7 @@ ul.items li img:hover{
 
 .artistMusic{
     width: 100%;
-    height: 100%;
+    height: 150%;
     display: flex;
     flex-direction: column;
     /* margin-bottom: 3%; */
@@ -1642,7 +1642,7 @@ ul.items li img:hover{
 
 .artistsAlbum{
     margin-bottom: 3%;
-    height: 34% !important;
+    height: 23% !important;
     margin-top: 0.5%;
 }
 
@@ -1650,11 +1650,11 @@ ul.items li img:hover{
     font-size: 12px;
     color: grey;
     height: 9%;
-    margin: 4% 1% 0% 1%;
+    margin: 1% 1% 0% 1%;
     width: 98%;
 }
 
-.playlist{
+.playlist, .artistAlbumIn{
     width: 18%;
     margin: 1% 1%;
     height: 100%;
@@ -1666,21 +1666,21 @@ ul.items li img:hover{
     cursor: pointer;
 }
 
-.playlist:hover{
+.playlist:hover, .artistAlbumIn:hover{
     background-color: rgba(128, 128, 128, 0.205);
 }
 
-.playlistContainer{
+.playlistContainer, .albumContainer{
     width: 90%;
     height: 90%;
 }
 
-.playlistContainerImage{
+.playlistContainerImage, .albumContainerImage, .artistContainerImage{
     width: 100%;
     height: 80%;
 }
 
-.playlistContainerImage img:nth-child(1){
+.playlistContainerImage img:nth-child(1), .albumContainerImage img:nth-child(1){
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -1688,23 +1688,31 @@ ul.items li img:hover{
     border-radius: 5px;
 }
 
-.playlistContainerName h1{
+.artistContainerImage img:nth-child(1){
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+}
+
+.playlistContainerName h1, .albumContainerName h1{
     font-size: 15px;
     cursor: pointer;
 }
 
-.playlistContainerName{
+.playlistContainerName, .albumContainerName{
     margin-top: 3%;
 }
 
-.playlistContainerOwner{
+.playlistContainerOwner, .albumContainerOwner{
     font-size: 12px;
     margin-top: 0.5%;
     color: grey;
     cursor: pointer;
 }
 
-.playlistContainerOwner:hover, .playlistContainerName:hover{
+.playlistContainerName:hover, .albumContainerName:hover{
     text-decoration: underline;
 }
 
@@ -1771,7 +1779,7 @@ ul.items li img:hover{
     }
 }
 
-.playlistContainerImage img:nth-child(2){
+.playlistContainerImage img:nth-child(2), .albumContainerImage img:nth-child(2), .artistContainerImage img:nth-child(2){
     padding: 6%;
     width: 23%;
     height: 23%;
@@ -1784,7 +1792,7 @@ ul.items li img:hover{
     transition: .3s;
 }
 
-.playlistContainerImage img:nth-child(2):hover{
+.playlistContainerImage img:nth-child(2):hover, .albumContainerImage img:nth-child(2):hover, .artistContainerImage:nth-child(2):hover{
     transform: scale(1.06);
 }
 
