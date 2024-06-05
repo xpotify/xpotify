@@ -66,8 +66,11 @@ const showArtistTab = async (id) => {
         var artist = await fetchArtist(id);
         // var artistId = artist.id;
         var artistTopTracks = await fetchArtistTopTracks(id);
+        var artistsAlbums = await fetchArtistsAlbums(id);
+        var relatedArtists = await fetchRelatedArtists(id);
         const artistMusicContainer = document.getElementById("songsCon");
         const artistMusic = document.querySelectorAll(".artistTopTracks");
+        const albums = document.getElementsByClassName("artistAlbumIn");
         
         if(artist && artistTopTracks){
                 let artistName = document.getElementById("artistName");
@@ -169,23 +172,34 @@ const showArtistTab = async (id) => {
 
                         artistMusicContainer.appendChild(div1);
                 }
-
-                // for(i=0; i < artistMusic.length; i++){
-                //         artistMusic[-1].classList.add("hide");
-                // }
-                // for(i=0; i < artistTracks.length; i++){
-                //         artistTracksNum[i].innerText = `${artistTopTracks[i].id}`;
-                //         artistTracksImg[i].src = artistTopTracks[i].album.img[2].url;
-                //         artistTracks[i].children[2].innerText = artistTopTracks[i].name;
-                //         // artistTracks[i].children[3]
-                //         artistTracks[i].children[3].innerText = calculateTime((artistTopTracks[i].duration)/1000);
-                //         artistTracks[i].children[4].innerText = artistTopTracks[i].album.name;
-                // }
-
-
         } else {
                 console.log("artist doesnt exist!");
         }
+
+        if(artistsAlbums){
+                for(i=0; i < 5; i++){
+                        albums[i].children[0].children[0].children[0].src = artistsAlbums[i].images[1].url;
+                        albums[i].children[0].children[1].children[0].innerText = artistsAlbums[i].name;
+
+                        if(artistsAlbums[i].albumGroup == "album"){
+                                albums[i].children[0].children[2].children[0].innerText = `${artistsAlbums[i].releaseDate.slice(0, 4)} • Album`;
+                        } else {
+                                albums[i].children[0].children[2].children[0].innerText = `${artistsAlbums[i].releaseDate.slice(0, 4)} • Single`;
+                        };                        
+                };
+        } else {
+                // do nothing for now
+        }
+
+        if(relatedArtists){
+                for(x=0,i=5; i < 10; i++, x++){
+                        albums[i].children[0].children[0].children[0].src = relatedArtists[x].images[1].url;
+                        albums[i].children[0].children[1].children[0].innerText = relatedArtists[x].name;
+                        albums[i].children[0].children[2].children[0].innerText = `Artist`;
+                };
+        } else {
+
+        };
 
         artistTab.classList.remove("hide");
         Loader.classList.add("hide");
@@ -193,7 +207,7 @@ const showArtistTab = async (id) => {
 
 const showPlaylist = async (id) => {
         tabs.classList.add("hide");
-        artistTab.classList.add("hide");
+        artistTab.classList.add("hide");s
         songTabs.classList.add("hide");
         albumTabs.classList.add("hide");
         lyricsTabs.classList.add("hide");
