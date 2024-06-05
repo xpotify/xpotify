@@ -106,3 +106,29 @@ const fetchUsersPlaylist = async (id) => {
     const data = await response.json();
     return data;
 };
+
+const fetchArtistsAlbums = async (id) => {
+    const response = await fetch(`http://localhost:6969/artist/getalbums/${id}`, {
+        method : "GET",
+        mode : "cors",
+        headers : {
+            "Content-Type" : "application/json"
+        }
+    });
+
+    const data = await response.json();
+    return data;
+};
+
+const fetchRelatedArtists = async (id) => {
+    const response = await fetch(`http://localhost:6969/artist/getrelatedartists/${id}`, {
+       method : "GET",
+       mode : "cors",
+       headers : {
+            "Content-Type" : "application/json"
+       }
+    });
+
+    const data = await response.json();
+    return data;
+};
