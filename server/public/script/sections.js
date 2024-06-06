@@ -81,7 +81,12 @@ const showArtistTab = async (id) => {
                 let artistTracksImg = document.getElementsByClassName("artistTrackImg");
 
                 artistNameFooter.innerText = `@${artist.name}`;
-                artistName.innerText = artist.name;
+                if(artist.name.length >= 28){
+                        artistName.innerText = `${artist.name.slice(0, 28)}...`;
+                } else {
+                        artistName.innerText = artist.name;
+                }
+
                 artistFollowers.innerText = `${artist.totalFollowers.toLocaleString()} total followers`;
 
                 if(artist.popularity > 50){
@@ -119,7 +124,13 @@ const showArtistTab = async (id) => {
                         span3.innerHTML = `${calculateTime((artistTopTracks[i].duration)/1000)}`;
                         let span4 = document.createElement('span');
                         span4.className = "songAlbum";
-                        span4.innerText = `${(artistTopTracks[i].album.name).slice(0, 25) + "..."}`;
+
+                        if((artistTopTracks[i].album.name).length >= 40){
+                                span4.innerText = `${(artistTopTracks[i].album.name).slice(0, 35)}...`;
+                        } else {
+                                span4.innerText = `${(artistTopTracks[i].album.name)}`;
+                        }
+
                         span4.dataset.id = `${(artistTopTracks[i].album.id)}`;
 
                         div3.addEventListener("click", () => {
@@ -181,7 +192,7 @@ const showArtistTab = async (id) => {
                 for(i=0; i < 5; i++){
                         albums[i].children[0].children[0].children[0].src = artistsAlbums[i].images[1].url;
 
-                        if(artistsAlbums[i].name.length > 20){
+                        if(artistsAlbums[i].name.length >= 20){
                                 albums[i].children[0].children[1].children[0].innerText = `${artistsAlbums[i].name.slice(0, 19)}...`;
                         } else {
                                 albums[i].children[0].children[1].children[0].innerText = artistsAlbums[i].name;
@@ -201,12 +212,12 @@ const showArtistTab = async (id) => {
                 for(x=0,i=5; i < 10; i++, x++){
                         albums[i].children[0].children[0].children[0].src = relatedArtists[x].images[1].url;
                         
-                        if(relatedArtists[x].name.length > 20){
+                        if(relatedArtists[x].name.length >= 20){
                                 albums[i].children[0].children[1].children[0].innerText = `${relatedArtists[x].name.slice(0, 19)}...`;
                         } else {
                                 albums[i].children[0].children[1].children[0].innerText = relatedArtists[x].name;
                         }
-                        
+
                         albums[i].children[0].children[2].children[0].innerText = `Artist`;
                 };
         } else {
@@ -240,7 +251,12 @@ const showPlaylist = async (id) => {
         const playlistMetadata = await fetchPlaylist(id);
         const playlistTracks = await fetchPlaylistTracks(id);
 
-        playlistName.innerText = `${playlistMetadata.name}`;
+        if(playlistMetadata.name >= 19){
+                playlistName.innerText = `${playlistMetadata.name.slice(0, 19)}...`
+        } else {
+                playlistName.innerText = playlistMetadata.name;
+        }
+
         playlistImage.src = playlistMetadata.image;
         playlistOwner.innerText = playlistMetadata.owner.name;
         playlistOwner.dataset.id = playlistMetadata.owner.id;
@@ -269,7 +285,13 @@ const showPlaylist = async (id) => {
                                 div2.className = "songTitleDiv2";
                                 let div3 = document.createElement("div");
                                 div3.className = "songTitle";
-                                div3.innerHTML = `${playlistTracks[i].track.name}`;
+
+                                if(playlistTracks[i].track.name.length >= 45){
+                                        div3.innerHTML = `${playlistTracks[i].track.name.slice(0, 45)}...`;
+                                } else {
+                                        div3.innerHTML = `${playlistTracks[i].track.name}`;
+                                }
+
                                 div3.dataset.id = `${playlistTracks[i].track.id}`;
                                 let span3 = document.createElement('span');
                                 let div4 = document.createElement("div");
