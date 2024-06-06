@@ -1792,7 +1792,7 @@ ul.items li img:hover{
     transition: .3s;
 }
 
-.playlistContainerImage img:nth-child(2):hover, .albumContainerImage img:nth-child(2):hover, .artistContainerImage:nth-child(2):hover{
+.playlistContainerImage img:nth-child(2):hover, .albumContainerImage img:nth-child(2):hover, .artistContainerImage img:nth-child(2):hover{
     transform: scale(1.06);
 }
 
