@@ -62,16 +62,16 @@ const showArtistTab = async (id) => {
         userTabs.classList.add("hide");
         Loader.classList.remove("hide");
         
-        var artistQuery = document.getElementById("songArtist").innerText;
-        var artist = await fetchArtist(id);
-        // var artistId = artist.id;
-        var artistTopTracks = await fetchArtistTopTracks(id);
-        var artistsAlbums = await fetchArtistsAlbums(id);
-        var relatedArtists = await fetchRelatedArtists(id);
+        const artistQuery = document.getElementById("songArtist").innerText;
+        const artist = await fetchArtist(id);
+        const artistTopTracks = await fetchArtistTopTracks(id);
+        const artistsAlbums = await fetchArtistsAlbums(id);
+        const relatedArtists = await fetchRelatedArtists(id);
         const artistMusicContainer = document.getElementById("songsCon");
         const artistMusic = document.querySelectorAll(".artistTopTracks");
         const albums = document.getElementsByClassName("artistAlbumIn");
-        
+        const artistNameFooter = document.getElementById("artistNameFooter");
+
         if(artist && artistTopTracks){
                 let artistName = document.getElementById("artistName");
                 let artistVerification = document.getElementById("artistVer");
@@ -80,6 +80,7 @@ const showArtistTab = async (id) => {
                 let artistTracksNum = document.getElementsByClassName("songNum");
                 let artistTracksImg = document.getElementsByClassName("artistTrackImg");
 
+                artistNameFooter.innerText = `@${artist.name}`;
                 artistName.innerText = artist.name;
                 artistFollowers.innerText = `${artist.totalFollowers.toLocaleString()} total followers`;
 
