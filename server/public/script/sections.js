@@ -300,7 +300,13 @@ const showPlaylist = async (id) => {
                                 span3.innerHTML = `${calculateTime((playlistTracks[i].track.duration)/1000)}`;
                                 let span4 = document.createElement('span');
                                 span4.className = "songAlbum";
-                                span4.innerText = `${(playlistTracks[i].track.album.name).slice(0, 25) + "..."}`;
+
+                                if(playlistTracks[i].track.album.name.length >= 30){
+                                        span4.innerText = `${(playlistTracks[i].track.album.name).slice(0, 30) + "..."}`;
+                                } else {
+                                        span4.innerText = `${(playlistTracks[i].track.album.name)}`;
+                                }
+
                                 span4.setAttribute("data-id", `${playlistTracks[i].track.album.id}`);
 
                                 span4.addEventListener("click", () => {
@@ -379,7 +385,13 @@ const showPlaylist = async (id) => {
                                 span3.innerHTML = `${calculateTime((playlistTracks[i].track.duration)/1000)}`;
                                 let span4 = document.createElement('span');
                                 span4.className = "songAlbum";
-                                span4.innerText = `${(playlistTracks[i].track.album.name).slice(0, 25) + "..."}`;
+
+                                if(playlistTracks[i].track.name.length >= 30){
+                                        span4.innerHTML = `${playlistTracks[i].track.album.name.slice(0, 30)}...`;
+                                } else {
+                                        span4.innerHTML = `${playlistTracks[i].track.album.name}`;
+                                }
+
                                 span4.setAttribute("data-id", `${playlistTracks[i].track.album.id}`);
 
                                 span4.addEventListener("click", () => {
@@ -489,7 +501,12 @@ const showSongTab = async (id) => {
         const songAlbumImage = document.getElementById("songAlbumImage");
         const songArtist = document.getElementById("songArtistName");
 
-        songName.innerText = `${song.name.slice(0, 18) + "..."}`;
+        if(song.name.length >= 19){
+                songName.innerText = `${song.name.slice(0, 19)}...`;
+        } else {
+                songName.innerText = song.name;
+        }
+
         songAlbumImage.src = song.album.images[0].url;
         songArtist.innerText = `${song.artists[0].name}`;
 
@@ -521,7 +538,13 @@ const showSongTab = async (id) => {
         span3.innerHTML = `${calculateTime((song.duration)/1000)}`;
         let span4 = document.createElement('span');
         span4.className = "songAlbum";
-        span4.innerText = `${(song.album.name).slice(0, 25) + "..."}`;
+
+        if(song.album.name.length >= 40){
+                span4.innerText = `${song.album.name.slice(0, 35)}...`;
+        } else {
+                span4.innerText = `${song.album.name}`;
+        }
+
         span4.dataset.id = `${(song.album.id)}`;
 
         span4.addEventListener("click", () => {
@@ -612,7 +635,12 @@ const showAlbumTab = async (id) => {
         // const AlbumTracks = await fetchAlbumTracks(query.dataset.albumid);
 
         if(Album){
-                albumName.innerText = `${(Album.metadata[0].albumName).slice(0, 18) + "..."}`;
+
+                if(Album.metadata[0].albumName.length >= 19){
+                        albumName.innerText = `${(Album.metadata[0].albumName).slice(0, 19) + "..."}`;
+                } else {
+                        albumName.innerText = `${(Album.metadata[0].albumName)}`;
+                }
         
                 albumArtist.innerText = Album.metadata[0].artist[0].name;
 
