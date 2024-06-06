@@ -198,7 +198,7 @@ const showArtistTab = async (id) => {
                         albums[i].children[0].children[2].children[0].innerText = `Artist`;
                 };
         } else {
-
+                //  do nothing for now
         };
 
         artistTab.classList.remove("hide");
