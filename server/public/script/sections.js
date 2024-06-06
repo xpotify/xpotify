@@ -180,7 +180,12 @@ const showArtistTab = async (id) => {
         if(artistsAlbums){
                 for(i=0; i < 5; i++){
                         albums[i].children[0].children[0].children[0].src = artistsAlbums[i].images[1].url;
-                        albums[i].children[0].children[1].children[0].innerText = artistsAlbums[i].name;
+
+                        if(artistsAlbums[i].name.length > 20){
+                                albums[i].children[0].children[1].children[0].innerText = `${artistsAlbums[i].name.slice(0, 19)}...`;
+                        } else {
+                                albums[i].children[0].children[1].children[0].innerText = artistsAlbums[i].name;
+                        }
 
                         if(artistsAlbums[i].albumGroup == "album"){
                                 albums[i].children[0].children[2].children[0].innerText = `${artistsAlbums[i].releaseDate.slice(0, 4)} • Album`;
@@ -195,7 +200,13 @@ const showArtistTab = async (id) => {
         if(relatedArtists){
                 for(x=0,i=5; i < 10; i++, x++){
                         albums[i].children[0].children[0].children[0].src = relatedArtists[x].images[1].url;
-                        albums[i].children[0].children[1].children[0].innerText = relatedArtists[x].name;
+                        
+                        if(relatedArtists[x].name.length > 20){
+                                albums[i].children[0].children[1].children[0].innerText = `${relatedArtists[x].name.slice(0, 19)}...`;
+                        } else {
+                                albums[i].children[0].children[1].children[0].innerText = relatedArtists[x].name;
+                        }
+                        
                         albums[i].children[0].children[2].children[0].innerText = `Artist`;
                 };
         } else {
@@ -208,7 +219,7 @@ const showArtistTab = async (id) => {
 
 const showPlaylist = async (id) => {
         tabs.classList.add("hide");
-        artistTab.classList.add("hide");s
+        artistTab.classList.add("hide");
         songTabs.classList.add("hide");
         albumTabs.classList.add("hide");
         lyricsTabs.classList.add("hide");
