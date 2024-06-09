@@ -474,12 +474,12 @@ const toggleFullscreen = () => {
 const returnToHome = () => {
         Loader.classList.remove("hide");
         artistTab.classList.add("hide");
-        tabs.classList.remove("hide");
         songTabs.classList.add("hide");
         albumTabs.classList.add("hide");
         lyricsTabs.classList.add("hide");
         playlistTabs.classList.add("hide");
         userTabs.classList.add("hide");
+        tabs.classList.remove("hide");
         Loader.classList.add("hide");
 };
 
