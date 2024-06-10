@@ -630,11 +630,12 @@ const showAlbumTab = async (id) => {
         const query = document.getElementById("player");
         const albumMusicDiv = document.getElementById("albumMusic");
         const songArtists = document.getElementsByClassName("songArtists");
+        const alar = document.getElementById("albumArtistFooterCr");
         
         const Album = await fetchAlbum(id);
         // const AlbumTracks = await fetchAlbumTracks(query.dataset.albumid);
-
         if(Album){
+                alar.innerText = `@${Album.metadata[0].artist[0].name}`;
 
                 if(Album.metadata[0].albumName.length >= 19){
                         albumName.innerText = `${(Album.metadata[0].albumName).slice(0, 19) + "..."}`;
