@@ -6,7 +6,6 @@ const lyricsTabs = document.getElementById("lyricsTab");
 const playlistTabs = document.getElementById("playlistTabs");
 const Loader = document.getElementById("preloader");
 const userTabs = document.getElementById("userTabs");
-// import { extractColors } from 'extract-colors'
 
 function getColor(imageElement, ratio){
         const canvas = document.createElement("canvas");
@@ -500,6 +499,7 @@ const showSongTab = async (id) => {
         const songName = document.getElementById("songName");
         const songAlbumImage = document.getElementById("songAlbumImage");
         const songArtist = document.getElementById("songArtistName");
+        const songFootArtist = document.getElementById("artistCopySong");
 
         if(song.name.length >= 19){
                 songName.innerText = `${song.name.slice(0, 19)}...`;
@@ -509,6 +509,7 @@ const showSongTab = async (id) => {
 
         songAlbumImage.src = song.album.images[0].url;
         songArtist.innerText = `${song.artists[0].name}`;
+        songFootArtist.innerText = song.artists[0].name;
 
         if(songs.length > 0){
                 songs.forEach(el => el.remove());
