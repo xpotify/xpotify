@@ -10,9 +10,7 @@ window.addEventListener("load", () => {
 
     let date = new Date;
     let time = date.getHours();
-
-    console.log(time);
-
+    
     if(1 <= time && time < 12){
             greetMsg.innerText = "Good Morning,";
             greetImage.src = "/icons/Morning.png";
