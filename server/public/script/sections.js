@@ -385,10 +385,10 @@ const showPlaylist = async (id) => {
                                 let span4 = document.createElement('span');
                                 span4.className = "songAlbum";
 
-                                if(playlistTracks[i].track.name.length >= 30){
-                                        span4.innerHTML = `${playlistTracks[i].track.album.name.slice(0, 30)}...`;
+                                if(playlistTracks[i].track.album.name.length >= 30){
+                                        span4.innerText = `${(playlistTracks[i].track.album.name).slice(0, 30) + "..."}`;
                                 } else {
-                                        span4.innerHTML = `${playlistTracks[i].track.album.name}`;
+                                        span4.innerText = `${(playlistTracks[i].track.album.name)}`;
                                 }
 
                                 span4.setAttribute("data-id", `${playlistTracks[i].track.album.id}`);
