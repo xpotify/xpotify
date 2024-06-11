@@ -114,7 +114,13 @@ const showArtistTab = async (id) => {
                         div2.className = "songTitleDiv2";
                         let div3 = document.createElement("div");
                         div3.className = "songTitle";
-                        div3.innerHTML = `${artistTopTracks[i].name}`;
+
+                        if(artistTopTracks[i].name.length >= 50){
+                                div3.innerHTML = `${(artistTopTracks[i].name).slice(0, 45)}...`;
+                        } else {
+                                div3.innerHTML = `${artistTopTracks[i].name}`;
+                        }
+                        
                         div3.dataset.id = `${artistTopTracks[i].songId}`;
                         let span3 = document.createElement('span');
                         let div4 = document.createElement("div");
