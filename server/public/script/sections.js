@@ -651,6 +651,7 @@ const showAlbumTab = async (id) => {
                 }
         
                 albumArtist.innerText = Album.metadata[0].artist[0].name;
+                albumArtist.setAttribute("data-id", `${Album.metadata[0].artist[0].id}`);
 
                 if(Album.metadata[0].albumType == "single"){
                         albumType.innerText = "Single";
