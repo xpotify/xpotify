@@ -11,6 +11,7 @@ const createWindow = () => {
       preload: path.join(__dirname, 'preload.js')
     }
   })
+  win.webContents.openDevTools()
   win.removeMenu();
   win.loadURL('http://localhost:6969/');
 }
