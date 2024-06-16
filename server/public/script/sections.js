@@ -515,6 +515,7 @@ const showSongTab = async (id) => {
 
         songAlbumImage.src = song.album.images[0].url;
         songArtist.innerText = `${song.artists[0].name}`;
+        songArtist.setAttribute("data-id", `${song.artists[0].id}`);
         songFootArtist.innerText = song.artists[0].name;
 
         if(songs.length > 0){
