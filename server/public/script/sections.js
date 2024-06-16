@@ -225,6 +225,8 @@ const showArtistTab = async (id) => {
                                 albums[i].children[0].children[1].children[0].innerText = relatedArtists[x].name;
                         }
 
+                        albums[i].children[0].children[1].setAttribute("data-id", `${relatedArtists[x].id}`);
+
                         albums[i].children[0].children[2].children[0].innerText = `Artist`;
                 };
         } else {
