@@ -203,6 +203,8 @@ const showArtistTab = async (id) => {
                                 albums[i].children[0].children[1].children[0].innerText = artistsAlbums[i].name;
                         }
 
+                        albums[i].children[0].children[1].setAttribute("data-id", `${artistsAlbums[i].id}`);
+
                         if(artistsAlbums[i].albumGroup == "album"){
                                 albums[i].children[0].children[2].children[0].innerText = `${artistsAlbums[i].releaseDate.slice(0, 4)} • Album`;
                         } else {
