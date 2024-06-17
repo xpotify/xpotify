@@ -32,11 +32,20 @@ window.onload = () => {
             console.log("Transaction could not be completed!");
         };
 
-        const request = objectStore.add(songs[0]);
+        // const request = objectStore.get("2fCklc5HvH4eeu2ilTEvvM");
 
-        request.oncomplete = () => {
-            console.log("objectStore operation request fulfilled!");
-        };
+        // request.onsuccess = () => {
+        //     console.log(request.result);
+        // };  
+
+        // request.onerror = (event) => {
+        //     console.log(event.error);
+        // };
+        // const request = objectStore.add(songs[0]);
+
+        // request.oncomplete = () => {
+        //     console.log("objectStore operation request fulfilled!");
+        // };
     };
 
     DBOpenRequest.onupgradeneeded = (event) => {
