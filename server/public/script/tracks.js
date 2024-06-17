@@ -6,4 +6,17 @@ const downloadSongReq = async (id, trackName) => {
     request.oncomplete = () => {
         console.log("Track download request complete!");
     };
-}
+};
+
+const getTracksIdFromYT = async (query) => {
+    const request = await fetch(`/song/getdetails/${query}`, {
+        method: "GET",
+        mode: "cors",
+        headers: {
+            "Content-Type" : "application/json"
+        }
+    });
+
+    const data = await request.json();
+    return data;
+};  
