@@ -11,7 +11,7 @@ window.addEventListener("load", () => {
     let date = new Date;
     let time = date.getHours();
     
-    if(1 <= time && time < 12){
+    if(4 <= time && time < 12){
             greetMsg.innerText = "Good Morning,";
             greetImage.src = "/icons/Morning.png";
             greetImage.classList.toggle("morning");
@@ -23,7 +23,12 @@ window.addEventListener("load", () => {
             greetMsg.innerText = "Good Evening,";
             greetImage.src = "/icons/moon.png";
             greetImage.classList.toggle("night");
-    } else {
+    } else if(0 <= time && time < 4){
+            greetMsg.innerText = "Good Evening!";
+            greetImage.src = "/icons/moon.png";
+            greetImage.classList.toggle("night");
+    }
+     else {
             console.log("Invalid Time.");
     }
 
