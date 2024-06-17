@@ -3,14 +3,12 @@ window.onload = () => {
 
     const DBOpenRequest = window.indexedDB.open("xpotify", 3);
 
-    const songs = [
-        {
-            "id" : "2fCklc5HvH4eeu2ilTEvvM",
-            "artists" : "1nonly",
-            "name" : "Shakira!",
-            "audioSrcPath" : "test2.mp3"
-        }
-    ]
+    const song = {
+            "id" : "6zOhgKfbMiQWToE6K13s2s",
+            "artists" : "Marshmello",
+            "name" : "Everyday",
+            "audioSrcPath" : "test3.mp3"
+    };    
 
     DBOpenRequest.onerror = () => {
         console.log("Databse cannot be opened!");
@@ -21,16 +19,17 @@ window.onload = () => {
 
         console.log("Database has been opened!");
 
-        const transaction = db.transaction("savedSongs", "readwrite");
-        const objectStore = transaction.objectStore("savedSongs");
+        saveTrackToDB(song);
+        // const transaction = db.transaction("savedSongs", "readwrite");
+        // const objectStore = transaction.objectStore("savedSongs");
 
-        transaction.oncomplete = () => {
-            console.log("Transaction completed!");
-        };
+        // transaction.oncomplete = () => {
+        //     console.log("Transaction completed!");
+        // };
 
-        transaction.onerror = () =>{
-            console.log("Transaction could not be completed!");
-        };
+        // transaction.onerror = () =>{
+        //     console.log("Transaction could not be completed!");
+        // };
 
         // const request = objectStore.get("2fCklc5HvH4eeu2ilTEvvM");
 
@@ -63,5 +62,28 @@ window.onload = () => {
         };
 
         
+    };
+
+    const saveTrackToDB = async (track) => {
+        const transaction = db.transaction(["savedSongs"], "readwrite");
+        const objectStore = transaction.objectStore("savedSongs");
+
+        transaction.oncomplete = () => {
+            console.log("Transaction Complete!");
+        };
+
+        transaction.onerror = () => {
+            console.log("Transaction could not be finished!");
+        };
+
+        const request = objectStore.add(track);
+
+        request.onsuccess = () => {
+            console.log("Request operation on objectStore fulfilled!");
+        };
+
+        request.onerror = () => {
+            console.log("Request cannot be fulfilled.");
+        };
     };
 };
