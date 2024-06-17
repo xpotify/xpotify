@@ -34,7 +34,7 @@ window.onload = () => {
         console.log("Database has been opened!");
 
         // saveTrackToDB(song);
-        saveTracksToDB(song);
+        // saveTracksToDB(song);
         // const transaction = db.transaction("savedSongs", "readwrite");
         // const objectStore = transaction.objectStore("savedSongs");
 
