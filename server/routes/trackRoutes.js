@@ -6,6 +6,12 @@ const cli = new Client({
     token: { clientID: process.env.cId, clientSecret: process.env.cSecret}
 });
 
+const { google } = require("googleapis");
+const youtube = google.youtube({
+    version: 'v3',
+    auth: process.env.gapiKey
+});
+
 const getTopTracks = async (id) => {
     const data = await cli.artists.getTopTracks(id);
     return data;
@@ -14,6 +20,18 @@ const getTopTracks = async (id) => {
 const getTrack = async (id) => {
     const data = await cli.tracks.get(id);
     return data;
+};
+
+const getVideoDetails = async (query) => {
+    const response = await youtube.search.list({
+        part: "snippet",
+        q: query,
+        maxResults: 1
+    });
+
+    const fetchedItems = response.data.items;
+    // console.log(fetchedItems);
+    return fetchedItems;
 };
 
 
@@ -49,6 +67,12 @@ router.get("/gettrack/:id", async (req, res) => {
     ;
     
     res.json(data);
+});
+
+router.get("/getdetails/:query", async (req, res) => {
+    const response = await getVideoDetails(req.params.query);
+    
+    res.json(response);
 });
 
 module.exports = router;
