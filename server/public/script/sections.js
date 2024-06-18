@@ -469,7 +469,9 @@ const showPlaylist = async (id) => {
                 
                 playlistTabs.classList.remove("hide");
                 Loader.classList.add("hide");
-        };                
+        };    
+        
+        checkIfPlaylistIsSaved(id, "playlistMusicTracks");
 };
 
 const toggleFullscreen = () => {
