@@ -40,37 +40,7 @@ window.onload = () => {
 
         console.log("Database has been opened!");
 
-        const transaction = db.transaction(["savedPlaylists"], "readwrite");
-        const objectStore = transaction.objectStore("savedPlaylists");
-
-        transaction.oncomplete = () => {
-            console.log("Transaction has been completed!")  
-        };
-
-        transaction.onerror = () => {
-            console.log("Transaction could not be completed!");
-        };
-
-        const request = objectStore.get("5o6QR9AF8o9l4GwAbGbIUk");
-
-        // const request = objectStore.add(playlist[0]);
-                                                                                    
-        request.onsuccess = (event) => {
-            // console.log(request.result);
-            const data = [
-                request.result
-            ]
-            
-            if(data.length == 1){
-                console.log("Yes! the playlist exists!");
-            } else {
-                console.log("No! the playlist does not exist!");
-            }
-        };
-
-        request.onerror = () => {
-            console.log(request.error);
-        };
+        
         // saveTrackToDB(song);
         // saveTracksToDB(song);
         // const transaction = db.transaction("savedSongs", "readwrite");
@@ -159,6 +129,61 @@ window.onload = () => {
             request.onerror = () => {
                 console.log("Request cannot be fulfilled.");
             };
+        };
+    };
+
+    const checkIfPlaylistIsSaved = (playlist) => {
+        const transaction = db.transaction(["savedPlaylists"], "readwrite");
+        const objectStore = transaction.objectStore("savedPlaylists");
+
+        transaction.oncomplete = () => {
+            console.log("Transaction has been completed!")  
+        };
+
+        transaction.onerror = () => {
+            console.log("Transaction could not be completed!");
+        };
+
+        const request = objectStore.get(id);
+                                                                                    
+        request.onsuccess = (event) => {
+            // console.log(request.result);
+            const data = [
+                request.result
+            ]
+            
+            if(data.length == 1){
+                console.log("Yes! the playlist exists!");
+            } else {
+                console.log("No! the playlist does not exist!");
+            }
+        };
+
+        request.onerror = () => {
+            console.log(request.error);
+        };
+    };
+
+    const savePlaylistToDB = () => {
+        const transaction = db.transaction(["savedPlaylists"], "readwrite");
+        const objectStore = transaction.objectStore("savedPlaylists");
+
+        transaction.oncomplete = () => {
+            console.log("Transaction has been completed!");
+        };
+
+        transaction.onerror = () => {
+            console.log("Transaction could not be completed.");
+        };
+
+        const request = objectStore.add(playlist);
+
+        request.onsuccess = () => {
+            console.log("Playlist has been successfully added to the database!");
+        };
+
+        request.onerror = () => {
+            console.log(request.error);
         };
     };
 };
