@@ -1,4 +1,4 @@
-window.onload = () => {
+// window.onload = () => {
     let db;
 
     const DBOpenRequest = window.indexedDB.open("xpotify", 4);
@@ -36,10 +36,10 @@ window.onload = () => {
     };
 
     DBOpenRequest.onsuccess = (event) => {
-        db = event.target.result;
+        db = DBOpenRequest.result;
 
         console.log("Database has been opened!");
-
+        
         
         // saveTrackToDB(song);
         // saveTracksToDB(song);
@@ -132,7 +132,15 @@ window.onload = () => {
         };
     };
 
-    const checkIfPlaylistIsSaved = (playlist) => {
+
+    // const elem = document.getElementById("lewis");
+
+    // elem.addEventListener("click", () => {
+    //     checkIfPlaylistIsSaved("h1u2h3uk1h31u3h", "playlistMusicTracks");
+    // });
+
+    const checkIfPlaylistIsSaved = (playlist, targetElem) => {
+        // console.log(tracks);
         const transaction = db.transaction(["savedPlaylists"], "readwrite");
         const objectStore = transaction.objectStore("savedPlaylists");
 
@@ -144,18 +152,25 @@ window.onload = () => {
             console.log("Transaction could not be completed!");
         };
 
-        const request = objectStore.get(id);
+        const request = objectStore.get(playlist);
                                                                                     
         request.onsuccess = (event) => {
             // console.log(request.result);
-            const data = [
-                request.result
-            ]
+            
+            let data = [];
+
+            if(request.result == undefined){
+                // Do nothing;
+            } else {
+                data.push([request.result]);
+            };
             
             if(data.length == 1){
                 console.log("Yes! the playlist exists!");
             } else {
                 console.log("No! the playlist does not exist!");
+                addOpacClass(targetElem);
+                // tracks.classList.add("opac");
             }
         };
 
@@ -186,4 +201,15 @@ window.onload = () => {
             console.log(request.error);
         };
     };
-};
+
+    const addOpacClass = (elem) => {
+        const target = document.getElementsByClassName(elem);
+        // console.log(target);
+
+        for(i=0; i < target.length; i++){
+            target[i].classList.add("opac");
+        };
+
+        // console.log("This is it!");
+    }
+// };
