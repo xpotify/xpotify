@@ -1957,3 +1957,7 @@ ul.items li img:hover{
 .night{
     filter: drop-shadow(6px 0px 25px #fff);
 }
+
+.opac{
+    opacity: 50% !important;
+}
