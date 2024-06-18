@@ -1,7 +1,7 @@
 window.onload = () => {
     let db;
 
-    const DBOpenRequest = window.indexedDB.open("xpotify", 3);
+    const DBOpenRequest = window.indexedDB.open("xpotify", 4);
 
     const song = [
         {
@@ -24,6 +24,13 @@ window.onload = () => {
         }
     ];    
 
+    const playlist = [
+        {
+            "id" : "5o6QR9AF8o9l4GwAbGbIUk",
+            "owner" : "CyberRodeo"
+        }
+    ]
+
     DBOpenRequest.onerror = () => {
         console.log("Databse cannot be opened!");
     };
@@ -33,7 +40,37 @@ window.onload = () => {
 
         console.log("Database has been opened!");
 
-        
+        const transaction = db.transaction(["savedPlaylists"], "readwrite");
+        const objectStore = transaction.objectStore("savedPlaylists");
+
+        transaction.oncomplete = () => {
+            console.log("Transaction has been completed!")  
+        };
+
+        transaction.onerror = () => {
+            console.log("Transaction could not be completed!");
+        };
+
+        const request = objectStore.get("5o6QR9AF8o9l4GwAbGbIUk");
+
+        // const request = objectStore.add(playlist[0]);
+                                                                                    
+        request.onsuccess = (event) => {
+            // console.log(request.result);
+            const data = [
+                request.result
+            ]
+            
+            if(data.length == 1){
+                console.log("Yes! the playlist exists!");
+            } else {
+                console.log("No! the playlist does not exist!");
+            }
+        };
+
+        request.onerror = () => {
+            console.log(request.error);
+        };
         // saveTrackToDB(song);
         // saveTracksToDB(song);
         // const transaction = db.transaction("savedSongs", "readwrite");
@@ -70,14 +107,11 @@ window.onload = () => {
             console.log("Error loading database!");
         };
 
-        const objectStore = db.createObjectStore(["savedSongs"], { keyPath: "id"});
-        objectStore.createIndex("artists", "artists", { unique: false });
-        objectStore.createIndex("name", "name", { unique: false});
+        const objectStore = db.createObjectStore(["savedPlaylists"], { keyPath: "id"});
+        objectStore.createIndex("owner", "owner", { unique: false });
         objectStore.transaction.oncomplete = () => {
             console.log("ObjectStore setting up completed!");
         };
-
-        
     };
 
     const saveTrackToDB = async (track) => {
