@@ -1006,7 +1006,7 @@ ul.items li img:hover{
 
 .songInfo, .albumInfo, .playlistInfo{
     width: 70%;
-    height: 90%;
+    height: 100%;
     display: flex;
     justify-content: center;
     padding: 2% 0%;
@@ -1960,4 +1960,18 @@ ul.items li img:hover{
 
 .opac{
     opacity: 50% !important;
+}
+
+#tilePlayBtn{
+    width: 5%;
+    padding: 1%;
+    border-radius: 50%;
+    background-color: white;
+    margin-left: 1%;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#tilePlayBtn:hover{
+    transform: scale(1.07);
 }
