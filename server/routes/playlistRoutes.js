@@ -19,8 +19,6 @@ const getTracks = async (id) => {
 
 router.get("/q/:id", async (req, res) => {
     const query = await getPlaylist(req.params.id);
-    const imgSrc = await query.images[0].url;
-
     const playlist = {
         "id" : query.id,
         "image" : query.images[0].url,
