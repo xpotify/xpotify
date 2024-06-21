@@ -51,6 +51,19 @@ function getColor(imageElement, ratio){
         
 };
 
+const calculateDuration = (duration) => {
+        let hours = Math.floor((((duration/60)/60)/60));
+        let minutes = (Math.floor(((duration/60)/60))%60);
+
+        if(hours == 0){
+                const durationStr = `${minutes}min`;
+                console.log(durationStr);
+        } else {
+                const durationStr = `${hours}hr, ${minutes}min`;
+                console.log(durationStr);
+        };
+};
+
 const showArtistTab = async (id) => {
         tabs.classList.add("hide");
         songTabs.classList.add("hide");
@@ -256,6 +269,7 @@ const showPlaylist = async (id) => {
         const playlistImage = document.getElementById("playlistImage");
         const playlistTracksContainer = document.getElementById("playlistMusic");
         const playlistNoMusic = document.getElementById("playlistNoSongs");
+        const playlistTimeDuration = document.getElementById("playlistDuration");
         
         const playlistMetadata = await fetchPlaylist(id);
         const playlistTracks = await fetchPlaylistTracks(id);
@@ -265,6 +279,15 @@ const showPlaylist = async (id) => {
         } else {
                 playlistName.innerText = playlistMetadata.name;
         }
+
+        let dr = 0;
+
+        for(i=0; i < playlistTracks.length; i++){
+                 dr = dr + playlistTracks[i].track.duration;
+                //  console.log();
+        };
+
+        console.log(dr);
 
         playlistImage.src = playlistMetadata.image;
         playlistOwner.innerText = playlistMetadata.owner.name;
