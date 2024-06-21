@@ -52,16 +52,18 @@ function getColor(imageElement, ratio){
 };
 
 const calculateDuration = (duration) => {
-        let hours = Math.floor((((duration/60)/60)/60));
-        let minutes = (Math.floor(((duration/60)/60))%60);
+        let hours = Math.floor((((duration/1000)/60)/60));
+        let minutes = (Math.floor(((duration/1000)/60))%60);
 
         if(hours == 0){
                 const durationStr = `${minutes}min`;
-                console.log(durationStr);
+                return durationStr;
         } else {
                 const durationStr = `${hours}hr, ${minutes}min`;
-                console.log(durationStr);
+                return durationStr;
         };
+
+        
 };
 
 const showArtistTab = async (id) => {
@@ -284,10 +286,11 @@ const showPlaylist = async (id) => {
 
         for(i=0; i < playlistTracks.length; i++){
                  dr = dr + playlistTracks[i].track.duration;
-                //  console.log();
         };
 
-        console.log(dr);
+        // console.log(calculateDuration(dr));
+
+        playlistTimeDuration.innerText = `${calculateDuration(dr)}`;
 
         playlistImage.src = playlistMetadata.image;
         playlistOwner.innerText = playlistMetadata.owner.name;
