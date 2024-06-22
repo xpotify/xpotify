@@ -1963,10 +1963,8 @@ ul.items li img:hover{
 }
 
 #tilePlayBtn{
-    width: 5%;
-    padding: 1%;
+    width: 21px;
     border-radius: 50%;
-    background-color: white;
     margin-left: 1%;
     cursor: pointer;
     transition: 0.2s;
