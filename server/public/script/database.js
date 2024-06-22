@@ -165,10 +165,10 @@
             
             if(data.length == 1){
                 console.log("Yes! the playlist exists!");
-                btn.src = "/icons/playB.png";
+                // btn.src = "/icons/playB.png";
             } else {
                 console.log("No! the playlist does not exist!");
-                btn.src = "/icons/download.png";
+                // btn.src = "/icons/download.png";
             };
         };
 
