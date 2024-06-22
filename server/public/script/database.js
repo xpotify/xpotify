@@ -238,6 +238,9 @@
             
             if(data.length == 1){
                 console.log("Yes! the track exists! TFTF");
+                const elem = document.getElementsByClassName(`${targetElem}`);
+                elem[0].setAttribute("data-srcpath", data[0][0].audioSrcPath);
+                // console.log(data);
             } else {
                 console.log("No! the track does not exist!");
                 addOpacClass(targetElem);
