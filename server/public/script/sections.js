@@ -117,7 +117,7 @@ const showArtistTab = async (id) => {
 
                 for(i=0; i < (artistTopTracks.length - 5); i++){
                         let div1 = document.createElement('div');
-                        div1.className = "songs artistTopTracks";
+                        div1.className = `songs artistTopTracks artistTopTracks${i}`;
                         let span1 = document.createElement('span');
                         span1.className = "songNum";
                         span1.innerHTML = `${artistTopTracks[i].id}`;
@@ -128,7 +128,7 @@ const showArtistTab = async (id) => {
                         let div2 = document.createElement('div');
                         div2.className = "songTitleDiv2";
                         let div3 = document.createElement("div");
-                        div3.className = "songTitle";
+                        div3.className = `songTitle`;
 
                         if(artistTopTracks[i].name.length >= 50){
                                 div3.innerHTML = `${(artistTopTracks[i].name).slice(0, 45)}...`;
@@ -203,6 +203,8 @@ const showArtistTab = async (id) => {
                         div1.appendChild(span4);
 
                         artistMusicContainer.appendChild(div1);
+
+                        checkIfTrackIsSaved(artistTopTracks[i].songId, `artistTopTracks${i}`);
                 }
         } else {
                 console.log("artist doesnt exist!");
@@ -306,7 +308,7 @@ const showPlaylist = async (id) => {
                         playlistMusicTracks.forEach(el => el.remove());
                         for(i=0; i < playlistTracks.length; i++){
                                 let div1 = document.createElement('div');
-                                div1.className = `songs playlistMusicTracks tracks${i}`;
+                                div1.className = `songs playlistMusicTracks playlistTracks${i}`;
                                 let span1 = document.createElement('span');
                                 span1.className = "songNum";
                                 span1.innerHTML = `${playlistTracks[i].discNumber}`;
@@ -394,12 +396,12 @@ const showPlaylist = async (id) => {
 
                                 playlistTracksContainer.appendChild(div1);
 
-                                checkIfTrackIsSaved(playlistTracks[i].track.id, `tracks${i}`);
+                                checkIfTrackIsSaved(playlistTracks[i].track.id, `playlistTracks${i}`);
                         };
                 } else {
                         for(i=0; i < playlistTracks.length; i++){
                                 let div1 = document.createElement('div');
-                                div1.className = `songs playlistMusicTracks tracks${i}`;
+                                div1.className = `songs playlistMusicTracks playlistTracks${i}`;
                                 let span1 = document.createElement('span');
                                 span1.className = "songNum";
                                 span1.innerHTML = `${playlistTracks[i].discNumber}`;
@@ -481,7 +483,7 @@ const showPlaylist = async (id) => {
 
                                 playlistTracksContainer.appendChild(div1);
 
-                                checkIfTrackIsSaved(playlistTracks[i].track.id, `tracks${i}`);
+                                checkIfTrackIsSaved(playlistTracks[i].track.id, `playlistTracks${i}`);
                         };
                 }
         } else {
@@ -712,7 +714,7 @@ const showAlbumTab = async (id) => {
                 if(albumSong.length == 0){
                         for(i=0; i < Album.tracks.length; i++){
                                 let div1 = document.createElement('div');
-                                div1.className = "songs albumSong";
+                                div1.className = `songs albumSong albumTracks${i}`;
                                 let span1 = document.createElement('span');
                                 span1.className = "songNum";
                                 span1.innerHTML = `${Album.tracks[i].trackId}`;
@@ -780,11 +782,13 @@ const showAlbumTab = async (id) => {
                                 div1.appendChild(span3);
 
                                 albumMusicDiv.appendChild(div1);
+
+                                checkIfTrackIsSaved(Album.tracks[i].id, `albumTracks${i}`);
                         };  
                 } else {
                         for(i=0; i < Album.tracks.length; i++){
                                 let div1 = document.createElement('div');
-                                div1.className = "songs albumSong";
+                                div1.className = `songs albumSong albumTracks${i}`;
                                 let span1 = document.createElement('span');
                                 span1.className = "songNum";
                                 span1.innerHTML = `${Album.tracks[i].trackId}`;
@@ -838,10 +842,7 @@ const showAlbumTab = async (id) => {
                                                 showArtistTab(id);
                                         });
                                         div4.appendChild(div);
-                                }
-
-                                
-
+                                };
 
                                 span2.appendChild(image);
                                 div1.appendChild(span1);
@@ -852,6 +853,8 @@ const showAlbumTab = async (id) => {
                                 div1.appendChild(span3);
 
                                 albumMusicDiv.appendChild(div1);
+
+                                checkIfTrackIsSaved(Album.tracks[i].id, `albumTracks${i}`);
                         };  
                 }
         } else {
