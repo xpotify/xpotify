@@ -18,5 +18,6 @@ const getTracksIdFromYT = async (query) => {
     });
 
     const data = await request.json();
-    return data;
+    const id = data[0].id.videoId;
+    return id;
 };  
