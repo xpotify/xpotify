@@ -288,8 +288,6 @@ const showPlaylist = async (id) => {
                  dr = dr + playlistTracks[i].track.duration;
         };
 
-        // console.log(calculateDuration(dr));
-
         playlistTimeDuration.innerText = `${calculateDuration(dr)}`;
 
         playlistImage.src = playlistMetadata.image;
@@ -308,7 +306,7 @@ const showPlaylist = async (id) => {
                         playlistMusicTracks.forEach(el => el.remove());
                         for(i=0; i < playlistTracks.length; i++){
                                 let div1 = document.createElement('div');
-                                div1.className = "songs playlistMusicTracks";
+                                div1.className = `songs playlistMusicTracks tracks${i}`;
                                 let span1 = document.createElement('span');
                                 span1.className = "songNum";
                                 span1.innerHTML = `${playlistTracks[i].discNumber}`;
@@ -395,11 +393,13 @@ const showPlaylist = async (id) => {
                                 div1.appendChild(span4);
 
                                 playlistTracksContainer.appendChild(div1);
+
+                                checkIfTrackIsSaved(playlistTracks[i].track.id, `tracks${i}`);
                         };
                 } else {
                         for(i=0; i < playlistTracks.length; i++){
                                 let div1 = document.createElement('div');
-                                div1.className = "songs playlistMusicTracks";
+                                div1.className = `songs playlistMusicTracks tracks${i}`;
                                 let span1 = document.createElement('span');
                                 span1.className = "songNum";
                                 span1.innerHTML = `${playlistTracks[i].discNumber}`;
@@ -481,6 +481,7 @@ const showPlaylist = async (id) => {
 
                                 playlistTracksContainer.appendChild(div1);
 
+                                checkIfTrackIsSaved(playlistTracks[i].track.id, `tracks${i}`);
                         };
                 }
         } else {
@@ -497,7 +498,9 @@ const showPlaylist = async (id) => {
                 Loader.classList.add("hide");
         };    
         
-        checkIfPlaylistIsSaved(id, "playlistMusicTracks");
+        const btn = document.getElementById("tilePlayBtn");
+
+        checkIfPlaylistIsSaved(id, btn);
 };
 
 const toggleFullscreen = () => {
@@ -557,7 +560,7 @@ const showSongTab = async (id) => {
         }
 
         let div1 = document.createElement('div');
-        div1.className = "songs songsTab";
+        div1.className = "songs songsTab songsTabTrack";
         let span1 = document.createElement('span');
         span1.className = "songNum";
         span1.innerHTML = `${song.discNumber}`;
@@ -649,8 +652,13 @@ const showSongTab = async (id) => {
                 Loader.classList.add("hide");
         }; 
 
-        // Loader.classList.add("hide");
-        // songTabs.classList.remove("hide");
+        const trackId = song.id;
+
+        // console.log(track, trackId);
+        checkIfTrackIsSaved(trackId, "songsTabTrack");
+
+        Loader.classList.add("hide");
+        songTabs.classList.remove("hide");
 };
 
 const showAlbumTab = async (id) => {
