@@ -76,8 +76,9 @@
             console.log("Error loading database!");
         };
 
-        const objectStore = db.createObjectStore(["savedPlaylists"], { keyPath: "id"});
-        objectStore.createIndex("owner", "owner", { unique: false });
+        const objectStore = db.createObjectStore(["savedSongs"], { keyPath: "id"});
+        objectStore.createIndex("artist", "artist", { unique: false });
+        objectStore.createIndex("name", "name", { unique: false });
         objectStore.transaction.oncomplete = () => {
             console.log("ObjectStore setting up completed!");
         };
