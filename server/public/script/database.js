@@ -29,7 +29,7 @@
             "id" : "5o6QR9AF8o9l4GwAbGbIUk",
             "owner" : "CyberRodeo"
         }
-    ]
+    ];
 
     DBOpenRequest.onerror = () => {
         console.log("Databse cannot be opened!");
