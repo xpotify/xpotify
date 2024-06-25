@@ -319,7 +319,7 @@ const showPlaylist = async (id) => {
                                 let div2 = document.createElement('div');
                                 div2.className = "songTitleDiv2";
                                 let div3 = document.createElement("div");
-                                div3.className = "songTitle";
+                                div3.className = "songTitle wMax";
 
                                 if(playlistTracks[i].track.name.length >= 45){
                                         div3.innerHTML = `${playlistTracks[i].track.name.slice(0, 45)}...`;
@@ -333,8 +333,10 @@ const showPlaylist = async (id) => {
                                 div4.className = "songArtists";
                                 span3.className = "songDuration";
                                 span3.innerHTML = `${calculateTime((playlistTracks[i].track.duration)/1000)}`;
+                                let div5 = document.createElement("div");
+                                div5.className = "songAlbum";
                                 let span4 = document.createElement('span');
-                                span4.className = "songAlbum";
+                                span4.className = "wMax";
 
                                 if(playlistTracks[i].track.album.name.length >= 30){
                                         span4.innerText = `${(playlistTracks[i].track.album.name).slice(0, 30) + "..."}`;
@@ -392,7 +394,8 @@ const showPlaylist = async (id) => {
                                 div2.appendChild(div3);
                                 div2.appendChild(div4);
                                 div1.appendChild(span3);
-                                div1.appendChild(span4);
+                                div5.appendChild(span4);
+                                div1.appendChild(div5);
 
                                 playlistTracksContainer.appendChild(div1);
 
@@ -412,16 +415,24 @@ const showPlaylist = async (id) => {
                                 let div2 = document.createElement('div');
                                 div2.className = "songTitleDiv2";
                                 let div3 = document.createElement("div");
-                                div3.className = "songTitle";
-                                div3.innerHTML = `${playlistTracks[i].track.name}`;
+                                div3.className = "songTitle wMax";
+
+                                if(playlistTracks[i].track.name.length >= 45){
+                                        div3.innerHTML = `${playlistTracks[i].track.name.slice(0, 45)}...`;
+                                } else {
+                                        div3.innerHTML = `${playlistTracks[i].track.name}`;
+                                }
+                                
                                 div3.dataset.id = `${playlistTracks[i].track.id}`;
                                 let span3 = document.createElement('span');
                                 let div4 = document.createElement("div");
                                 div4.className = "songArtists";
                                 span3.className = "songDuration";
                                 span3.innerHTML = `${calculateTime((playlistTracks[i].track.duration)/1000)}`;
+                                let div5 = document.createElement("div");
+                                div5.className = "songAlbum";
                                 let span4 = document.createElement('span');
-                                span4.className = "songAlbum";
+                                span4.className = "wMax";
 
                                 if(playlistTracks[i].track.album.name.length >= 30){
                                         span4.innerText = `${(playlistTracks[i].track.album.name).slice(0, 30) + "..."}`;
@@ -479,7 +490,8 @@ const showPlaylist = async (id) => {
                                 div2.appendChild(div3);
                                 div2.appendChild(div4);
                                 div1.appendChild(span3);
-                                div1.appendChild(span4);
+                                div5.appendChild(span4);
+                                div1.appendChild(div5);
 
                                 playlistTracksContainer.appendChild(div1);
 
@@ -563,8 +575,11 @@ const showSongTab = async (id) => {
 
         let div1 = document.createElement('div');
         div1.className = "songs songsTab songsTabTrack";
-        let span1 = document.createElement('span');
-        span1.className = "songNum";
+        // let img = document.createElement('img');
+        // img.src = "/icons/play.png";
+        // img.className = "songPlayBtn hide";
+        let span1 = document.createElement("span");
+        span1.className = "songNum"
         span1.innerHTML = `${song.discNumber}`;
         let span2 = document.createElement('span');
         span2.className = "songImage";
@@ -573,7 +588,7 @@ const showSongTab = async (id) => {
         let div2 = document.createElement('div');
         div2.className = "songTitleDiv2";
         let div3 = document.createElement("div");
-        div3.className = "songTitle";
+        div3.className = "songTitle wMax";
         div3.innerHTML = `${song.name}`;
         div3.dataset.id = `${song.id}`;
         let span3 = document.createElement('span');
@@ -581,8 +596,10 @@ const showSongTab = async (id) => {
         div4.className = "songArtists";
         span3.className = "songDuration";
         span3.innerHTML = `${calculateTime((song.duration)/1000)}`;
+        let div5 = document.createElement("div");
+        div5.className = "songAlbum";
         let span4 = document.createElement('span');
-        span4.className = "songAlbum";
+        span4.className = "wMax";
 
         if(song.album.name.length >= 40){
                 span4.innerText = `${song.album.name.slice(0, 35)}...`;
@@ -634,14 +651,28 @@ const showSongTab = async (id) => {
 
         span2.appendChild(image);
         div1.appendChild(span1);
+        // div1.appendChild(img);
         div1.appendChild(span2);
         div1.appendChild(div2);
         div2.appendChild(div3);
         div2.appendChild(div4);
         div1.appendChild(span3);
-        div1.appendChild(span4);
+        div5.appendChild(span4);
+        div1.appendChild(div5);
 
         songMusic.appendChild(div1);
+
+        // div1.addEventListener("mouseover", () => {
+        //         span1.classList.add("hide");
+        //         img.classList.remove("hide");
+        // });
+
+        // div1.addEventListener("mouseout", () => {
+        //         span1.classList.remove("hide");
+        //         img.classList.add("hide");
+        // });
+
+
 
         const songimage = document.querySelector('#songAlbumImage');
         const bg = document.querySelector(".songsTile");
@@ -725,7 +756,7 @@ const showAlbumTab = async (id) => {
                                 let div2 = document.createElement('div');
                                 div2.className = "songTitleDiv";
                                 let div3 = document.createElement("div");
-                                div3.className = "songTitle";
+                                div3.className = "songTitle wMax";
                                 div3.innerHTML = `${Album.tracks[i].trackName}`;
                                 div3.dataset.id = `${Album.tracks[i].id}`;
                                 let span3 = document.createElement('span');
@@ -799,7 +830,7 @@ const showAlbumTab = async (id) => {
                                 let div2 = document.createElement('div');
                                 div2.className = "songTitleDiv";
                                 let div3 = document.createElement("div");
-                                div3.className = "songTitle";
+                                div3.className = "songTitle wMax";
                                 div3.innerHTML = `${Album.tracks[i].trackName}`;
                                 div3.dataset.id = `${Album.tracks[i].id}`;
                                 let span3 = document.createElement('span');
