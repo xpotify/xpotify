@@ -1279,7 +1279,7 @@ ul.items li img:hover{
     padding-left: 5px; */
 }
 
-.songTitle:hover, .songAlbum:hover, .songImage:hover{
+.songTitle:hover, .songImage:hover{
     text-decoration: underline;
 }
 
@@ -1332,7 +1332,7 @@ ul.items li img:hover{
 }
 
 .artistMusic .songs span:nth-child(4), .songMusic .songs span:nth-child(4), .playlistMusic .songs span:nth-child(4){
-    width: 27%;
+    width: 19%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -1394,6 +1394,14 @@ ul.items li img:hover{
 
 .songMusic .songs span:nth-child(6), .artistMusic .songs span:nth-child(6){
     width: 27% !important;
+}
+
+
+.songAlbum{
+    width: 33%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
 }
 
 .songPlayed, .songTitle, .songDuration, .songAlbum, .songNum{
@@ -1613,8 +1621,8 @@ ul.items li img:hover{
 }
 
 .songTitleDiv2{
-    width: 41%;
-}
+    width: 42%;
+};
 
 .userImage{
     width: 30%;
@@ -1972,4 +1980,18 @@ ul.items li img:hover{
 
 #tilePlayBtn:hover{
     transform: scale(1.07);
+}
+
+.songPlayBtn{
+    width: 19px !important;
+    margin-right: 1%;
+    transition: 0.1s;
+}
+
+.wMax{
+    width: max-content !important;
+}
+
+.wMax:hover{
+    text-decoration: underline;
 }
