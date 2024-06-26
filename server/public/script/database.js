@@ -6,21 +6,19 @@
     const song = [
         {
             "id" : "6FYbr9QzRoZPh0Re8lDO9z",
-            "artists" : "Dean Lewis",
-            "name" : "7 Minutes",
-            "audioSrcPath" : "test7.mp3"
-        },
-        {
-            "id" : "6w8pFOKn42O418qwcQElZ3",
-            "artists" : "Dean Lewis",
-            "name" : "Waves",
-            "audioSrcPath" : "test8.mp3"
-        },
-        {
-            "id" : "4XJ2SmdXNTkMkkx6PFPU8m",
-            "artists" : "Lewis Capaldi",
-            "name" : "Hold me while you wait",
-            "audioSrcPath" : "test9.mp3"
+            "artist" : {
+                "id": "3QSQFmccmX81fWCUSPTS7y",
+                "name" : "Dean Lewis"
+            },
+            "trackName" : "7 Minutes",
+            "audioSrcPath" : "test7.mp3",
+            "album" : {
+                "name" : "A Place We Knew",
+                "id" : "61G7KL6rpj167r6H4CzS8C",
+                "image" : {
+                    "url" : "https://i.scdn.co/image/ab67616d00001e02a787f718fb485b66d6219247"
+                }
+            }
         }
     ];    
 
@@ -40,8 +38,7 @@
 
         console.log("Database has been opened!");
         
-        // saveTrackToDB(song);
-        // saveTracksToDB(song);
+        saveTracksToDB(song);
         // const transaction = db.transaction("savedSongs", "readwrite");
         // const objectStore = transaction.objectStore("savedSongs");
 
@@ -241,10 +238,25 @@
                 console.log("Yes! the track exists! TFTF");
                 const elem = document.getElementsByClassName(`${targetElem}`);
                 elem[0].setAttribute("data-srcpath", data[0][0].audioSrcPath);
-                // console.log(data);
+                elem[0].addEventListener("dblclick", () => {
+                    let song = data[0][0];
+                    let src = song.audioSrcPath;
+                    audio.src = "/songs/test8.mp3";
+                    // changeSiteTitle(song.name);
+                    // changeSongMetaData(z+1);
+                    changePlayPause('play');
+                    displayDuration();
+                    setSliderMax();
+                    audio.play();
+                });
             } else {
                 console.log("No! the track does not exist!");
                 addOpacClass(targetElem);
+                const elem = document.getElementsByClassName(`${targetElem}`);
+                elem[0].addEventListener("dblclick", (e) => {
+                    let target = elem[0];
+                    console.log(target);
+                });
             }
         };
 
