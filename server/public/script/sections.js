@@ -128,7 +128,7 @@ const showArtistTab = async (id) => {
                         let div2 = document.createElement('div');
                         div2.className = "songTitleDiv2";
                         let div3 = document.createElement("div");
-                        div3.className = `songTitle`;
+                        div3.className = `songTitle wMax`;
 
                         if(artistTopTracks[i].name.length >= 50){
                                 div3.innerHTML = `${(artistTopTracks[i].name).slice(0, 45)}...`;
@@ -142,8 +142,10 @@ const showArtistTab = async (id) => {
                         div4.className = "songArtists";
                         span3.className = "songDuration";
                         span3.innerHTML = `${calculateTime((artistTopTracks[i].duration)/1000)}`;
+                        let div5 = document.createElement('div');
+                        div5.className = "songAlbum";
                         let span4 = document.createElement('span');
-                        span4.className = "songAlbum";
+                        span4.className = "wMax";
 
                         if((artistTopTracks[i].album.name).length >= 40){
                                 span4.innerText = `${(artistTopTracks[i].album.name).slice(0, 35)}...`;
@@ -200,7 +202,8 @@ const showArtistTab = async (id) => {
                         div2.appendChild(div3);
                         div2.appendChild(div4);
                         div1.appendChild(span3);
-                        div1.appendChild(span4);
+                        div5.appendChild(span4);
+                        div1.appendChild(div5);
 
                         artistMusicContainer.appendChild(div1);
 
