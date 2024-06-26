@@ -312,6 +312,7 @@ const showPlaylist = async (id) => {
                         for(i=0; i < playlistTracks.length; i++){
                                 let div1 = document.createElement('div');
                                 div1.className = `songs playlistMusicTracks playlistTracks${i}`;
+                                div1.setAttribute("data-id", `${playlistTracks[i].track.id}`);
                                 let span1 = document.createElement('span');
                                 span1.className = "songNum";
                                 span1.innerHTML = `${playlistTracks[i].discNumber}`;
@@ -408,6 +409,7 @@ const showPlaylist = async (id) => {
                         for(i=0; i < playlistTracks.length; i++){
                                 let div1 = document.createElement('div');
                                 div1.className = `songs playlistMusicTracks playlistTracks${i}`;
+                                div1.setAttribute("data-id", `${playlistTracks[i].track.id}`);
                                 let span1 = document.createElement('span');
                                 span1.className = "songNum";
                                 span1.innerHTML = `${playlistTracks[i].discNumber}`;
