@@ -1137,7 +1137,13 @@
                                 <h3 id="playlistNoSongs"></h3>
                                 <h3 class="dot">•</h3>
                                 <h3 id="playlistDuration">1hr 1min</h3>
-                                <img id="tilePlayBtn" src="/icons/dots.png" alt="">
+                                <img id="tilePlayBtn" src="/icons/dots.png" onclick="showOptions()" alt="">
+                            </div>
+                            <div class="playlistOptions hide" id="playlistOptions">
+                                <div class="options">Save Playlist</div>
+                                <div class="options">Delete Playlist</div>
+                                <div class="options">View on Spotify</div>
+                                <!-- <div class="opt"></div> -->
                             </div>
                         </div>
                         <div class="playlistImage">
@@ -1166,6 +1172,9 @@
                         June, 2024
                     </div>
                 </div>
+            </div>
+            <div class="contentUnavailableNotif" id="unavnotif">
+                <span>This Content is not available on your device.</span>
             </div>
             <div class="player">
                 <audio id="player" src="/songs/test.mp3" data-songName="Faded" data-songArtist="Alan Walker" data-artistId="7vk5e3vY1uw9plTHJAMwjN" data-songId="698ItKASDavgwZ3WjaWjtz" data-albumId="3nzuGtN3nXARvvecier4K0" preload="metadata"></audio>
