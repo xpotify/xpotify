@@ -66,6 +66,11 @@ const calculateDuration = (duration) => {
         
 };
 
+const showOptions = () => {
+        const opt = document.getElementById("playlistOptions");
+        opt.classList.toggle("hide");
+};
+
 const showArtistTab = async (id) => {
         tabs.classList.add("hide");
         songTabs.classList.add("hide");
