@@ -5,18 +5,18 @@
 
     const song = [
         {
-            "id" : "6FYbr9QzRoZPh0Re8lDO9z",
+            "id" : "58OLgaQqdVuRQMAjRTppGW",
             "artist" : {
-                "id": "3QSQFmccmX81fWCUSPTS7y",
-                "name" : "Dean Lewis"
+                "id": "0a3zDmrvmZcORfPeONPvfL",
+                "name" : "Rauf and Faik"
             },
-            "trackName" : "7 Minutes",
-            "audioSrcPath" : "test7.mp3",
+            "trackName" : "wonderful",
+            "audioSrcPath" : "6FYbr9QzRoZPh0Re8lDO9z.mp3",
             "album" : {
-                "name" : "A Place We Knew",
-                "id" : "61G7KL6rpj167r6H4CzS8C",
+                "name" : "wonderful",
+                "id" : "4OmHxZnWYTIFKqDpWO7SuT",
                 "image" : {
-                    "url" : "https://i.scdn.co/image/ab67616d00001e02a787f718fb485b66d6219247"
+                    "url" : "https://i.scdn.co/image/ab67616d00001e0230fffb512d624059038851f2"
                 }
             }
         }
@@ -38,7 +38,7 @@
 
         console.log("Database has been opened!");
         
-        saveTracksToDB(song);
+        // saveTracksToDB(song);
         // const transaction = db.transaction("savedSongs", "readwrite");
         // const objectStore = transaction.objectStore("savedSongs");
 
@@ -241,8 +241,14 @@
                 elem[0].addEventListener("dblclick", () => {
                     let song = data[0][0];
                     let src = song.audioSrcPath;
-                    audio.src = "/songs/test8.mp3";
-                    // changeSiteTitle(song.name);
+                    songCoverImage.src = `${song.album.image.url}`;
+                    songCoverImage.dataset.albumid = `${song.album.id}`;
+                    songName.innerText = `${song.trackName}`
+                    songName.dataset.id = `${song.id}`;
+                    songArtist.innerText = `${song.artist.name}`;
+                    songArtist.dataset.artistid = `${song.artist.id}`;
+                    audio.src = `/songs/${song.audioSrcPath}`;
+                    changeSiteTitle(song.trackName, song.artist.name);
                     // changeSongMetaData(z+1);
                     changePlayPause('play');
                     displayDuration();
@@ -253,9 +259,15 @@
                 console.log("No! the track does not exist!");
                 addOpacClass(targetElem);
                 const elem = document.getElementsByClassName(`${targetElem}`);
+                const notif = document.getElementById("unavnotif");
                 elem[0].addEventListener("dblclick", (e) => {
                     let target = elem[0];
-                    console.log(target);
+                    // console.log(target);
+                    // console.log(notif);
+                    notif.style.visibility = "visible";
+                    setInterval(() => {
+                        notif.style.visibility = "hidden";
+                    }, 5000);
                 });
             }
         };
