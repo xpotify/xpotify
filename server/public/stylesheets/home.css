@@ -1995,3 +1995,52 @@ ul.items li img:hover{
 .wMax:hover{
     text-decoration: underline;
 }
+
+.contentUnavailableNotif{
+    transition: 0.2s;
+    visibility: hidden;
+    position: absolute;
+    border-radius: 10px;
+    padding: 0.5%;
+    background: white;
+    color: black;
+    top: 84%;
+    font-size: 14px;
+}
+
+.playlistOptions{
+    background: #3b3b3b;
+    left: 32%;
+    top: 35%;
+    border-radius: 5px;
+    position: absolute;
+    color: black;
+    /* padding: 1%; */
+    width: 8%;
+    /* height: 13%; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.options{
+    margin-top: 2%;
+    padding: 4%;
+    transition: 0.2s;
+    color: #b7b7b7;
+    /* color: grey; */
+    cursor: pointer;
+    background-color: #3b3b3b;
+    border-radius: 4px;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.options:nth-child(3){
+    margin-bottom: 2%;
+}
+
+.options:hover{
+    background-color: #5c5c5c;
+    color: white;
+}
