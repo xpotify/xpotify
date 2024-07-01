@@ -16,13 +16,12 @@ var volValue = volSeeker.value;
 let playState = "play";
 audio.volume = 0.25;
 
-
 const calculateTime = (secs) => {
   const minutes = Math.floor(secs / 60);
   const seconds = Math.floor(secs % 60);
   const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
   return `${minutes}:${returnedSeconds}`;
-}
+};
 
 const displayDuration = () =>{
     durationContainer.textContent = calculateTime(audio.duration);
@@ -154,8 +153,8 @@ let songId = 0;
 let songId2 = 1;
 const songLim = (songMetaData.length);
 
-const changeSiteTitle = (e) => {
-  siteTitle.textContent =  `${songMetaData[e].name} - ${songMetaData[e].artist}`;
+const changeSiteTitle = (trackName, artistName) => {
+  siteTitle.textContent =  `${trackName} - ${artistName}`;
 };
 
 const changeSongMetaData = (e) => {
