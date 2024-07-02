@@ -260,7 +260,7 @@
                 addOpacClass(targetElem);
                 const elem = document.getElementsByClassName(`${targetElem}`);
                 const notif = document.getElementById("unavnotif");
-                elem[0].addEventListener("dblclick", (e) => {
+                elem[0].addEventListener("dblclick", async (e) => {
                     let target = elem[0];
                     // console.log(target);
                     // console.log(notif);
@@ -268,8 +268,13 @@
                     setInterval(() => {
                         notif.style.visibility = "hidden";
                     }, 5000);
+
+                    const trackName = elem[0].children[2].children[0].innerText;
+                    const artistName = elem[0].children[2].children[1].children[0].innerText;
+                    console.log(`${trackName} - ${artistName} - Official Audio`);
+                    // const idFromYouTube = await getTracksIdFromYT();
                 });
-            }
+            };
         };
 
         request.onerror = () => {
