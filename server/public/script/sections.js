@@ -325,6 +325,7 @@ const showPlaylist = async (id) => {
                                 span2.className = "songImage";
                                 let image = document.createElement('img');
                                 image.src = `${playlistTracks[i].track.album.images[2].url}`;
+                                image.setAttribute("data-bigimg", `${playlistTracks[i].track.album.images[0].url}`);
                                 let div2 = document.createElement('div');
                                 div2.className = "songTitleDiv2";
                                 let div3 = document.createElement("div");
@@ -422,6 +423,7 @@ const showPlaylist = async (id) => {
                                 span2.className = "songImage";
                                 let image = document.createElement('img');
                                 image.src = `${playlistTracks[i].track.album.images[2].url}`;
+                                image.setAttribute("data-bigimg", `${playlistTracks[i].track.album.images[0].url}`);
                                 let div2 = document.createElement('div');
                                 div2.className = "songTitleDiv2";
                                 let div3 = document.createElement("div");
