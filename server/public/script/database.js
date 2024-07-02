@@ -271,8 +271,36 @@
 
                     const trackName = elem[0].children[2].children[0].innerText;
                     const artistName = elem[0].children[2].children[1].children[0].innerText;
-                    console.log(`${trackName} - ${artistName} - Official Audio`);
-                    // const idFromYouTube = await getTracksIdFromYT();
+                    const trackId = elem[0].dataset.id;
+                    const query = (`${trackName} - ${artistName} - Official Audio`);
+                    const idFromYouTube = await getTracksIdFromYT(query);
+                    // console.log(idFromYouTube);
+                    const track = [
+                        {
+                            "id" : elem[0].dataset.id,
+                            "artist" : {
+                                "id": elem[0].children[2].children[1].children[0].dataset.id,
+                                "name" : elem[0].children[2].children[1].children[0].innerText
+                            },
+                            "trackName" : elem[0].children[2].children[0].innerText,
+                            "audioSrcPath" : `${elem[0].dataset.id}.mp3`,
+                            "album" : {
+                                "name" : elem[0].children[4].children[0].innerText,
+                                "id" : elem[0].children[4].children[0].dataset.id,
+                                "image" : {
+                                    "url" : elem[0].children[1].children[0].dataset.bigimg
+                                }
+                            }
+                        }
+                    ];
+                    // console.log(track);
+                    downloadSongReq(idFromYouTube, trackId).then(() => {
+                        elem[0].classList.remove("opac");
+                        saveTracksToDB(track);
+                        console.log("saved!");
+                    });
+
+                    elem[0].removeEventListener("dblclick");
                 });
             };
         };
