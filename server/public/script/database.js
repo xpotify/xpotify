@@ -261,7 +261,6 @@
                 const elem = document.getElementsByClassName(`${targetElem}`);
                 const notif = document.getElementById("unavnotif");
                 elem[0].addEventListener("dblclick", async (e) => {
-                    let target = elem[0];
                     // console.log(target);
                     // console.log(notif);
                     notif.style.visibility = "visible";
