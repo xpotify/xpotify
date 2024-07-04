@@ -294,10 +294,12 @@
                     ];
                     // console.log(track);
                     downloadSongReq(idFromYouTube, trackId).then(() => {
-                        elem[0].classList.remove("opac");
                         saveTracksToDB(track);
                         elem[0].setAttribute("data-srcpath", `${trackId}.mp3`);
                         console.log("saved!");
+                        setInterval(() => {
+                            elem[0].classList.remove("opac");
+                        }, 3000);
                     });
 
                     elem[0].addEventListener("dblclick", () => {
