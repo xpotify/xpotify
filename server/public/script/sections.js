@@ -314,6 +314,7 @@ const showPlaylist = async (id) => {
         if(playlistTracks){
                 if(playlistMusicTracks.length > 0){
                         playlistMusicTracks.forEach(el => el.remove());
+                        loadedPlaylist.length = 0;
                         for(i=0; i < playlistTracks.length; i++){
                                 let div1 = document.createElement('div');
                                 div1.className = `songs playlistMusicTracks playlistTracks${i}`;
@@ -408,7 +409,6 @@ const showPlaylist = async (id) => {
                                 div1.appendChild(div5);
 
                                 playlistTracksContainer.appendChild(div1);
-
                                 checkIfTrackIsSaved(playlistTracks[i].track.id, `playlistTracks${i}`);
                         };
                 } else {

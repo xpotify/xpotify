@@ -1,4 +1,8 @@
 // window.onload = () => {
+
+    let loadedPlaylist = [];
+    let recentlyPlayedTracks = [];
+
     let db;
 
     const DBOpenRequest = window.indexedDB.open("xpotify", 4);
@@ -237,9 +241,11 @@
             if(data.length == 1){
                 console.log("Yes! the track exists! TFTF");
                 const elem = document.getElementsByClassName(`${targetElem}`);
+                loadedPlaylist.push(data[0][0]);
                 elem[0].setAttribute("data-srcpath", data[0][0].audioSrcPath);
                 elem[0].addEventListener("dblclick", () => {
                     let song = data[0][0];
+                    recentlyPlayedTracks.unshift(song);
                     let src = song.audioSrcPath;
                     songCoverImage.src = `${song.album.image.url}`;
                     songCoverImage.dataset.albumid = `${song.album.id}`;
