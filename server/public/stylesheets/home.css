@@ -2012,7 +2012,7 @@ ul.items li img:hover{
     background: #3b3b3b;
     left: 32%;
     top: 35%;
-    border-radius: 5px;
+    border-radius: 4px;
     position: absolute;
     color: black;
     padding: 0.2%;
@@ -2046,14 +2046,33 @@ ul.items li img:hover{
 }
 
 .opt{
-    padding: 2%;
+    padding: 3%;
     width: 100%;
     display: flex;
     align-items: center;
     height: 17%;
-    border: 1px solid transparent;
-    border-radius: 5px;
+    /* border: 1px solid transparent;
+    border-radius: 5px; */
+    cursor: pointer;
 }
+
+.opt:nth-child(1){
+    border: 1px solid transparent;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
+
+.opt:nth-child(2), .opt:nth-child(5){
+    border-bottom: 1px solid grey;
+    border-top: 1px solid grey;
+}
+
+.opt:nth-child(6){
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border: 1px solid transparent;
+}
+
 
 .opt:hover{
     background-color: #636363;
@@ -2065,10 +2084,11 @@ ul.items li img:hover{
 }
 
 .optIcon img{
-    width: 20px;
+    width: 22px;
 }
 
 .optOptions{
-    margin-left: 4%;
+    margin-left: 8%;
     color: white;
+    font-size: 14px;
 }
