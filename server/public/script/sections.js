@@ -282,9 +282,15 @@ const showPlaylist = async (id) => {
         const playlistTracksContainer = document.getElementById("playlistMusic");
         const playlistNoMusic = document.getElementById("playlistNoSongs");
         const playlistTimeDuration = document.getElementById("playlistDuration");
-        
+        const optionControls = document.querySelectorAll(".opt");
         const playlistMetadata = await fetchPlaylist(id);
         const playlistTracks = await fetchPlaylistTracks(id);
+
+        optionControls[5].setAttribute("data-vos", `https://open.spotify.com/playlist/${playlistMetadata.id}`);
+
+        optionControls[5].addEventListener("click", () => {
+                window.open(optionControls[5].dataset.vos);
+        });
 
         if(playlistMetadata.name >= 19){
                 playlistName.innerText = `${playlistMetadata.name.slice(0, 19)}...`

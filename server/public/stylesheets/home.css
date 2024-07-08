@@ -2011,6 +2011,7 @@ ul.items li img:hover{
 .playlistOptions{
     background: #3b3b3b;
     left: 32%;
+    z-index: 10;
     top: 35%;
     border-radius: 4px;
     position: absolute;
