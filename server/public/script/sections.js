@@ -289,13 +289,25 @@ const showPlaylist = async (id) => {
         optionControls[5].setAttribute("data-vos", `https://open.spotify.com/playlist/${playlistMetadata.id}`);
         optionControls[4].setAttribute("data-surl", `https://open.spotify.com/playlist/${playlistMetadata.id}`);
 
-        optionControls[5].addEventListener("click", () => {
+        optionControls[5].addEventListener("click", async () => {
                 window.open(optionControls[5].dataset.vos);
         });
 
         optionControls[4].addEventListener("click", async () => {
                 let surl = optionControls[4].dataset.surl;
                 navigator.clipboard.writeText(surl);
+        });
+
+        optionControls[3].addEventListener("click", async () => {
+                console.log(playlistMetadata);
+                const pinning = pinPoA(playlistMetadata);
+                pinning.oncomplete = () => {
+                        console.log("Pinned!");
+                };
+
+                pinning.onerror = () => {
+                        console.log("Can not pin it.");
+                };
         });
 
         if(playlistMetadata.name >= 19){

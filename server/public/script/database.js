@@ -5,7 +5,7 @@
 
     let db;
 
-    const DBOpenRequest = window.indexedDB.open("xpotify", 4);
+    const DBOpenRequest = window.indexedDB.open("xpotify", 5);
 
     const song = [
         {
@@ -77,8 +77,8 @@
             console.log("Error loading database!");
         };
 
-        const objectStore = db.createObjectStore(["savedSongs"], { keyPath: "id"});
-        objectStore.createIndex("artist", "artist", { unique: false });
+        const objectStore = db.createObjectStore(["pinned"], { keyPath: "id"});
+        objectStore.createIndex("type", "type", { unique: false });
         objectStore.createIndex("name", "name", { unique: false });
         objectStore.transaction.oncomplete = () => {
             console.log("ObjectStore setting up completed!");
@@ -361,5 +361,29 @@
         request.onerror = () => {
             console.log(request.error);
         };
+    };
+
+    const pinPoA = async (metadata) => {
+        const transaction = db.transaction(["pinned"], "readwrite");
+        
+        transaction.oncomplete = () => {
+            console.log("Transaction has been completed!");
+        };  
+
+        transaction.onerror = () => {
+            console.log("Transacion could not be fulfilled!");
+        };
+        
+        const objectStore = transaction.objectStore("pinned");     
+        
+        const request = objectStore.add(metadata);
+
+        request.onsucess = () => {
+            console.log("PoA pinned!")
+        };
+
+        request.onerror = () => {
+            console.log("Can not pin it.", err);
+        };     
     };
 // };
