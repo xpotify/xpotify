@@ -11,3 +11,13 @@ for(i=0; i < image.length; i++){
         btn[x].classList.remove("playBtn");
     });
 };
+
+// document.onclick = () => {
+//     const opt = document.getElementById("playlistOptions");
+//     if(opt.classList[1] == "hide"){
+//         // do nothing
+//     } else {
+//         opt.classList.add("hide");
+//         console.log(opt.classList);
+//     }
+// };
