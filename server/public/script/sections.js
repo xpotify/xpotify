@@ -287,9 +287,15 @@ const showPlaylist = async (id) => {
         const playlistTracks = await fetchPlaylistTracks(id);
 
         optionControls[5].setAttribute("data-vos", `https://open.spotify.com/playlist/${playlistMetadata.id}`);
+        optionControls[4].setAttribute("data-surl", `https://open.spotify.com/playlist/${playlistMetadata.id}`);
 
         optionControls[5].addEventListener("click", () => {
                 window.open(optionControls[5].dataset.vos);
+        });
+
+        optionControls[4].addEventListener("click", async () => {
+                let surl = optionControls[4].dataset.surl;
+                navigator.clipboard.writeText(surl);
         });
 
         if(playlistMetadata.name >= 19){
