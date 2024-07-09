@@ -299,7 +299,6 @@ const showPlaylist = async (id) => {
         });
 
         optionControls[3].addEventListener("click", async () => {
-                console.log(playlistMetadata);
                 const pinning = pinPoA(playlistMetadata);
                 pinning.oncomplete = () => {
                         console.log("Pinned!");
