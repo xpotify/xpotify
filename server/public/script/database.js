@@ -383,7 +383,7 @@
         };
 
         request.onerror = () => {
-            console.log("Can not pin it.", err);
+            console.log("Can not pin it.", request.err);
         };     
     };
 // };
