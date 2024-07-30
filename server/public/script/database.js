@@ -378,7 +378,7 @@
         
         const request = objectStore.add(metadata);
 
-        request.onsucess = () => {
+        request.onsuccess = () => {
             console.log("PoA pinned!")
         };
 
