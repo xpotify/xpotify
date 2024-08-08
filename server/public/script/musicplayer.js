@@ -248,3 +248,8 @@ volMute.addEventListener('click', () => {
     volSeeker.value = 0;
   }
 });
+
+
+//v2 MusicPlayer
+
+
