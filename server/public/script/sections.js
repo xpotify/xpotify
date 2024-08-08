@@ -309,6 +309,11 @@ const showPlaylist = async (id) => {
                 };
         });
 
+        optionControls[0].addEventListener("click", () => {
+                const tracksToBeAddedToQueue = loadedPlaylist;
+                console.log(tracksToBeAddedToQueue);
+        });
+
         if(playlistMetadata.name >= 19){
                 playlistName.innerText = `${playlistMetadata.name.slice(0, 19)}...`
         } else {
