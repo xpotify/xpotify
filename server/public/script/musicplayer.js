@@ -252,4 +252,15 @@ volMute.addEventListener('click', () => {
 
 //v2 MusicPlayer
 
+var queuedTracks = [];
+
+const playTrack = async (track) => {
+  audio.src = track.audioSrcPath;
+  console.log(track.audioSrcPath);
+  displayDuration();
+  setSliderMax();
+  audio.play();
+};
+
+
 
