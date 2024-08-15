@@ -1,6 +1,6 @@
 const express = require('express'),
       app = express(),
-      PORT = 6969;
+      PORT = 1212;
 
 // const { Client } = require("spotify-api.js");
 // const cli = new Client({ 

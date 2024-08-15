@@ -1,5 +1,5 @@
 const fetchArtist = async (id) => {
-    const response = await fetch(`http://localhost:6969/artist/q/${id}`, {
+    const response = await fetch(`http://localhost:1212/artist/q/${id}`, {
         method: "GET", 
         mode: "cors",
         headers: {
@@ -14,7 +14,7 @@ const fetchArtist = async (id) => {
 };
 
 const fetchPlaylist = async (id) => {
-    const response = await fetch(`http://localhost:6969/playlist/q/${id}`, {
+    const response = await fetch(`http://localhost:1212/playlist/q/${id}`, {
         method: "GET",
         mode: "cors",
         headers: {
@@ -27,7 +27,7 @@ const fetchPlaylist = async (id) => {
 };
 
 const fetchPlaylistTracks = async (id) => {
-    const response = await fetch(`http://localhost:6969/playlist/q/tracks/${id}`, {
+    const response = await fetch(`http://localhost:1212/playlist/q/tracks/${id}`, {
         method: "GET",
         mode: "cors",
         headers: {
@@ -41,7 +41,7 @@ const fetchPlaylistTracks = async (id) => {
 
 
 const fetchArtistTopTracks = async (id) => {
-    const response = await fetch(`http://localhost:6969/artist/toptracks/${id}`, {
+    const response = await fetch(`http://localhost:1212/artist/toptracks/${id}`, {
         method: "GET", 
         mode: "cors",
         headers: {
@@ -56,7 +56,7 @@ const fetchArtistTopTracks = async (id) => {
 };
 
 const fetchTrack = async (id) => {
-    const response = await fetch(`http://localhost:6969/song/gettrack/${id}`, {
+    const response = await fetch(`http://localhost:1212/song/gettrack/${id}`, {
         method: "GET",
         mode: "cors",
         headers: {
@@ -69,7 +69,7 @@ const fetchTrack = async (id) => {
 };
 
 const fetchAlbum = async (id) => {
-    const response = await fetch(`http://localhost:6969/album/get/${id}`, {
+    const response = await fetch(`http://localhost:1212/album/get/${id}`, {
         method : "GET",
         mode : "cors",
         headers : {
@@ -82,7 +82,7 @@ const fetchAlbum = async (id) => {
 };
 
 const fetchUser = async (id) => {
-    const response = await fetch(`http://localhost:6969/user/get/${id}`, {
+    const response = await fetch(`http://localhost:1212/user/get/${id}`, {
         method: "GET",
         mode: "cors",
         headers : {
@@ -95,7 +95,7 @@ const fetchUser = async (id) => {
 };
 
 const fetchUsersPlaylist = async (id) => {
-    const response = await fetch(`http://localhost:6969/user/getplaylist/${id}`, {
+    const response = await fetch(`http://localhost:1212/user/getplaylist/${id}`, {
         method: "GET",
         mode: "cors",
         headers : {
@@ -108,7 +108,7 @@ const fetchUsersPlaylist = async (id) => {
 };
 
 const fetchArtistsAlbums = async (id) => {
-    const response = await fetch(`http://localhost:6969/artist/getalbums/${id}`, {
+    const response = await fetch(`http://localhost:1212/artist/getalbums/${id}`, {
         method : "GET",
         mode : "cors",
         headers : {
@@ -121,7 +121,7 @@ const fetchArtistsAlbums = async (id) => {
 };
 
 const fetchRelatedArtists = async (id) => {
-    const response = await fetch(`http://localhost:6969/artist/getrelatedartists/${id}`, {
+    const response = await fetch(`http://localhost:1212/artist/getrelatedartists/${id}`, {
        method : "GET",
        mode : "cors",
        headers : {
