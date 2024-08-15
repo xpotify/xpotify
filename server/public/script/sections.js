@@ -311,7 +311,7 @@ const showPlaylist = async (id) => {
 
         optionControls[0].addEventListener("click", () => {
                 const tracksToBeAddedToQueue = loadedPlaylist;
-                console.log(tracksToBeAddedToQueue);
+                
         });
 
         if(playlistMetadata.name >= 19){
