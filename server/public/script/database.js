@@ -5,7 +5,7 @@
 
     let db;
 
-    const DBOpenRequest = window.indexedDB.open("xpotify", 9);
+    const DBOpenRequest = window.indexedDB.open("xpotify", 10);
 
     const song = [
         {
@@ -77,7 +77,7 @@
             console.log("Error loading database!");
         };
 
-        const objectStore = db.createObjectStore(["pinned"], { keyPath: "id"});
+        const objectStore = db.createObjectStore(["savedPlaylists"], { keyPath: "id"});
         objectStore.createIndex("artist", "artist", { unique: false });
         objectStore.createIndex("name", "name", { unique: false });
         objectStore.transaction.oncomplete = () => {
@@ -249,7 +249,7 @@
                     let src = song.audioSrcPath;
                     songCoverImage.src = `${song.album.image.url}`;
                     songCoverImage.dataset.albumid = `${song.album.id}`;
-                    songName.innerText = `${song.trackName}`
+                    songName.innerText = `${(song.trackName).slice(0, 26)}...`
                     songName.dataset.id = `${song.id}`;
                     songArtist.innerText = `${song.artist.name}`;
                     songArtist.dataset.artistid = `${song.artist.id}`;
@@ -337,7 +337,7 @@
                         let src = elem[0].dataset.srcpath;
                         songCoverImage.src = `${song.album.image.url}`;
                         songCoverImage.dataset.albumid = `${song.album.id}`;
-                        songName.innerText = `${song.trackName}`
+                        songName.innerText = `${(song.trackName)}`
                         songName.dataset.id = `${song.id}`;
                         songArtist.innerText = `${song.artist.name}`;
                         songArtist.dataset.artistid = `${song.artist.id}`;
