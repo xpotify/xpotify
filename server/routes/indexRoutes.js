@@ -18,6 +18,10 @@ router.get('/', (req, res) => {
   res.render('home');
 });
 
+router.get('/v2', (req, res) => {
+  res.render('v2');
+});
+
 router.post("/:id/:trackname", (req, res) => {
   downloadSong(req.params.id, req.params.trackname);
 });
