@@ -23,7 +23,7 @@ body{
 }
 
 .leftSection{
-    width: 12.5%;
+    width: 13%;
     background-color: rgb(0, 0, 0);
     height: 100%;
     border-right: 1px solid rgba(128, 128, 128, 0.459);
@@ -149,7 +149,7 @@ body{
 
 .newPlaylistBtn img{
     height: 55%;
-    margin-right: 4%;
+    margin-right: 1%;
 }
 
 .newPlaylistBtn span{
@@ -158,4 +158,66 @@ body{
 
 .newPlaylistBtn:hover{
     background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Pinned playlist */
+
+.hide{
+    visibility: hidden !important;
+}
+
+.pinnedPlaylist{
+    width: 100%;
+    height: 60%;
+    margin-top: 10%;
+}
+
+.pinnedPlaylist ul{
+    list-style: none;
+}
+
+.playlist{
+    width: 100%;
+    height: 25%;
+    display: flex;
+    padding: 6%;
+    border-radius: 8px;
+    transition: 0.1s;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+}
+
+.playlist:hover{
+    background-color: rgba(255, 255, 255, 0.26);
+}
+
+.playlistInfo{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.playBtn{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.playBtn img{
+    width: 35%;
+}
+
+.playlistName{
+    font-size: 14px;
+}
+
+.playlistOwner{
+    font-size: 12px;
+    margin-top: 1%;
+    color: rgb(168, 168, 168);
 }
