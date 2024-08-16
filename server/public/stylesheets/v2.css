@@ -71,3 +71,45 @@ body{
 #xptfy{
     width: 65%;
 }
+
+/* Navigation Buttons */
+.NavigationButtons{
+    width: 100%;
+    height: 16%;
+    margin-top: 15%;
+}
+
+.NavigationButtons ul{
+    list-style: none;
+    width: 100%;
+    height: 100%;
+}
+
+.NavigationButtons li{
+    list-style: none;
+    width: 100%;
+    height: 33.3%;
+}
+
+.navBtnHm{
+    background-color: rgba(128, 128, 128, 0.26);
+}
+
+.navBtnHm, .navBtnExpl, .navBtnLib{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 6%;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.navBtnHm img, .navBtnExpl img, .navBtnLib img{
+    width: 12%;
+    margin-right: 10%;
+}
+
+.navBtnHm:hover, .navBtnExpl:hover, .navBtnLib:hover{
+    background-color: rgba(128, 128, 128, 0.473);
+}
