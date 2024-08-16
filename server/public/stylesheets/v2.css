@@ -45,7 +45,9 @@ body{
 
 .brandName{
     font-size: 20px;
-    margin-left: 5%;
+    margin-left: 4%;
+    display: flex;
+    align-items: center;
 }
 
 #menuLogo{
@@ -66,3 +68,6 @@ body{
     background-color: rgba(128, 128, 128, 0.397);
 }
 
+#xptfy{
+    width: 65%;
+}
