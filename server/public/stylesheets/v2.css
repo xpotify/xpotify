@@ -29,7 +29,7 @@ body{
     background-color: rgb(44, 44, 44);
     width: 87.5%;
     height: 100%;
-    background-image: url("https://github.com/xpotify/xpotify/blob/master/server/public/background/gradient.png?raw=true");
+    background-image: url("/background/gradient.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -49,8 +49,20 @@ body{
 }
 
 #menuLogo{
-    width: 15%;
-    background-color: white;
-    padding: 2%;
+    width: 20%;
+    padding: 4%;
+    border-radius: 50%;
+    transition: 0.2s;
+    cursor: pointer;
+    /* border: 1px solid transparent; */
+}
+
+#menuLogo:hover{
+    background-color: rgba(128, 128, 128, 0.24);
+    /* border: 1px solid rgba(128, 128, 128, 0.295); */
+}
+
+#menuLogo:active{
+    background-color: rgba(128, 128, 128, 0.397);
 }
 
