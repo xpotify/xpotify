@@ -20,4 +20,4 @@ for(i=0; i < image.length; i++){
 //         opt.classList.add("hide");
 //         console.log(opt.classList);
 //     }
-// };
+// }
