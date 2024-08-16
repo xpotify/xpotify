@@ -103,6 +103,7 @@ body{
     padding: 6%;
     border-radius: 10px;
     cursor: pointer;
+    transition: 0.1s;
 }
 
 .navBtnHm img, .navBtnExpl img, .navBtnLib img{
