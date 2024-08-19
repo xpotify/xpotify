@@ -242,10 +242,11 @@ body{
 
 .bar img{
     width: 4%;
+    margin: 0 2% 0 2%;
 }
 
 .bar input{
-    width: 95%;
+    width: 90%;
     height: 65%;
     background-color: transparent;
     border: none;
