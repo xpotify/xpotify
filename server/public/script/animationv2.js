@@ -19,3 +19,19 @@ for(i=0; i < pinnedPs.length; i++){
 // inp.addEventListener("input", () => {
 //     console.log(inp.value);
 // });
+
+// playlist button
+
+const playlistCover = document.getElementsByClassName("playlistCover");
+const btn = document.getElementsByClassName("playlistPlayBtn");
+
+for(i=0; i < playlistCover.length; i++){
+    const x = i;
+    playlistCover[i].addEventListener("mouseenter", () => {
+        btn[x].classList.add("playBtn");
+    });
+
+    playlistCover[i].addEventListener("mouseleave", () => {
+        btn[x].classList.remove("playBtn");
+    });
+};
