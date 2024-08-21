@@ -448,7 +448,11 @@ body{
     transition: 0.1s;
 }
 
-.playlistCover img:hover{
+/* .playlistCover img:hover{
+    opacity: 50%;
+} */
+
+.opac50{
     opacity: 50%;
 }
 
@@ -465,6 +469,12 @@ body{
     left: 72%;
     opacity: 0%;
     transition: 0.3s;
+}
+
+.playlistPlayBtn:hover{
+    opacity: 100%;
+    transform: scale(1.1);
+    background-color: black !important;
 }
 
 .playBtn{
