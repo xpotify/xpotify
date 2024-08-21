@@ -35,3 +35,17 @@ for(i=0; i < playlistCover.length; i++){
         btn[x].classList.remove("playBtn");
     });
 };
+
+// playlistImg
+
+const playlistCoverImage = document.getElementsByClassName("playlistCoverImage");
+
+for(i=0; i < playlistCoverImage.length; i++){
+    const x = i;
+    playlistCoverImage[i].addEventListener("mouseenter", () => {
+        playlistCoverImage[x].classList.add("opac50");
+    });
+    playlistCoverImage[i].addEventListener("mouseleave", () => {
+        playlistCoverImage[x].classList.remove("opac50");
+    });
+};
