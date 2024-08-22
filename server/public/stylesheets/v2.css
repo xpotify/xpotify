@@ -54,13 +54,13 @@ body{
 }
   
 .rightSection::-webkit-scrollbar-track {
-    border-radius: 10px;
+    /* border-radius: 10px; */
 }
    
 
 .rightSection::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.2); 
-    border-radius: 15px;
+    /* border-radius: 15px; */
     cursor: pointer;
     transition: 0.2s;
 }
@@ -398,20 +398,20 @@ body{
   }
   
 .savedPlaylists ul::-webkit-scrollbar-track {
-    border-radius: 10px;
+    /* border-radius: 10px; */
 }
    
 
 .savedPlaylists ul::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.1); 
-    border-radius: 15px;
+    /* border-radius: 15px; */
     cursor: pointer;
     transition: 0.2s;
 }
   
 
 .savedPlaylists ul::-webkit-scrollbar-thumb:hover {
-    background: #ffffff69; 
+    background: #ffffff2c; 
 }
 
 .heading{
