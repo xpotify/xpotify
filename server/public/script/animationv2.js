@@ -24,28 +24,17 @@ for(i=0; i < pinnedPs.length; i++){
 
 const playlistCover = document.getElementsByClassName("playlistCover");
 const btn = document.getElementsByClassName("playlistPlayBtn");
+const playlistCoverImage = document.getElementsByClassName("playlistCoverImage");
 
 for(i=0; i < playlistCover.length; i++){
     const x = i;
     playlistCover[i].addEventListener("mouseenter", () => {
         btn[x].classList.add("playBtn");
+        playlistCoverImage[x].classList.add("opac65");
     });
 
     playlistCover[i].addEventListener("mouseleave", () => {
         btn[x].classList.remove("playBtn");
-    });
-};
-
-// playlistImg
-
-const playlistCoverImage = document.getElementsByClassName("playlistCoverImage");
-
-for(i=0; i < playlistCoverImage.length; i++){
-    const x = i;
-    playlistCoverImage[i].addEventListener("mouseenter", () => {
-        playlistCoverImage[x].classList.add("opac50");
-    });
-    playlistCoverImage[i].addEventListener("mouseleave", () => {
-        playlistCoverImage[x].classList.remove("opac50");
+        playlistCoverImage[x].classList.remove("opac65");
     });
 };
