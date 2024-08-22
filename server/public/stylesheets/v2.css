@@ -44,14 +44,14 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     padding: 1% 5% 1% 5%;
-    /* overflow-y: scroll; */
+    overflow-y: scroll;
 }
 
-/* 
+
 .rightSection::-webkit-scrollbar {
-    width: 1px;
+    width: 8px;
     height: 8px;
-  }
+}
   
 .rightSection::-webkit-scrollbar-track {
     border-radius: 10px;
@@ -68,7 +68,7 @@ body{
 
 .rightSection::-webkit-scrollbar-thumb:hover {
     background: #ffffff69; 
-} */
+}
 
 .topSandwich{
     display: flex;
@@ -360,6 +360,7 @@ body{
     display: flex;
     /* justify-content: center; */
     flex-direction: column;
+    margin-bottom: 2%;
 }
 
 .greet{
@@ -379,6 +380,7 @@ body{
 .savedPlaylists{
     width: 100%;
     height: 40%;
+    margin-bottom: 5%;
 }
 
 .savedPlaylists ul{
@@ -401,7 +403,7 @@ body{
    
 
 .savedPlaylists ul::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.2); 
+    background: rgba(255, 255, 255, 0.1); 
     border-radius: 15px;
     cursor: pointer;
     transition: 0.2s;
