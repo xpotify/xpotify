@@ -543,13 +543,105 @@ body{
 }
 
 .progessBar{
-    width: 86%;
+    width: 65%;
     height: 3%;
-    background-color: rgb(214, 0, 0);
+    /* background-color: rgb(214, 0, 0); */
+    background: rgb(224,0,0);
+    background: linear-gradient(90deg, rgba(224,0,0,1) 0%, rgba(255,0,116,1) 100%);
 }
 
 .player{
     width: 100%;
     height: 97%;
-    background-color: #252525;
+    background-color: #1a1a1a;
+    padding: 0.25% 2% 0.25% 0.25%;
+    display: flex;
+    align-items: center;
+}
+
+.trackInfo{
+    width: 40%;
+    display: flex;
+    align-items: center;
+}
+
+.trackInfo img:nth-child(1){
+    width: 8%;
+    height: auto;
+    cursor: pointer;
+}
+
+.trackDetails{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 2%;
+    justify-content: center;
+}
+
+.trackArtists{
+    font-size: 11px;
+    color: #b7b7b7;
+}
+
+.trackName{
+    margin-bottom: 1.5%;
+    cursor: pointer;
+}
+
+.trackName:hover{
+    text-decoration: underline;
+}
+
+.audioControls{
+    height: 100%;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+}
+
+.audioControls img:nth-child(1){
+    width: 4.5%;
+    transform: rotate(180deg);
+    cursor: pointer;
+}
+
+.audioControls img:nth-child(2){
+    width: 7%;
+    margin-left: 10%;
+    margin-right: 10%;
+    cursor: pointer;
+}
+
+.audioControls img:nth-child(3){
+    width: 4.5%;
+    cursor: pointer;
+}
+
+.extraControls{
+    display: flex;
+    width: 40%;
+    height: 100%;
+    justify-content: end;
+}
+
+.extraControls img{
+    opacity: 65%;
+}
+
+.extraControls img:nth-child(1), .extraControls img:nth-child(2), .extraControls img:nth-child(3), .extraControls img:nth-child(5){
+    margin-right: 5%;
+    width: 2.75%;
+    cursor: pointer;
+}
+
+.extraControls img:nth-child(4){
+    width: 2%;
+    cursor: pointer;
+    margin-right: 5%;
+}
+
+.extraControls img:nth-child(6){
+    width: 2.75%;
+    cursor: pointer;
 }
