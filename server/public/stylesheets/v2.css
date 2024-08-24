@@ -543,8 +543,9 @@ body{
 }
 
 .progressBar{
-    width: 65%;
+    width: 0%;
     height: 3%;
+    cursor: pointer;
     /* background-color: rgb(214, 0, 0); */
     background: rgb(224,0,0);
     background: linear-gradient(90deg, rgba(224,0,0,1) 0%, rgba(255,0,116,1) 100%);
