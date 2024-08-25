@@ -655,6 +655,7 @@ body{
     width: 15%;
     transition: 0.2s;
     accent-color: white;
+    display: none;
 }
 
 #volumeSlider::-webkit-slider-runnable-track {
