@@ -630,7 +630,7 @@ body{
     opacity: 65%;
 }
 
-.extraControls img:nth-child(1), .extraControls img:nth-child(2), .extraControls img:nth-child(3), .extraControls img:nth-child(5){
+.extraControls img:nth-child(1), .extraControls img:nth-child(2), .extraControls img:nth-child(3), .extraControls img:nth-child(5), .extraControls img:nth-child(6){
     margin-right: 5%;
     width: 2.75%;
     cursor: pointer;
@@ -642,9 +642,40 @@ body{
     margin-right: 5%;
 }
 
-.extraControls img:nth-child(6){
+.extraControls img:nth-child(7){
     width: 2.75%;
     cursor: pointer;
+}
+
+#volumeSlider{
+    margin-right: 2%;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+    width: 15%;
+    transition: 0.2s;
+    accent-color: white;
+}
+
+#volumeSlider::-webkit-slider-runnable-track {
+    background: #ffffff31;
+    height: 5%;
+    border-radius: 10px;
+}
+
+#volumeSlider::-webkit-slider-thumb {
+    -webkit-appearance: none; 
+    appearance: none;
+    margin-top: -5px; 
+    background-color: gray;
+    height: 13px;
+    width: 13px;    
+    border-radius: 50%;
+}
+
+#volumeSlider:active::-webkit-slider-thumb {
+    transform: scale(1.2);
+    background-color: white;
 }
 
 .trackCover{
