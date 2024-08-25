@@ -43,9 +43,9 @@ const speaker = document.getElementById("speaker");
 const volSlider = document.getElementById("volumeSlider");
 
 speaker.addEventListener("mouseover", () => {
-    volSlider.style.display = "none";
+    volSlider.style.display = "block";
 });
 
 speaker.addEventListener("mouseout", () => {
-    volSlider.style.display = "block";
+    volSlider.style.display = "none";
 });
