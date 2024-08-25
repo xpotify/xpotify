@@ -40,7 +40,12 @@ for(i=0; i < playlistCover.length; i++){
 };
 
 const speaker = document.getElementById("speaker");
+const volSlider = document.getElementById("volumeSlider");
 
-speaker.addEventListener("mouseoever", () => {
-    console.log("LMFAO");
+speaker.addEventListener("mouseover", () => {
+    volSlider.style.display = "none";
+});
+
+speaker.addEventListener("mouseout", () => {
+    volSlider.style.display = "block";
 });
