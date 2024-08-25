@@ -50,4 +50,4 @@ speaker.addEventListener("mouseout", () => {
     volSlider.style.display = "none";
 });
 
-audio.volume = 0.02;
+audio.volume = 0.04;
