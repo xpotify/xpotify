@@ -38,3 +38,9 @@ for(i=0; i < playlistCover.length; i++){
         playlistCoverImage[x].classList.remove("opac65");
     });
 };
+
+const speaker = document.getElementById("speaker");
+
+speaker.addEventListener("mouseoever", () => {
+    console.log("LMFAO");
+});
