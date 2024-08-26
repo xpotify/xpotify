@@ -630,13 +630,13 @@ body{
     opacity: 65%;
 }
 
-.extraControls img:nth-child(1), .extraControls img:nth-child(2), .extraControls img:nth-child(3), .extraControls img:nth-child(5), .extraControls img:nth-child(6){
+.extraControls img:nth-child(1), .extraControls img:nth-child(2), .extraControls img:nth-child(3), .extraControls img:nth-child(4), .extraControls img:nth-child(6){
     margin-right: 5%;
     width: 2.75%;
     cursor: pointer;
 }
 
-.extraControls img:nth-child(4){
+.extraControls img:nth-child(5){
     width: 2%;
     cursor: pointer;
     margin-right: 5%;
