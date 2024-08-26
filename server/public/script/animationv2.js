@@ -39,15 +39,27 @@ for(i=0; i < playlistCover.length; i++){
     });
 };
 
+// volume Slider
+
 const speaker = document.getElementById("speaker");
 const volSlider = document.getElementById("volumeSlider");
+
+audio.volume = 0.04;
+volSlider.value = audio.volume*100;
 
 speaker.addEventListener("mouseover", () => {
     volSlider.style.display = "block";
 });
 
-speaker.addEventListener("mouseout", () => {
+// speaker.addEventListener("mouseout", () => {
+//     volSlider.style.display = "none";
+// });
+
+
+volSlider.addEventListener("mouseout", () => {
     volSlider.style.display = "none";
 });
 
-audio.volume = 0.04;
+volSlider.addEventListener("input", () => {
+    audio.volume = (volSlider.value/100);
+});
