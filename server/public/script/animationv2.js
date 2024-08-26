@@ -44,9 +44,6 @@ for(i=0; i < playlistCover.length; i++){
 const speaker = document.getElementById("speaker");
 const volSlider = document.getElementById("volumeSlider");
 
-audio.volume = 0.04;
-volSlider.value = audio.volume*100;
-
 speaker.addEventListener("mouseover", () => {
     volSlider.style.display = "block";
 });
@@ -58,8 +55,4 @@ speaker.addEventListener("mouseover", () => {
 
 volSlider.addEventListener("mouseout", () => {
     volSlider.style.display = "none";
-});
-
-volSlider.addEventListener("input", () => {
-    audio.volume = (volSlider.value/100);
 });
