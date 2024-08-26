@@ -692,3 +692,23 @@ body{
     border-radius: 2px;
     cursor: pointer;
 }
+
+
+/* TrackTime Details */
+
+.trackTime{
+    width: 10%;
+    margin-left: 4%;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.521);
+}
+
+.currentTime{
+    margin-right: 5%;
+}
+
+.trackDuration{
+    margin-left: 5%;
+}
