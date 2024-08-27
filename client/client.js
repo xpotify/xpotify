@@ -3,7 +3,7 @@ const path = require('node:path')
 
 const createWindow = () => {
   const win = new BrowserWindow({
-    icon: "./public/icons/.ico/Xnew-b-l-16.ico",
+    icon: "./public/icons/.png/xLogo.png",
     width: 1080,
     height: 1920,
     fullscreen: false,
@@ -13,7 +13,7 @@ const createWindow = () => {
   })
   win.webContents.openDevTools()
   win.removeMenu();
-  win.loadURL('http://localhost:6969/');
+  win.loadURL('http://localhost:1212/v2');
 }
 
 app.whenReady().then(() => {
