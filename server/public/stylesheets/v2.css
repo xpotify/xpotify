@@ -712,3 +712,45 @@ body{
 .trackDuration{
     margin-left: 5%;
 }
+
+/* Track Audio Seeker */
+
+#audioSeeker{
+    width: 100%;
+    position: absolute;
+    top: -9%;
+    accent-color: transparent;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    appearance: none;
+}
+
+#audioSeeker::-webkit-slider-runnable-track {
+    background: transparent;
+    height: 5%;
+    border-radius: 10px;
+}
+
+#audioSeeker::-webkit-slider-thumb {
+    -webkit-appearance: none; 
+    appearance: none;
+    margin-top: -2px; 
+    background-color: gray;
+    height: 12px;
+    width: 12px;    
+    border-radius: 50%;
+    visibility: hidden;
+    cursor: pointer;
+}
+
+#audioSeeker:hover{
+    &::-webkit-slider-thumb{
+        visibility: visible;
+    }
+}
+
+#audioSeeker:active::-webkit-slider-thumb {
+    transform: scale(1.2);
+    background-color: white;
+}
