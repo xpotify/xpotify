@@ -3,6 +3,7 @@ const audio = document.getElementById("audio");
 const progressBar = document.getElementsByClassName("progressBar");
 const trackDuration = document.getElementsByClassName("trackDuration");
 const trackCurrentTime = document.getElementsByClassName("currentTime");
+const audioSeeker = document.getElementById("audioSeeker");
 
 audio.volume = 0.04;
 volSlider.value = audio.volume*100;
@@ -20,7 +21,9 @@ playpause.addEventListener("click", () => {
 audio.addEventListener("timeupdate", () => {
     const ticks = Math.floor(audio.duration);
     const increment = (1920/ticks)/1920*100;
+    const increment2 = (1920/ticks);
     progressBar[0].style.width = `${audio.currentTime * increment}%`;
+    audioSeeker.value = audio.currentTime * increment2;
 });
 
 volSlider.addEventListener("input", () => {
@@ -42,6 +45,7 @@ audio.addEventListener("loadedmetadata", () => {
 
 audio.addEventListener("timeupdate", () => {
     trackCurrentTime[0].innerText = `${calculateTime(audio.currentTime)}`;
+    // audioSeeker.value = Math.floor(audio.currentTime);
 });
 
 
