@@ -43,3 +43,9 @@ const calculateTime = (s) => {
 audio.addEventListener("loadedmetadata", () => {
     trackDuration[0].innerText = `${calculateTime(audio.duration)}`;
 });
+
+audioSeeker.addEventListener("change", () => {
+    const ticks = audio.duration;
+    const val = (1920/ticks);
+    audio.currentTime = (audioSeeker.value/val);
+});
