@@ -5,6 +5,14 @@ const trackDuration = document.getElementsByClassName("trackDuration");
 const trackCurrentTime = document.getElementsByClassName("currentTime");
 const audioSeeker = document.getElementById("audioSeeker");
 
+if (audio.readyState > 0) {
+    trackDuration[0].innerText = `${calculateTime(audio.duration)}`;
+} else {
+    audio.addEventListener('loadedmetadata', () => {
+        trackDuration[0].innerText = `${calculateTime(audio.duration)}`;
+    });
+}
+
 audio.volume = 0.04;
 volSlider.value = audio.volume*100;
 
