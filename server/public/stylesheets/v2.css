@@ -725,6 +725,7 @@ body{
     outline: none;
     border: none;
     appearance: none;
+    cursor: pointer;
 }
 
 #audioSeeker::-webkit-slider-runnable-track {
