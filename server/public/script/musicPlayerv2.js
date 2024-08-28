@@ -24,6 +24,7 @@ audio.addEventListener("timeupdate", () => {
     const increment2 = (1920/ticks);
     progressBar[0].style.width = `${audio.currentTime * increment}%`;
     audioSeeker.value = audio.currentTime * increment2;
+    trackCurrentTime[0].innerText = `${calculateTime(audio.currentTime)}`;
 });
 
 volSlider.addEventListener("input", () => {
@@ -42,10 +43,3 @@ const calculateTime = (s) => {
 audio.addEventListener("loadedmetadata", () => {
     trackDuration[0].innerText = `${calculateTime(audio.duration)}`;
 });
-
-audio.addEventListener("timeupdate", () => {
-    trackCurrentTime[0].innerText = `${calculateTime(audio.currentTime)}`;
-    // audioSeeker.value = Math.floor(audio.currentTime);
-});
-
-
