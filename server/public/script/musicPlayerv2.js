@@ -5,14 +5,6 @@ const trackDuration = document.getElementsByClassName("trackDuration");
 const trackCurrentTime = document.getElementsByClassName("currentTime");
 const audioSeeker = document.getElementById("audioSeeker");
 
-if (audio.readyState > 0) {
-    trackDuration[0].innerText = `${calculateTime(audio.duration)}`;
-} else {
-    audio.addEventListener('loadedmetadata', () => {
-        trackDuration[0].innerText = `${calculateTime(audio.duration)}`;
-    });
-}
-
 const calculateTime = (s) => {
     let mins = Math.floor(s/60);
     let secs = Math.floor(s % 60);
@@ -21,6 +13,14 @@ const calculateTime = (s) => {
     
     return (`${finMins}:${finSecs}`);
 };
+
+if (audio.readyState > 0) {
+    trackDuration[0].innerText = `${calculateTime(audio.duration)}`;
+} else {
+    audio.addEventListener('loadedmetadata', () => {
+        trackDuration[0].innerText = `${calculateTime(audio.duration)}`;
+    });
+}
 
 audio.volume = 0.04;
 volSlider.value = audio.volume*100;
@@ -62,4 +62,21 @@ audioSeeker.addEventListener("input", () => {
     const ticks = audio.duration;
     const val = (1920/ticks);
     progressBar[0].style.width = (audioSeeker.value/val) * (val/audioSeeker.value) *100;
+});
+
+// Volume mute/unmute
+let stat = 0;
+
+speaker.addEventListener("click", () => {
+    if(stat == 0){
+        audio.volume = 0;
+        stat = 1;
+        speaker.src = "/icons/mutedSpeaker.svg";
+        volSlider.value = 0;
+    } else if(stat == 1){
+        audio.volume = 0.5;
+        stat = 0;
+        speaker.src = "/icons/speakerr.svg"
+        volSlider.value = 100
+    }
 });
