@@ -120,7 +120,7 @@ let q = [
                 "artistName" : "Riley Green"
             }
         ],
-        "trackCoverImage" : "https://i.scdn.co/image/ab67616d000048513e3cacc30688b39ffed26334",
+        "trackCoverImage" : "https://i.scdn.co/image/ab67616d0000b2733e3cacc30688b39ffed26334",
         "trackSourcePath" : "1osfLqL6L2iQsirRf83ded.mp3"
     }
 ];
@@ -140,4 +140,36 @@ window.addEventListener("load", () => {
     trackLargeCoverImage.src = `${q[0].trackCoverImage}`;
     audio.src = `songs/${q[0].trackSourcePath}`;
     trackDuration[0].innerText = `${calculateTime(audio.duration)}`;
+    audio.currentTime = 0;
+    audioSeeker.value = 0;
+});
+
+let cp = 0;
+
+prev.addEventListener("click", () => {
+    trackArtists[0].innerText = `${q[cp - 1].trackArtists[0].artistName} & ${q[0].trackArtists[1].artistName}`;
+    trackName[0].innerText = `${q[cp - 1].trackName}`;
+    trackSmallCoverImage.src = `${q[cp - 1].trackCoverImage}`;
+    trackLargeCoverImage.src = `${q[cp - 1].trackCoverImage}`;
+    audio.src = `songs/${q[cp - 1].trackSourcePath}`;
+    trackDuration[0].innerText = `${calculateTime(audio.duration)}`;
+    cp = cp - 1;
+    audio.currentTime = 0;
+    progressBar[0].style.width = `${0}%`;
+    audioSeeker.value = 0;
+    audio.play();
+});
+
+next.addEventListener("click", () => {
+    trackArtists[0].innerText = `${q[cp + 1].trackArtists[0].artistName} & ${q[0].trackArtists[1].artistName}`;
+    trackName[0].innerText = `${q[cp + 1].trackName}`;
+    trackSmallCoverImage.src = `${q[cp + 1].trackCoverImage}`;
+    trackLargeCoverImage.src = `${q[cp + 1].trackCoverImage}`;
+    audio.src = `songs/${q[cp + 1].trackSourcePath}`;
+    trackDuration[0].innerText = `${calculateTime(audio.duration)}`;
+    cp = cp + 1;
+    audio.currentTime = 0;
+    progressBar[0].style.width = `${0}%`;
+    audioSeeker.value = 0;
+    audio.play();
 });
