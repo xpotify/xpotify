@@ -148,6 +148,7 @@ window.addEventListener("load", () => {
 });
 
 let cp = 0;
+audioSeeker.value = 0;
 
 prev.addEventListener("click", () => {
     trackArtists[0].innerText = `${q[cp - 1].trackArtists[0].artistName} & ${q[0].trackArtists[1].artistName}`;
