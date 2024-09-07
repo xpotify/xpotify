@@ -46,6 +46,9 @@ audio.addEventListener("timeupdate", () => {
     progressBar[0].style.width = `${audio.currentTime * increment}%`;
     audioSeeker.value = audio.currentTime * increment2;
     trackCurrentTime[0].innerText = `${calculateTime(audio.currentTime)}`;
+
+    console.log("timeupdated!");
+    console.log(audioSeeker.value);
 });
 
 volSlider.addEventListener("input", () => {
@@ -157,6 +160,7 @@ prev.addEventListener("click", () => {
     audio.currentTime = 0;
     progressBar[0].style.width = `${0}%`;
     audioSeeker.value = 0;
+    playpause.src = "/icons/pausee.svg"
     audio.play();
 });
 
@@ -171,5 +175,6 @@ next.addEventListener("click", () => {
     audio.currentTime = 0;
     progressBar[0].style.width = `${0}%`;
     audioSeeker.value = 0;
+    playpause.src = "/icons/pausee.svg"
     audio.play();
 });
