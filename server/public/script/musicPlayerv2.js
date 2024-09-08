@@ -475,3 +475,34 @@ loopBtn.addEventListener("click", () => {
         loopStat = false;
     }
 });
+
+
+audio.addEventListener("ended", () => {
+    if(cp == (q2.length - 1)){
+        trackArtists[0].innerText = `${q2[0].artist.name}`;
+        trackName[0].innerText = `${q2[0].trackName}`;
+        trackSmallCoverImage.src = `${q2[0].album.image.url}`;
+        trackLargeCoverImage.src = `${q2[0].album.image.url}`;
+        audio.src = `songs/${q2[0].audioSrcPath}`;
+        trackDuration[0].innerText = `${calculateTime(audio.duration)}`;
+        cp = 0;
+        audio.currentTime = 0;
+        progressBar[0].style.width = `${0}%`;
+        audioSeeker.value = 0;
+        playpause.src = "/icons/pausee.svg"
+        audio.play(); 
+    } else {
+        trackArtists[0].innerText = `${q2[cp + 1].artist.name}`;
+        trackName[0].innerText = `${q2[cp + 1].trackName}`;
+        trackSmallCoverImage.src = `${q2[cp + 1].album.image.url}`;
+        trackLargeCoverImage.src = `${q2[cp + 1].album.image.url}`;
+        audio.src = `songs/${q2[cp + 1].audioSrcPath}`;
+        trackDuration[0].innerText = `${calculateTime(audio.duration)}`;
+        cp = cp + 1;
+        audio.currentTime = 0;
+        progressBar[0].style.width = `${0}%`;
+        audioSeeker.value = 0;
+        playpause.src = "/icons/pausee.svg"
+        audio.play();
+    }
+});
