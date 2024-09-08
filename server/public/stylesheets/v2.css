@@ -691,6 +691,8 @@ body{
     height: 100%;
     border-radius: 2px;
     cursor: pointer;
+    opacity: 0;
+    transition: 0.5s;
 }
 
 
@@ -755,4 +757,41 @@ body{
 #audioSeeker:active::-webkit-slider-thumb {
     transform: scale(1.2);
     background-color: rgb(255, 0, 0);
+}
+
+/* TrackCover */
+
+.anim{
+    animation-name: tc;
+    animation-duration: 0.5s;
+    display: block;
+}
+
+.mina{
+    animation: ct 0.5s;
+    display: none;
+}
+
+@keyframes tc {
+    from {
+        top: 65%;
+        opacity: 0%;
+    }
+
+    to {
+        top: 63%;
+        opacity: 100%;
+    }
+}
+
+@keyframes ct {
+    from {
+        top: 63%;
+        opacity: 100%;
+    }
+
+    to{
+        top: 65%;
+        opacity: 0%;
+    }
 }
