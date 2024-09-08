@@ -692,7 +692,8 @@ body{
     border-radius: 2px;
     cursor: pointer;
     opacity: 0;
-    transition: 0.5s;
+    transition: 0.20s;
+    display: none;
 }
 
 
