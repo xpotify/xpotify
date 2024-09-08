@@ -458,3 +458,20 @@ next.addEventListener("click", () => {
         audio.play();
     }
 });
+
+// Loop button
+let loopStat = false;
+
+const loopBtn = document.getElementById("loopBtn");
+
+loopBtn.addEventListener("click", () => {
+    if(loopStat == false){
+        loopBtn.classList.add("bfloopbtn");
+        audio.loop = true;
+        loopStat = true;
+    } else {
+        loopBtn.classList.remove("bfloopbtn");
+        audio.loop = false;
+        loopStat = false;
+    }
+});
