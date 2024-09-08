@@ -56,3 +56,25 @@ speaker.addEventListener("mouseover", () => {
 volSlider.addEventListener("mouseout", () => {
     volSlider.style.display = "none";
 });
+
+// LargeTrackCover Animation
+const tcanim = document.getElementById("trackSmallCoverImg");
+const tcanim2 = document.getElementById("trackLargeCoverImg");
+
+let tcstat = 0;
+
+tcanim.addEventListener("click", () => {
+    if(stat == 0){
+        tcanim2.style.display = "block";
+        setTimeout(() => {
+            tcanim2.style.opacity = "1";
+        }, 0);
+        stat = 1;
+    } else {
+        tcanim2.style.opacity = "0";
+        setTimeout(() => {
+            tcanim2.style.display = "none";
+        }, 500);
+        stat = 0;
+    }
+});
