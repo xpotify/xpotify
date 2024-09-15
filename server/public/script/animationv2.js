@@ -78,3 +78,19 @@ tcanim.addEventListener("click", () => {
         stat = 0;
     }
 });
+
+// track Action buttons animation
+
+const tracks = document.getElementsByClassName("track");
+const trackActions = document.getElementsByClassName("rtrackActionOpts");
+
+for(i=0; i < trackActions.length; i++){
+    let x = i;
+    tracks[i].addEventListener("mouseenter", () => {
+        trackActions[x].style.visibility = "visible";
+    });
+
+    tracks[i].addEventListener("mouseleave", () => {
+        trackActions[x].style.visibility = "hidden";
+    });
+};
