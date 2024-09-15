@@ -805,6 +805,10 @@ body{
 
 /* Recent Tracks Styling */
 
+#rTracksSpe{
+    height: 75% !important;
+}
+
 .tracks{
     min-width: 30%;
     height: 100%;
@@ -824,23 +828,24 @@ body{
 
 .track:hover{
     /* border: 1px solid white; */
-    background-color: rgba(128, 128, 128, 0.411);
+    background-color: rgba(128, 128, 128, 0.100);
 }
 
 .rtrackCover{
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 13%;
 }
 
 .rtrackCover img{
     width: 60px;
     height: 60px;
-    border-radius: 0px;
+    border-radius: 2px;
 }
 
 .rtrackInfo{
-    width: 50%;
+    width: 63%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -867,4 +872,24 @@ body{
 
 .rtrackArtists:hover{
     text-decoration: underline;
+}
+
+.rtrackActionOpts{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    visibility: hidden;
+}
+
+.rtrackActionOpts img{
+    width: 45px;
+    height: 45px;
+    padding: 12%;
+    border-radius: 50%;
+}
+
+.rtrackActionOpts img:hover{
+    background-color: rgba(255, 255, 255, 0.100);
 }
