@@ -357,7 +357,7 @@ body{
 .greetMsg{
     height: 20%;
     width: 100%;
-    display: flex;
+    display: none;
     /* justify-content: center; */
     flex-direction: column;
     margin-bottom: 2%;
@@ -421,7 +421,7 @@ body{
 }
 
 .heading{
-    font-size: 30px;
+    font-size: 40px;
     font-weight: 500;
     margin-bottom: 1%;
 }
