@@ -94,6 +94,3 @@ for(i=0; i < trackActions.length; i++){
         trackActions[x].style.visibility = "hidden";
     });
 };
-
-
-// Like button for recent tracks 
