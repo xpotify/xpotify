@@ -837,8 +837,8 @@ body{
 }
 
 .rtrackCover img:nth-child(1){
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
     border-radius: 2px;
 }
 
@@ -853,13 +853,13 @@ body{
 }
 
 .rtrackName{
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 400;
     cursor: pointer;
 }
 
 .rtrackArtists{
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 300;
     color: rgba(255, 255, 255, 0.699);
     margin-top: 1%;
@@ -884,8 +884,8 @@ body{
 }
 
 .rtrackActionOpts img{
-    width: 45px;
-    height: 45px;
+    width: 42px;
+    height: 42px;
     padding: 12%;
     border-radius: 50%;
     cursor: pointer;
@@ -899,7 +899,7 @@ body{
     width: 25px;
     height: 25px;
     position: relative;
-    left: -67%;
+    left: -70%;
     visibility: hidden;
     cursor: pointer;
 }
