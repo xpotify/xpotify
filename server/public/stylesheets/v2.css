@@ -821,7 +821,6 @@ body{
     height: 25%;
     display: flex;
     padding: 1.5%;
-    cursor: pointer;
     border-radius: 3px;
     /* border: 1px solid rgba(255, 255, 255, 0); */
 }
@@ -833,12 +832,11 @@ body{
 
 .rtrackCover{
     display: flex;
-    justify-content: center;
     align-items: center;
     width: 13%;
 }
 
-.rtrackCover img{
+.rtrackCover img:nth-child(1){
     width: 60px;
     height: 60px;
     border-radius: 2px;
@@ -857,6 +855,7 @@ body{
 .rtrackName{
     font-size: 17px;
     font-weight: 400;
+    cursor: pointer;
 }
 
 .rtrackArtists{
@@ -864,6 +863,7 @@ body{
     font-weight: 300;
     color: rgba(255, 255, 255, 0.699);
     margin-top: 1%;
+    cursor: pointer;
 }
 
 .rtrackName:hover{
@@ -888,8 +888,18 @@ body{
     height: 45px;
     padding: 12%;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 .rtrackActionOpts img:hover{
     background-color: rgba(255, 255, 255, 0.100);
+}
+
+.playRtrack{
+    width: 25px;
+    height: 25px;
+    position: relative;
+    left: -67%;
+    visibility: hidden;
+    cursor: pointer;
 }
