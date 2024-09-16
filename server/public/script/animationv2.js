@@ -83,14 +83,22 @@ tcanim.addEventListener("click", () => {
 
 const tracks = document.getElementsByClassName("track");
 const trackActions = document.getElementsByClassName("rtrackActionOpts");
+const cover = document.getElementsByClassName("rCover");
+const pbtn = document.getElementsByClassName("playRtrack");
 
 for(i=0; i < trackActions.length; i++){
     let x = i;
     tracks[i].addEventListener("mouseenter", () => {
         trackActions[x].style.visibility = "visible";
+        cover[x].style.opacity = `${50}%`;
+        pbtn[x].style.visibility = "visible";
     });
 
     tracks[i].addEventListener("mouseleave", () => {
         trackActions[x].style.visibility = "hidden";
+        cover[x].style.opacity = `${100}%`;
+        pbtn[x].style.visibility = "hidden";
     });
 };
+
+
