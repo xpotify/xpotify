@@ -102,3 +102,31 @@ for(i=0; i < trackActions.length; i++){
 };
 
 
+// window1 
+
+const genreBtn = document.getElementsByClassName("tomBtns");
+const playlists = document.getElementsByClassName("playlists");
+const lyricsBtn = document.getElementById("lyricsBtn");
+const window1 = document.getElementsByClassName("window1");
+
+let lStat = false;
+
+lyricsBtn.addEventListener("click", () => {
+    if(lStat == false){
+        genreBtn[0].classList.add("remHide");
+        for(i=0; i < playlists.length; i++){
+            playlists[i].classList.add("remHide");
+        };
+        lyricsBtn.classList.add("bfbtn");
+        window1[0].classList.remove("remHide");
+        lStat = true;
+    } else {
+        genreBtn[0].classList.remove("remHide");
+        for(i=0; i < playlists.length; i++){
+            playlists[i].classList.remove("remHide");
+        };
+        lyricsBtn.classList.remove("bfbtn");
+        window1[0].classList.add("remHide");
+        lStat = false;
+    }
+});
