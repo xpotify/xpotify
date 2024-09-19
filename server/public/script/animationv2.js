@@ -58,12 +58,12 @@ volSlider.addEventListener("mouseout", () => {
 });
 
 // LargeTrackCover Animation
-const tcanim = document.getElementById("trackSmallCoverImg");
+const tcanim = document.getElementsByClassName("trackSmallCoverImg");
 const tcanim2 = document.getElementById("trackLargeCoverImg");
 
 let tcstat = 0;
 
-tcanim.addEventListener("click", () => {
+tcanim[1].addEventListener("click", () => {
     if(stat == 0){
         tcanim2.style.display = "block";
         setTimeout(() => {
