@@ -15,6 +15,10 @@
     font-family: 'Rubik';
 }
 
+.remHide{
+    display: none !important;
+}
+
 body{
     background-color: black;
     color: white;
@@ -564,6 +568,7 @@ body{
     width: 40%;
     display: flex;
     align-items: center;
+    font-weight: 400;
 }
 
 .trackInfo img:nth-child(1){
@@ -902,4 +907,59 @@ body{
     left: -70%;
     visibility: hidden;
     cursor: pointer;
+}
+
+/* Window 1 */
+
+.window1{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 90%;
+}
+
+.winLeftSec{
+    width: 50%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.winRightSec{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lyrics{
+    overflow-y: scroll;
+    width: 100%;
+    text-align: center;
+    height: 80%;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.575);
+}
+
+.lyrics b{
+    font-weight: 400;
+}
+
+.lyrics::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.lyrics::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2); 
+    /* border-radius: 15px; */
+    cursor: pointer;
+    transition: 0.2s;
+}
+  
+
+.lyrics::-webkit-scrollbar-thumb:hover {
+    background: #ffffff69; 
 }
