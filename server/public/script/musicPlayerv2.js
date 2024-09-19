@@ -516,7 +516,7 @@ audio.addEventListener("ended", () => {
     } else {
         trackArtists[0].innerText = `${q2[cp + 1].artist.name}`;
         trackName[0].innerText = `${q2[cp + 1].trackName}`;
-        trackSmallCoverImage.src = `${q2[cp + 1].album.image.url}`;
+        trackSmallCoverImage[0].src = `${q2[cp + 1].album.image.url}`;
         trackSmallCoverImage[1].src = `${q2[cp + 1].album.image.url}`;
         trackLargeCoverImage.src = `${q2[cp + 1].album.image.url}`;
         audio.src = `songs/${q2[cp + 1].audioSrcPath}`;
