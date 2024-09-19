@@ -487,11 +487,11 @@ const loopBtn = document.getElementById("loopBtn");
 
 loopBtn.addEventListener("click", () => {
     if(loopStat == false){
-        loopBtn.classList.add("bfloopbtn");
+        loopBtn.classList.add("bfbtn");
         audio.loop = true;
         loopStat = true;
     } else {
-        loopBtn.classList.remove("bfloopbtn");
+        loopBtn.classList.remove("bfbtn");
         audio.loop = false;
         loopStat = false;
     }
