@@ -398,13 +398,14 @@ const next = document.getElementById("next");
 
 const trackArtists = document.getElementsByClassName("trackArtists");
 const trackName = document.getElementsByClassName("trackName");
-const trackSmallCoverImage = document.getElementById("trackSmallCoverImg");
+const trackSmallCoverImage = document.getElementsByClassName("trackSmallCoverImg");
 const trackLargeCoverImage = document.getElementById("trackLargeCoverImg");
 
 window.addEventListener("load", () => {
     trackArtists[0].innerText = `${q2[0].artist.name}`;
     trackName[0].innerText = `${q2[0].trackName}`;
-    trackSmallCoverImage.src = `${q2[0].album.image.url}`;
+    trackSmallCoverImage[0].src = `${q2[0].album.image.url}`;
+    trackSmallCoverImage[1].src = `${q2[0].album.image.url}`;
     trackLargeCoverImage.src = `${q2[0].album.image.url}`;
     audio.src = `songs/${q2[0].audioSrcPath}`;
     trackDuration[0].innerText = `${calculateTime(audio.duration)}`;
@@ -419,7 +420,8 @@ prev.addEventListener("click", () => {
     if(cp == 0){
         trackArtists[0].innerText = `${q2[q2.length - 1].artist.name} `;
         trackName[0].innerText = `${q2[q2.length - 1].trackName}`;
-        trackSmallCoverImage.src = `${q2[q2.length - 1].album.image.url}`;
+        trackSmallCoverImage[0].src = `${q2[q2.length - 1].album.image.url}`;
+        trackSmallCoverImage[1].src = `${q2[q2.length - 1].album.image.url}`;
         trackLargeCoverImage.src = `${q2[q2.length - 1].album.image.url}`;
         audio.src = `songs/${q2[q2.length - 1].audioSrcPath}`;
         trackDuration[0].innerText = `${calculateTime(audio.duration)}`;
@@ -432,7 +434,8 @@ prev.addEventListener("click", () => {
     } else {
         trackArtists[0].innerText = `${q2[cp - 1].artist.name}`;
         trackName[0].innerText = `${q2[cp - 1].trackName}`;
-        trackSmallCoverImage.src = `${q2[cp - 1].album.image.url}`;
+        trackSmallCoverImage[0].src = `${q2[cp - 1].album.image.url}`;
+        trackSmallCoverImage[1].src = `${q2[cp - 1].album.image.url}`;
         trackLargeCoverImage.src = `${q2[cp - 1].album.image.url}`;
         audio.src = `songs/${q2[cp - 1].audioSrcPath}`;
         trackDuration[0].innerText = `${calculateTime(audio.duration)}`;
@@ -449,7 +452,8 @@ next.addEventListener("click", () => {
     if(cp == (q2.length - 1)){
         trackArtists[0].innerText = `${q2[0].artist.name}`;
         trackName[0].innerText = `${q2[0].trackName}`;
-        trackSmallCoverImage.src = `${q2[0].album.image.url}`;
+        trackSmallCoverImage[0].src = `${q2[0].album.image.url}`;
+        trackSmallCoverImage[1].src = `${q2[0].album.image.url}`;
         trackLargeCoverImage.src = `${q2[0].album.image.url}`;
         audio.src = `songs/${q2[0].audioSrcPath}`;
         trackDuration[0].innerText = `${calculateTime(audio.duration)}`;
@@ -462,7 +466,8 @@ next.addEventListener("click", () => {
     } else {
         trackArtists[0].innerText = `${q2[cp + 1].artist.name}`;
         trackName[0].innerText = `${q2[cp + 1].trackName}`;
-        trackSmallCoverImage.src = `${q2[cp + 1].album.image.url}`;
+        trackSmallCoverImage[0].src = `${q2[cp + 1].album.image.url}`;
+        trackSmallCoverImage[1].src = `${q2[cp + 1].album.image.url}`;
         trackLargeCoverImage.src = `${q2[cp + 1].album.image.url}`;
         audio.src = `songs/${q2[cp + 1].audioSrcPath}`;
         trackDuration[0].innerText = `${calculateTime(audio.duration)}`;
@@ -497,7 +502,8 @@ audio.addEventListener("ended", () => {
     if(cp == (q2.length - 1)){
         trackArtists[0].innerText = `${q2[0].artist.name}`;
         trackName[0].innerText = `${q2[0].trackName}`;
-        trackSmallCoverImage.src = `${q2[0].album.image.url}`;
+        trackSmallCoverImage[0].src = `${q2[0].album.image.url}`;
+        trackSmallCoverImage[1].src = `${q2[0].album.image.url}`;
         trackLargeCoverImage.src = `${q2[0].album.image.url}`;
         audio.src = `songs/${q2[0].audioSrcPath}`;
         trackDuration[0].innerText = `${calculateTime(audio.duration)}`;
@@ -511,6 +517,7 @@ audio.addEventListener("ended", () => {
         trackArtists[0].innerText = `${q2[cp + 1].artist.name}`;
         trackName[0].innerText = `${q2[cp + 1].trackName}`;
         trackSmallCoverImage.src = `${q2[cp + 1].album.image.url}`;
+        trackSmallCoverImage[1].src = `${q2[cp + 1].album.image.url}`;
         trackLargeCoverImage.src = `${q2[cp + 1].album.image.url}`;
         audio.src = `songs/${q2[cp + 1].audioSrcPath}`;
         trackDuration[0].innerText = `${calculateTime(audio.duration)}`;
