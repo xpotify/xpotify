@@ -932,13 +932,14 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .lyrics{
     overflow-y: scroll;
     width: 100%;
     text-align: center;
-    height: 80%;
+    height: 70%;
     font-size: 16px;
     color: rgba(255, 255, 255, 0.575);
 }
@@ -962,4 +963,26 @@ body{
 
 .lyrics::-webkit-scrollbar-thumb:hover {
     background: #ffffff69; 
+}
+
+.winRightSecbar{
+    width: 100%;
+    height: 8%;
+    display: flex;
+}
+
+.winRightSecbar div{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.winRightSecbar div:nth-child(1){
+    border-bottom: 2px solid white;
+}
+
+.winRightSecbar div:hover{
+    background-color: #1a1a1a;
 }
