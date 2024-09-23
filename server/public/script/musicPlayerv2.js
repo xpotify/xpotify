@@ -376,21 +376,85 @@ let q2 = [
         }
     },
     {
-        "id": "0VpEX8ib3wE7u8NOw4szU6",
-        "artist": {
-            "id": "5Y8eJDj37KhaEeqbVO7Ag1",
-            "name": "PRETTYMUCH"
-        },
-        "trackName": "Eyes Off You",
-        "audioSrcPath": "0VpEX8ib3wE7u8NOw4szU6.mp3",
-        "album": {
-            "name": "Phases - EP",
-            "id": "2eiprRNqzj5s3IPLvKsF6z",
-            "image": {
-                "url": "https://i.scdn.co/image/ab67616d0000b273d46d93ee7fb0589ef6973c5d"
+            "id": "7BdlyzVvOqmwPH9dYtZfsx",
+            "artist": {
+                "id": "5b0j3TTNSKCByBq4rHYKvG",
+                "name": "Promoting Sounds,"
+            },
+            "trackName": "Dead Eyes",
+            "audioSrcPath": "7BdlyzVvOqmwPH9dYtZfsx.mp3",
+            "album": {
+                "name": "Dead Eyes",
+                "id": "2Vi5izrZ6lL4tGgmp7nnOh",
+                "image": {
+                    "url": "https://i.scdn.co/image/ab67616d0000b273ce5a7b396b1f3c3a52e6cd11"
+                }
             }
-        }
-    }
+        },
+        {
+            "id": "5gxfVzzJyQ2rzXzxIgbR2T",
+            "artist": {
+                "id": "66q9TLB3xM6Yn0kIFiftpd",
+                "name": "J+1,"
+            },
+            "trackName": "Red Skies",
+            "audioSrcPath": "5gxfVzzJyQ2rzXzxIgbR2T.mp3",
+            "album": {
+                "name": "Red Skies",
+                "id": "5PlB5oRjyYIW2FlqJ0kaFX",
+                "image": {
+                    "url": "https://i.scdn.co/image/ab67616d0000b273318ff4e98dd376040baaeccf"
+                }
+            }
+        },
+        {
+            "id": "38T0tPVZHcPZyhtOcCP7pF",
+            "artist": {
+                "id": "7jVv8c5Fj3E9VhNjxT4snq",
+                "name": "Lil Nas X"
+            },
+            "trackName": "STAR WALKIN' (League of Legends Worlds Anthem...",
+            "audioSrcPath": "38T0tPVZHcPZyhtOcCP7pF.mp3",
+            "album": {
+                "name": "STAR WALKIN' (League of Legend...",
+                "id": "0aIy6J8M9yHTnjtRu81Nr9",
+                "image": {
+                    "url": "https://i.scdn.co/image/ab67616d0000b27304cd9a1664fb4539a55643fe"
+                }
+            }
+        },
+        {
+            "id": "0VpEX8ib3wE7u8NOw4szU6",
+            "artist": {
+                "id": "5Y8eJDj37KhaEeqbVO7Ag1",
+                "name": "PRETTYMUCH"
+            },
+            "trackName": "Eyes Off You",
+            "audioSrcPath": "0VpEX8ib3wE7u8NOw4szU6.mp3",
+            "album": {
+                "name": "Phases - EP",
+                "id": "2eiprRNqzj5s3IPLvKsF6z",
+                "image": {
+                    "url": "https://i.scdn.co/image/ab67616d0000b273d46d93ee7fb0589ef6973c5d"
+                }
+            }
+        },
+        {
+            "id": "4K0odcECsBvgzv9Lr9z4kd",
+            "artist": {
+                "id": "4uFZsG1vXrPcvnZ4iSQyrx",
+                "name": "C418"
+            },
+            "trackName": "Aria Math",
+            "audioSrcPath": "4K0odcECsBvgzv9Lr9z4kd.mp3",
+            "album": {
+                "name": "Minecraft - Volume Beta",
+                "id": "7CYDRyFCKtAYJBSpfovLyX",
+                "image": {
+                    "url": "https://i.scdn.co/image/ab67616d0000b2734cf0b29eb06a92aa96acae64"
+                }
+            }
+        }    
 ];
 
 const prev = document.getElementById("prev");
