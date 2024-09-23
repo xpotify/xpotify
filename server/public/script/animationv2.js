@@ -108,6 +108,7 @@ const genreBtn = document.getElementsByClassName("tomBtns");
 const playlists = document.getElementsByClassName("playlists");
 const lyricsBtn = document.getElementById("lyricsBtn");
 const window1 = document.getElementsByClassName("window1");
+const lBtn = document.getElementById("lBtn");
 
 let lStat = false;
 
@@ -119,6 +120,10 @@ lyricsBtn.addEventListener("click", () => {
         };
         lyricsBtn.classList.add("bfbtn");
         window1[0].classList.remove("remHide");
+        lBtn.style.borderBottom = "2px solid white";
+        qBtn.style.borderBottom = "2px solid transparent";
+        lyrics[0].classList.remove("remHide");
+        queue[0].classList.add("remHide");
         lStat = true;
     } else {
         genreBtn[0].classList.remove("remHide");
@@ -129,4 +134,27 @@ lyricsBtn.addEventListener("click", () => {
         window1[0].classList.add("remHide");
         lStat = false;
     }
+});
+
+// Lyrics Button and Queue Button Animation
+
+const lyrics = document.getElementsByClassName("lyrics");
+const queue = document.getElementsByClassName("queue");
+
+const qBtn = document.getElementById("qBtn");
+
+lBtn.addEventListener("click", () => {
+    lyrics[0].classList.remove("remHide");
+    queue[0].classList.add("remHide");
+
+    lBtn.style.borderBottom = "2px solid white";
+    qBtn.style.borderBottom = "2px solid transparent";
+});
+
+qBtn.addEventListener("click", () => {
+    lyrics[0].classList.add("remHide");
+    queue[0].classList.remove("remHide");
+
+    lBtn.style.borderBottom = "2px solid transparent";
+    qBtn.style.borderBottom = "2px solid white";
 });
