@@ -295,7 +295,8 @@
                                 "image" : {
                                     "url" : elem[0].children[1].children[0].dataset.bigimg
                                 }
-                            }
+                            },
+                            "duration" : elem[0].children[3].innerText
                         }
                     ];
                     // console.log(track);
