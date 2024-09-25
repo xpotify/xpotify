@@ -547,15 +547,18 @@ next.addEventListener("click", () => {
 // Loop button
 let loopStat = false;
 
-const loopBtn = document.getElementById("loopBtn");
+const ecDiv = document.getElementsByClassName("extraControlsDiv");
+const loopBtnIco = document.getElementById("loopBtn"); 
 
-loopBtn.addEventListener("click", () => {
+ecDiv[1].addEventListener("click", () => {
     if(loopStat == false){
-        loopBtn.classList.add("bfbtn");
+        ecDiv[1].style.borderBottom = "2px solid rgba(255, 0, 116, 1)";
+        loopBtnIco.style.opacity = "100%";
         audio.loop = true;
         loopStat = true;
     } else {
-        loopBtn.classList.remove("bfbtn");
+        ecDiv[1].style.borderBottom = "2px solid transparent";
+        loopBtnIco.style.opacity = "65%";
         audio.loop = false;
         loopStat = false;
     }
