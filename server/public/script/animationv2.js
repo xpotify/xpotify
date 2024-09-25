@@ -208,6 +208,15 @@ lBtn.addEventListener("click", () => {
 
     lBtn.style.borderBottom = "2px solid white";
     qBtn.style.borderBottom = "2px solid transparent";
+
+    extraControls[4].style.borderBottom = "2px solid transparent";
+    extraControls[3].style.borderBottom = "2px solid rgba(255, 0, 116, 1)";
+    
+    queueBtn.style.opacity = "55%";
+    lyricsBtn.style.opacity = "100%";
+    
+    lyricsBtn.dataset.isopen = true;
+    queueBtn.dataset.isopen = false;
 });
 
 qBtn.addEventListener("click", () => {
@@ -216,4 +225,13 @@ qBtn.addEventListener("click", () => {
 
     lBtn.style.borderBottom = "2px solid transparent";
     qBtn.style.borderBottom = "2px solid white";
+    
+    extraControls[3].style.borderBottom = "2px solid transparent";
+    extraControls[4].style.borderBottom = "2px solid rgba(255, 0, 116, 1)";
+    
+    queueBtn.style.opacity = "100%";
+    lyricsBtn.style.opacity = "55%";
+    
+    lyricsBtn.dataset.isopen = false;
+    queueBtn.dataset.isopen = true;
 });
