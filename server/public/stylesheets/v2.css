@@ -930,6 +930,7 @@ body{
 
 .winLeftSec{
     width: 50%;
+    margin-right: 10%;
     height: 100%;
     justify-content: center;
     align-items: center;
@@ -937,7 +938,7 @@ body{
 }
 
 .winRightSec{
-    width: 50%;
+    width: 35%;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -948,10 +949,11 @@ body{
 .lyrics{
     overflow-y: scroll;
     width: 100%;
-    text-align: center;
+    text-align: start;
     height: 70%;
-    font-size: 16px;
-    color: rgba(255, 255, 255, 0.575);
+    font-size: 14px;
+    font-weight: 300;
+    color: rgb(255, 255, 255);
     /* display: none; */
 }
 
@@ -978,7 +980,7 @@ body{
 
 .winRightSecbar{
     width: 100%;
-    height: 8%;
+    height: 6%;
     display: flex;
 }
 
