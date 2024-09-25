@@ -596,3 +596,11 @@ audio.addEventListener("ended", () => {
         audio.play();
     }
 });
+
+// Shuffle functionality for MusicPlayer
+
+const shuffleBtn = document.getElementById("shuffleBtn");
+
+extraControls[5].addEventListener("click", () => {
+    console.log("triggered!");
+});
