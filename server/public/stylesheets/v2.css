@@ -937,6 +937,15 @@ body{
     display: flex;
 }
 
+.winLeftSec img{
+    cursor: pointer;
+}
+
+.winLeftSec img:hover{
+    opacity: 50%;
+    transition: 0.2s;
+}
+
 .winRightSec{
     width: 35%;
     height: 100%;
