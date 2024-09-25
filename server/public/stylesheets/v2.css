@@ -631,25 +631,35 @@ body{
     justify-content: end;
 }
 
-.extraControls img{
-    opacity: 65%;
+.extraControls div img{
+    opacity: 55%;
 }
 
-.extraControls img:nth-child(1), .extraControls img:nth-child(2), .extraControls img:nth-child(3), .extraControls img:nth-child(4), .extraControls img:nth-child(6){
+.extraControls div{
+    width: 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid rgba(255, 255, 255, 0);
     margin-right: 5%;
-    width: 2.75%;
     cursor: pointer;
+    transition: 0.1s;
 }
 
-.extraControls img:nth-child(5){
-    width: 2%;
-    cursor: pointer;
-    margin-right: 5%;
+.extraControls div:nth-child(5) img{
+    width: 16px;
+    height: 16px;
 }
 
-.extraControls img:nth-child(7){
-    width: 2.75%;
+.extraControls div:nth-child(7){
+    margin-right: 0% !important;
+}
+
+.extraControls div img{
+    width: 21px;
+    height: 21px;
     cursor: pointer;
+    transition: 0.1s;
 }
 
 #volumeSlider{
