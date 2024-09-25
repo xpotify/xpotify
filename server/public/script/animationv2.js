@@ -107,30 +107,89 @@ for(i=0; i < trackActions.length; i++){
 const genreBtn = document.getElementsByClassName("tomBtns");
 const playlists = document.getElementsByClassName("playlists");
 const lyricsBtn = document.getElementById("lyricsBtn");
+const queueBtn = document.getElementById("queueBtn");
+const extraControls = document.getElementsByClassName("extraControlsDiv")
 const window1 = document.getElementsByClassName("window1");
 const lBtn = document.getElementById("lBtn");
 
 let lStat = false;
 
-lyricsBtn.addEventListener("click", () => {
+extraControls[3].addEventListener("click", () => {
     if(lStat == false){
         genreBtn[0].classList.add("remHide");
         for(i=0; i < playlists.length; i++){
             playlists[i].classList.add("remHide");
         };
-        lyricsBtn.classList.add("bfbtn");
+        extraControls[3].style.borderBottom = "2px solid rgba(255, 0, 116, 1)";
         window1[0].classList.remove("remHide");
+        lyricsBtn.style.opacity = "100%";
         lBtn.style.borderBottom = "2px solid white";
         qBtn.style.borderBottom = "2px solid transparent";
         lyrics[0].classList.remove("remHide");
         queue[0].classList.add("remHide");
+        lyricsBtn.dataset.isopen = true;
+        lStat = true;
+    } else if(lStat == true && queueBtn.dataset.isopen == "true"){
+        extraControls[3].style.borderBottom = "2px solid rgba(255, 0, 116, 1)";
+        extraControls[4].style.borderBottom = "2px solid transparent";
+        queueBtn.style.opacity = "55%";
+        lyricsBtn.style.opacity = "100%";
+        lBtn.style.borderBottom = "2px solid white";
+        qBtn.style.borderBottom = "2px solid transparent";
+        lyrics[0].classList.remove("remHide");
+        queue[0].classList.add("remHide");
+        lyricsBtn.dataset.isopen = true;
+        queueBtn.dataset.isopen = false;
         lStat = true;
     } else {
         genreBtn[0].classList.remove("remHide");
         for(i=0; i < playlists.length; i++){
             playlists[i].classList.remove("remHide");
         };
-        lyricsBtn.classList.remove("bfbtn");
+        extraControls[3].style.borderBottom = "2px solid transparent";
+        lyricsBtn.style.opacity = "55%"
+        lyricsBtn.dataset.isopen = false;
+        window1[0].classList.add("remHide");
+        lStat = false;
+    }
+});
+
+
+extraControls[4].addEventListener("click", () => {
+    if(lStat == false){
+        genreBtn[0].classList.add("remHide");
+        for(i=0; i < playlists.length; i++){
+            playlists[i].classList.add("remHide");
+        };
+        extraControls[4].style.borderBottom = "2px solid rgba(255, 0, 116, 1)";
+        window1[0].classList.remove("remHide");
+        queueBtn.style.opacity = "100%";
+        queueBtn.dataset.isopen = true;
+        lBtn.style.borderBottom = "2px solid transparent";
+        qBtn.style.borderBottom = "2px solid white";
+        lyrics[0].classList.add("remHide");
+        queue[0].classList.remove("remHide");
+        lStat = true;
+    } else if(lStat == true && lyricsBtn.dataset.isopen == "true"){
+        extraControls[4].style.borderBottom = "2px solid rgba(255, 0, 116, 1)";
+        extraControls[3].style.borderBottom = "2px solid transparent";
+        queueBtn.style.opacity = "100%";
+        lyricsBtn.style.opacity = "55%";
+        lBtn.style.borderBottom = "2px solid transparent";
+        qBtn.style.borderBottom = "2px solid white";
+        lyrics[0].classList.add("remHide");
+        queue[0].classList.remove("remHide");
+        lyricsBtn.dataset.isopen = false;
+        queueBtn.dataset.isopen = true;
+        lStat = true;
+    } else {
+        genreBtn[0].classList.remove("remHide");
+        for(i=0; i < playlists.length; i++){
+            playlists[i].classList.remove("remHide");
+        };
+        extraControls[4].style.borderBottom = "2px solid transparent";
+        queueBtn.style.opacity = "55%"
+        queueBtn.dataset.isopen = false;
         window1[0].classList.add("remHide");
         lStat = false;
     }
