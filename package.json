@@ -20,7 +20,7 @@
     "colors.js": "^1.2.4",
     "dot-env": "^0.0.1",
     "ejs": "^3.1.10",
-    "express": "^4.19.2",
+    "express": "^4.21.0",
     "get-pixels": "^3.3.3",
     "googleapis": "^133.0.0",
     "method-override": "^3.0.0",
