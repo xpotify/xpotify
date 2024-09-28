@@ -57,10 +57,6 @@ body{
     height: 8px;
 }
   
-/* .rightSection::-webkit-scrollbar-track {
-    border-radius: 10px;
-}
-*/
 
 .rightSection::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.2); 
@@ -1078,15 +1074,10 @@ body{
 }
 
 .w2LeftSec{
-    width: 50%;
+    width: 40%;
     height: 100%;
     display: flex;
     justify-content: center;
-}
-
-.w2RightSec{
-    width: 50%;
-    height: 100%;
 }
 
 .fetchedPlaylist{
@@ -1150,7 +1141,7 @@ body{
 }
 
 .fpActions{
-    width: 30%;
+    width: 35%;
     margin-top: 1%;
     height: 10%;
     display: flex;
@@ -1198,3 +1189,110 @@ body{
     width: 25px;
     height: 25px;
 }
+
+
+.w2RightSec{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    overflow-y: scroll;
+}
+
+.w2RightSec::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+  
+
+.w2RightSec::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0); 
+    /* border-radius: 15px; */
+    cursor: pointer;
+    transition: 0.2s;
+}
+  
+
+.w2RightSec::-webkit-scrollbar-thumb:hover {
+    background: #ffffff00; 
+}
+
+
+.fpTracks{
+    width: 100%;
+    height: 95%;
+}
+
+.fpTrack{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    transition: 0.1s;
+    align-items: center;
+}
+
+.fpTrack:hover{
+    background-color: #ffffff2d;
+}
+
+.fpTDiscNumber{
+    width: 8%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 400;
+    cursor: default;
+}
+
+.fpTCover{
+    width: 10%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fpTCover img{
+    width: 50px;
+    height: 50px;
+}
+
+.fpTna{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+}
+
+.fpTna span:nth-child(1){
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 1%;
+    cursor: pointer;
+}
+
+.fpTna span:nth-child(1):hover, .fpTna span:nth-child(2):hover{
+    text-decoration: underline;
+}
+
+.fpTna span:nth-child(2){
+    font-size: 13px;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+.fpTDuration{
+    width: 10%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 300;
+    font-size: 15px;
+}
+
