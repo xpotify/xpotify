@@ -1028,7 +1028,7 @@ body{
 }
 
 .qTrackPos{
-    width: 5%;
+    width: 8%;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -1050,16 +1050,17 @@ body{
 }
 
 .qTrackName{
-    width: 75%;
+    width: 62%;
     height: 100%;
     display: flex;
     justify-content: start;
     align-items: center;
     color: rgb(255, 255, 255);
+    padding: 0% 2% 0% 2%;
 }
 
 .qTrackDuration{
-    width: 10%;
+    width: 20%;
     height: 100%;
     display: flex;
     justify-content: center;
