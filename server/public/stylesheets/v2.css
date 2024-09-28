@@ -1024,7 +1024,7 @@ body{
 }
 
 .qTrackPos{
-    width: 8%;
+    width: 10%;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -1104,6 +1104,8 @@ body{
 .fpName{
     margin-top: 3%;
     font-size: 35px;
+    cursor: default;
+    user-select: none;
 }
 
 .fpOwner{
@@ -1124,6 +1126,11 @@ body{
 
 .fpOwner span{
     font-weight: 400;
+    cursor: pointer;
+}
+
+.fpOwner span:hover{
+    text-decoration: underline;
 }
 
 .fpInfo{
@@ -1134,6 +1141,7 @@ body{
     flex-direction: column;
     color: #b6b6b6;
     font-weight: 400;
+    cursor: default;
 }
 
 .fpInfo span:nth-child(1){
@@ -1294,5 +1302,6 @@ body{
     align-items: center;
     font-weight: 300;
     font-size: 15px;
+    cursor: default;
 }
 
