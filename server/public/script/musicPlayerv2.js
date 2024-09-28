@@ -454,7 +454,41 @@ let q2 = [
                     "url": "https://i.scdn.co/image/ab67616d0000b2734cf0b29eb06a92aa96acae64"
                 }
             }
-        }    
+        }, 
+        {
+            "id": "6rDonXLmJhyHI3K93CrFdq",
+            "artist": {
+                "id": "6oRvx12JL8xeOsjGLhPYLL",
+                "name": "Zenake"
+            },
+            "trackName": "Future Wifey",
+            "audioSrcPath": "6rDonXLmJhyHI3K93CrFdq.mp3",
+            "album": {
+                "name": "Future Wifey",
+                "id": "6pd6x4oJwvyWfbecSv1r26",
+                "image": {
+                    "url": "https://i.scdn.co/image/ab67616d0000b273c87e47827f42e7b37c491fd8"
+                }
+            },
+            "duration": "3:41"
+        },
+        {
+            "id": "4alzSfozeqjsgKXptPWriC",
+            "artist": {
+                "id": "6oRvx12JL8xeOsjGLhPYLL",
+                "name": "Zenake"
+            },
+            "trackName": "Gold",
+            "audioSrcPath": "4alzSfozeqjsgKXptPWriC.mp3",
+            "album": {
+                "name": "Future Wifey",
+                "id": "6pd6x4oJwvyWfbecSv1r26",
+                "image": {
+                    "url": "https://i.scdn.co/image/ab67616d0000b273c87e47827f42e7b37c491fd8"
+                }
+            },
+            "duration": "3:40"
+        }
 ];
 
 const prev = document.getElementById("prev");
@@ -604,3 +638,13 @@ const shuffleBtn = document.getElementById("shuffleBtn");
 extraControls[5].addEventListener("click", () => {
     console.log("triggered!");
 });
+
+// feeding current playing playlist's tracks into window1 > queue
+
+const qwindow = document.getElementsByClassName("qTrack");
+
+for(i=0; i < qwindow.length; i++){
+    qwindow[i].children[0].innerText = i;
+    qwindow[i].children[1].children[0].src = q2[i].album.image.url;
+    qwindow[i].children[2].innerText = q2[i].trackName;
+};
