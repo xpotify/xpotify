@@ -230,3 +230,5 @@ qBtn.addEventListener("click", () => {
     lyricsBtn.dataset.isopen = false;
     queueBtn.dataset.isopen = true;
 });
+
+
