@@ -485,18 +485,6 @@ body{
     background-color: black !important;
 }
 
-.playlistOptBtn{
-    width: 38px;
-    left: 177px;
-    top: -256px;
-    height: 38px;
-    position: relative;
-    padding: 3.5%;
-    cursor: pointer;
-    border-radius: 50%;
-    visibility: hidden;
-}
-
 .playlistOptBtn:hover{
     background-color: #ffffff2d;
 }
