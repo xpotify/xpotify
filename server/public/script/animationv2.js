@@ -48,11 +48,6 @@ speaker.addEventListener("mouseover", () => {
     volSlider.style.display = "block";
 });
 
-// speaker.addEventListener("mouseout", () => {
-//     volSlider.style.display = "none";
-// });
-
-
 volSlider.addEventListener("mouseout", () => {
     volSlider.style.display = "none";
 });
