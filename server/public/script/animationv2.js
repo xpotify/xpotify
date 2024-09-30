@@ -1,5 +1,10 @@
 // Animation for Pinned Playlists
-
+const navBtnHm = document.querySelector(".navBtnHm");
+let homeState = true;
+const genreBtns = document.querySelector(".tomBtns");
+const p = document.querySelectorAll(".playlists"); 
+const win1 = document.querySelector(".window1");
+const win2 = document.querySelector(".window2");
 const pinnedPs = document.querySelectorAll(".playlist");
 const pinnedPsBtns = document.querySelectorAll(".playBtn");
 
@@ -123,6 +128,9 @@ extraControls[3].addEventListener("click", () => {
         lyrics[0].classList.remove("remHide");
         queue[0].classList.add("remHide");
         lyricsBtn.dataset.isopen = true;
+        navBtnHm.style.backgroundColor = "transparent";
+        win2.classList.add("remHide");
+        homeState = false;
         lStat = true;
     } else if(lStat == true && queueBtn.dataset.isopen == "true"){
         extraControls[3].style.borderBottom = "2px solid rgba(255, 0, 116, 1)";
@@ -135,6 +143,9 @@ extraControls[3].addEventListener("click", () => {
         queue[0].classList.add("remHide");
         lyricsBtn.dataset.isopen = true;
         queueBtn.dataset.isopen = false;
+        navBtnHm.style.backgroundColor = "transparent";
+        win2.classList.add("remHide");
+        homeState = false;
         lStat = true;
     } else {
         genreBtn[0].classList.remove("remHide");
@@ -145,6 +156,8 @@ extraControls[3].addEventListener("click", () => {
         lyricsBtn.style.opacity = "55%"
         lyricsBtn.dataset.isopen = false;
         window1[0].classList.add("remHide");
+        navBtnHm.style.backgroundColor = "rgba(255, 255, 255, 0.25)";
+        homeState = true;
         lStat = false;
     }
 });
@@ -164,6 +177,9 @@ extraControls[4].addEventListener("click", () => {
         qBtn.style.borderBottom = "2px solid white";
         lyrics[0].classList.add("remHide");
         queue[0].classList.remove("remHide");
+        navBtnHm.style.backgroundColor = "transparent";
+        win2.classList.add("remHide");
+        homeState = false;
         lStat = true;
     } else if(lStat == true && lyricsBtn.dataset.isopen == "true"){
         extraControls[4].style.borderBottom = "2px solid rgba(255, 0, 116, 1)";
@@ -176,6 +192,9 @@ extraControls[4].addEventListener("click", () => {
         queue[0].classList.remove("remHide");
         lyricsBtn.dataset.isopen = false;
         queueBtn.dataset.isopen = true;
+        navBtnHm.style.backgroundColor = "transparent";
+        win2.classList.add("remHide");
+        homeState = false;
         lStat = true;
     } else {
         genreBtn[0].classList.remove("remHide");
@@ -186,6 +205,8 @@ extraControls[4].addEventListener("click", () => {
         queueBtn.style.opacity = "55%"
         queueBtn.dataset.isopen = false;
         window1[0].classList.add("remHide");
+        navBtnHm.style.backgroundColor = "rgba(255, 255, 255, 0.25)";
+        homeState = true;
         lStat = false;
     }
 });
@@ -232,3 +253,26 @@ qBtn.addEventListener("click", () => {
 });
 
 
+// home button
+navBtnHm.addEventListener("click", () => {
+    if(homeState == false){
+        navBtnHm.classList.remove("remHide");
+        genreBtns.classList.remove("remHide");
+        for(x=0; x < p.length; x++){
+            p[x].classList.remove("remHide");
+        };
+        win1.classList.add("remHide");
+        win2.classList.add("remHide");
+        navBtnHm.style.backgroundColor = "rgba(255, 255, 255, 0.25)";
+        extraControls[3].style.borderBottom = "2px solid transparent";
+        extraControls[4].style.borderBottom = "2px solid transparent";
+    
+        queueBtn.style.opacity = "55%";
+        lyricsBtn.style.opacity = "55%";
+
+        lStat = false;
+        homeState = true;
+    } else {
+        // Do nothing!
+    }
+});
