@@ -5,6 +5,12 @@ const w1 = document.getElementsByClassName("window1");
 const w2 = document.getElementsByClassName("window2");
 
 const loadPlaylist = async (id) => {
+    genre[0].classList.add("remHide");
+    for(x=0; x < pInstances.length; x++){
+        pInstances[x].classList.add("remHide");
+    };
+    w1[0].classList.add("remhide")
+
     const playlistCover = document.getElementsByClassName("fpCover");
     const playlistName = document.getElementsByClassName("fpName");
     const playlistOwner = document.getElementsByClassName("fpOwner");
@@ -66,12 +72,9 @@ const loadPlaylist = async (id) => {
             playlistTrackContainer.appendChild(fpTrack);
         };
 
-        genre[0].classList.add("remHide");
-        for(x=0; x < pInstances.length; x++){
-            pInstances[x].classList.add("remHide");
-        };
-        w1[0].classList.add("remhide")
         w2[0].classList.remove("remHide");
+        navBtnHm.style.backgroundColor = "transparent";
+        homeState = false;
     } catch(error){
         console.error(error);
     }
