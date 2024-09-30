@@ -132,4 +132,3 @@ const fetchRelatedArtists = async (id) => {
     const data = await response.json();
     return data;
 };
-
