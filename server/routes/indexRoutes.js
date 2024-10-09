@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const fs = require("fs");
 const ytdl = require("@distube/ytdl-core");
+const Vibrant = require('node-vibrant');
 
 const downloadSong = (id, trackName) => {
     const videoId = `https://www.youtube.com/watch?v=${id}`;
@@ -24,6 +25,12 @@ router.get('/v2', (req, res) => {
 
 router.post("/:id/:trackname", (req, res) => {
   downloadSong(req.params.id, req.params.trackname);
+});
+
+router.get("/getHex/*", async (req, res) => {
+  let v = new Vibrant(req.params[0]);
+  const hex = await v.getPalette((err, palette) => {return palette});
+  res.json(hex.Vibrant.hex);
 });
 
 module.exports = router;
