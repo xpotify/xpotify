@@ -1124,6 +1124,7 @@ body{
     margin-top: 3%;
     font-size: 35px;
     cursor: default;
+    z-index: 5;
     user-select: none;
 }
 
