@@ -132,3 +132,16 @@ const fetchRelatedArtists = async (id) => {
     const data = await response.json();
     return data;
 };
+
+const fetchHexOfImage = async (url) => {
+    const response = await fetch(`http://localhost:1212/gethex/${url}`, {
+        method : "GET",
+        mode : "cors",
+        headers : {
+            "Content-Type" : "appliaction/json"
+        }
+    });
+
+    const data = await response.json();
+    return data;
+};
