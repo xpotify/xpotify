@@ -23,8 +23,11 @@ const loadPlaylist = async (id) => {
     const requestPlaylistTracks = await fetchPlaylistTracks(id);
     const requestPlaylistOwnerDetails = await fetchUser(requestPlaylistInfo.owner.id);
 
+    const hexOfPlaylistCover = await fetchHexOfImage(requestPlaylistInfo.image);
+
     try{
         playlistCover[0].children[0].src = requestPlaylistInfo.image;
+        playlistCover[0].children[0].style.filter = `drop-shadow(0px 0px 250px ${hexOfPlaylistCover})`;
         playlistName[0].innerText = requestPlaylistInfo.name;
         playlistOwner[0].children[0].src = requestPlaylistOwnerDetails.images[0].url;
         playlistOwner[0].children[1].innerText = requestPlaylistOwnerDetails.displayName;
