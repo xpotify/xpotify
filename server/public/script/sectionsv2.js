@@ -4,6 +4,19 @@ const pInstances = document.getElementsByClassName("playlists");
 const w1 = document.getElementsByClassName("window1");
 const w2 = document.getElementsByClassName("window2");
 
+const calculateDuration = (duration) => {
+    let hours = Math.floor((((duration/1000)/60)/60));
+    let minutes = (Math.floor(((duration/1000)/60))%60);
+
+    if(hours == 0){
+            const durationStr = `${minutes}min`;
+            return durationStr;
+    } else {
+            const durationStr = `${hours} hr ${minutes} min`;
+            return durationStr;
+    };   
+};
+
 const loadPlaylist = async (id) => {
     genre[0].classList.add("remHide");
     for(x=0; x < pInstances.length; x++){
@@ -33,6 +46,12 @@ const loadPlaylist = async (id) => {
         playlistOwner[0].children[1].innerText = requestPlaylistOwnerDetails.displayName;
         playlistOwner[0].children[1].setAttribute("data-uid", `${requestPlaylistInfo.owner.id}`);
         playlistExtraInfo[0].children[0].innerText = `${requestPlaylistTracks.length} songs`;
+
+        let tDr = 0;
+
+        for(x=0; x < requestPlaylistTracks.length; x++){
+            tDr = tDr + requestPlaylistTracks[x].track.duration;
+        };
 
         if(playlistTrack.length == 0){
             // Do nothing
