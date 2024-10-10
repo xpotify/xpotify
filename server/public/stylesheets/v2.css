@@ -1131,16 +1131,17 @@ body{
 .fpOwner{
     color: #b6b6b6;
     display: flex;
-    width: 10%;
+    width: 20%;
     height: auto;
     margin: 1% 0 1.5% 0;
+    z-index: 5;
     justify-content: center;
 }
 
 .fpOwner img{
     width: 20px;
     height: 20px;
-    margin-right: 10%;
+    margin-right: 3%;
     border-radius: 50%;
 }
 
