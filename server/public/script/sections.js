@@ -59,11 +59,9 @@ const calculateDuration = (duration) => {
                 const durationStr = `${minutes}min`;
                 return durationStr;
         } else {
-                const durationStr = `${hours}hr, ${minutes}min`;
+                const durationStr = `${hours} hr, ${minutes} min`;
                 return durationStr;
-        };
-
-        
+        };   
 };
 
 const showOptions = () => {
