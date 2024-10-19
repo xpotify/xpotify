@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 require('dotenv').config();
+
 const { Client } = require("spotify-api.js");
 const cli = new Client({ 
     token: { clientID: process.env.cId, clientSecret: process.env.cSecret}
