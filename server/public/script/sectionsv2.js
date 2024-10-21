@@ -34,7 +34,7 @@ const loadPlaylist = async (id) => {
 
     const requestPlaylistInfo = await fetchPlaylist(id);
     const requestPlaylistTracks = await fetchPlaylistTracks(id);
-    // const requestPlaylistOwnerDetails = await fetchUser(requestPlaylistInfo.owner.id);
+    const requestPlaylistOwnerDetails = await fetchUser(requestPlaylistInfo.owner.id);
 
     const hexOfPlaylistCover = await fetchHexOfImage(requestPlaylistInfo.image);
 
@@ -42,8 +42,8 @@ const loadPlaylist = async (id) => {
         playlistCover[0].children[0].src = requestPlaylistInfo.image;
         playlistCover[0].children[0].style.filter = `drop-shadow(0px 0px 250px ${hexOfPlaylistCover})`;
         playlistName[0].innerText = requestPlaylistInfo.name;
-        // playlistOwner[0].children[0].src = requestPlaylistOwnerDetails.images[0].url;
-        // playlistOwner[0].children[1].innerText = requestPlaylistOwnerDetails.displayName;
+        playlistOwner[0].children[0].src = requestPlaylistOwnerDetails.images[0].url;
+        playlistOwner[0].children[1].innerText = requestPlaylistOwnerDetails.displayName;
         playlistOwner[0].children[1].setAttribute("data-uid", `${requestPlaylistInfo.owner.id}`);
         playlistExtraInfo[0].children[0].innerText = `${requestPlaylistTracks.length} songs`;
 
