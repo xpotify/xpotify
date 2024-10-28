@@ -58,7 +58,7 @@ router.get("/gettrack/:id", async (req, res) => {
                 "id" : response.album.id,
                 "images" : response.album.images,
                 "name" : response.album.name,
-                "realease-date" : response.album.releaseDate,
+                "releaseDate" : response.album.releaseDate,
                 "totalTracks" : response.album.totalTracks,
                 "type" : response.album.type
             },
