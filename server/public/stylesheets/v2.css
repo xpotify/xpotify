@@ -1126,6 +1126,7 @@ body{
     cursor: default;
     z-index: 5;
     user-select: none;
+    font-weight: 600;
 }
 
 .fpOwner{
