@@ -40,6 +40,7 @@ const loadPlaylist = async (id) => {
     const requestPlaylistOwnerDetails = await fetchUser(requestPlaylistInfo.owner.id);
 
     const hexOfPlaylistCover = await fetchHexOfImage(requestPlaylistInfo.image);
+    const whoop2 = document.getElementById("whoop2");
 
     try{
         playlistCover[0].children[0].src = requestPlaylistInfo.image;
@@ -51,6 +52,11 @@ const loadPlaylist = async (id) => {
         playlistExtraInfo[0].children[0].style.display = "block";
         playlistExtraInfo[0].children[1].style.display = "block";
         playlistExtraInfo[0].children[0].innerText = `${requestPlaylistTracks.length} songs`;
+        playlistExtraInfo[0].style.flexDirection = "column";
+
+        whoop2.style.display = "none";
+
+        playlistExtraInfo[0].children[1].style.display = "block";
 
         let tDr = 0;
 
@@ -130,6 +136,8 @@ const loadTrack = async (id) => {
 
     const hexOfPlaylistCover = await fetchHexOfImage(requestTrackInfo.album.images[0].url);
 
+    const whoop2 = document.getElementById("whoop2");
+
     try{
         playlistCover[0].children[0].src = requestTrackInfo.album.images[0].url;
         playlistCover[0].children[0].style.filter = `drop-shadow(0px 0px 250px ${hexOfPlaylistCover})`;
@@ -139,6 +147,16 @@ const loadTrack = async (id) => {
         playlistOwner[0].children[1].setAttribute("data-uid", `${requestTrackInfo.artists[0].id}`);
         playlistExtraInfo[0].children[0].innerText = `${(requestTrackInfo.album.releaseDate).slice(0,4)}`;
         playlistExtraInfo[0].children[1].style.display = "none";
+        playlistExtraInfo[0].style.flexDirection = "row";
+        playlistExtraInfo[0].children[1].style.display = "flex";
+
+        whoop2.style.display = "block";
+
+        if(requestTrackInfo.explicit == true){
+            console.log("Yes the song is explicit!");
+        } else {
+            console.log("No the song is not explicit!");
+        }
 
         if(playlistTrack.length == 0){
             // Do nothing
