@@ -1328,3 +1328,10 @@ body{
     cursor: default;
 }
 
+.explicitSvg{
+    width: 20px;
+}
+
+#whoop2{
+    margin: 0 10% 0 10%;
+}
