@@ -137,6 +137,7 @@ const loadTrack = async (id) => {
     const hexOfPlaylistCover = await fetchHexOfImage(requestTrackInfo.album.images[0].url);
 
     const whoop2 = document.getElementById("whoop2");
+    const pDuration = document.getElementById("pDuration");
 
     try{
         playlistCover[0].children[0].src = requestTrackInfo.album.images[0].url;
@@ -151,6 +152,7 @@ const loadTrack = async (id) => {
         playlistExtraInfo[0].children[1].style.display = "flex";
 
         whoop2.style.display = "block";
+        pDuration.style.display = "none";
 
         if(requestTrackInfo.explicit == true){
             console.log("Yes the song is explicit!");
