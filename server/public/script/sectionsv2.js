@@ -3,6 +3,8 @@ const greet = document.getElementsByClassName("greetMsg");
 const pInstances = document.getElementsByClassName("playlists");
 const w1 = document.getElementsByClassName("window1");
 const w2 = document.getElementsByClassName("window2");
+const fetchedTrack = document.getElementsByClassName("fetchedTrack");
+const fetchedPlaylistDiv = document.getElementsByClassName("fetchedPlaylist");
 
 const calculateDuration = (duration) => {
     let hours = Math.floor((((duration/1000)/60)/60));
@@ -41,6 +43,11 @@ const loadPlaylist = async (id) => {
 
     const hexOfPlaylistCover = await fetchHexOfImage(requestPlaylistInfo.image);
     const whoop2 = document.getElementById("whoop2");
+
+    const fetchedTrack = document.getElementsByClassName("fetchedTrack");
+
+    fetchedTrack[0].style.display = "none";
+    fetchedPlaylistDiv[0].style.display = "flex";
 
     try{
         playlistCover[0].children[0].src = requestPlaylistInfo.image;
@@ -123,10 +130,10 @@ const loadTrack = async (id) => {
     };
     w1[0].classList.add("remhide");
 
-    const playlistCover = document.getElementsByClassName("fpCover");
-    const playlistName = document.getElementsByClassName("fpName");
-    const playlistOwner = document.getElementsByClassName("fpOwner");
-    const playlistExtraInfo = document.getElementsByClassName("fpInfo");
+    const playlistCover = document.getElementsByClassName("trackfpCover");
+    const playlistName = document.getElementsByClassName("trackfpName");
+    const playlistOwner = document.getElementsByClassName("trackfpOwner");
+    const playlistExtraInfo = document.getElementsByClassName("trackfpInfo");
 
     const playlistTrack = document.querySelectorAll(".fpTrack");
     const playlistTrackContainer = document.querySelector(".fpTracks");
@@ -138,6 +145,11 @@ const loadTrack = async (id) => {
 
     const whoop2 = document.getElementById("whoop2");
     const pDuration = document.getElementById("pDuration");
+
+    const explicitSvg = document.getElementsByClassName("explicitSvg");
+
+    fetchedPlaylistDiv[0].style.display = "none";
+    fetchedTrack[0].style.display = "flex";
 
     try{
         playlistCover[0].children[0].src = requestTrackInfo.album.images[0].url;
@@ -157,7 +169,8 @@ const loadTrack = async (id) => {
         if(requestTrackInfo.explicit == true){
             console.log("Yes the song is explicit!");
         } else {
-            console.log("No the song is not explicit!");
+            explicitSvg[0].style.display = "none";
+            whoop2.style.display = "none";
         }
 
         if(playlistTrack.length == 0){
