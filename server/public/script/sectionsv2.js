@@ -167,7 +167,8 @@ const loadTrack = async (id) => {
         pDuration.style.display = "none";
 
         if(requestTrackInfo.explicit == true){
-            console.log("Yes the song is explicit!");
+            explicitSvg[0].style.display = "block";
+            whoop2.style.display = "block";
         } else {
             explicitSvg[0].style.display = "none";
             whoop2.style.display = "none";
