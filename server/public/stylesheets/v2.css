@@ -1166,9 +1166,9 @@ body{
     cursor: default;
 }
 
-.fpInfo span:nth-child(1){
+/* .fpInfo span:nth-child(1){
     margin-bottom: 2%;
-}
+} */
 
 .fpActions{
     width: 35%;
@@ -1329,7 +1329,7 @@ body{
 }
 
 .explicitSvg{
-    width: 20px;
+    width: 15px;
 }
 
 #whoop2{
