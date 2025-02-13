@@ -15,7 +15,7 @@
   "author": "CyberRodeo",
   "license": "ISC",
   "dependencies": {
-    "@distube/ytdl-core": "^4.15.8",
+    "@distube/ytdl-core": "^4.16.2",
     "body-parser": "^1.20.2",
     "colors.js": "^1.2.4",
     "dot-env": "^0.0.1",
