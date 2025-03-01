@@ -56,7 +56,16 @@ const fetchArtistTopTracks = async (id) => {
 };
 
 const fetchTrack = async (id) => {
-    const response = await fetch(`http://localhost:1212/song/gettrack/${id}`, {
+    let parsedTrackId;
+    if(id.length > 22){
+        parsedTrackId =  await parseTrackId(id);
+    } else {
+        parsedTrackId =  id;
+    }
+
+    console.log(parsedTrackId);
+
+    const response = await fetch(`http://localhost:1212/song/gettrack/${parsedTrackId}`, {
         method: "GET",
         mode: "cors",
         headers: {
