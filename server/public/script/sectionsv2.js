@@ -95,13 +95,17 @@ const loadPlaylist = async (id) => {
             fpTna.className = "fpTna";
             let span1 = document.createElement("span");
             span1.innerText = `${requestPlaylistTracks[i].track.name}`;
-            span1.setAttribute("data-id", `${requestPlaylistTracks[i].track.album.id}`);
+            span1.setAttribute("data-id", `${requestPlaylistTracks[i].track.id}`);
             let span2 = document.createElement("span");
             span2.innerText = `${requestPlaylistTracks[i].track.artists[0].name}`;
             span2.setAttribute("data-aid", `${requestPlaylistTracks[i].track.artists[0].id}`);
             let fpTDuration = document.createElement("fpTDuration");
             fpTDuration.className = "fpTDuration";
             fpTDuration.innerText = `${calculateTime((requestPlaylistTracks[i].track.duration/1000))}`;
+
+            span1.addEventListener("click", () => {
+                loadTrack(span1.dataset.id);
+            });
 
             fpTrack.appendChild(fpTDiscNumber);
             fpTrack.appendChild(fpTCover);
