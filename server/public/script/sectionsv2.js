@@ -133,6 +133,7 @@ const loadTrack = async (id) => {
         pInstances[x].classList.add("remHide");
     };
     w1[0].classList.add("remhide");
+    w2[0].classList.add("remHide");
 
     const playlistCover = document.getElementsByClassName("trackfpCover");
     const playlistName = document.getElementsByClassName("trackfpName");
