@@ -1402,9 +1402,48 @@ body{
     padding: 0% 4% 0% 4%;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
-.artistControls button:nth-child(1){
+.artistControls .leftControls{
+    display: flex;
+    align-items: center;
+    width: 80%;
+    height: 100%;
+}
+
+.artistControls .rightControls{
+    display: flex;
+    align-items: center;
+    width: 20%;
+    height: 100%;
+    align-items: center;
+    justify-content: end;
+}
+
+.artistControls .rightControls button{
+    width: 40px;
+    height: 40px;
+    background-color: #1a1a1a;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.artistControls .rightControls button:hover{
+    background-color: #3b3b3b;
+}
+
+.artistControls .rightControls button img{
+    width: 25px;
+    height: 25px;
+}
+
+.artistControls .leftControls button:nth-child(1){
     border: 2px solid white;
     background-color: #fff;
     border-radius: 50%;
@@ -1412,48 +1451,66 @@ body{
     height: 40px;
     display: flex;
     align-items: center;
+    cursor: pointer;
     justify-content: center;
+    transition: 0.2s;
 }
 
-.artistControls button:nth-child(1) img{
+.artistControls .leftControls button:nth-child(1):hover{
+    transform: scale(1.05);
+}
+
+.artistControls .leftControls button:nth-child(1) img{
     width: 20px;
     height: 20px;
 }
 
-.artistControls button:nth-child(2){
+.artistControls .leftControls button:nth-child(2){
     border: 2px solid red;
     background-color: black;
     border-radius: 50px;
     color: red;
-    width: 8.5%;
+    width: 10%;
     height: 72%;
     font-size: 15px;
-    margin-left: 0.40%;
+    margin-left: 0.5%;
     transition: 0.2s;
     cursor: pointer;
 }
 
-.artistControls button:nth-child(2):hover{
+.artistControls .leftControls button:nth-child(2):hover{
     background-color: red;
     color: white;
 }
 
-.artistControls button:nth-child(3){
+.artistControls .leftControls button:nth-child(3){
     border: 2px solid white;
     background-color: black;
     border-radius: 50px;
     color: white;
-    width: 8%;
+    width: 11%;
     height: 72%;
     font-size: 15px;
-    margin-left: 0.40%;
+    margin-left: 0.5%;
     transition: 0.2s;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.artistControls button:nth-child(3):hover{
+.artistControls .leftControls button:nth-child(3):hover{
     background-color: #fff;
     color: black;
+}
+
+.artistControls .leftControls button:nth-child(3):hover img{
+    content: url("/icons/blackShuffle.svg");
+}
+
+.artistControls .leftControls button:nth-child(3) img{
+    width: 22px;
+    margin-left: 2%;
 }
 
 .artistTopSongs{
