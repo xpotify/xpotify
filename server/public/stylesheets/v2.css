@@ -1341,8 +1341,25 @@ body{
 .window3{
     height: 100%;
     width: 87%;
-    display: flex;
-    flex-direction: column;
+    overflow: scroll;
+}
+
+.window3::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+  
+
+.window3::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2); 
+    /* border-radius: 15px; */
+    cursor: pointer;
+    transition: 0.2s;
+}
+  
+
+.window3::-webkit-scrollbar-thumb:hover {
+    background: #ffffff69; 
 }
 
 .artistInformation{
@@ -1398,7 +1415,7 @@ body{
     width: 100%;
     height: 5%;
     /* background-color: red; */
-    margin: 2% 0 1% 0;
+    margin: 2% 0 2% 0;
     padding: 0% 4% 0% 4%;
     display: flex;
     align-items: center;
@@ -1614,4 +1631,19 @@ body{
 
 .TTalbum span:hover{
     text-decoration: underline;
+}
+
+.artistAlbums, .artistArtists{
+    width: 100%;
+    padding: 0 4% 0 4%;
+    height: 40%;
+    margin: 2% 0% 2% 0%;
+}
+
+.artistAlbums .playlists, .artistArtists .playlists{
+    height: 100% !important;
+}
+
+.artistAlbums .playlists .heading, .artistArtists .playlists .heading{
+    font-size: 25px !important;
 }
