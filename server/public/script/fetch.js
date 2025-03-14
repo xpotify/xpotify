@@ -77,8 +77,17 @@ const fetchTrack = async (id) => {
     return data;
 };
 
+
 const fetchAlbum = async (id) => {
-    const response = await fetch(`http://localhost:1212/album/get/${id}`, {
+    let parsedAlbumId;
+
+    if(id.length > 22){
+        parsedAlbumId = await parseAlbumId(id);
+    } else {
+        parsedAlbumId = id;
+    }
+
+    const response = await fetch(`http://localhost:1212/album/get/${parsedAlbumId}`, {
         method : "GET",
         mode : "cors",
         headers : {
