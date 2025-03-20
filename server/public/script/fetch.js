@@ -1,5 +1,12 @@
 const fetchArtist = async (id) => {
-    const response = await fetch(`http://localhost:1212/artist/q/${id}`, {
+    let parsedArtistId;
+    if(id.length > 22){
+        parsedArtistId = await parseArtistId(id);
+    } else {
+        parsedArtistId=id;
+    }
+    
+    const response = await fetch(`http://localhost:1212/artist/q/${parsedArtistId}`, {
         method: "GET", 
         mode: "cors",
         headers: {
