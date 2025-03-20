@@ -225,3 +225,15 @@ const loadTrack = async (id) => {
         console.error(error);
     }
 };
+
+
+const loadArtist = async (id) => {
+    const artistData = await fetchArtist(id);
+    const artistTopTracks = await fetchArtistTopTracks(id);
+    const artistAlbums = await fetchArtistsAlbums(id);
+    const relatedArtists = await fetchRelatedArtists(id);
+    
+    const artistName = document.getElementsByClassName("infName");
+    const artistListeners = document.getElementsByClassName("infListeners");
+    
+};
