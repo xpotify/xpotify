@@ -235,5 +235,84 @@ const loadArtist = async (id) => {
     
     const artistName = document.getElementsByClassName("infName");
     const artistListeners = document.getElementsByClassName("infListeners");
+    const artistsTopTracks = document.getElementsByClassName("ATtoptracks");
+    const TTracks = document.querySelectorAll(".TTrack");
+    const artistsAlbums = document.getElementsByClassName("artistAlbums");
+    const artistsRelatedArtists =document.getElementsByClassName("artistRelatedArtists");
+
+    if(artistData && artistTopTracks){
+        try{
+            TTracks.forEach(el => el.remove());
+
+            artistName[0].children[0].innerText = artistData.name;
+            artistListeners[0].innerText = `${artistData.totalFollowers} followers`;
+
+            for(i=0; i < (artistTopTracks.length - 5); i++){
+                const TTrack = document.createElement("div");
+                TTrack.className = "TTrack";
+                
+                const TTcover = document.createElement("div");
+                TTcover.className = "TTcover";
+                const TTcoverIMG = document.createElement("img");
+
+                const TTinf = document.createElement("div");
+                TTinf.className = "TTinf";
+                const TTinfName = document.createElement("div");
+                TTinfName.className = "TTinfName";
+                const TTinfArtists = document.createElement("div");
+                TTinfArtists.className = "TTinfArtists";
+                const TTduration = document.createElement("div");
+                TTduration.className = "TTduration";
+                const TTalbum = document.createElement("div");
+                TTalbum.className = "TTalbum";
+                const span = document.createElement("span");
+
+                TTcoverIMG.src = artistTopTracks[i].album.img[2].url;
+                TTinfName.innerText = artistTopTracks[i].name;
+                TTinfName.setAttribute("data-trackid", `${artistTopTracks[i].songId}`);
+                
+                if(artistTopTracks[i].artists.length > 1){
+                    for(x=0; x < artistTopTracks[i].artists.length; x++){
+                        const span = document.createElement("span");
+
+                        if(x == (artistTopTracks[i].artists.length - 1)){
+                            span.innerText = artistTopTracks[i].artists[x].name;
+                        } else {
+                            span.innerText = `${artistTopTracks[i].artists[x].name}, `;
+                        }
+
+                        span.setAttribute("data-artistid", `${artistTopTracks[i].artists[x].id}`);
     
+                        TTinfArtists.appendChild(span);
+                    };
+                } else {
+                    const span = document.createElement("span");
+                    span.innerText = artistTopTracks[i].artists[0].name;
+                    span.setAttribute("data-artistid", `${artistTopTracks[i].artists[0].id}`);
+    
+                    TTinfArtists.appendChild(span);
+                }
+
+                TTduration.innerText = calculateTime((artistTopTracks[i].duration)/1000);
+                span.innerText = artistTopTracks[i].album.name;
+                span.setAttribute("data-albumid", artistTopTracks[i].album.id);
+
+                TTrack.appendChild(TTcover);
+                TTcover.appendChild(TTcoverIMG);
+                TTrack.append(TTinf);
+                TTinf.appendChild(TTinfName);
+                TTinf.appendChild(TTinfArtists);
+                TTrack.appendChild(TTduration);
+                TTrack.appendChild(TTalbum);
+                TTalbum.appendChild(span);
+
+                artistsTopTracks[0].appendChild(TTrack);
+            };
+        } 
+        catch(err){
+            console.error(err);
+        }
+    } else {
+        console.log("Error: Couldn't fetch target Artist" + "(" + id + ")");
+    }
 };
