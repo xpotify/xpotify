@@ -1597,10 +1597,13 @@ body{
     font-size: 12px;
     color: rgb(180, 180, 180);
     margin-top: 0.5%;
+}
+
+.TTinf .TTinfArtists span{
     cursor: pointer;
 }
 
-.TTinfArtists:hover{
+.TTinf .TTinfArtists span:hover{
     text-decoration: underline;
 }
 
