@@ -240,6 +240,7 @@ const loadArtist = async (id) => {
     const artistsAlbums = document.getElementsByClassName("artistAlbums");
     const artistsRelatedArtists =document.getElementsByClassName("artistRelatedArtists");
 
+    const existingAlbums = document.querySelectorAll(".artistsAlbums .Playlist");
     const artistsAlbumContainer = document.getElementsByClassName("artistsAlbums");
 
     if(artistData && artistTopTracks){
@@ -316,5 +317,63 @@ const loadArtist = async (id) => {
         }
     } else {
         console.log("Error: Couldn't fetch target Artist" + "(" + id + ")");
+    }
+
+    if(artistsAlbums){
+        try{
+            existingAlbums.forEach(el => el.remove());
+
+            for(i=0; i < artistAlbums.length; i++){
+                const li = document.createElement('li');
+                li.className = "Playlist";
+
+                const playlistCover = document.createElement("div");
+                playlistCover.className = "playlistCover";
+
+                const playlistCoverImage = document.createElement("img");
+                playlistCoverImage.className = "playlistCoverImage";
+                
+                const playlistPlayBtn = document.createElement("img");
+                playlistPlayBtn.className = "playlistPlayBtn";
+
+
+                const playlistInfo = document.createElement("div");
+                playlistInfo.className = "PlaylistInfo";
+
+                const playlistName = document.createElement("div");
+                playlistName.className = "PlaylistName";
+
+                const span = document.createElement("span");
+                
+                const playlistExInf = document.createElement("div");
+                playlistExInf.className = "PlaylistExtInf";
+
+                const PlaylistType = document.createElement("div");
+                PlaylistType.className = "PlaylistType";
+
+
+                playlistCoverImage.src = artistAlbums[i].images[1].url;
+                playlistPlayBtn.src = "/icons/playyy.svg";
+
+                span.innerText = artistAlbums[i].name;
+                PlaylistType.innerText = artistAlbums[i].albumType;
+
+
+                li.appendChild(playlistCover);
+                playlistCover.appendChild(playlistCoverImage);
+                playlistCover.appendChild(playlistPlayBtn);
+                
+                li.appendChild(playlistInfo);
+                playlistInfo.appendChild(playlistName);
+                playlistName.appendChild(span);
+                playlistInfo.appendChild(playlistExInf);
+                playlistExInf.appendChild(PlaylistType);
+
+                artistsAlbumContainer[0].appendChild(li);
+                playlistAnimation();
+            };
+        } catch(err){   
+            console.log(err);
+        }
     }
 };
