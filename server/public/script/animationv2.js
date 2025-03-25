@@ -27,22 +27,27 @@ for(i=0; i < pinnedPs.length; i++){
 
 // playlist button
 
-const playlistCover = document.getElementsByClassName("playlistCover");
-const btn = document.getElementsByClassName("playlistPlayBtn");
-const playlistCoverImage = document.getElementsByClassName("playlistCoverImage");
-
-for(i=0; i < playlistCover.length; i++){
-    const x = i;
-    playlistCover[i].addEventListener("mouseenter", () => {
-        btn[x].classList.add("playBtn");
-        playlistCoverImage[x].classList.add("opac65");
-    });
-
-    playlistCover[i].addEventListener("mouseleave", () => {
-        btn[x].classList.remove("playBtn");
-        playlistCoverImage[x].classList.remove("opac65");
-    });
+const playlistAnimation = () => {
+    const playlistCover = document.getElementsByClassName("playlistCover");
+    const btn = document.getElementsByClassName("playlistPlayBtn");
+    const playlistCoverImage = document.getElementsByClassName("playlistCoverImage");
+    
+    for(i=0; i < playlistCover.length; i++){
+        const x = i;
+        playlistCover[i].addEventListener("mouseenter", () => {
+            btn[x].classList.add("playBtn");
+            playlistCoverImage[x].classList.add("opac65");
+        });
+    
+        playlistCover[i].addEventListener("mouseleave", () => {
+            btn[x].classList.remove("playBtn");
+            playlistCoverImage[x].classList.remove("opac65");
+        });
+    };
 };
+
+playlistAnimation();
+
 
 // volume Slider
 
