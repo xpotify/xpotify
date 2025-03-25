@@ -370,8 +370,8 @@ const loadArtist = async (id) => {
                 playlistExInf.appendChild(PlaylistType);
 
                 artistsAlbumContainer[0].appendChild(li);
-                playlistAnimation();
             };
+            playlistAnimation();
         } catch(err){   
             console.log(err);
         }
