@@ -3,6 +3,8 @@ const greet = document.getElementsByClassName("greetMsg");
 const pInstances = document.getElementsByClassName("playlists");
 const w1 = document.getElementsByClassName("window1");
 const w2 = document.getElementsByClassName("window2");
+const w3 = document.getElementsByClassName("window3");
+const rightSection = document.getElementsByClassName("rightSection");
 const fetchedTrack = document.getElementsByClassName("fetchedTrack");
 const fetchedPlaylistDiv = document.getElementsByClassName("fetchedPlaylist");
 
@@ -228,6 +230,13 @@ const loadTrack = async (id) => {
 
 
 const loadArtist = async (id) => {
+    genre[0].classList.add("remHide");
+    for(x=0; x < pInstances.length; x++){
+        pInstances[x].classList.add("remHide");
+    };
+    w1[0].classList.add("remhide");
+    w2[0].classList.add("remHide");
+
     const artistData = await fetchArtist(id);
     const artistTopTracks = await fetchArtistTopTracks(id);
     const artistAlbums = await fetchArtistsAlbums(id);
@@ -396,6 +405,14 @@ const loadArtist = async (id) => {
 
                 artistsAlbumContainer[0].appendChild(li);
             };
+
+            const playlistInsideOfArtistPage = document.getElementsByClassName("artistAlbumsP");
+
+            w3[0].classList.remove("remHide");
+            rightSection[0].classList.add("remHide");
+            navBtnHm.style.backgroundColor = "transparent";
+            playlistInsideOfArtistPage[0].classList.remove("remHide");
+            homeState = false;
         } catch(err){   
             console.log(err);
         }
