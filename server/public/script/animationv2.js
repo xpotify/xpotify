@@ -5,6 +5,8 @@ const genreBtns = document.querySelector(".tomBtns");
 const p = document.querySelectorAll(".playlists"); 
 const win1 = document.querySelector(".window1");
 const win2 = document.querySelector(".window2");
+const win3 = document.querySelector(".window3");
+const rightSection = document.querySelector(".rightSection");
 const pinnedPs = document.querySelectorAll(".playlist");
 const pinnedPsBtns = document.querySelectorAll(".playBtn");
 
@@ -268,6 +270,9 @@ navBtnHm.addEventListener("click", () => {
         };
         win1.classList.add("remHide");
         win2.classList.add("remHide");
+        win3.classList.add("remHide");
+        rightSection.classList.remove("remHide");
+
         navBtnHm.style.backgroundColor = "rgba(255, 255, 255, 0.25)";
         extraControls[3].style.borderBottom = "2px solid transparent";
         extraControls[4].style.borderBottom = "2px solid transparent";
