@@ -263,6 +263,7 @@ const loadArtist = async (id) => {
     const artistsAlbumContainer = document.getElementsByClassName("artistsAlbums");
 
     const artistBackground = document.getElementsByClassName("artistInformation");
+    artistBackground[0].style.backgroundImage = "url(/background/black.png)";
 
     if(artistData && artistTopTracks){
         try{
