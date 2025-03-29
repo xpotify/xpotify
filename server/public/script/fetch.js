@@ -170,3 +170,16 @@ const fetchHexOfImage = async (url) => {
     const data = await response.json();
     return data;
 };
+
+const fetchArtistBackground = async (id) => {
+    const response = await fetch(`http://localhost:1212/scrape/artistbg/${id}`, {
+        method : "GET",
+        mode : "cors",
+        headers : {
+            "Content-Type" : "application/json"
+        }
+    });
+
+    const data = await response.json();
+    return data;
+};
