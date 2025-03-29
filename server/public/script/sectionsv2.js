@@ -4,7 +4,6 @@ const pInstances = document.getElementsByClassName("playlists");
 const w1 = document.getElementsByClassName("window1");
 const w2 = document.getElementsByClassName("window2");
 const w3 = document.getElementsByClassName("window3");
-const rightSection = document.getElementsByClassName("rightSection");
 const fetchedTrack = document.getElementsByClassName("fetchedTrack");
 const fetchedPlaylistDiv = document.getElementsByClassName("fetchedPlaylist");
 
@@ -109,6 +108,10 @@ const loadPlaylist = async (id) => {
                 loadTrack(span1.dataset.id);
             });
 
+            span2.addEventListener("click", () => {
+                loadArtist(span2.dataset.aid);
+            });
+
             fpTrack.appendChild(fpTDiscNumber);
             fpTrack.appendChild(fpTCover);
             fpTCover.appendChild(img);
@@ -134,8 +137,10 @@ const loadTrack = async (id) => {
     for(x=0; x < pInstances.length; x++){
         pInstances[x].classList.add("remHide");
     };
+
     w1[0].classList.add("remhide");
     w2[0].classList.add("remHide");
+    w3[0].classList.add("remHide");
 
     const playlistCover = document.getElementsByClassName("trackfpCover");
     const playlistName = document.getElementsByClassName("trackfpName");
@@ -210,6 +215,10 @@ const loadTrack = async (id) => {
         fpTDuration.className = "fpTDuration";
         fpTDuration.innerText = `${calculateTime((requestTrackInfo.duration/1000))}`;
 
+        span2.addEventListener("click", () => {
+            loadArtist(span2.dataset.aid);
+        });
+
         fpTrack.appendChild(fpTDiscNumber);
         fpTrack.appendChild(fpTCover);
         fpTCover.appendChild(img);
@@ -221,6 +230,7 @@ const loadTrack = async (id) => {
         playlistTrackContainer.appendChild(fpTrack);
 
         w2[0].classList.remove("remHide");
+        rightSection.classList.remove("remHide");
         navBtnHm.style.backgroundColor = "transparent";
         homeState = false;
     } catch(error){
@@ -409,7 +419,7 @@ const loadArtist = async (id) => {
             const playlistInsideOfArtistPage = document.getElementsByClassName("artistAlbumsP");
 
             w3[0].classList.remove("remHide");
-            rightSection[0].classList.add("remHide");
+            rightSection.classList.add("remHide");
             navBtnHm.style.backgroundColor = "transparent";
             playlistInsideOfArtistPage[0].classList.remove("remHide");
             homeState = false;
