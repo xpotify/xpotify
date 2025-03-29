@@ -243,12 +243,14 @@ const loadArtist = async (id) => {
     const existingAlbums = document.querySelectorAll(".artistsAlbums .Playlist");
     const artistsAlbumContainer = document.getElementsByClassName("artistsAlbums");
 
+    const artistBackground = document.getElementsByClassName("artistInformation");
+
     if(artistData && artistTopTracks){
         try{
             TTracks.forEach(el => el.remove());
 
             artistName[0].children[0].innerText = artistData.name;
-            artistListeners[0].innerText = `${artistData.totalFollowers} followers`;
+            artistListeners[0].innerText = `${(artistData.totalFollowers).toLocaleString()} followers`;
 
             for(i=0; i < (artistTopTracks.length - 5); i++){
                 const TTrack = document.createElement("div");
@@ -262,12 +264,19 @@ const loadArtist = async (id) => {
                 TTinf.className = "TTinf";
                 const TTinfName = document.createElement("div");
                 TTinfName.className = "TTinfName";
+                TTinfName.setAttribute("data-trackid", artistTopTracks[i].songId);
+                TTinfName.addEventListener("click", () => {
+                    loadTrack(TTinfName.dataset.trackid);
+                });
+
                 const TTinfArtists = document.createElement("div");
                 TTinfArtists.className = "TTinfArtists";
                 const TTduration = document.createElement("div");
                 TTduration.className = "TTduration";
                 const TTalbum = document.createElement("div");
                 TTalbum.className = "TTalbum";
+                TTalbum.setAttribute("data-albumid", artistTopTracks[i].album.id);
+
                 const span = document.createElement("span");
 
                 TTcoverIMG.src = artistTopTracks[i].album.img[2].url;
@@ -294,7 +303,7 @@ const loadArtist = async (id) => {
                     span.setAttribute("data-artistid", `${artistTopTracks[i].artists[0].id}`);
     
                     TTinfArtists.appendChild(span);
-                }
+                };
 
                 TTduration.innerText = calculateTime((artistTopTracks[i].duration)/1000);
                 span.innerText = artistTopTracks[i].album.name;
@@ -344,6 +353,7 @@ const loadArtist = async (id) => {
                 playlistName.className = "PlaylistName";
 
                 const span = document.createElement("span");
+                span.setAttribute("data-albumid", artistAlbums[i].id);
                 
                 const playlistExInf = document.createElement("div");
                 playlistExInf.className = "PlaylistExtInf";
@@ -356,7 +366,22 @@ const loadArtist = async (id) => {
                 playlistPlayBtn.src = "/icons/playyy.svg";
 
                 span.innerText = artistAlbums[i].name;
-                PlaylistType.innerText = artistAlbums[i].albumType;
+
+                if(artistAlbums[i].albumType == "single"){
+                    PlaylistType.innerText = "Single";
+                } else {
+                    PlaylistType.innerText = "Album";
+                }
+
+                playlistCover.addEventListener("mouseenter", () => {
+                    playlistPlayBtn.classList.add("playBtn");
+                    playlistCoverImage.classList.add("opac65");
+                });
+
+                playlistCover.addEventListener("mouseleave", () => {
+                    playlistPlayBtn.classList.remove("playBtn");
+                    playlistCoverImage.classList.remove("opac65");
+                });
 
 
                 li.appendChild(playlistCover);
@@ -371,9 +396,11 @@ const loadArtist = async (id) => {
 
                 artistsAlbumContainer[0].appendChild(li);
             };
-            playlistAnimation();
         } catch(err){   
             console.log(err);
         }
     }
+
+    const artistBackgroundImage = await fetchArtistBackground(id);
+    artistBackground[0].style.backgroundImage = `url(${artistBackgroundImage})`;
 };
