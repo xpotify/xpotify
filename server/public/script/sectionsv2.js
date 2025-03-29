@@ -257,7 +257,7 @@ const loadArtist = async (id) => {
     const artistsTopTracks = document.getElementsByClassName("ATtoptracks");
     const TTracks = document.querySelectorAll(".TTrack");
     const artistsAlbums = document.getElementsByClassName("artistAlbums");
-    const artistsRelatedArtists =document.getElementsByClassName("artistRelatedArtists");
+    const artistsRelatedArtists = document.getElementsByClassName("artistRelatedArtists");
 
     const existingAlbums = document.querySelectorAll(".artistsAlbums .Playlist");
     const artistsAlbumContainer = document.getElementsByClassName("artistsAlbums");
@@ -387,9 +387,9 @@ const loadArtist = async (id) => {
                 span.innerText = artistAlbums[i].name;
 
                 if(artistAlbums[i].albumType == "single"){
-                    PlaylistType.innerText = "Single";
+                    PlaylistType.innerText = `Single • ${artistAlbums[i].releaseDate.slice(0, 4)}`;
                 } else {
-                    PlaylistType.innerText = "Album";
+                    PlaylistType.innerText = `Album • ${artistAlbums[i].releaseDate.slice(0, 4)}`;
                 }
 
                 playlistCover.addEventListener("mouseenter", () => {
@@ -429,5 +429,7 @@ const loadArtist = async (id) => {
     }
 
     const artistBackgroundImage = await fetchArtistBackground(id);
+    // const hex = await fetchHexOfImage(artistBackgroundImage);
     artistBackground[0].style.backgroundImage = `url(${artistBackgroundImage})`;
+    // artistBackground[0].style.boxShadown = `${hex} 0 0 100px`;
 };
