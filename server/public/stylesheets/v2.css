@@ -1363,7 +1363,7 @@ body{
 }
 
 .artistInformation{
-    background-image: url("https://image-cdn-fa.spotifycdn.com/image/ab67618600000194c7c803235307a25bcc957ebe");
+    background-image: url("/background/black.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1372,7 +1372,15 @@ body{
     padding: 4%;
     display: flex;
     align-items: end;
+    transition: 2s;
 }
+
+/* 
+@keyframes slowSlow {
+    from{
+        
+    }
+} */
 
 .infDiv{
     width: auto;
@@ -1640,7 +1648,7 @@ body{
     width: 100%;
     padding: 0 4% 0 4%;
     height: 40%;
-    margin: 2% 0% 2% 0%;
+    margin: 2% 0% 4% 0%;
 }
 
 .artistAlbums .playlists, .artistArtists .playlists{
