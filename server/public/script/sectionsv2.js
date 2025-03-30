@@ -3,6 +3,7 @@ const greet = document.getElementsByClassName("greetMsg");
 const pInstances = document.getElementsByClassName("playlists");
 const w1 = document.getElementsByClassName("window1");
 const w2 = document.getElementsByClassName("window2");
+const w3 = document.getElementsByClassName("window3");
 const fetchedTrack = document.getElementsByClassName("fetchedTrack");
 const fetchedPlaylistDiv = document.getElementsByClassName("fetchedPlaylist");
 
@@ -107,6 +108,10 @@ const loadPlaylist = async (id) => {
                 loadTrack(span1.dataset.id);
             });
 
+            span2.addEventListener("click", () => {
+                loadArtist(span2.dataset.aid);
+            });
+
             fpTrack.appendChild(fpTDiscNumber);
             fpTrack.appendChild(fpTCover);
             fpTCover.appendChild(img);
@@ -132,8 +137,10 @@ const loadTrack = async (id) => {
     for(x=0; x < pInstances.length; x++){
         pInstances[x].classList.add("remHide");
     };
+
     w1[0].classList.add("remhide");
     w2[0].classList.add("remHide");
+    w3[0].classList.add("remHide");
 
     const playlistCover = document.getElementsByClassName("trackfpCover");
     const playlistName = document.getElementsByClassName("trackfpName");
@@ -208,6 +215,10 @@ const loadTrack = async (id) => {
         fpTDuration.className = "fpTDuration";
         fpTDuration.innerText = `${calculateTime((requestTrackInfo.duration/1000))}`;
 
+        span2.addEventListener("click", () => {
+            loadArtist(span2.dataset.aid);
+        });
+
         fpTrack.appendChild(fpTDiscNumber);
         fpTrack.appendChild(fpTCover);
         fpTCover.appendChild(img);
@@ -219,6 +230,7 @@ const loadTrack = async (id) => {
         playlistTrackContainer.appendChild(fpTrack);
 
         w2[0].classList.remove("remHide");
+        rightSection.classList.remove("remHide");
         navBtnHm.style.backgroundColor = "transparent";
         homeState = false;
     } catch(error){
@@ -228,6 +240,13 @@ const loadTrack = async (id) => {
 
 
 const loadArtist = async (id) => {
+    genre[0].classList.add("remHide");
+    for(x=0; x < pInstances.length; x++){
+        pInstances[x].classList.add("remHide");
+    };
+    w1[0].classList.add("remhide");
+    w2[0].classList.add("remHide");
+
     const artistData = await fetchArtist(id);
     const artistTopTracks = await fetchArtistTopTracks(id);
     const artistAlbums = await fetchArtistsAlbums(id);
@@ -238,12 +257,13 @@ const loadArtist = async (id) => {
     const artistsTopTracks = document.getElementsByClassName("ATtoptracks");
     const TTracks = document.querySelectorAll(".TTrack");
     const artistsAlbums = document.getElementsByClassName("artistAlbums");
-    const artistsRelatedArtists =document.getElementsByClassName("artistRelatedArtists");
+    const artistsRelatedArtists = document.getElementsByClassName("artistRelatedArtists");
 
     const existingAlbums = document.querySelectorAll(".artistsAlbums .Playlist");
     const artistsAlbumContainer = document.getElementsByClassName("artistsAlbums");
 
     const artistBackground = document.getElementsByClassName("artistInformation");
+    artistBackground[0].style.backgroundImage = "url(/background/black.png)";
 
     if(artistData && artistTopTracks){
         try{
@@ -368,9 +388,9 @@ const loadArtist = async (id) => {
                 span.innerText = artistAlbums[i].name;
 
                 if(artistAlbums[i].albumType == "single"){
-                    PlaylistType.innerText = "Single";
+                    PlaylistType.innerText = `Single • ${artistAlbums[i].releaseDate.slice(0, 4)}`;
                 } else {
-                    PlaylistType.innerText = "Album";
+                    PlaylistType.innerText = `Album • ${artistAlbums[i].releaseDate.slice(0, 4)}`;
                 }
 
                 playlistCover.addEventListener("mouseenter", () => {
@@ -396,11 +416,21 @@ const loadArtist = async (id) => {
 
                 artistsAlbumContainer[0].appendChild(li);
             };
+
+            const playlistInsideOfArtistPage = document.getElementsByClassName("artistAlbumsP");
+
+            w3[0].classList.remove("remHide");
+            rightSection.classList.add("remHide");
+            navBtnHm.style.backgroundColor = "transparent";
+            playlistInsideOfArtistPage[0].classList.remove("remHide");
+            homeState = false;
         } catch(err){   
             console.log(err);
         }
     }
 
     const artistBackgroundImage = await fetchArtistBackground(id);
+    // const hex = await fetchHexOfImage(artistBackgroundImage);
     artistBackground[0].style.backgroundImage = `url(${artistBackgroundImage})`;
+    // artistBackground[0].style.boxShadown = `${hex} 0 0 100px`;
 };
