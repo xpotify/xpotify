@@ -154,6 +154,11 @@ const loadTrack = async (id) => {
         playlistOwner[0].children[0].src = requestArtistInfo.images[0].url;
         playlistOwner[0].children[1].innerText = requestArtistInfo.name;
         playlistOwner[0].children[1].setAttribute("data-uid", `${requestTrackInfo.artists[0].id}`);
+
+        playlistOwner[0].children[1].addEventListener("click", () => {
+            loadArtist(playlistOwner[0].children[1].dataset.uid);
+        });
+
         playlistExtraInfo[0].children[0].innerText = `${(requestTrackInfo.album.releaseDate).slice(0,4)}`;
         playlistExtraInfo[0].children[1].style.display = "none";
         playlistExtraInfo[0].style.flexDirection = "row";
