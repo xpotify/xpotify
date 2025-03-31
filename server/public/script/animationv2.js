@@ -137,6 +137,8 @@ extraControls[3].addEventListener("click", () => {
         lyricsBtn.dataset.isopen = true;
         navBtnHm.style.backgroundColor = "transparent";
         win2.classList.add("remHide");
+        win3.classList.add("remHide");
+        rightSection.classList.remove("remHide");
         homeState = false;
         lStat = true;
     } else if(lStat == true && queueBtn.dataset.isopen == "true"){
@@ -152,6 +154,8 @@ extraControls[3].addEventListener("click", () => {
         queueBtn.dataset.isopen = false;
         navBtnHm.style.backgroundColor = "transparent";
         win2.classList.add("remHide");
+        win3.classList.add("remHide");
+        rightSection.classList.remove("remHide");        
         homeState = false;
         lStat = true;
     } else {
@@ -186,6 +190,8 @@ extraControls[4].addEventListener("click", () => {
         queue[0].classList.remove("remHide");
         navBtnHm.style.backgroundColor = "transparent";
         win2.classList.add("remHide");
+        win3.classList.add("remHide");
+        rightSection.classList.remove("remHide");
         homeState = false;
         lStat = true;
     } else if(lStat == true && lyricsBtn.dataset.isopen == "true"){
@@ -201,6 +207,8 @@ extraControls[4].addEventListener("click", () => {
         queueBtn.dataset.isopen = true;
         navBtnHm.style.backgroundColor = "transparent";
         win2.classList.add("remHide");
+        win3.classList.add("remHide");
+        rightSection.classList.remove("remHide");
         homeState = false;
         lStat = true;
     } else {
