@@ -992,3 +992,9 @@ const showLyricsTab = () => {
         lyricsTabs.classList.remove("hide");
         playlistTabs.classList.add("hide");
 };
+
+
+
+
+
+// 1000
