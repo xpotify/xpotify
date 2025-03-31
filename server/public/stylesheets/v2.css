@@ -244,12 +244,22 @@ body{
 
 .playlistName{
     font-size: 14px;
+    cursor: pointer;
 }
 
 .playlistOwner{
     font-size: 12px;
     margin-top: 1%;
+    cursor: pointer;
     color: rgb(168, 168, 168);
+}
+
+.playlistOwner, .playlistName{
+    width: fit-content;
+}
+
+.playlistOwner:hover, .playlistName:hover{
+    text-decoration: underline;
 }
 
 /* topBar */
