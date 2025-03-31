@@ -19,7 +19,7 @@ const calculateDuration = (duration) => {
     let minutes = (Math.floor(((duration/1000)/60))%60);
 
     if(hours == 0){
-        const durationStr = `${minutes}mintutes`;
+        const durationStr = `${minutes} minutes`;
         return durationStr;
     } else if(hours > 1){
         const durationStr = `${hours} hours, ${minutes} minutes`;
