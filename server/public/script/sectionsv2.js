@@ -7,22 +7,6 @@ const w3 = document.getElementsByClassName("window3");
 const fetchedTrack = document.getElementsByClassName("fetchedTrack");
 const fetchedPlaylistDiv = document.getElementsByClassName("fetchedPlaylist");
 
-const calculateDuration = (duration) => {
-    let hours = Math.floor((((duration/1000)/60)/60));
-    let minutes = (Math.floor(((duration/1000)/60))%60);
-
-    if(hours == 0){
-        const durationStr = `${minutes}mintutes`;
-        return durationStr;
-    } else if(hours > 1){
-        const durationStr = `${hours} hours, ${minutes} minutes`;
-        return durationStr;
-    } else {
-        const durationStr = `${hours} hour, ${minutes} minutes`;
-        return durationStr;
-    };   
-};
-
 const loadPlaylist = async (id) => {
     genre[0].classList.add("remHide");
     for(x=0; x < pInstances.length; x++){
