@@ -363,6 +363,9 @@ const loadArtist = async (id) => {
 
                 const span = document.createElement("span");
                 span.setAttribute("data-albumid", artistAlbums[i].id);
+                span.addEventListener("click" , () => {
+                    loadAlbum(span.dataset.albumid);
+                });
                 
                 const playlistExInf = document.createElement("div");
                 playlistExInf.className = "PlaylistExtInf";
@@ -422,4 +425,128 @@ const loadArtist = async (id) => {
     // const hex = await fetchHexOfImage(artistBackgroundImage);
     artistBackground[0].style.backgroundImage = `url(${artistBackgroundImage})`;
     // artistBackground[0].style.boxShadown = `${hex} 0 0 100px`;
+};
+
+
+const loadAlbum = async (id) => {
+    genre[0].classList.add("remHide");
+    for(x=0; x < pInstances.length; x++){
+        pInstances[x].classList.add("remHide");
+    };
+    
+    w1[0].classList.add("remhide")
+    w3[0].classList.add("remHide");
+    rightSection.classList.remove("remHide");
+
+    const playlistCover = document.getElementsByClassName("fpCover");
+    const playlistName = document.getElementsByClassName("fpName");
+    const playlistOwner = document.getElementsByClassName("fpOwner");
+    const playlistExtraInfo = document.getElementsByClassName("fpInfo");
+
+    const playlistTrack = document.querySelectorAll(".fpTrack");
+    const playlistTrackContainer = document.querySelector(".fpTracks");
+
+    const requestAlbumInfo = await fetchAlbum(id);
+    const requestAlbumOwnerDetails = await fetchArtist(requestAlbumInfo.metadata[0].artist[0].id);
+
+    const hexOfPlaylistCover = await fetchHexOfImage(requestAlbumInfo.metadata[0].images[1].url);
+    const whoop2 = document.getElementById("whoop2");
+
+    const fetchedTrack = document.getElementsByClassName("fetchedTrack");
+
+    fetchedTrack[0].style.display = "none";
+    fetchedPlaylistDiv[0].style.display = "flex";
+
+    try{
+        playlistCover[0].children[0].src = requestAlbumInfo.metadata[0].images[1].url;
+        playlistCover[0].children[0].style.filter = `drop-shadow(0px 0px 250px ${hexOfPlaylistCover})`;
+        playlistName[0].innerText = requestAlbumInfo.metadata[0].albumName;
+        playlistOwner[0].children[0].src = requestAlbumOwnerDetails.images[0].url;
+        playlistOwner[0].children[1].innerText = requestAlbumOwnerDetails.name;
+        playlistOwner[0].children[1].setAttribute("data-uid", `${requestAlbumOwnerDetails.id}`);
+
+        playlistOwner[0].children[1].addEventListener("click", () => {
+            loadArtist(playlistOwner[0].children[1].dataset.uid);
+        });
+
+        playlistExtraInfo[0].children[0].style.display = "block";
+        playlistExtraInfo[0].children[1].style.display = "block";
+
+        if(requestAlbumInfo.metadata[0].totalTracks > 1){
+            playlistExtraInfo[0].children[0].innerText = `${requestAlbumInfo.metadata[0].totalTracks} songs`;
+        } else {
+            playlistExtraInfo[0].children[0].innerText = `${requestAlbumInfo.metadata[0].totalTracks} song`;
+        }
+
+        playlistExtraInfo[0].style.flexDirection = "column";
+
+        whoop2.style.display = "none";
+
+        playlistExtraInfo[0].children[1].style.display = "block";
+
+        let tDr = 0;
+
+        for(x=0; x < requestAlbumInfo.tracks.length; x++){
+            tDr = tDr + requestAlbumInfo.tracks[x].trackDuration;
+        };
+
+        console.log(tDr);
+
+        playlistExtraInfo[0].children[1].innerText = `${calculateDuration(tDr)}`;
+
+        if(playlistTrack.length == 0){
+            // Do nothing
+        } else {
+            playlistTrack.forEach(el => {
+                el.remove();                
+            });
+        };
+
+        for(i=0; i < requestAlbumInfo.tracks.length; i++){
+            let fpTrack = document.createElement("div");
+            fpTrack.className = 'fpTrack';
+            let fpTDiscNumber = document.createElement("div");
+            fpTDiscNumber.className = "fpTDiscNumber";
+            fpTDiscNumber.innerText = `${requestAlbumInfo.tracks[i].trackId}`;
+            let fpTCover = document.createElement("div");
+            fpTCover.className = "fpTCover";
+            let img = document.createElement("img");
+            img.src = `${requestAlbumInfo.metadata[0].images[2].url}`
+            let fpTna = document.createElement("fpTna");
+            fpTna.className = "fpTna";
+            let span1 = document.createElement("span");
+            span1.innerText = `${requestAlbumInfo.tracks[i].trackName}`;
+            span1.setAttribute("data-id", `${requestAlbumInfo.tracks[i].id}`);
+            let span2 = document.createElement("span");
+            span2.innerText = `${requestAlbumInfo.metadata[0].artist[0].name}`;
+            span2.setAttribute("data-aid", `${requestAlbumInfo.metadata[0].artist[0].id}`);
+            let fpTDuration = document.createElement("fpTDuration");
+            fpTDuration.className = "fpTDuration";
+            fpTDuration.innerText = `${calculateTime((requestAlbumInfo.tracks[i].trackDuration/1000))}`;
+
+            span1.addEventListener("click", () => {
+                loadTrack(span1.dataset.id);
+            });
+
+            span2.addEventListener("click", () => {
+                loadArtist(span2.dataset.aid);
+            });
+
+            fpTrack.appendChild(fpTDiscNumber);
+            fpTrack.appendChild(fpTCover);
+            fpTCover.appendChild(img);
+            fpTrack.appendChild(fpTna);
+            fpTna.appendChild(span1);
+            fpTna.appendChild(span2);
+            fpTrack.appendChild(fpTDuration);
+
+            playlistTrackContainer.appendChild(fpTrack);
+        };
+
+        w2[0].classList.remove("remHide");
+        navBtnHm.style.backgroundColor = "transparent";
+        homeState = false;
+    } catch(error){
+        console.error(error);
+    }
 };
