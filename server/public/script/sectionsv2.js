@@ -550,3 +550,7 @@ const loadAlbum = async (id) => {
         console.error(error);
     }
 };
+
+const loadUser = async () => {
+    // Do nothing for the time being
+};
