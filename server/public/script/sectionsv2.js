@@ -551,6 +551,20 @@ const loadAlbum = async (id) => {
     }
 };
 
-const loadUser = async () => {
-    // Do nothing for the time being
+const loadUser = async (id) => {
+    genre[0].classList.add("remHide");
+    for(x=0; x < pInstances.length; x++){
+        pInstances[x].classList.add("remHide");
+    };
+    
+    w1[0].classList.add("remhide")
+    w3[0].classList.add("remHide");
+    rightSection.classList.remove("remHide");
+
+    const userData = await fetchUser(id);
+    const usersPlaylist = await fetchUsersPlaylist(id);
+
+    const userPfpHex = await fetchHexOfImage(userData.images[0].url);
+    
+    console.log(userData, usersPlaylist, userPfpHex);
 };
