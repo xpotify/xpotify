@@ -1699,3 +1699,20 @@ body{
 .artistAlbums .playlists .heading, .artistArtists .playlists .heading{
     font-size: 25px !important;
 }
+
+.window4{
+    width: 87%;
+    height: 100%;
+    overflow: scroll;
+}
+
+.artistInformation2{
+    justify-content: space-between;
+}
+
+.userPfp img{
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+}
