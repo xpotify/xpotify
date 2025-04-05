@@ -197,10 +197,41 @@ body{
 }
 
 .pinnedPlaylist{
+    overflow-x: hidden;
+    overflow-y: scroll;
     width: 100%;
     height: 60%;
     margin-top: 10%;
 }
+
+.pinnedPlaylist::-webkit-scrollbar {
+    width: 2px;
+    height: 5px;
+}
+
+.pinnedPlaylist:hover{
+    &::-webkit-scrollbar-thumb{
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+}
+  
+/* .playlists ul::-webkit-scrollbar-track {
+    border-radius: 10px;
+} */
+   
+
+.pinnedPlaylist::-webkit-scrollbar-thumb {
+    background-color: transparent; 
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+  
+
+.pinnedPlaylist::-webkit-scrollbar-thumb:hover {
+    background: #ffffff2c; 
+}
+
 
 .pinnedPlaylist ul{
     list-style: none;
@@ -244,12 +275,22 @@ body{
 
 .playlistName{
     font-size: 14px;
+    cursor: pointer;
 }
 
 .playlistOwner{
     font-size: 12px;
     margin-top: 1%;
+    cursor: pointer;
     color: rgb(168, 168, 168);
+}
+
+.playlistOwner, .playlistName{
+    width: fit-content;
+}
+
+.playlistOwner:hover, .playlistName:hover{
+    text-decoration: underline;
 }
 
 /* topBar */
@@ -1657,4 +1698,21 @@ body{
 
 .artistAlbums .playlists .heading, .artistArtists .playlists .heading{
     font-size: 25px !important;
+}
+
+.window4{
+    width: 87%;
+    height: 100%;
+    overflow: scroll;
+}
+
+.artistInformation2{
+    justify-content: space-between;
+}
+
+.userPfp img{
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
 }
