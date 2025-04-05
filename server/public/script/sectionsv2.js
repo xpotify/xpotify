@@ -566,5 +566,4 @@ const loadUser = async (id) => {
 
     const userPfpHex = await fetchHexOfImage(userData.images[0].url);
     
-    console.log(userData, usersPlaylist, userPfpHex);
 };
