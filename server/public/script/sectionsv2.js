@@ -559,11 +559,100 @@ const loadUser = async (id) => {
     
     w1[0].classList.add("remhide")
     w3[0].classList.add("remHide");
-    rightSection.classList.remove("remHide");
+    rightSection.classList.add("remHide");
 
     const userData = await fetchUser(id);
     const usersPlaylist = await fetchUsersPlaylist(id);
+    
+    const userInfoContainer = document.getElementsByClassName("userInformation");
+    const userPfp = document.getElementsByClassName("userPfp");
+    const userPlaylistContainer = document.getElementsByClassName("userPlaylists");
+    const userplaylists = document.getElementsByClassName("userPlaylists");
 
     const userPfpHex = await fetchHexOfImage(userData.images[0].url);
     
+    if(userData){
+        try{
+            userInfoContainer[0].children[0].children[1].children[0].innerText = userData.displayName;
+            userInfoContainer[0].children[0].children[2] = `${usersPlaylist.length} public playlist`;
+            userInfoContainer[0].children[1].children[0].src = userData.images[0].url;
+        } catch(err) { 
+            console.log(err);
+        };
+    } else {
+        console.log(`User with ID:${id} was not found`); 
+    }
+
+    if(usersPlaylist){
+        try{
+            for(i=0; i < usersPlaylist.length; i++){
+                const li = document.createElement('li');
+                li.className = "Playlist";
+
+                const playlistCover = document.createElement("div");
+                playlistCover.className = "playlistCover";
+
+                const playlistCoverImage = document.createElement("img");
+                playlistCoverImage.className = "playlistCoverImage";
+                
+                const playlistPlayBtn = document.createElement("img");
+                playlistPlayBtn.className = "playlistPlayBtn";
+
+
+                const playlistInfo = document.createElement("div");
+                playlistInfo.className = "PlaylistInfo";
+
+                const playlistName = document.createElement("div");
+                playlistName.className = "PlaylistName";
+
+                const span = document.createElement("span");
+                span.setAttribute("data-albumid", usersPlaylist[i].id);
+                span.addEventListener("click" , () => {
+                    loadPlaylist(span.dataset.albumid);
+                });
+                
+                const playlistExInf = document.createElement("div");
+                playlistExInf.className = "PlaylistExtInf";
+
+                const PlaylistType = document.createElement("div");
+                PlaylistType.className = "PlaylistType";
+
+
+                playlistCoverImage.src = usersPlaylist[i].images[0].url;
+                playlistPlayBtn.src = "/icons/playyy.svg";
+
+                span.innerText = usersPlaylist[i].name;
+
+
+                playlistCover.addEventListener("mouseenter", () => {
+                    playlistPlayBtn.classList.add("playBtn");
+                    playlistCoverImage.classList.add("opac65");
+                });
+
+                playlistCover.addEventListener("mouseleave", () => {
+                    playlistPlayBtn.classList.remove("playBtn");
+                    playlistCoverImage.classList.remove("opac65");
+                });
+
+
+                li.appendChild(playlistCover);
+                playlistCover.appendChild(playlistCoverImage);
+                playlistCover.appendChild(playlistPlayBtn);
+                
+                li.appendChild(playlistInfo);
+                playlistInfo.appendChild(playlistName);
+                playlistName.appendChild(span);
+                playlistInfo.appendChild(playlistExInf);
+                playlistExInf.appendChild(PlaylistType);
+
+                userPlaylistContainer[0].appendChild(li);
+            };
+
+            userplaylists[0].classList.remove("remHide");
+        } catch(err){
+            console.log(err);
+        };
+    } else {
+        console.log("User's playlist was not found!");
+    };
 };
