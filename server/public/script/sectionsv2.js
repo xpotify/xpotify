@@ -9,14 +9,14 @@ const fetchedTrack = document.getElementsByClassName("fetchedTrack");
 const fetchedPlaylistDiv = document.getElementsByClassName("fetchedPlaylist");
 
 const loadPlaylist = async (id) => {
-    w2[0].classList.remove("remHide");
+    w1[0].classList.add("remhide")
     w3[0].classList.add("remHide");
     w4[0].classList.add("remHide");
     genre[0].classList.add("remHide");
     for(x=0; x < pInstances.length; x++){
         pInstances[x].classList.add("remHide");
     };
-    w1[0].classList.add("remhide")
+    
 
     const playlistCover = document.getElementsByClassName("fpCover");
     const playlistName = document.getElementsByClassName("fpName");
@@ -45,6 +45,9 @@ const loadPlaylist = async (id) => {
         playlistOwner[0].children[0].src = requestPlaylistOwnerDetails.images[0].url;
         playlistOwner[0].children[1].innerText = requestPlaylistOwnerDetails.displayName;
         playlistOwner[0].children[1].setAttribute("data-uid", `${requestPlaylistInfo.owner.id}`);
+        playlistOwner[0].children[1].addEventListener("click", () => {
+            loadUser(playlistOwner[0].children[1].dataset.uid);
+        });
         playlistExtraInfo[0].children[0].style.display = "block";
         playlistExtraInfo[0].children[1].style.display = "block";
         playlistExtraInfo[0].children[0].innerText = `${requestPlaylistTracks.length} songs`;
@@ -97,7 +100,7 @@ const loadPlaylist = async (id) => {
             });
 
             span2.addEventListener("click", () => {
-                loadUser(span2.dataset.aid);
+                loadArtist(span2.dataset.aid);
             });
 
             fpTrack.appendChild(fpTDiscNumber);
@@ -112,6 +115,7 @@ const loadPlaylist = async (id) => {
         };
 
         rightSection.classList.remove("remHide");
+        w2[0].classList.remove("remHide");
         navBtnHm.style.backgroundColor = "transparent";
         homeState = false;
     } catch(error){
@@ -129,6 +133,7 @@ const loadTrack = async (id) => {
     w1[0].classList.add("remhide");
     w2[0].classList.add("remHide");
     w3[0].classList.add("remHide");
+    w4[0].classList.add("remHide");
 
     const playlistCover = document.getElementsByClassName("trackfpCover");
     const playlistName = document.getElementsByClassName("trackfpName");
@@ -563,6 +568,7 @@ const loadUser = async (id) => {
     
     w1[0].classList.add("remhide")
     w3[0].classList.add("remHide");
+    w2[0].classList.add("remHide");
     rightSection.classList.add("remHide");
 
     const userData = await fetchUser(id);
@@ -654,6 +660,7 @@ const loadUser = async (id) => {
                 userPlaylistContainer[0].appendChild(li);
             };
 
+            w4[0].classList.remove("remHide");
             userPlaylists[0].classList.remove("remHide");
         } catch(err){
             console.log(err);
