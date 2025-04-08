@@ -4,10 +4,14 @@ const pInstances = document.getElementsByClassName("playlists");
 const w1 = document.getElementsByClassName("window1");
 const w2 = document.getElementsByClassName("window2");
 const w3 = document.getElementsByClassName("window3");
+const w4 = document.getElementsByClassName("window4");
 const fetchedTrack = document.getElementsByClassName("fetchedTrack");
 const fetchedPlaylistDiv = document.getElementsByClassName("fetchedPlaylist");
 
 const loadPlaylist = async (id) => {
+    w2[0].classList.remove("remHide");
+    w3[0].classList.add("remHide");
+    w4[0].classList.add("remHide");
     genre[0].classList.add("remHide");
     for(x=0; x < pInstances.length; x++){
         pInstances[x].classList.add("remHide");
@@ -93,7 +97,7 @@ const loadPlaylist = async (id) => {
             });
 
             span2.addEventListener("click", () => {
-                loadArtist(span2.dataset.aid);
+                loadUser(span2.dataset.aid);
             });
 
             fpTrack.appendChild(fpTDiscNumber);
@@ -107,7 +111,7 @@ const loadPlaylist = async (id) => {
             playlistTrackContainer.appendChild(fpTrack);
         };
 
-        w2[0].classList.remove("remHide");
+        rightSection.classList.remove("remHide");
         navBtnHm.style.backgroundColor = "transparent";
         homeState = false;
     } catch(error){
@@ -451,7 +455,7 @@ const loadAlbum = async (id) => {
 
     const hexOfPlaylistCover = await fetchHexOfImage(requestAlbumInfo.metadata[0].images[1].url);
     const whoop2 = document.getElementById("whoop2");
-
+ 
     const fetchedTrack = document.getElementsByClassName("fetchedTrack");
 
     fetchedTrack[0].style.display = "none";
@@ -568,6 +572,8 @@ const loadUser = async (id) => {
     const userPfp = document.getElementsByClassName("userPfp");
     const userPlaylistContainer = document.getElementsByClassName("userPlaylists");
     const userplaylists = document.getElementsByClassName("userPlaylists");
+    const defaultPlaylists = document.querySelectorAll(".userPlaylists .Playlist");
+    const userPlaylists = document.getElementsByClassName("userplaylists");
 
     const userPfpHex = await fetchHexOfImage(userData.images[0].url);
     
@@ -585,6 +591,7 @@ const loadUser = async (id) => {
 
     if(usersPlaylist){
         try{
+            defaultPlaylists.forEach(el => el.remove());
             for(i=0; i < usersPlaylist.length; i++){
                 const li = document.createElement('li');
                 li.className = "Playlist";
@@ -617,7 +624,6 @@ const loadUser = async (id) => {
                 const PlaylistType = document.createElement("div");
                 PlaylistType.className = "PlaylistType";
 
-
                 playlistCoverImage.src = usersPlaylist[i].images[0].url;
                 playlistPlayBtn.src = "/icons/playyy.svg";
 
@@ -648,7 +654,7 @@ const loadUser = async (id) => {
                 userPlaylistContainer[0].appendChild(li);
             };
 
-            userplaylists[0].classList.remove("remHide");
+            userPlaylists[0].classList.remove("remHide");
         } catch(err){
             console.log(err);
         };
