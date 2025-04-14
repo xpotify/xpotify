@@ -586,7 +586,7 @@ const loadUser = async (id) => {
     if(userData){
         try{
             userInfoContainer[0].children[0].children[1].children[0].innerText = userData.displayName;
-            userInfoContainer[0].children[0].children[2] = `${usersPlaylist.length} public playlist`;
+            userInfoContainer[0].children[0].children[2].innerText = `${usersPlaylist.length} public playlists`;
             userInfoContainer[0].children[1].children[0].src = userData.images[0].url;
         } catch(err) { 
             console.log(err);
