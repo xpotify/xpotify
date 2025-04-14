@@ -43,7 +43,7 @@ body{
     background-color: rgb(0, 0, 0);
     width: 87%;
     height: 100%;
-    /* background-image: url("/background/gradient.png"); */
+    /* background-image: url("/background/romanceGenreBG.jpeg"); */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -334,7 +334,7 @@ body{
     flex-direction: row;
     align-items: center;
     background-color: #ffffff1c;
-    border: 1px solid rgba(255, 255, 255, 0.548);
+    border: 1px solid #272727;
     padding: 0% 1% 0% 1%;
     border-radius: 8px;
 }
@@ -377,6 +377,7 @@ body{
     height: 100%;
     padding: 1%;
     background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid #272727;
     border-radius: 10px;
     margin-right: 0.65%;
     display: flex;
@@ -967,6 +968,9 @@ body{
     justify-content: center;
     width: 100%;
     height: 90%;
+    animation-name: wanim;
+    animation-duration: 0.25s;
+    animation-timing-function: ease-in-out;
 }
 
 .winLeftSec{
@@ -1111,7 +1115,7 @@ body{
 
 /* window2 */
 
-@keyframes w2anim {
+@keyframes wanim {
     from {
         opacity: 0%;
     }
@@ -1126,7 +1130,7 @@ body{
     height: 90%;
     display: flex;
     justify-content: center;
-    animation-name: w2anim;
+    animation-name: wanim;
     animation-duration: 0.25s;
     animation-timing-function: ease-in-out;
 }
@@ -1158,6 +1162,7 @@ body{
     filter: drop-shadow(0px 0px 250px white);
     border-radius: 2px;
     object-fit: cover;
+    text-align: center;
     object-position: center;
 }
 
@@ -1383,6 +1388,10 @@ body{
     height: 100%;
     width: 87%;
     overflow: scroll;
+    animation-name: wanim;
+    animation-duration: 0.25s;
+    animation-timing-function: ease-in-out;
+    
 }
 
 .window3::-webkit-scrollbar {
@@ -1704,6 +1713,27 @@ body{
     width: 87%;
     height: 100%;
     overflow: scroll;
+    animation-name: wanim;
+    animation-duration: 0.25s;
+    animation-timing-function: ease-in-out;
+}
+
+.window4::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+  
+
+.window4::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2); 
+    /* border-radius: 15px; */
+    cursor: pointer;
+    transition: 0.2s;
+}
+  
+
+.window4::-webkit-scrollbar-thumb:hover {
+    background: #ffffff69; 
 }
 
 .artistInformation2{
