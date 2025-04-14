@@ -1518,7 +1518,7 @@ body{
     height: 25px;
 }
 
-.artistControls .leftControls button:nth-child(1){
+.artistControls .leftControls button:nth-child(1), .artistControls .leftControls button:nth-child(4){
     border: 2px solid white;
     background-color: #fff;
     border-radius: 50%;
@@ -1586,6 +1586,18 @@ body{
 .artistControls .leftControls button:nth-child(3) img{
     width: 22px;
     margin-left: 2%;
+}
+
+.artistControls .leftControls button:nth-child(4){
+    margin-left: 0.5%;
+}
+
+.artistControls .leftControls button:nth-child(4):hover{
+    transform: scale(1.05);
+}
+
+.artistControls .leftControls button:nth-child(4) img{
+    height: 24px;
 }
 
 .artistTopSongs{
