@@ -273,7 +273,7 @@ qBtn.addEventListener("click", () => {
 navBtnHm.addEventListener("click", () => {
     if(homeState == false){
         navBtnHm.classList.remove("remHide");
-        genreBtns.classList.remove("remHide");
+        // genreBtns.classList.remove("remHide");
         for(x=0; x < p.length; x++){
             p[x].classList.remove("remHide");
         };

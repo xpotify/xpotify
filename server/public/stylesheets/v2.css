@@ -462,6 +462,10 @@ body{
     background: #ffffff2c; 
 }
 
+.savedPlaylist{
+    margin-top: 4%;
+}
+
 .heading{
     font-size: 35px;
     font-weight: 500;
