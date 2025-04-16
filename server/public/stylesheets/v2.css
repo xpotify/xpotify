@@ -1775,9 +1775,24 @@ body{
     animation-timing-function: ease-in-out;
 }
 
-.exploreContainer, .exploreMusic{
+.exploreContainer{
     width: 100%;
     height: 100%;
+}
+
+.exploreMusic{
+    width: 100%;
+    height: 36%;
+}
+
+.exploreArtists{
+    width: 100%;
+    height: 37%;
+    margin-bottom: 2%;
+}
+
+.exploreMusic{
+    margin-bottom: 2%;
 }
 
 .exploreContainer h1{
@@ -1790,7 +1805,15 @@ body{
     text-decoration: underline;
 }
 
-.exploreMusic .spotlightedMusic{
+.exploreMusic .spotlightedMusic, .exploreArtists .spotlightedArtists{
     margin-top: 2%;
-    height: 50% !important;
+    height: 100% !important;
+}
+
+.spMusic{
+    height: 100% !important;
+}
+
+#spArtist{
+    height: 100% !important;
 }
