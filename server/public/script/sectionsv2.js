@@ -5,6 +5,7 @@ const w1 = document.getElementsByClassName("window1");
 const w2 = document.getElementsByClassName("window2");
 const w3 = document.getElementsByClassName("window3");
 const w4 = document.getElementsByClassName("window4");
+const w5 = document.getElementsByClassName("window5");
 const fetchedTrack = document.getElementsByClassName("fetchedTrack");
 const fetchedPlaylistDiv = document.getElementsByClassName("fetchedPlaylist");
 
@@ -12,6 +13,7 @@ const loadPlaylist = async (id) => {
     w1[0].classList.add("remhide")
     w3[0].classList.add("remHide");
     w4[0].classList.add("remHide");
+    w5[0].classList.add("remHide");
     genre[0].classList.add("remHide");
     for(x=0; x < pInstances.length; x++){
         pInstances[x].classList.add("remHide");
@@ -134,6 +136,7 @@ const loadTrack = async (id) => {
     w2[0].classList.add("remHide");
     w3[0].classList.add("remHide");
     w4[0].classList.add("remHide");
+    w5[0].classList.add("remHide");
 
     const playlistCover = document.getElementsByClassName("trackfpCover");
     const playlistName = document.getElementsByClassName("trackfpName");
@@ -244,10 +247,12 @@ const loadArtist = async (id) => {
     };
     w1[0].classList.add("remhide");
     w2[0].classList.add("remHide");
+    w5[0].classList.add("remHide");
 
     const artistData = await fetchArtist(id);
     const artistTopTracks = await fetchArtistTopTracks(id);
     const artistAlbums = await fetchArtistsAlbums(id);
+    console.log(artistData, artistTopTracks, artistAlbums);
     // const relatedArtists = await fetchRelatedArtists(id); Deprecated by official Spotify API
     
     const artistName = document.getElementsByClassName("infName");
@@ -270,7 +275,7 @@ const loadArtist = async (id) => {
             artistName[0].children[0].innerText = artistData.name;
             artistListeners[0].innerText = `${(artistData.totalFollowers).toLocaleString()} followers`;
 
-            for(i=0; i < (artistTopTracks.length - 5); i++){
+            for(i=0; i < 5; i++){
                 const TTrack = document.createElement("div");
                 TTrack.className = "TTrack";
                 
@@ -445,6 +450,7 @@ const loadAlbum = async (id) => {
     
     w1[0].classList.add("remhide")
     w3[0].classList.add("remHide");
+    w5[0].classList.add("remHide");
     rightSection.classList.remove("remHide");
 
     const playlistCover = document.getElementsByClassName("fpCover");
@@ -569,6 +575,7 @@ const loadUser = async (id) => {
     w1[0].classList.add("remhide")
     w3[0].classList.add("remHide");
     w2[0].classList.add("remHide");
+    w5[0].classList.add("remHide");
     rightSection.classList.add("remHide");
 
     const userData = await fetchUser(id);
