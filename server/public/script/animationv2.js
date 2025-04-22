@@ -317,7 +317,7 @@ navBtnExpl.addEventListener("click", () => {
         win2.classList.add("remHide");
         win3.classList.add("remHide");
         win4.classList.add("remHide");
-        win6.classList.add("remhide");
+        win6.classList.add("remHide");
         for(x=0; x < p.length; x++){
             p[x].classList.add("remHide");
         };
