@@ -4,6 +4,7 @@ const navBtnExpl = document.querySelector(".navBtnExpl");
 const navBtnLib = document.querySelector(".navBtnLib");
 let homeState = true;
 let explState = false;
+let libState = false;
 const genreBtns = document.querySelector(".tomBtns");
 const p = document.querySelectorAll(".playlists"); 
 const win1 = document.querySelector(".window1");
@@ -11,6 +12,7 @@ const win2 = document.querySelector(".window2");
 const win3 = document.querySelector(".window3");
 const win4 = document.querySelector(".window4");
 const win5 = document.querySelector(".window5");
+const win6 = document.querySelector(".window6");
 const rightSection = document.querySelector(".rightSection");
 const pinnedPs = document.querySelectorAll(".playlist");
 const pinnedPsBtns = document.querySelectorAll(".playBtn");
@@ -285,10 +287,12 @@ navBtnHm.addEventListener("click", () => {
         win3.classList.add("remHide");
         win4.classList.add("remHide");
         win5.classList.add("remHide");
+        win6.classList.add("remHide");
         rightSection.classList.remove("remHide");
 
         navBtnHm.style.backgroundColor = "rgba(255, 255, 255, 0.25)";
         navBtnExpl.style.backgroundColor = "transparent";
+        navBtnLib.style.backgroundColor = "transparent";
         extraControls[3].style.borderBottom = "2px solid transparent";
         extraControls[4].style.borderBottom = "2px solid transparent";
     
@@ -298,6 +302,7 @@ navBtnHm.addEventListener("click", () => {
         lStat = false;
         homeState = true;
         explState = false;
+        libState = false;
     } else {
         // Do nothing!
     }
@@ -312,6 +317,7 @@ navBtnExpl.addEventListener("click", () => {
         win2.classList.add("remHide");
         win3.classList.add("remHide");
         win4.classList.add("remHide");
+        win6.classList.add("remhide");
         for(x=0; x < p.length; x++){
             p[x].classList.add("remHide");
         };
@@ -321,6 +327,7 @@ navBtnExpl.addEventListener("click", () => {
         rightSection.classList.remove("remHide");
 
         navBtnHm.style.backgroundColor = "transparent";
+        navBtnLib.style.backgroundColor = "transparent";
         navBtnExpl.style.backgroundColor = "rgba(255, 255, 255, 0.25)";
         extraControls[3].style.borderBottom = "2px solid transparent";
         extraControls[4].style.borderBottom = "2px solid transparent";
@@ -329,7 +336,40 @@ navBtnExpl.addEventListener("click", () => {
         lyricsBtn.style.opacity = "55%";
         explState = true;
         homeState = false;
+        libState = false;
     } else {
+        // do nothing
+    }
+});
+
+// Library Button
+navBtnLib.addEventListener("click", () => {
+    if(libState == false){
+        win1.classList.add("remHide");
+        win2.classList.add("remHide");
+        win3.classList.add("remHide");
+        win4.classList.add("remHide")
+        win5.classList.add("remHide");
+        win6.classList.remove("remHide");
+        rightSection.classList.remove("remHide");
+
+        for(x=0; x < p.length; x++){
+            p[x].classList.add("remHide");
+        };
+
+        navBtnExpl.style.backgroundColor = "transparent";
+        navBtnHm.style.backgroundColor = "transparent";
+        navBtnLib.style.backgroundColor = "rgba(255, 255, 255, 0.25)"
+        
+        extraControls[3].style.borderBottom = "2px solid transparent";
+        extraControls[4].style.borderBottom = "2px solid transparent";
+        queueBtn.style.opacity = "55%";
+        lyricsBtn.style.opacity = "55%";
+
         explState = false;
+        homeState = false;
+        libState = true;
+    } else {
+        // do nothing
     }
 });
