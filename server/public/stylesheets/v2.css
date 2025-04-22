@@ -43,14 +43,13 @@ body{
     background-color: rgb(0, 0, 0);
     width: 87%;
     height: 100%;
-    /* background-image: url("/background/romanceGenreBG.jpeg"); */
+    /* background-image: url("/sbackground/romanceGenreBG.jpeg"); */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     padding: 1% 5% 1% 5%;
     overflow-y: scroll;
 }
-
 
 .rightSection::-webkit-scrollbar {
     width: 8px;
@@ -276,6 +275,7 @@ body{
 .playlistName{
     font-size: 14px;
     cursor: pointer;
+    display: flex;
 }
 
 .playlistOwner{
@@ -287,6 +287,11 @@ body{
 
 .playlistOwner, .playlistName{
     width: fit-content;
+}
+
+.playlistName img{
+    width:15px ;
+    margin-left: 4px;
 }
 
 .playlistOwner:hover, .playlistName:hover{
