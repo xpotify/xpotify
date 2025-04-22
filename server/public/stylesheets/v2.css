@@ -1819,3 +1819,22 @@ body{
 #spArtist{
     height: 100% !important;
 }
+
+.window6{
+    width: 100%;
+    height: auto;
+    margin-top: 4%;
+    animation-name: wanim;
+    animation-duration: 0.25s;
+    animation-timing-function: ease-in-out;
+}
+
+.window6 h1{
+    margin-bottom: 2%;
+}
+
+.w0{
+    animation-name: wanim;
+    animation-duration: 0.25s;
+    animation-timing-function: ease-in-out;
+}
