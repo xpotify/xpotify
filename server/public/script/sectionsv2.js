@@ -41,6 +41,8 @@ const loadPlaylist = async (id) => {
     fetchedPlaylistDiv[0].style.display = "flex";
 
     try{
+        
+
         playlistCover[0].children[0].src = requestPlaylistInfo.image;
         playlistCover[0].children[0].style.filter = `drop-shadow(0px 0px 250px ${hexOfPlaylistCover})`;
         playlistName[0].innerText = requestPlaylistInfo.name;
