@@ -252,7 +252,7 @@ const loadArtist = async (id) => {
     const artistData = await fetchArtist(id);
     const artistTopTracks = await fetchArtistTopTracks(id);
     const artistAlbums = await fetchArtistsAlbums(id);
-    console.log(artistData, artistTopTracks, artistAlbums);
+    // console.log(artistData, artistTopTracks, artistAlbums);
     // const relatedArtists = await fetchRelatedArtists(id); Deprecated by official Spotify API
     
     const artistName = document.getElementsByClassName("infName");
