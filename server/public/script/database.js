@@ -5,7 +5,7 @@
 
     let db;
 
-    const DBOpenRequest = window.indexedDB.open("xpotify", 10);
+    const DBOpenRequest = window.indexedDB.open("xpotify", 6);
 
     const song = [
         {
@@ -77,8 +77,8 @@
             console.log("Error loading database!");
         };
 
-        const objectStore = db.createObjectStore(["savedPlaylists"], { keyPath: "id"});
-        objectStore.createIndex("artist", "artist", { unique: false });
+        const objectStore = db.createObjectStore(["pinnedPlaylists"], { keyPath: "id"});
+        objectStore.createIndex("id", "id", { unique: true });
         objectStore.createIndex("name", "name", { unique: false });
         objectStore.transaction.oncomplete = () => {
             console.log("ObjectStore setting up completed!");
@@ -139,7 +139,7 @@
     //     checkIfPlaylistIsSaved("h1u2h3uk1h31u3h", "playlistMusicTracks");
     // });
 
-    const checkIfPlaylistIsSaved = (playlist, btn) => {
+    const checkIfPlaylistIsSaved = (playlist    ) => {
         // console.log(tracks);
         const transaction = db.transaction(["savedPlaylists"], "readwrite");
         const objectStore = transaction.objectStore("savedPlaylists");
