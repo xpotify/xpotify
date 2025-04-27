@@ -11,7 +11,7 @@ const fetchArtistBackground = async (artistId) => {
         waitUntil: "networkidle2"
     });
 
-    const element = await page.$('[data-testid="background-image"');
+    const element = await page.$('div[data-testid="background-image"');
     let backgroundImageLink;
 
 
