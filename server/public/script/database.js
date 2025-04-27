@@ -139,7 +139,7 @@
     //     checkIfPlaylistIsSaved("h1u2h3uk1h31u3h", "playlistMusicTracks");
     // });
 
-    const checkIfPlaylistIsSaved = (playlist    ) => {
+    const checkIfPlaylistIsSaved = (playlist) => {
         // console.log(tracks);
         const transaction = db.transaction(["savedPlaylists"], "readwrite");
         const objectStore = transaction.objectStore("savedPlaylists");
@@ -155,7 +155,7 @@
         const request = objectStore.get(playlist);
                                                                                     
         request.onsuccess = (event) => {
-            // console.log(request.result);
+            console.log(request.result);
             
             let data = [];
 
