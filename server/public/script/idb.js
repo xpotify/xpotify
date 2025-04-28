@@ -1,38 +1,67 @@
 const isThisPlaylistSaved = (id) => {
-    const transaction = db.transaction(["savedPlaylists"], "readwrite");
-    const objectStore = transaction.objectStore("savedPlaylists");
+    return new Promise((resolve, reject) => {
+        let db;
+        const DBOpenRequest = indexedDB.open("xpotify", 1);
 
-    transaction.oncomplete = () => {
-        console.log("Transaction has been completed!");
-    };
-
-    transaction.onerror = () => {
-        console.log("Transaction could not be completed!");
-    };
-
-    const request = objectStore.get(id);
-    var response;
-
-    request.onsuccess = () => {
-        let data = [];
-
-        if(request.result == undefined){
-            // do nothing
-        } else {
-            data.push([request.result]);
+        DBOpenRequest.onsuccess = () => {
+            db = DBOpenRequest.result;
+            const transaction = db.transaction("savedPlaylists", "readonly");
+            const objectStore = transaction.objectStore("savedPlaylists");
+    
+            const request = objectStore.get(id);
+    
+            request.onsuccess = (event) => {
+                if(event.target.result != undefined){
+                    resolve(true);
+                } else {
+                    resolve(false);
+                }
+            };
+    
+            request.onerror = (event) => {
+                reject("Error:", event.errorCode);
+            };
         };
 
-        if(data.length == 1){
-            response = true;
-        } else {
-            response = false;
-        }
-    };
+        DBOpenRequest.onerror = (err) => {
+            console.log("Error:", err);
+        };
+    });
+};
 
-    request.onerror = () => {
-        console.log(request.error);
-    };
+const savePlaylist = (p) => {
+    return new Promise((resolve, reject) => {
+        let db;
 
-    console.log(response);
-    return response;
+        const DBOpenRequest = indexedDB.open("xpotify", 1);
+
+        DBOpenRequest.onsuccess = () => {
+            db = DBOpenRequest.result;
+
+            const transaction = db.transaction("savedPlaylists", "readwrite");
+            const objectStore = transaction.objectStore("savedPlaylists");
+
+            transaction.onsuccess = () => {
+                console.log("Transaction has been fulfilled.");
+            };
+
+            transaction.onerror = () => {
+                console.log("Transaction could not be fulfilled.");
+            };
+
+            const request = objectStore.add(p);
+
+            request.onsuccess = () => {
+                resolve("Request to add playlist on DB has been fulfilled.")
+            };
+
+            request.onerror = (error) => {
+                reject("Error: ", error);
+            };
+        };
+
+        DBOpenRequest.onerror = () => {
+            console.log("DB could not be opened.");
+        };
+    });
 };
