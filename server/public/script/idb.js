@@ -65,3 +65,36 @@ const savePlaylist = (p) => {
         };
     });
 };
+
+const savePlaylistsToDB = (playlists) => {
+    return new Promise((resolve, reject) => {
+        let db;
+
+        const DBOpenRequest = indexedDB.open("xpotify", 1);
+
+        DBOpenRequest.onsuccess = () => {
+            db = DBOpenRequest.result;
+
+            const transaction = db.transaction("savedPlaylists", "readwrite");
+            const objectStore = transaction.objectStore("savedPlaylists");
+
+            if(playlists.length == 1){  
+                savePlaylist(playlist);
+            } else {
+                for(i=0; i < playlist.length; i++){
+                    const request = objectStore.add(playlist[i]);
+
+                    request.oncomplete = () => {
+                        resolve("Playlist has been added to the DB");
+                    };
+                    
+                    request.onerror = () => {
+                        reject("Error: ", request.error.name, request.error.message);
+                    };
+                };
+            };
+        };
+    });
+};
+
+cost
