@@ -24,7 +24,7 @@ const isThisPlaylistSaved = (id) => {
         };
 
         DBOpenRequest.onerror = (err) => {
-            console.log("Error:", err);
+            console.log("Error:", err.message); 
         };
     });
 };
