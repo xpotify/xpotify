@@ -1,100 +1,123 @@
-const isThisPlaylistSaved = (id) => {
-    return new Promise((resolve, reject) => {
-        let db;
-        const DBOpenRequest = indexedDB.open("xpotify", 1);
+// window.onload = () => {
+//     let db;
 
-        DBOpenRequest.onsuccess = () => {
-            db = DBOpenRequest.result;
-            const transaction = db.transaction("savedPlaylists", "readonly");
-            const objectStore = transaction.objectStore("savedPlaylists");
-    
-            const request = objectStore.get(id);
-    
-            request.onsuccess = (event) => {
-                if(event.target.result != undefined){
-                    resolve(true);
-                } else {
-                    resolve(false);
-                }
-            };
-    
-            request.onerror = (event) => {
-                reject("Error:", event.errorCode);
-            };
+//     const DBOpenRequest = window.indexedDB.open("xpotify", 1);
+
+//     DBOpenRequest.onerror = (err) => {
+//         console.log("DB could not be opened.", err.message);
+//     };
+
+//     DBOpenRequest.onsuccess = () => {
+//         db = DBOpenRequest;
+//         console.log("DB has been opened.");
+//     };
+
+//     DBOpenRequest.onupgradeneeded = (event) => {
+//         db = event.target.result;
+
+//         db.onerror = () => {
+//             console.log("Error loading database!");
+//         };
+
+//         const objectStore = db.createObjectStore(["savedPlaylists"], { keyPath: "id"});
+//         objectStore.createIndex("id", "id", { unique: true });
+//         objectStore.transaction.oncomplete = () => {
+//             console.log("ObjectStore setting up completed!");
+//         };
+//     };
+// };
+
+const pushTrackToDB = async (track) => {
+    return new Promise((resolve, reject) => {
+        const transaction = db.transaction(["savedTracks"], "readwrite");
+
+        transaction.oncomplete = () => {
+            console.log("Transaction has been fulfilled.");
         };
 
-        DBOpenRequest.onerror = (err) => {
-            console.log("Error:", err.message); 
+        transaction.onerror = (err) => {
+            console.log("Trasacntion could not be fulfilled.", err.message);
+        };
+
+        const objectStore = transaction.objectStore("savedTracks");
+
+        const request = objectStore.add(track);
+
+        request.onsuccess = () => {
+            resolve(
+                console.log("Track has been saved.")
+            );
+        };
+
+        request.onerror = () => {
+           reject(
+                console.log("Track could not be saved.")
+           );
         };
     });
 };
 
-const savePlaylist = (p) => {
+const pushTracksToDB  = async (tracks) => {
     return new Promise((resolve, reject) => {
-        let db;
+        const transaction = db.transaction(["savedPlaylists"], "readwrite");
 
-        const DBOpenRequest = indexedDB.open("xpotify", 1);
+        transaction.oncomplete = () => {
+            console.log("Transaction has been fulfilled!");
+        };
+        
+        transaction.onerror = () => {
+            console.log("Transaction could not be fulfilled!");
+        };
 
-        DBOpenRequest.onsuccess = () => {
-            db = DBOpenRequest.result;
+        const objectStore = transaction.objectStore("savedTracks");
 
-            const transaction = db.transaction("savedPlaylists", "readwrite");
-            const objectStore = transaction.objectStore("savedPlaylists");
-
-            transaction.onsuccess = () => {
-                console.log("Transaction has been fulfilled.");
-            };
-
-            transaction.onerror = () => {
-                console.log("Transaction could not be fulfilled.");
-            };
-
-            const request = objectStore.add(p);
+        for(i=0; i < tracks.length; i++){
+            const request = objectStore.add(tracks[i]);
 
             request.onsuccess = () => {
-                resolve("Request to add playlist on DB has been fulfilled.")
+                console.log("Track has been added ", i);
             };
 
-            request.onerror = (error) => {
-                reject("Error: ", error);
+            request.onerror = () => {
+                console.log("Track could not be added ", i);
             };
-        };
-
-        DBOpenRequest.onerror = () => {
-            console.log("DB could not be opened.");
         };
     });
 };
 
-const savePlaylistsToDB = (playlists) => {
-    return new Promise((resolve, reject) => {
-        let db;
+const isThisPlaylistSaved = (id) => {
+    return new Promise(async (reject, resolve) => {
+        const transaction = db.transaction(["savedPlaylists"], "readwrite");
 
-        const DBOpenRequest = indexedDB.open("xpotify", 1);
+        transaction.oncomplete = () => {
+            console.log("Transaction has been fulfilled.");
+        };
 
-        DBOpenRequest.onsuccess = () => {
-            db = DBOpenRequest.result;
+        transaction.onerror = () => {
+            console.log("Transaction could not be finished.");
+        };
 
-            const transaction = db.transaction("savedPlaylists", "readwrite");
-            const objectStore = transaction.objectStore("savedPlaylists");
+        const objectStore = transaction.objectStore("savedPlaylists");
 
-            if(playlists.length == 1){  
-                savePlaylist(playlist);
+        const request = objectStore.get(id);
+        let response;
+
+        request.onsuccess = () => {
+            if(request.result == undefined){
+                resolve(
+                    response = false
+                );
             } else {
-                for(i=0; i < playlist.length; i++){
-                    const request = objectStore.add(playlist[i]);
-
-                    request.oncomplete = () => {
-                        resolve("Playlist has been added to the DB");
-                    };
-                    
-                    request.onerror = () => {
-                        reject("Error: ", request.error.name, request.error.message);
-                    };
-                };
+                resolve(
+                    response = true
+                );
             };
+        }
+
+        request.onerror = () => {
+            console.log("lol");
         };
+
+        return response;
     });
 };
-
-cost
