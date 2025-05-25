@@ -32,16 +32,18 @@ body{
 }
 
 .leftSection{
-    width: 13%;
+    width: 4%;
     background-color: rgb(0, 0, 0);
     height: 100%;
     border-right: 1px solid rgba(128, 128, 128, 0.459);
-    padding: 1%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .rightSection{
     background-color: rgb(0, 0, 0);
-    width: 87%;
+    width: 96%;
     height: 100%;
     /* background-image: url("/sbackground/romanceGenreBG.jpeg"); */
     background-position: center;
@@ -72,22 +74,25 @@ body{
 .topSandwich{
     display: flex;
     flex-direction: row;
+    margin-top: 13%;
     width: 100%;
-    height: 3%;
+    height: 6%;
     align-items: center;
+    justify-content: center;
 }
 
 .brandName{
     font-size: 20px;
-    margin-left: 4%;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .brandName span{
     font-family: 'tanNimbus';
     margin-top: 5%;
     font-size: 18px;
+    filter: drop-shadow(0 0 10px white);
 }
 
 #menuLogo{
@@ -115,7 +120,7 @@ body{
 /* Navigation Buttons */
 .NavigationButtons{
     width: 100%;
-    height: 16%;
+    height: 19%;
     margin-top: 15%;
 }
 
@@ -123,11 +128,14 @@ body{
     list-style: none;
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .NavigationButtons li{
     list-style: none;
-    width: 100%;
+    width: 85%;
     height: 33.3%;
 }
 
@@ -137,6 +145,7 @@ body{
 
 .navBtnHm, .navBtnExpl, .navBtnLib{
     width: 100%;
+    justify-content: center;
     height: 100%;
     display: flex;
     align-items: center;
@@ -147,8 +156,8 @@ body{
 }
 
 .navBtnHm img, .navBtnExpl img, .navBtnLib img{
-    width: 12%;
-    margin-right: 10%;
+    width: 21px;
+    height: 21px;
 }
 
 .navBtnHm:hover, .navBtnExpl:hover, .navBtnLib:hover{
@@ -165,10 +174,10 @@ body{
 /* New Playlist Button */
 
 .newPlaylistBtn{
-    width: 100%;
-    height: 4.5%;
+    width: 45px;
+    height: 45px;
     margin-top: 10%;
-    border-radius: 25px;
+    border-radius: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -177,7 +186,7 @@ body{
 }
 
 .newPlaylistBtn img{
-    height: 55%;
+    height: 25px;
     margin-right: 1%;
 }
 
@@ -204,7 +213,7 @@ body{
 }
 
 .pinnedPlaylist::-webkit-scrollbar {
-    width: 2px;
+    width: 0px;
     height: 5px;
 }
 
@@ -234,18 +243,35 @@ body{
 
 .pinnedPlaylist ul{
     list-style: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.pinnedPlaylist ul li{
+    width: 85%;
+    height: 11%;
+    margin-top: 5%;
 }
 
 .playlist{
     width: 100%;
-    height: 25%;
+    height: 100%;
     display: flex;
     padding: 6%;
-    border-radius: 8px;
+    border-radius: 4px;
     transition: 0.1s;
     cursor: pointer;
     justify-content: center;
     align-items: center;
+}
+
+.playlist img{
+    width: 58px;
+    height: 58px;
+    border-radius: 4px;
 }
 
 .playlist:hover{
@@ -253,9 +279,10 @@ body{
 }
 
 .playlistInfo{
-    display: flex;
+    /* display: flex;; */
     flex-direction: column;
     width: 80%;
+    display: none;
 }
 
 .playBtn{
