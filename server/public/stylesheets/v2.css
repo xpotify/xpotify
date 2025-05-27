@@ -208,7 +208,7 @@ body{
     overflow-x: hidden;
     overflow-y: scroll;
     width: 100%;
-    height: 60%;
+    height: 57.5%;
     margin-top: 10%;
 }
 
@@ -272,10 +272,12 @@ body{
     width: 58px;
     height: 58px;
     border-radius: 4px;
+    object-fit: cover;
+    object-position: center;
 }
 
 .playlist:hover{
-    background-color: rgba(255, 255, 255, 0.26);
+    background-color: rgba(255, 255, 255, 0.151);
 }
 
 .playlistInfo{
