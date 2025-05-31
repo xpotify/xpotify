@@ -9,7 +9,7 @@
 
 //     DBOpenRequest.onsuccess = () => {
 //         db = DBOpenRequest;
-//         console.log("DB has been opened.");
+//       c  console.log("DB has been opened.");
 //     };
 
 //     DBOpenRequest.onupgradeneeded = (event) => {
