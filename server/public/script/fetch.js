@@ -21,7 +21,7 @@ const fetchArtist = async (id) => {
 };
 
 const fetchPlaylist = async (id) => {
-    const response = await fetch(`http://localhost:1212/playlist/q/${id}`, {
+    const response = await fetch(`http://192.168.1.100:1212/playlist/q/${id}`, {
         method: "GET",
         mode: "cors",
         headers: {
@@ -34,7 +34,7 @@ const fetchPlaylist = async (id) => {
 };
 
 const fetchPlaylistTracks = async (id) => {
-    const response = await fetch(`http://localhost:1212/playlist/q/tracks/${id}`, {
+    const response = await fetch(`http://192.168.1.100:1212/playlist/q/tracks/${id}`, {
         method: "GET",
         mode: "cors",
         headers: {
@@ -107,7 +107,7 @@ const fetchAlbum = async (id) => {
 };
 
 const fetchUser = async (id) => {
-    const response = await fetch(`http://localhost:1212/user/get/${id}`, {
+    const response = await fetch(`http://192.168.1.100:1212/user/get/${id}`, {
         method: "GET",
         mode: "cors",
         headers : {
@@ -159,7 +159,7 @@ const fetchRelatedArtists = async (id) => {
 };
 
 const fetchHexOfImage = async (url) => {
-    const response = await fetch(`http://localhost:1212/gethex/${url}`, {
+    const response = await fetch(`http://192.168.1.100:1212/gethex/${url}`, {
         method : "GET",
         mode : "cors",
         headers : {
