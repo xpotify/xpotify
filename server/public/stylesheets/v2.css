@@ -1433,7 +1433,7 @@ body{
 
 .window3{
     height: 100%;
-    width: 87%;
+    width: 96%;
     overflow: scroll;
     animation-name: wanim;
     animation-duration: 0.25s;
@@ -1769,7 +1769,7 @@ body{
 }
 
 .window4{
-    width: 87%;
+    width: 96%;
     height: 100%;
     overflow: scroll;
     animation-name: wanim;
