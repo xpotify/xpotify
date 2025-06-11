@@ -1,8 +1,6 @@
 // window.onload = () => {
 //     let db;
-
 //     const DBOpenRequest = window.indexedDB.open("xpotify", 1);
-
 //     DBOpenRequest.onerror = (err) => {
 //         console.log("DB could not be opened.", err.message);
 //     };
@@ -120,4 +118,72 @@ const isThisPlaylistSaved = (id) => {
 
         return response;
     });
+};
+
+const pushPlaylistToDB = async (playlist) => {
+    return new Promise((reject, resolve) => {
+        const transaction = db.transaction(["savedPlaylists"], "readwrite");
+
+        transaction.oncomplete = () => {
+            console.log("Transaction has been fulfilled");
+        };
+
+        transaction.onerror = (event) => {
+            console.log(event.err);
+        };
+
+        const objectStore = transaction.objectStore("savedPlaylists");
+
+        const request = objectStore.add(playlist);
+
+        request.onsuccess = () => {
+            console.log("Request has been fulfilled");
+        };
+
+        request.onerror = (event) => {
+            console.log("Request could not be fulfilled");
+        };
+    });
+};
+
+const isThisTrackSaved = async(trackID) => {
+    try{
+        const transaction = db.transaction(["savedPlaylists"], "readonly");
+
+        transaction.oncomplete = () => {
+            console.log("Transaction has been completed");
+        };
+
+        transaction.onerror = () => {
+            console.log("Transaction could not be completed");
+        };
+
+        const objectStore = await transaction.objectStore("savedPlaylists");
+
+        const request = objectStore.get(trackID);
+        let response = true;
+
+        request.onsuccess = () => {
+            if(request.result == undefined){
+                ()=>{
+                    response = false
+                };
+            } else {
+                ()=>{
+                    response = true
+                }
+            };
+
+            return response;
+        };
+
+        request.onerror = (event) => {
+            console.log(event.err);
+        };
+
+        console.log(response);
+        return response;
+    } catch(error){
+        console.log(error);
+    };
 };
