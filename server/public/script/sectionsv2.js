@@ -10,7 +10,7 @@ const fetchedTrack = document.getElementsByClassName("fetchedTrack");
 const fetchedPlaylistDiv = document.getElementsByClassName("fetchedPlaylist");
 
 const loadPlaylist = async (id) => {
-    w1[0].classList.add("remhide")
+    w1[0].classList.add("remhide");
     w3[0].classList.add("remHide");
     w4[0].classList.add("remHide");
     w5[0].classList.add("remHide");
