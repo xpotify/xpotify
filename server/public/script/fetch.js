@@ -6,7 +6,7 @@ const fetchArtist = async (id) => {
         parsedArtistId=id;
     }
     
-    const response = await fetch(`http://localhost:1212/artist/q/${parsedArtistId}`, {
+    const response = await fetch(`http://127.0.0.1:1212/artist/q/${parsedArtistId}`, {
         method: "GET", 
         mode: "cors",
         headers: {
@@ -21,7 +21,7 @@ const fetchArtist = async (id) => {
 };
 
 const fetchPlaylist = async (id) => {
-    const response = await fetch(`http://192.168.1.100:1212/playlist/q/${id}`, {
+    const response = await fetch(`http://127.0.0.1:1212/playlist/q/${id}`, {
         method: "GET",
         mode: "cors",
         headers: {
@@ -34,7 +34,7 @@ const fetchPlaylist = async (id) => {
 };
 
 const fetchPlaylistTracks = async (id) => {
-    const response = await fetch(`http://192.168.1.100:1212/playlist/q/tracks/${id}`, {
+    const response = await fetch(`http://127.0.0.1:1212/playlist/q/tracks/${id}`, {
         method: "GET",
         mode: "cors",
         headers: {
@@ -48,7 +48,7 @@ const fetchPlaylistTracks = async (id) => {
 
 
 const fetchArtistTopTracks = async (id) => {
-    const response = await fetch(`http://localhost:1212/artist/toptracks/${id}`, {
+    const response = await fetch(`http://127.0.0.1:1212/artist/toptracks/${id}`, {
         method: "GET", 
         mode: "cors",
         headers: {
@@ -72,7 +72,7 @@ const fetchTrack = async (id) => {
 
     console.log(parsedTrackId);
 
-    const response = await fetch(`http://localhost:1212/song/gettrack/${parsedTrackId}`, {
+    const response = await fetch(`http://127.0.0.1:1212/song/gettrack/${parsedTrackId}`, {
         method: "GET",
         mode: "cors",
         headers: {
@@ -94,7 +94,7 @@ const fetchAlbum = async (id) => {
         parsedAlbumId = id;
     }
 
-    const response = await fetch(`http://localhost:1212/album/get/${parsedAlbumId}`, {
+    const response = await fetch(`http://127.0.0.1:1212/album/get/${parsedAlbumId}`, {
         method : "GET",
         mode : "cors",
         headers : {
@@ -107,7 +107,7 @@ const fetchAlbum = async (id) => {
 };
 
 const fetchUser = async (id) => {
-    const response = await fetch(`http://192.168.1.100:1212/user/get/${id}`, {
+    const response = await fetch(`http://127.0.0.1:1212/user/get/${id}`, {
         method: "GET",
         mode: "cors",
         headers : {
@@ -120,7 +120,7 @@ const fetchUser = async (id) => {
 };
 
 const fetchUsersPlaylist = async (id) => {
-    const response = await fetch(`http://localhost:1212/user/getplaylist/${id}`, {
+    const response = await fetch(`http://127.0.0.1:1212/user/getplaylist/${id}`, {
         method: "GET",
         mode: "cors",
         headers : {
@@ -133,7 +133,7 @@ const fetchUsersPlaylist = async (id) => {
 };
 
 const fetchArtistsAlbums = async (id) => {
-    const response = await fetch(`http://localhost:1212/artist/getalbums/${id}`, {
+    const response = await fetch(`http://127.0.0.1:1212/artist/getalbums/${id}`, {
         method : "GET",
         mode : "cors",
         headers : {
@@ -146,7 +146,7 @@ const fetchArtistsAlbums = async (id) => {
 };
 
 const fetchRelatedArtists = async (id) => {
-    const response = await fetch(`http://localhost:1212/artist/getrelatedartists/${id}`, {
+    const response = await fetch(`http://127.0.0.1:1212/artist/getrelatedartists/${id}`, {
        method : "GET",
        mode : "cors",
        headers : {
@@ -159,7 +159,7 @@ const fetchRelatedArtists = async (id) => {
 };
 
 const fetchHexOfImage = async (url) => {
-    const response = await fetch(`http://192.168.1.100:1212/gethex/${url}`, {
+    const response = await fetch(`http://127.0.0.1:1212/gethex/${url}`, {
         method : "GET",
         mode : "cors",
         headers : {
@@ -172,7 +172,7 @@ const fetchHexOfImage = async (url) => {
 };
 
 const fetchArtistBackground = async (id) => {
-    const response = await fetch(`http://localhost:1212/scrape/artistbg/${id}`, {
+    const response = await fetch(`http://127.0.0.1:1212/scrape/artistbg/${id}`, {
         method : "GET",
         mode : "cors",
         headers : {
