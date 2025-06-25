@@ -5,7 +5,7 @@
 
     let db;
 
-    const DBOpenRequest = window.indexedDB.open("xpotify", 1);
+    const DBOpenRequest = window.indexedDB.open("xpotify", 4);
 
     const song = [
         {
@@ -77,7 +77,7 @@
             console.log("Error loading database!");
         };
 
-        const objectStore = db.createObjectStore(["savedPlaylists"], { keyPath: "id"});
+        const objectStore = db.createObjectStore(["homePagePlaylists"], { keyPath: "id"});
         objectStore.createIndex("id", "id", { unique: true });
         objectStore.transaction.oncomplete = () => {
             console.log("ObjectStore setting up completed!");
@@ -213,8 +213,8 @@
     };
 
     const checkIfTrackIsSaved = async (track, targetElem) => {
-        const transaction = db.transaction(["savedSongs"], "readwrite");
-        const objectStore = transaction.objectStore("savedSongs");
+        const transaction = db.transaction(["savedTracks"], "readwrite");
+        const objectStore = transaction.objectStore("savedTracks");
 
         transaction.oncomplete = () => {
             console.log("Transaction has been completed!");
