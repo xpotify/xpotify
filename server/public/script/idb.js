@@ -48,28 +48,28 @@ const pushTrackToDB = async (track) => {
         };
 
         request.onerror = () => {
-           reject(
+            reject(
                 console.log("Track could not be saved.")
-           );
+            );
         };
     });
 };
 
-const pushTracksToDB  = async (tracks) => {
+const pushTracksToDB = async (tracks) => {
     return new Promise((resolve, reject) => {
         const transaction = db.transaction(["savedPlaylists"], "readwrite");
 
         transaction.oncomplete = () => {
             console.log("Transaction has been fulfilled!");
         };
-        
+
         transaction.onerror = () => {
             console.log("Transaction could not be fulfilled!");
         };
 
         const objectStore = transaction.objectStore("savedTracks");
 
-        for(i=0; i < tracks.length; i++){
+        for (i = 0; i < tracks.length; i++) {
             const request = objectStore.add(tracks[i]);
 
             request.onsuccess = () => {
@@ -101,7 +101,7 @@ const isThisPlaylistSaved = (id) => {
         let response;
 
         request.onsuccess = () => {
-            if(request.result == undefined){
+            if (request.result == undefined) {
                 resolve(
                     response = false
                 );
@@ -146,44 +146,38 @@ const pushPlaylistToDB = async (playlist) => {
     });
 };
 
-const isThisTrackSaved = async(trackID) => {
+const isThisTrackSaved = async (id) => {
     try{
-        const transaction = db.transaction(["savedPlaylists"], "readonly");
+        const transaction = db.transaction(["savedTracks"], "readonly");
 
-        transaction.oncomplete = () => {
-            console.log("Transaction has been completed");
+        transaction.oncomplete = () =>{
+            console.log("Transaction has been fulfilled");
         };
 
-        transaction.onerror = () => {
-            console.log("Transaction could not be completed");
-        };
+        const objectStore = transaction.objectStore("savedTracks");
 
-        const objectStore = await transaction.objectStore("savedPlaylists");
+        const request = objectStore.get(id);
 
-        const request = objectStore.get(trackID);
-        let response = true;
+        let leti =[];
 
         request.onsuccess = () => {
             if(request.result == undefined){
-                ()=>{
-                    response = false
-                };
+                leti.push(request.result);
             } else {
-                ()=>{
-                    response = true
-                }
-            };
-
-            return response;
+                // do nothing;
+            }
         };
 
-        request.onerror = (event) => {
-            console.log(event.err);
+        request.onerror = () => {
+            console.log("Error");
         };
 
-        console.log(response);
-        return response;
+        if(leti.length > 0){
+            return true;
+        } else {
+            return false;
+        }
     } catch(error){
-        console.log(error);
+
     };
 };
