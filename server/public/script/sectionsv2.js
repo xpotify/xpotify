@@ -116,8 +116,18 @@ const loadPlaylist = async (id) => {
                 fpTna.appendChild(span1);
                 fpTna.appendChild(span2);
                 fpTrack.appendChild(fpTDuration);
+                fpTrack.setAttribute("tId", requestPlaylistTracks[i].track.id);
 
-                // const 
+                const isThisPlaylistSaved = await isThisTrackSaved(requestPlaylistTracks[i].track.id);
+
+                if(isThisPlaylistSaved == false){
+                    fpTrack.style.opacity = "50%";
+                    fpTrack.addEventListener("dblclick", () => {
+                    
+                    });
+                } else {
+                    // do nothing
+                }
 
                 playlistTrackContainer.appendChild(fpTrack);
             };
