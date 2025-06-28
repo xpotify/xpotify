@@ -9,6 +9,13 @@ const w5 = document.getElementsByClassName("window5");
 const fetchedTrack = document.getElementsByClassName("fetchedTrack");
 const fetchedPlaylistDiv = document.getElementsByClassName("fetchedPlaylist");
 
+// const trackSmallCoverImg = document.querySelector(".trackSmallCoverImg");
+// const trackLargeCoverImg = document.querySelector(".trackLargeCoverImg");
+// // const trackName = document.querySelector(".trackName");
+// const trackArtist = document.querySelector(".trackArtists");
+// const trackDuration = document.querySelector(".trackDuration");
+// const audio = document.querySelector("audio");
+
 const loadPlaylist = async (id) => {
     w1[0].classList.add("remhide");
     w3[0].classList.add("remHide");
@@ -119,14 +126,91 @@ const loadPlaylist = async (id) => {
                 fpTrack.setAttribute("tId", requestPlaylistTracks[i].track.id);
 
                 const isThisPlaylistSaved = await isThisTrackSaved(requestPlaylistTracks[i].track.id);
-
+                
                 if(isThisPlaylistSaved == false){
                     fpTrack.style.opacity = "50%";
-                    fpTrack.addEventListener("dblclick", () => {
-                    
-                    });
+                    fpTrack.addEventListener("dblclick", async () => {
+                        const artistName = fpTrack.children[2].children[1].innerText;
+                        const tName = fpTrack.children[2].children[0].innerText;
+                        const query = `${tName} - ${artistName}`;
+                        const idFromYouTube = await getTracksIdFromYT(query);
+                        const trackId = fpTrack.children[2].children[0].dataset.id;
+                        const track = {
+                            "id" : fpTrack.children[2].children[0].dataset.id,
+                            "tName" : fpTrack.children[2].children[0].innerText,
+                            "audioSrcPath" : `${fpTrack.children[2].children[0].dataset.id}.mp3`,
+                            "artistName" : fpTrack.children[2].children[1].innerText,
+                            "artistId" : fpTrack.children[2].children[1].dataset.aid,
+                            "duration" : fpTrack.children[3].innerText,
+                            "trackCover" : fpTrack.children[1].children[0].src
+                        };
+
+                        downloadSongReq(idFromYouTube, trackId).then(() => {
+                            pushTrackToDB(track);
+                            fpTrack.setAttribute("data-srcpth", `${trackId}.mp3`);
+                            console.log("Track has been pushed to the DB");
+                            fpTrack.style.opacity = "100%";
+                        });
+
+                        fpTrack.addEventListener("dblclick", async () => {
+                            const transaction = db.transaction(["savedTracks"], "readonly");
+                            
+                            transaction.oncomplete = () => {
+                                // Do nothing.
+                            };
+
+                            transaction.onerror = () => {
+                                console.log("Transaction could not be completed");
+                            };
+
+                            const objectStore = transaction.objectStore("savedTracks");
+
+                            const request = objectStore.get(trackId);
+
+                            request.onsuccess = () => {
+                                let data = [];
+
+                                if(request.result == undefined){
+                                    // Do nothing
+                                } else {
+                                    data.push([request.result]);
+                                }
+
+                                let track = data[0][0];
+
+                                let src = track.audioSrcPath;
+                                trackSmallCoverImage[1].src = track.trackCover;
+                                trackLargeCoverImage.src = track.trackCover;
+                                trackName[0].innerText = track.tName;
+                                // trackName[0].dataset.id = track.id;
+                                trackArtists[0].innerText = track.artistName;
+                                // trackArtists[0].dataset.aid = track.artistId;
+                                trackDuration[0].innerText = track.duration;
+
+                                audio.src = `/songs/${src}`;
+                                audio.play();
+                                playpause.src = "/icons/pausee.svg"
+                            };
+                        });
+                    }, {once:true});
                 } else {
-                    // do nothing
+                    const track = await fetchTrackFromDB(fpTrack.children[2].children[0].dataset.id);
+                    fpTrack.setAttribute("data-srcPth", `${track.id}.mp3`);
+                    fpTrack.addEventListener("dblclick", async () => {
+                        let src = track.audioSrcPath;
+                        trackSmallCoverImage[1].src = track.trackCover;
+                        trackLargeCoverImage.src = track.trackCover;
+                        trackName[0].innerText = track.tName;
+                        // trackName[0].dataset.id = track.id;
+                        trackArtists[0].innerText = track.artistName;
+                        // trackArtists[0].dataset.aid = track.artistId;
+                        // trackDuration[0].innerText = track.duration;
+                        // console.log(trackDuration[0].innerText)
+
+                        audio.src = `/songs/${src}`;
+                        audio.play();
+                        playpause.src = "/icons/pausee.svg"
+                    });
                 }
 
                 playlistTrackContainer.appendChild(fpTrack);
