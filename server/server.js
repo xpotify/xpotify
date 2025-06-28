@@ -1,11 +1,14 @@
 const express = require('express'),
       app = express(),
       PORT = 1212;
+const cors = require('cors');
 
 // const { Client } = require("spotify-api.js");
 // const cli = new Client({ 
 //     token: { clientID: process.env.cId, clientSecret: process.env.cSecret}
 // });
+
+app.use(cors());
 
 const artistRoutes = require("./routes/artistRoutes");
 const songRoutes = require("./routes/trackRoutes");

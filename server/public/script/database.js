@@ -5,7 +5,7 @@
 
     let db;
 
-    const DBOpenRequest = window.indexedDB.open("xpotify", 10);
+    const DBOpenRequest = window.indexedDB.open("xpotify", 4);
 
     const song = [
         {
@@ -77,9 +77,8 @@
             console.log("Error loading database!");
         };
 
-        const objectStore = db.createObjectStore(["savedPlaylists"], { keyPath: "id"});
-        objectStore.createIndex("artist", "artist", { unique: false });
-        objectStore.createIndex("name", "name", { unique: false });
+        const objectStore = db.createObjectStore(["homePagePlaylists"], { keyPath: "id"});
+        objectStore.createIndex("id", "id", { unique: true });
         objectStore.transaction.oncomplete = () => {
             console.log("ObjectStore setting up completed!");
         };
@@ -139,7 +138,7 @@
     //     checkIfPlaylistIsSaved("h1u2h3uk1h31u3h", "playlistMusicTracks");
     // });
 
-    const checkIfPlaylistIsSaved = (playlist, btn) => {
+    const checkIfPlaylistIsSaved = (playlist) => {
         // console.log(tracks);
         const transaction = db.transaction(["savedPlaylists"], "readwrite");
         const objectStore = transaction.objectStore("savedPlaylists");
@@ -155,7 +154,7 @@
         const request = objectStore.get(playlist);
                                                                                     
         request.onsuccess = (event) => {
-            // console.log(request.result);
+            console.log(request.result);
             
             let data = [];
 
@@ -179,7 +178,7 @@
         };
     };
 
-    const savePlaylistToDB = () => {
+    const savePlaylistToDB = (playlist) => {
         const transaction = db.transaction(["savedPlaylists"], "readwrite");
         const objectStore = transaction.objectStore("savedPlaylists");
 
@@ -214,8 +213,8 @@
     };
 
     const checkIfTrackIsSaved = async (track, targetElem) => {
-        const transaction = db.transaction(["savedSongs"], "readwrite");
-        const objectStore = transaction.objectStore("savedSongs");
+        const transaction = db.transaction(["savedTracks"], "readwrite");
+        const objectStore = transaction.objectStore("savedTracks");
 
         transaction.oncomplete = () => {
             console.log("Transaction has been completed!");
