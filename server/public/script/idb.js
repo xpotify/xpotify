@@ -186,3 +186,54 @@ const fetchTrackFromDB = async (id) => {
         };
     });
 };
+
+const pinPlaylist = async (playlist) => {
+    return new Promise((resolve, reject) => {
+        const transaction = db.transaction(["pinnedPlaylists"], "readwrite");
+        const objectStore = transaction.objectStore("pinnedPlaylists");
+
+        const request =  objectStore.add(playlist);
+
+        request.onsuccess = () => {
+            resolve("Playlist Pinned!");
+        };
+
+        request.onerror = () => {
+            reject("Playist could not be pinned");
+        };
+    });
+};
+
+const isThisPlaylistPinned = async (id) => {
+    return new Promise((resolve, reject) => {
+        const transaction = db.transaction(["pinnedPlaylists"], "readwrite");
+        const objectStore = transaction.objectStore("pinnedPlaylists");
+
+        const request = objectStore.get(id);
+
+        request.onsuccess = () => {
+            if(request.result !== undefined){
+                resolve(true);
+            } else {
+                resolve(false);
+            }
+        };
+    });
+};
+
+const unpinPlaylist = async (id) => {
+    return new Promise((resolve, reject) => {
+        const transaction = db.transaction(["pinnedPlaylists"], "readwrite");
+        const objectStore = transaction.objectStore("pinnedPlaylists");
+
+        const request = objectStore.delete(id);
+
+        request.onsuccess = () => {
+            resolve("Playlist unpinned");
+        }; 
+
+        request.onerror = () => {
+            resolve("Playlist could not be unpinned.")
+        };
+    });
+};
