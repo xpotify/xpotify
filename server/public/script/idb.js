@@ -4,7 +4,6 @@
 //     DBOpenRequest.onerror = (err) => {
 //         console.log("DB could not be opened.", err.message);
 //     };
-
 //     DBOpenRequest.onsuccess = () => {
 //         db = DBOpenRequest;
 //       c  console.log("DB has been opened.");
@@ -34,7 +33,7 @@ const pushTrackToDB = async (track) => {
         };
 
         transaction.onerror = (err) => {
-            console.log("Trasacntion could not be fulfilled.", err.message);
+            console.log("Transaction could not be fulfilled.", err.message);
         };
 
         const objectStore = transaction.objectStore("savedTracks");
@@ -129,7 +128,7 @@ const pushPlaylistToDB = async (playlist) => {
         };
 
         transaction.onerror = (event) => {
-            console.log(event.err);
+            console.log(event.error.message);
         };
 
         const objectStore = transaction.objectStore("savedPlaylists");
@@ -147,37 +146,43 @@ const pushPlaylistToDB = async (playlist) => {
 };
 
 const isThisTrackSaved = async (id) => {
-    try{
+    return new Promise((resolve, reject) => {
         const transaction = db.transaction(["savedTracks"], "readonly");
-
-        transaction.oncomplete = () =>{
-            console.log("Transaction has been fulfilled");
-        };
-
         const objectStore = transaction.objectStore("savedTracks");
-
         const request = objectStore.get(id);
 
-        let leti =[];
+        request.onsuccess = function (){
+            resolve(request.result !== undefined);
+        };
+
+        request.onerror = function (){
+            reject(false);
+        };
+    });
+};
+
+// const leti = await (async () => {
+//     const response = await isThisTrackSaved("ji1j23kl1j3k1l3j");
+//     return response;
+// });
+
+const fetchTrackFromDB = async (id) => {
+    return new Promise((resolve, reject) => {
+        const transaction = db.transaction(["savedTracks"], "readonly");
+        const objectStore = transaction.objectStore("savedTracks");
+
+        const request  = objectStore.get(id);
 
         request.onsuccess = () => {
-            if(request.result == undefined){
-                leti.push(request.result);
+            if(request.result !== undefined){
+                resolve(request.result);
             } else {
-                // do nothing;
+                resolve(null);
             }
         };
 
         request.onerror = () => {
-            console.log("Error");
+            reject("Request could not be fulfilled");
         };
-
-        if(leti.length > 0){
-            return true;
-        } else {
-            return false;
-        }
-    } catch(error){
-
-    };
+    });
 };
