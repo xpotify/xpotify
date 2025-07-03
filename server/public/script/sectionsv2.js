@@ -26,6 +26,8 @@ const loadPlaylist = async (id) => {
         pInstances[x].classList.add("remHide");
     };
 
+    readyToPlayTracksFromPlaylist.length = 0;
+
     const playlistCover = document.getElementsByClassName("fpCover");
     const playlistName = document.getElementsByClassName("fpName");
     const playlistOwner = document.getElementsByClassName("fpOwner");
@@ -209,8 +211,10 @@ const loadPlaylist = async (id) => {
 
                         audio.src = `/songs/${src}`;
                         audio.play();
-                        playpause.src = "/icons/pausee.svg"
+                        playpause.src = "/icons/pausee.svg";
                     });
+
+                    readyToPlayTracksFromPlaylist.push(requestPlaylistTracks[i]);
                 }
 
                 playlistTrackContainer.appendChild(fpTrack);
