@@ -11,7 +11,6 @@
 - Core Maintainer & Owner: [CyberRodeo](https://github.com/CyberRodeo) - Discord User - "shuiiiiiiiiiiiiiiii"
 - Developers:
   - [asuuu](https://github.com/hikenoesu)
-  - [Prashant](https://github.com/prashant18108)
  
 ### We welcome anyone who is interested in contributing in this, contact us on our discord and get started! Goodluck!
 
