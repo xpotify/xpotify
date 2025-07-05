@@ -1303,8 +1303,8 @@ body{
 }
 
 .fpActions div:nth-child(1) img{
-    width: 25px;
-    height: 25px;
+    width: 22px;
+    /* height: 25px; */
 }
 
 .fpActions div:nth-child(3) img{

@@ -219,6 +219,24 @@ const loadPlaylist = async (id) => {
             console.log("There are no Tracks inside of the Loaded Playlist");
         };
 
+        playlistActions[0].children[0].children[0].addEventListener("click", async () => {
+            const pinStat = await isThisPlaylistPinned(requestPlaylistInfo.id);
+
+            if(pinStat == false){
+                playlistActions[0].children[0].children[0].src = "/icons/bookmark.svg"
+                pinPlaylist(requestPlaylistInfo).then(() => {
+                    console.log("Playlist Pinned!");
+                    playlistActions[0].children[0].children[0].src = "/icons/bookmarked.svg";
+                });
+            } else {
+                playlistActions[0].children[0].children[0].src = "/icons/bookmarked.svg"
+                unpinPlaylist(requestPlaylistInfo.id).then(() => {
+                    console.log("Playlist unpinned!");
+                    playlistActions[0].children[0].children[0].src = "/icons/bookmark.svg"
+                });
+            };
+        });
+
         rightSection.classList.remove("remHide");
         w2[0].classList.remove("remHide");
         navBtnHm.style.backgroundColor = "transparent";
