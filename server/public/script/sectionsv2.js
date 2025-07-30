@@ -200,10 +200,11 @@ const loadPlaylist = async (id) => {
                                 }
 
                                 let track = data[0][0];
+                                // console.log(track);
 
                                 let src = track.audioSrcPath;
-                                trackSmallCoverImage[1].src = track.album.images[2];
-                                trackLargeCoverImage.src = track.album.images[0];
+                                trackSmallCoverImage[1].src = track.album.images[2].url;
+                                trackLargeCoverImage.src = track.album.images[0].url;
                                 trackName[0].innerText = track.trackName;
                                 // trackName[0].dataset.id = track.trackId;
                                 trackArtists[0].innerText = track.artists[0].name;
@@ -221,21 +222,20 @@ const loadPlaylist = async (id) => {
                     fpTrack.setAttribute("data-srcPth", `${track.id}.mp3`);
                     fpTrack.addEventListener("dblclick", async () => {
                         let src = track.audioSrcPath;
-                        trackSmallCoverImage[1].src = track.trackCover;
-                        trackLargeCoverImage.src = track.trackCover;
-                        trackName[0].innerText = track.tName;
-                        // trackName[0].dataset.id = track.id;
-                        trackArtists[0].innerText = track.artistName;
-                        // trackArtists[0].dataset.aid = track.artistId;
-                        // trackDuration[0].innerText = track.duration;
-                        // console.log(trackDuration[0].innerText)
+                       trackSmallCoverImage[1].src = track.album.images[2].url;
+                       trackLargeCoverImage.src = track.album.images[0].url;
+                       trackName[0].innerText = track.trackName;
+                       // trackName[0].dataset.id = track.trackId;
+                       trackArtists[0].innerText = track.artists[0].name;
+                       // trackArtists[0].dataset.aid = track.artistId;
+                       trackDuration[0].innerText = track.calcDuration;
 
                         audio.src = `/songs/${src}`;
                         audio.play();
                         playpause.src = "/icons/pausee.svg";
                     });
 
-                    readyToPlayTracksFromPlaylist.push(requestPlaylistTracks[i]);
+                    readyToPlayTracksFromPlaylist.push(requestPlaylistTracks[l]);
                 }
 
                 playlistTrackContainer.appendChild(fpTrack);
@@ -260,6 +260,15 @@ const loadPlaylist = async (id) => {
                     playlistActions[0].children[0].children[0].src = "/icons/bookmark.svg"
                 });
             };
+        });
+
+        playlistActions[0].children[1].addEventListener("click", () => {
+            q2.length = 0;
+            for(i=0; i < readyToPlayTracksFromPlaylist.length; i++){
+                q2.push(readyToPlayTracksFromPlaylist[i]);
+            };
+            audio.play();
+            console.log("PLAYLIST QUEUYE HAS BEEN ADDED!");
         });
 
         rightSection.classList.remove("remHide");
