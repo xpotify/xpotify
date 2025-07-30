@@ -16,6 +16,8 @@ const fetchedPlaylistDiv = document.getElementsByClassName("fetchedPlaylist");
 // const trackDuration = document.querySelector(".trackDuration");
 // const audio = document.querySelector("audio");
 
+let loadedTracksFromPlaylist = [];
+
 const loadPlaylist = async (id) => {
     w1[0].classList.add("remhide");
     w3[0].classList.add("remHide");
@@ -25,6 +27,8 @@ const loadPlaylist = async (id) => {
     for(x=0; x < pInstances.length; x++){
         pInstances[x].classList.add("remHide");
     };
+
+    readyToPlayTracksFromPlaylist.length = 0;
 
     const playlistCover = document.getElementsByClassName("fpCover");
     const playlistName = document.getElementsByClassName("fpName");
@@ -46,6 +50,14 @@ const loadPlaylist = async (id) => {
 
     fetchedTrack[0].style.display = "none";
     fetchedPlaylistDiv[0].style.display = "flex";
+
+    loadedTracksFromPlaylist.length = 0;
+
+    for(i=0; i < requestPlaylistTracks.length; i++){
+        loadedTracksFromPlaylist.push(requestPlaylistTracks[i]);
+    };
+
+    console.log(loadedTracksFromPlaylist);
 
     try{
         playlistCover[0].children[0].src = requestPlaylistInfo.image;
@@ -86,27 +98,28 @@ const loadPlaylist = async (id) => {
         };
 
         if(playlistTrack.length > 1){
-            for(i=0; i < requestPlaylistTracks.length; i++){
+            for(l=0; l < requestPlaylistTracks.length; l++){
                 let fpTrack = document.createElement("div");
                 fpTrack.className = 'fpTrack';
                 let fpTDiscNumber = document.createElement("div");
                 fpTDiscNumber.className = "fpTDiscNumber";
-                fpTDiscNumber.innerText = `${requestPlaylistTracks[i].discNumber}`;
+                fpTDiscNumber.innerText = `${requestPlaylistTracks[l].discNumber}`;
                 let fpTCover = document.createElement("div");
                 fpTCover.className = "fpTCover";
                 let img = document.createElement("img");
-                img.src = `${requestPlaylistTracks[i].track.album.images[2].url}`
+                img.src = `${requestPlaylistTracks[l].track.album.images[2].url}`
                 let fpTna = document.createElement("fpTna");
                 fpTna.className = "fpTna";
                 let span1 = document.createElement("span");
-                span1.innerText = `${requestPlaylistTracks[i].track.name}`;
-                span1.setAttribute("data-id", `${requestPlaylistTracks[i].track.id}`);
+                span1.innerText = `${requestPlaylistTracks[l].track.name}`;
+                span1.setAttribute("data-dn", (requestPlaylistTracks[l].discNumber - 1));
+                span1.setAttribute("data-id", `${requestPlaylistTracks[l].track.id}`);
                 let span2 = document.createElement("span");
-                span2.innerText = `${requestPlaylistTracks[i].track.artists[0].name}`;
-                span2.setAttribute("data-aid", `${requestPlaylistTracks[i].track.artists[0].id}`);
+                span2.innerText = `${requestPlaylistTracks[l].track.artists[0].name}`;
+                span2.setAttribute("data-aid", `${requestPlaylistTracks[l].track.artists[0].id}`);
                 let fpTDuration = document.createElement("fpTDuration");
                 fpTDuration.className = "fpTDuration";
-                fpTDuration.innerText = `${calculateTime((requestPlaylistTracks[i].track.duration/1000))}`;
+                fpTDuration.innerText = `${calculateTime((requestPlaylistTracks[l].track.duration/1000))}`;
 
                 span1.addEventListener("click", () => {
                     loadTrack(span1.dataset.id);
@@ -123,26 +136,35 @@ const loadPlaylist = async (id) => {
                 fpTna.appendChild(span1);
                 fpTna.appendChild(span2);
                 fpTrack.appendChild(fpTDuration);
-                fpTrack.setAttribute("tId", requestPlaylistTracks[i].track.id);
+                fpTrack.setAttribute("tId", requestPlaylistTracks[l].track.id);
+                fpTrack.setAttribute("tDn", (requestPlaylistTracks[l].discNumber - 1));
 
-                const isThisPlaylistSaved = await isThisTrackSaved(requestPlaylistTracks[i].track.id);
-                
+                const isThisPlaylistSaved = await isThisTrackSaved(requestPlaylistTracks[l].track.id);
+
                 if(isThisPlaylistSaved == false){
+                    // console.log("lol1", loadedTracksFromPlaylist, l);
                     fpTrack.style.opacity = "50%";
                     fpTrack.addEventListener("dblclick", async () => {
+                        // console.log("lol2", loadedTracksFromPlaylist, l);
                         const artistName = fpTrack.children[2].children[1].innerText;
                         const tName = fpTrack.children[2].children[0].innerText;
                         const query = `${tName} - ${artistName}`;
                         const idFromYouTube = await getTracksIdFromYT(query);
                         const trackId = fpTrack.children[2].children[0].dataset.id;
+                        const parentTrack = loadedTracksFromPlaylist[fpTrack.children[2].children[0].dataset.dn];
+                        console.log(parentTrack);
                         const track = {
-                            "id" : fpTrack.children[2].children[0].dataset.id,
-                            "tName" : fpTrack.children[2].children[0].innerText,
-                            "audioSrcPath" : `${fpTrack.children[2].children[0].dataset.id}.mp3`,
-                            "artistName" : fpTrack.children[2].children[1].innerText,
-                            "artistId" : fpTrack.children[2].children[1].dataset.aid,
-                            "duration" : fpTrack.children[3].innerText,
-                            "trackCover" : fpTrack.children[1].children[0].src
+                            "id" : parentTrack.track.id,
+                            "trackName" : parentTrack.track.name,
+                            "duration" : parentTrack.track.duration,
+                            "calcDuration" : fpTrack.children[3].innerText,
+                            "album" : {
+                                "id" : parentTrack.track.album.id,
+                                "name" : parentTrack.track.album.name,
+                                "images" : parentTrack.track.album.images,
+                            },
+                            "artists" : parentTrack.track.artists,
+                            "audioSrcPath" : `${parentTrack.track.id}.mp3`
                         };
 
                         downloadSongReq(idFromYouTube, trackId).then(() => {
@@ -171,21 +193,23 @@ const loadPlaylist = async (id) => {
                                 let data = [];
 
                                 if(request.result == undefined){
-                                    // Do nothing
+                                    console.log("did not find");
                                 } else {
                                     data.push([request.result]);
+                                    console.log("found it!");
                                 }
 
                                 let track = data[0][0];
+                                // console.log(track);
 
                                 let src = track.audioSrcPath;
-                                trackSmallCoverImage[1].src = track.trackCover;
-                                trackLargeCoverImage.src = track.trackCover;
-                                trackName[0].innerText = track.tName;
-                                // trackName[0].dataset.id = track.id;
-                                trackArtists[0].innerText = track.artistName;
+                                trackSmallCoverImage[1].src = track.album.images[2].url;
+                                trackLargeCoverImage.src = track.album.images[0].url;
+                                trackName[0].innerText = track.trackName;
+                                // trackName[0].dataset.id = track.trackId;
+                                trackArtists[0].innerText = track.artists[0].name;
                                 // trackArtists[0].dataset.aid = track.artistId;
-                                trackDuration[0].innerText = track.duration;
+                                trackDuration[0].innerText = track.calcDuration;
 
                                 audio.src = `/songs/${src}`;
                                 audio.play();
@@ -198,19 +222,20 @@ const loadPlaylist = async (id) => {
                     fpTrack.setAttribute("data-srcPth", `${track.id}.mp3`);
                     fpTrack.addEventListener("dblclick", async () => {
                         let src = track.audioSrcPath;
-                        trackSmallCoverImage[1].src = track.trackCover;
-                        trackLargeCoverImage.src = track.trackCover;
-                        trackName[0].innerText = track.tName;
-                        // trackName[0].dataset.id = track.id;
-                        trackArtists[0].innerText = track.artistName;
-                        // trackArtists[0].dataset.aid = track.artistId;
-                        // trackDuration[0].innerText = track.duration;
-                        // console.log(trackDuration[0].innerText)
+                       trackSmallCoverImage[1].src = track.album.images[2].url;
+                       trackLargeCoverImage.src = track.album.images[0].url;
+                       trackName[0].innerText = track.trackName;
+                       // trackName[0].dataset.id = track.trackId;
+                       trackArtists[0].innerText = track.artists[0].name;
+                       // trackArtists[0].dataset.aid = track.artistId;
+                       trackDuration[0].innerText = track.calcDuration;
 
                         audio.src = `/songs/${src}`;
                         audio.play();
-                        playpause.src = "/icons/pausee.svg"
+                        playpause.src = "/icons/pausee.svg";
                     });
+
+                    readyToPlayTracksFromPlaylist.push(requestPlaylistTracks[l]);
                 }
 
                 playlistTrackContainer.appendChild(fpTrack);
@@ -235,6 +260,15 @@ const loadPlaylist = async (id) => {
                     playlistActions[0].children[0].children[0].src = "/icons/bookmark.svg"
                 });
             };
+        });
+
+        playlistActions[0].children[1].addEventListener("click", () => {
+            q2.length = 0;
+            for(i=0; i < readyToPlayTracksFromPlaylist.length; i++){
+                q2.push(readyToPlayTracksFromPlaylist[i]);
+            };
+            audio.play();
+            console.log("PLAYLIST QUEUYE HAS BEEN ADDED!");
         });
 
         rightSection.classList.remove("remHide");

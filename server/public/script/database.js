@@ -1,6 +1,6 @@
 // window.onload = () => {
 
-    let loadedPlaylist = [];
+    // let loadedPlaylist = [];
     let recentlyPlayedTracks = [];
 
     let db;

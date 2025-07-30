@@ -24,6 +24,8 @@
 //     };
 // };
 
+let readyToPlayTracksFromPlaylist = [];
+
 const pushTrackToDB = async (track) => {
     return new Promise((resolve, reject) => {
         const transaction = db.transaction(["savedTracks"], "readwrite");
