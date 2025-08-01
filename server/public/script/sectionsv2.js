@@ -222,20 +222,20 @@ const loadPlaylist = async (id) => {
                     fpTrack.setAttribute("data-srcPth", `${track.id}.mp3`);
                     fpTrack.addEventListener("dblclick", async () => {
                         let src = track.audioSrcPath;
-                       trackSmallCoverImage[1].src = track.album.images[2].url;
-                       trackLargeCoverImage.src = track.album.images[0].url;
-                       trackName[0].innerText = track.trackName;
-                       // trackName[0].dataset.id = track.trackId;
-                       trackArtists[0].innerText = track.artists[0].name;
-                       // trackArtists[0].dataset.aid = track.artistId;
-                       trackDuration[0].innerText = track.calcDuration;
+                        trackSmallCoverImage[1].src = track.album.images[2].url;
+                        trackLargeCoverImage.src = track.album.images[0].url;
+                        trackName[0].innerText = track.trackName;
+                        // trackName[0].dataset.id = track.trackId;
+                        trackArtists[0].innerText = track.artists[0].name;
+                        // trackArtists[0].dataset.aid = track.artistId;
+                        trackDuration[0].innerText = track.calcDuration;
 
                         audio.src = `/songs/${src}`;
                         audio.play();
                         playpause.src = "/icons/pausee.svg";
                     });
 
-                    readyToPlayTracksFromPlaylist.push(requestPlaylistTracks[l]);
+                    readyToPlayTracksFromPlaylist.push(track);
                 }
 
                 playlistTrackContainer.appendChild(fpTrack);
