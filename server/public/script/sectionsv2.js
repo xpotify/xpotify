@@ -172,6 +172,8 @@ const loadPlaylist = async (id) => {
                             fpTrack.setAttribute("data-srcpth", `${trackId}.mp3`);
                             console.log("Track has been pushed to the DB");
                             fpTrack.style.opacity = "100%";
+                            q2.push(track);
+                            readyToPlayTracksFromPlaylist.push(track);
                         });
 
                         fpTrack.addEventListener("dblclick", async () => {
