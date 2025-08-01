@@ -5,6 +5,7 @@ const trackDuration = document.getElementsByClassName("trackDuration");
 const trackCurrentTime = document.getElementsByClassName("currentTime");
 const audioSeeker = document.getElementById("audioSeeker");
 const siteTitle = document.getElementById("siteTitle");
+const pActions = document.querySelector(".fpActions");
 
 q2 = [
     {
@@ -107,6 +108,16 @@ if (audio.readyState > 0) {
 
 audio.addEventListener("loadedmetadata", () => {
     trackDuration[0].innerText = `${calculateTime(audio.duration)}`;
+});
+
+audio.addEventListener("play", () => {
+    pActions.children[1].children[0].src = "/icons/pauseee.svg";
+    playpause.src = "/icons/pausee.svg";
+});
+
+audio.addEventListener("pause", () => {
+    pActions.children[0].src = "/icons/playyyyyy.svg";
+    playpause.src = "/icons/playyyy.svg"
 });
 
 audio.volume = 1;
