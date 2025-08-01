@@ -267,6 +267,19 @@ const loadPlaylist = async (id) => {
             for(i=0; i < readyToPlayTracksFromPlaylist.length; i++){
                 q2.push(readyToPlayTracksFromPlaylist[i]);
             };
+            playlistActions[0].children[1].children[0].src = "/icons/pauseee.svg";
+            trackArtists[0].innerText = `${q2[0].artists[0].name}`;
+            trackName[0].innerText = `${q2[0].trackName}`;
+            trackSmallCoverImage[0].src = `${q2[0].album.images[0].url}`;
+            trackSmallCoverImage[1].src = `${q2[0].album.images[0].url}`;
+            trackLargeCoverImage.src = `${q2[0].album.images[0].url}`;
+            audio.src = `songs/${q2[0].audioSrcPath}`;
+            trackDuration[0].innerText = `${calculateTime(audio.duration)}`;
+            cp = 0;
+            audio.currentTime = 0;
+            progressBar[0].style.width = `${0}%`;
+            audioSeeker.value = 0;
+            playpause.src = "/icons/pausee.svg"
             audio.play();
             console.log("PLAYLIST QUEUYE HAS BEEN ADDED!");
         });
