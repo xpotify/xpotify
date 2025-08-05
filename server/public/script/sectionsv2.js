@@ -246,7 +246,7 @@ const loadPlaylist = async (id) => {
             console.log("There are no Tracks inside of the Loaded Playlist");
         };
 
-        playlistActions[0].children[0].children[0].addEventListener("click", async () => {
+        playlistActions[0].children[0].addEventListener("click", async () => {
             const pinStat = await isThisPlaylistPinned(requestPlaylistInfo.id);
 
             if(pinStat == false){
