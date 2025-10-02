@@ -253,7 +253,7 @@ body{
 .pinnedPlaylist ul li{
     width: 85%;
     height: 11%;
-    margin-top: 5%;
+    margin-top: 10%;
 }
 
 .playlist{
@@ -378,10 +378,11 @@ body{
     display: flex;
     flex-direction: row;
     align-items: center;
-    background-color: #ffffff1c;
+    background-color: #1a1a1ade;
     border: 1px solid #272727;
     padding: 0% 1% 0% 1%;
     border-radius: 8px;
+    box-shadow: 0 0 100px #272727de;
 }
 
 .user{
@@ -476,6 +477,7 @@ body{
     width: 100%;
     height: 85%;
     overflow-x: scroll;
+    overflow-y: hidden;
 }
 
 
@@ -535,7 +537,7 @@ body{
 
 .Playlist .playlistCover{
     width: 100%;
-    height: 75%;
+    height: 98%;
     cursor: pointer;
 }
 
@@ -548,27 +550,27 @@ body{
     transition: 0.1s;
 }
 
-/* .playlistCover img:hover{
-    opacity: 50%;
-} */
-
-.opac65{
-    opacity: 65%;
-}
-
 .playlistCover img:nth-child(2){
     width: 21%;
     background-color: #000000a6;
-    height: 21%;
+    height: 18%;
     position: relative;
     padding: 5.5%;
     border-radius: 50%;
     object-position: center;
     object-fit: cover;
-    top: -28%;
+    top: -21%;
     left: 72%;
     opacity: 0%;
     transition: 0.3s;
+}
+
+.playlistCoverImage{
+    transition: 0.3s;
+}
+
+.playlistCoverImage:hover{
+    opacity: 75%;
 }
 
 .playlistPlayBtn:hover{
@@ -581,21 +583,27 @@ body{
     background-color: #ffffff2d;
 }
 
-.playBtn{
-    top: -31% !important;
+/* .playBtn{
+    top: -23% !important;
     opacity: 100% !important;
-}
+} */
 
 .PlaylistInfo{
     width: 100%;
     height: 15%;
-    margin-top: 4%;
+    top: -18%;
+    /* z-index: 5; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
 }
 
 .PlaylistName{
-    font-size: 17px;
-    font-weight: 400;
+    font-size: 18px;
+    font-weight: 700;
     cursor: pointer;
+    width: 90%;
 }
 
 .PlaylistName span:hover{
@@ -606,7 +614,7 @@ body{
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 100%;
+    width: 90%;
     margin-top: 1%;
 }
 
@@ -643,17 +651,19 @@ body{
     height: 3%;
     cursor: pointer;
     /* background-color: rgb(214, 0, 0); */
-    background: rgb(224,0,0);
-    background: linear-gradient(90deg, rgba(224,0,0,1) 0%, rgba(255,0,116,1) 100%);
+    background: #fff;
+    /* background: linear-gradient(90deg, rgba(224,0,0,1) 0%, rgba(255,0,116,1) 100%); */
 }
 
 .player{
     width: 100%;
     height: 97%;
-    background-color: #1a1a1a;
+    background-color: #1a1a1ade;
+    backdrop-filter: blur(5px);
     padding: 0.25% 2% 0.25% 1%;
     display: flex;
     align-items: center;
+    z-index: 10;
 }
 
 .trackInfo{
@@ -836,6 +846,7 @@ body{
     border: none;
     appearance: none;
     cursor: pointer;
+    z-index: 10;
 }
 
 #audioSeeker::-webkit-slider-runnable-track {
@@ -848,7 +859,7 @@ body{
     -webkit-appearance: none; 
     appearance: none;
     margin-top: -6px; 
-    background-color: rgb(231, 0, 0);
+    background-color: rgb(255, 255, 255);
     height: 12px;
     width: 12px;    
     border-radius: 50%;

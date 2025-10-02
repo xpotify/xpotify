@@ -172,6 +172,8 @@ const loadPlaylist = async (id) => {
                             fpTrack.setAttribute("data-srcpth", `${trackId}.mp3`);
                             console.log("Track has been pushed to the DB");
                             fpTrack.style.opacity = "100%";
+                            q2.push(track);
+                            readyToPlayTracksFromPlaylist.push(track);
                         });
 
                         fpTrack.addEventListener("dblclick", async () => {
@@ -222,20 +224,20 @@ const loadPlaylist = async (id) => {
                     fpTrack.setAttribute("data-srcPth", `${track.id}.mp3`);
                     fpTrack.addEventListener("dblclick", async () => {
                         let src = track.audioSrcPath;
-                       trackSmallCoverImage[1].src = track.album.images[2].url;
-                       trackLargeCoverImage.src = track.album.images[0].url;
-                       trackName[0].innerText = track.trackName;
-                       // trackName[0].dataset.id = track.trackId;
-                       trackArtists[0].innerText = track.artists[0].name;
-                       // trackArtists[0].dataset.aid = track.artistId;
-                       trackDuration[0].innerText = track.calcDuration;
+                        trackSmallCoverImage[1].src = track.album.images[2].url;
+                        trackLargeCoverImage.src = track.album.images[0].url;
+                        trackName[0].innerText = track.trackName;
+                        // trackName[0].dataset.id = track.trackId;
+                        trackArtists[0].innerText = track.artists[0].name;
+                        // trackArtists[0].dataset.aid = track.artistId;
+                        trackDuration[0].innerText = track.calcDuration;
 
                         audio.src = `/songs/${src}`;
                         audio.play();
                         playpause.src = "/icons/pausee.svg";
                     });
 
-                    readyToPlayTracksFromPlaylist.push(requestPlaylistTracks[l]);
+                    readyToPlayTracksFromPlaylist.push(track);
                 }
 
                 playlistTrackContainer.appendChild(fpTrack);
@@ -244,7 +246,7 @@ const loadPlaylist = async (id) => {
             console.log("There are no Tracks inside of the Loaded Playlist");
         };
 
-        playlistActions[0].children[0].children[0].addEventListener("click", async () => {
+        playlistActions[0].children[0].addEventListener("click", async () => {
             const pinStat = await isThisPlaylistPinned(requestPlaylistInfo.id);
 
             if(pinStat == false){
@@ -267,6 +269,19 @@ const loadPlaylist = async (id) => {
             for(i=0; i < readyToPlayTracksFromPlaylist.length; i++){
                 q2.push(readyToPlayTracksFromPlaylist[i]);
             };
+            playlistActions[0].children[1].children[0].src = "/icons/pauseee.svg";
+            trackArtists[0].innerText = `${q2[0].artists[0].name}`;
+            trackName[0].innerText = `${q2[0].trackName}`;
+            trackSmallCoverImage[0].src = `${q2[0].album.images[0].url}`;
+            trackSmallCoverImage[1].src = `${q2[0].album.images[0].url}`;
+            trackLargeCoverImage.src = `${q2[0].album.images[0].url}`;
+            audio.src = `songs/${q2[0].audioSrcPath}`;
+            trackDuration[0].innerText = `${calculateTime(audio.duration)}`;
+            cp = 0;
+            audio.currentTime = 0;
+            progressBar[0].style.width = `${0}%`;
+            audioSeeker.value = 0;
+            playpause.src = "/icons/pausee.svg"
             audio.play();
             console.log("PLAYLIST QUEUYE HAS BEEN ADDED!");
         });

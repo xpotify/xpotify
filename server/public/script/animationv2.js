@@ -36,26 +36,26 @@ const inp = document.querySelector("#searchInp");
 
 // playlist button
 
-const playlistAnimation = () => {
-    const playlistCover = document.getElementsByClassName("playlistCover");
-    const btn = document.getElementsByClassName("playlistPlayBtn");
-    const playlistCoverImage = document.getElementsByClassName("playlistCoverImage");
+// const playlistAnimation = () => {
+//     const playlistCover = document.getElementsByClassName("playlistCover");
+//     const btn = document.getElementsByClassName("playlistPlayBtn");
+//     const playlistCoverImage = document.getElementsByClassName("playlistCoverImage");
     
-    for(i=0; i < playlistCover.length; i++){
-        const x = i;
-        playlistCover[i].addEventListener("mouseenter", () => {
-            btn[x].classList.add("playBtn");
-            playlistCoverImage[x].classList.add("opac65");
-        });
+//     for(i=0; i < playlistCover.length; i++){
+//         const x = i;
+//         playlistCover[i].addEventListener("mouseenter", () => {
+//             btn[x].classList.add("playBtn");
+//             playlistCoverImage[x].classList.add("opac65");
+//         });
     
-        playlistCover[i].addEventListener("mouseleave", () => {
-            btn[x].classList.remove("playBtn");
-            playlistCoverImage[x].classList.remove("opac65");
-        });
-    };
-};
+//         playlistCover[i].addEventListener("mouseleave", () => {
+//             btn[x].classList.remove("playBtn");
+//             playlistCoverImage[x].classList.remove("opac65");
+//         });
+//     };
+// };
 
-playlistAnimation();
+// playlistAnimation();
 
 
 // volume Slider
