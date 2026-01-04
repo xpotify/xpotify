@@ -798,7 +798,7 @@ body{
 
 .trackCover{
     left: 85%;
-    top: 63%;
+    top: -350%;
     position: fixed;
     width: 13%;
 }
