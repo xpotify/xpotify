@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const fs = require("fs");
 const ytdl = require("@distube/ytdl-core");
-const Vibrant = require('node-vibrant');
+const { Vibrant } = require('node-vibrant/node');
 
 const downloadSong = (id, trackName) => {
     const videoId = `https://www.youtube.com/watch?v=${id}`;
