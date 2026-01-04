@@ -21,7 +21,14 @@ const fetchArtist = async (id) => {
 };
 
 const fetchPlaylist = async (id) => {
-    const response = await fetch(`http://127.0.0.1:1212/playlist/q/${id}`, {
+    let parsedPlaylistId;
+    if(id.length > 22){
+        parsedPlaylistId = await parsePlaylistId(id);
+    } else {
+        parsedPlaylistId = id;        
+    }
+
+    const response = await fetch(`http://127.0.0.1:1212/playlist/q/${parsedPlaylistId}`, {
         method: "GET",
         mode: "cors",
         headers: {
@@ -34,7 +41,14 @@ const fetchPlaylist = async (id) => {
 };
 
 const fetchPlaylistTracks = async (id) => {
-    const response = await fetch(`http://127.0.0.1:1212/playlist/q/tracks/${id}`, {
+    let parsedPlaylistId;
+    if(id.length > 22){
+        parsedPlaylistId = await parsePlaylistId(id);
+    } else {
+        parsedPlaylistId = id;        
+    }
+
+    const response = await fetch(`http://127.0.0.1:1212/playlist/q/tracks/${parsedPlaylistId}`, {
         method: "GET",
         mode: "cors",
         headers: {
